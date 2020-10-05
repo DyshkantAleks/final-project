@@ -892,7 +892,12 @@
             "code": "ORFIGI100",
             "name": "Кушетка Figi",
             "brand": "Orizzonti",
-            "image": "https://www.2shades.ru/catalog/divany/kushetki/kushetka_figi_ekspozitsiya.html",
+            "image": [
+                "./img/sofas/couch/couch_Orizzonti/couch_Orizzonti_main.jpeg",
+                "./img/sofas/couch/couch_Orizzonti/couch_Orizzonti1.jpeg",
+                "./img/sofas/couch/couch_Orizzonti/couch_Orizzonti2.jpeg",
+                "./img/sofas/couch/couch_Orizzonti/couch_Orizzonti3.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Фабрика: Orizzonti Название: Figi compact isolina. Отделка: Cortina511, Como14 и Perugia809 подушки. Сидение с капитоне + второй матрас Sit&Sleep Memory для доп.спального места включен",
@@ -908,7 +913,15 @@
             "code": "MANTA",
             "name": "Кушетка Manta",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/divany/kushetki/kushetka_manta.html",
+            "image": [
+                "./img/sofas/couch/couch_Arketipo/couch_Arketipo_main.jpg",
+                "./img/sofas/couch/couch_Arketipo/couch_Arketipo1.jpeg",
+                "./img/sofas/couch/couch_Arketipo/couch_Arketipo2.jpeg",
+                "./img/sofas/couch/couch_Arketipo/couch_Arketipo3.jpeg",
+                "./img/sofas/couch/couch_Arketipo/couch_Arketipo4.jpeg",
+                "./img/sofas/couch/couch_Arketipo/couch_Arketipo5.jpeg",
+                "./img/sofas/couch/couch_Arketipo/couch_Arketipo6.jpg"
+            ],
             "quantity": 10,
             "color": "Серый",
             "description": "Существуют предметы дизайна, которые рождаются, чтобы потрясать. Manta – один из них. Это кушетка, ярко выраженный стиль которой сначала удивит вас, а потом получит ваше одобрение за гибкость в использовании. Он позволяет принимать различные положения для наилучшего использования каждого момента релаксации, в то время как спинка и обволакивающие линии обеспечивают элегантность и комфортность. Цена указана для модели, выполненной в базовой комплектации (отделке) и ткани категории A.",
@@ -928,7 +941,10 @@
             "code": "7016/BE",
             "name": "Диван Betty Boop",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/divany/pryamye_divany/divan_betty_boop.html",
+            "image": [
+                "./img/sofas/simple_sofa/sofa_Kartell/sofa_Kartell_main.jpg",
+                "./img/sofas/simple_sofa/sofa_Kartell/sofa_Kartell1.jpg"
+            ],
             "quantity": 10,
             "color": "Бежевый",
             "description": "Уютный мягкий диван. В комплект входят подушки",
@@ -944,7 +960,11 @@
             "code": "WINNIE260FT3",
             "name": "Диван Winnie",
             "brand": "DOM Edizioni",
-            "image": "https://www.2shades.ru/catalog/divany/pryamye_divany/divan_winnie.html",
+            "image": [
+                "./img/sofas/simple_sofa/sofa_DOM_Edizioni/sofa_DOM_Edizioni_main.jpg",
+                "./img/sofas/simple_sofa/sofa_DOM_Edizioni/sofa_DOM_Edizioni1.jpg",
+                "./img/sofas/simple_sofa/sofa_DOM_Edizioni/sofa_DOM_Edizioni2.jpg"
+            ],
             "quantity": 10,
             "color": "Фиолетовый",
             "description": "Яркий диван в стиле Арт-Деко от известного итальянского производителя. Идеально подойдет для гостиной",
@@ -960,7 +980,16 @@
             "code": "STARMAN",
             "name": "Диван Starman ",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/divany/pryamye_divany/divan_starman.html",
+            "image": [
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo1.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo2.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo3.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo4.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo5.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg"
+            ],
             "quantity": 10,
             "color": "Бежевый",
             "description": "Вся линия Starman основана на своего рода навязывании своей воли, нарушении естественного хода вещей для создания чего-то нового. Новое всегда внушает беспокойство, поскольку может означать изменение привычного положения дел, однако перемены – неизбежная часть жизни, и это необходимо принять. И если Боуи играл с рисунками крещендо и со словами в текстах, то линия Starman играет с агрессивными, решительными контурами, призванными утвердить свое присутствие в уникальном пространстве.",
@@ -976,7 +1005,13 @@
             "code": "NIXON",
             "name": "Диван-кровать Nixon",
             "brand": "Felis",
-            "image": "https://www.2shades.ru/catalog/divany/pryamye_divany/divan_krovat_nixon_2.html",
+            "image": [
+                "./img/sofas/simple_sofa/sofa_Felis/sofa_Felis_main.jpeg",
+                "./img/sofas/simple_sofa/sofa_Felis/sofa_Felis1.jpg",
+                "./img/sofas/simple_sofa/sofa_Felis/sofa_Felis2.jpg",
+                "./img/sofas/simple_sofa/sofa_Felis/sofa_Felis3.jpg",
+                "./img/sofas/simple_sofa/sofa_Felis/sofa_Felis4.jpg"
+            ],
             "quantity": 10,
             "color": "Бирюзовый",
             "description": "Изделия итальянского бренда Felis выполняются в различной отделке, типах тканей и цветах из ассортимента фабрики. На фото представлена одна из возможных комплектаций.",
@@ -992,7 +1027,15 @@
             "code": "AUTO-REVERSE",
             "name": "Диван Auto-reverse",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/divany/pryamye_divany/divan_auto_reverse.html",
+            "image": [
+                "./img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto_main.jpg",
+                "./img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto1.jpeg",
+                "./img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto2.jpeg",
+                "./img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto3.jpeg",
+                "./img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg",
+                "./img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto5.jpeg",
+                "./img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto6.jpg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Модель Auto-Reverse родилась благодаря идее выразить двойственную натуру жизненного пространства. Её кажущаяся неупорядоченность противопоставляется проработке мельчайших деталей, создающих решительный и четкий стиль в сочетании с высочайшим качеством. Элегантная и сдержанная структура обрамляет массивные подушки. Эффект усиливается расположенными по периметру «воланами», которые с одной стороны, создают иллюзию движения, а с другой – смягчают линии. Молнии на подушках соединяют две обивки и подчеркивают необычный дизайн. Используя различные цвета молний, тканей и кож, можно создать более миллиона сочетаний. С помощью этих комбинаций становится возможным претворить в жизнь различные цветовые решения.",
@@ -1012,7 +1055,14 @@
             "code": "BROWNSUGAR",
             "name": "Диван Brown Sugar",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/divany/pryamye_divany/divan_auto_reverse.html",
+            "image": [
+                "./img/sofas/corner/corner_Arketipo/corner_Arketipo_main.jpg",
+                "./img/sofas/corner/corner_Arketipo/corner_Arketipo1.jpeg",
+                "./img/sofas/corner/corner_Arketipo/corner_Arketipo2.jpeg",
+                "./img/sofas/corner/corner_Arketipo/corner_Arketipo3.jpeg",
+                "./img/sofas/corner/corner_Arketipo/corner_Arketipo4.jpeg",
+                "./img/sofas/corner/corner_Arketipo/corner_Arketipo5.jpg"
+            ],
             "quantity": 10,
             "color": "Серый",
             "description": "BROWN SUGAR – это новая система сидений, в современном стиле которой сочетаются обновленный классический стиль и мягкие элементы.\nЯрко выраженная индивидуальность этого изделия в сочетании с создающими ощущение покоя формами воплощаются в простом и графически четком дизайне.\nБлагодаря вниманию к деталям создается ощущение уникальности и сильной притягательности. Двойные строчки определяют дизайн различных элементов, незаметно обогащая их. Другая особенность этой модели представлена расширяющими ее по бокам подлокотниками, одновременно монолитными и мягкими.",
@@ -1028,7 +1078,14 @@
             "code": "PLAT",
             "name": "Диван Plat",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/divany/uglovye_divany/divan_plat_2.html",
+            "image": [
+                "./img/sofas/couch/corner_Arketipo_Plat/corner_Arketipo_Plat_main.jpg",
+                "./img/sofas/couch/corner_Arketipo_Plat/corner_Arketipo_Plat1.jpeg",
+                "./img/sofas/couch/corner_Arketipo_Plat/corner_Arketipo_Plat2.jpeg",
+                "./img/sofas/couch/corner_Arketipo_Plat/corner_Arketipo_Plat3.jpeg",
+                "./img/sofas/couch/corner_Arketipo_Plat/corner_Arketipo_Plat4.jpeg",
+                "./img/sofas/couch/corner_Arketipo_Plat/corner_Arketipo_Plat5.jpeg"
+            ],
             "quantity": 10,
             "color": "Коричневый",
             "description": "Новаторская идея этого дивана заключается в представлении его как платформы, задняя или боковая часть которой могут использоваться в качестве свободных поверхностей или неформального сиденья. Этот объект может быть оснащен серией разнообразных контейнеров: подносов и книжных полок различных размеров, изготовленных из закаленного стекла или из полированной нержавеющей стали. Система для сидения Plat предлагает широкий спектр диванов, боковых модулей, шезлонгов и пуфов различных типов и размеров, которые позволяют создавать инновационные композиции. Высокая степень комфорта обеспечивается за счет использования эргономичных сидений и спинных подушек, заполненных гусиным пухом и полиэстером.",
@@ -1044,7 +1101,16 @@
             "code": "SINFONIA",
             "name": "Диван Sinfonia",
             "brand": "Mussi",
-            "image": "https://www.2shades.ru/catalog/divany/uglovye_divany/divan_sinfonia.html",
+            "image": [
+                "./img/sofas/couch/corner_Mussi/corner_Mussi_main.jpeg",
+                "./img/sofas/couch/corner_Mussi/corner_Mussi1.jpeg",
+                "./img/sofas/couch/corner_Mussi/corner_Mussi2.jpeg",
+                "./img/sofas/couch/corner_Mussi/corner_Mussi3.jpeg",
+                "./img/sofas/couch/corner_Mussi/corner_Mussi4.jpeg",
+                "./img/sofas/couch/corner_Mussi/corner_Mussi5.jpeg",
+                "./img/sofas/couch/corner_Mussi/corner_Mussi6.jpeg",
+                "./img/sofas/couch/corner_Mussi/corner_Mussi7.jpeg"
+            ],
             "quantity": 10,
             "color": "Серый",
             "description": "Это изысканный диван с изящными формами и мягкостью объемов. Каркас из массива с поддержкой из скрещенных эластичных ремней. Наполнитель - высоко эластичный пенополиуретан различной плотности, высокопрочное термосклеенное волокнистое покрытие в сочетании с хлопчатобумажной тканью. Обивка доступна во всех тканях и коже коллекции Mussi. В обивке подушек используется кант в различных цветах. Набивка подушек из сертифицированного Assopiuma гусиного пуха (90% гусиного пуха, 10% утиного пера), стеганного в сертифицированный дышащий хлопчатобумажный чехол.",
@@ -1060,7 +1126,13 @@
             "code": "MOSS",
             "name": "Диван Moss",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/divany/uglovye_divany/divan_moss.html",
+            "image": [
+                "./img/sofas/couch/corner_Arketipo_Moss/corner_Arketipo_Moss_main.jpg",
+                "./img/sofas/couch/corner_Arketipo_Moss/corner_Arketipo_Moss1.jpg",
+                "./img/sofas/couch/corner_Arketipo_Moss/corner_Arketipo_Moss2.jpg",
+                "./img/sofas/couch/corner_Arketipo_Moss/corner_Arketipo_Moss3.jpg",
+                "./img/sofas/couch/corner_Arketipo_Moss/corner_Arketipo_Moss4.jpg"
+            ],
             "quantity": 10,
             "color": "Коричневый",
             "description": "Диван Moss – штрих утонченности в элегантном и чистом дизайне; с сиденьем из пенополиуретана различной плотности, который опирается на тонкое и линейное основание, подчеркивающее его формы. Визуальный эффект дарит обнадеживающее чувство ежедневного комфорта, с тщательно выбранными деталями. Комфорт, которым можно не только любоваться, но прежде всего пользоваться, «обживать». Весь периметр дивана, включая подушки, пересекается окантовкой ручной обработки. Деталь, которая приукрашивает и в то же время придает изысканный и современный шарм. ",
@@ -1295,7 +1367,16 @@
             "code": "VANITYFAIR",
             "name": "Зеркало настенное Vanity Fair",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/zerkala/zerkala_nastennye/zerkalo_nastennoe_vanity_fair.html",
+            "image": [
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo_main.jpg",
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo1.jpeg",
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo2.jpeg",
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo3.jpeg",
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo4.jpeg",
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo5.jpeg",
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo6.jpg",
+                "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo7.jpg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Зеркало Vanity Fair, разработанное Джино Каролло, из зеркального или зеркально-дымчатого хрусталя, покрытое бархатом, для получения эффекта роскоши и не бросающейся в глаза престижности, контрастирующей с линейностью ромбовидной формы, может быть одинарной, двойной или тройной;или даже заполнить всю стену, повторяя модуль вдоль всей поверхности.",
@@ -1310,7 +1391,11 @@
             "code": "M1",
             "name": "Зеркало напольное Exclusive",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/zerkala/zerkala_napolnye/zerkalo_napolnoe_exclusive_1.html",
+            "image": [
+                "./img/accessories/mirrors/mirror_Pusha/mirror_Pusha_main.jpeg",
+                "./img/accessories/mirrors/mirror_Pusha/mirror_Pusha1.jpeg",
+                "./img/accessories/mirrors/mirror_Pusha/mirror_Pusha2.jpg"
+            ],
             "quantity": 10,
             "color": "Металлик",
             "description": "Зеркала прочно заняли свою нишу в оформлении интерьера. Тенденции современного дизайна диктуют свои правила использования зеркал, дополняя уже ставшие традиционными для них функции корректировки и расширения пространства, новыми и более экстравагантными. Зеркало становится акцентом, магнитом, заявляя о себе в новом качестве, в качестве средства индивидуализации интерьера. ",
@@ -1325,7 +1410,10 @@
             "code": "ps181G",
             "name": "Зеркало Le Mans",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/zerkala/zerkala_nastennye/zerkalo_le_mans.html",
+            "image": [
+                "./img/accessories/mirrors/mirror_Pusha_Le_Mans/mirror_Pusha_Le_Mans_main.jpeg",
+                "./img/accessories/mirrors/mirror_Pusha_Le_Mans/mirror_Pusha_Le_Mans1.jpg"
+            ],
             "quantity": 10,
             "color": "Металлик",
             "description": "В зеркале Le Mans заключено очарование современного дизайна. Минималистичное исполнение, металлические цвета, с одной стороны, и, с другой, необычная вставка, разбавляющая идеалистичность и геометрическое постоянство. Зеркало изготовлено из хромированной стали.",
@@ -1340,7 +1428,10 @@
             "code": "7039",
             "name": "Настенное зеркало Aledo",
             "brand": "RVAstley",
-            "image": "https://www.2shades.ru/catalog/zerkala/zerkala_nastennye/nastennoe_zerkalo_aledo.html",
+            "image": [
+                "./img/accessories/mirrors/mirror_RVAstley/mirror_RVAstley_main.jpeg",
+                "./img/accessories/mirrors/mirror_RVAstley/mirror_RVAstley1.jpeg"
+            ],
             "quantity": 10,
             "color": "Золотой",
             "description": "Футуристичное зеркало в золотом обрамлении",
@@ -1354,8 +1445,12 @@
             "category": "mirrors",
             "code": "SP157-3",
             "name": "Настенное зеркало Round Swirl ",
-            "brand": "RVAstley",
-            "image": "https://www.2shades.ru/catalog/zerkala/zerkala_nastennye/nastennoe_zerkalo_round_swirl.html",
+            "brand": "Fratelli Barri",
+            "image": [
+                "./img/accessories/mirrors/mirror_Fratelli_Barri/mirror_Fratelli_Barri_main.jpeg",
+                "./img/accessories/mirrors/mirror_Fratelli_Barri/mirror_Fratelli_Barri1.jpeg",
+                "./img/accessories/mirrors/mirror_Fratelli_Barri/mirror_Fratelli_Barri2.jpeg"
+            ],
             "quantity": 10,
             "color": "Жемчужный",
             "description": "Это милое зеркало создает впечатление бесконечного кружения и является прекрасным женственным дополнением к законченному интерьеру комнаты.",
@@ -1370,7 +1465,12 @@
             "code": "116",
             "name": "Зеркало Chelini Legno",
             "brand": "Chelini",
-            "image": "https://www.2shades.ru/catalog/zerkala/zerkala_nastennye/zerkalo_chelini_legno_2.html",
+            "image": [
+                "./img/accessories/mirrors/mirror_Chelini/mirror_Chelini_main.jpeg",
+                "./img/accessories/mirrors/mirror_Chelini/mirror_Chelini1.jpeg",
+                "./img/accessories/mirrors/mirror_Chelini/mirror_Chelini2.jpeg",
+                "./img/accessories/mirrors/mirror_Chelini/mirror_Chelini3.jpeg"
+            ],
             "quantity": 10,
             "color": "Золотой",
             "description": "Зеркало прямоугольной формы в резной раме с позолоченными элементами. Рама выполнена из массива дерева.",
@@ -1388,7 +1488,10 @@
             "code": "107036",
             "name": "Часы Cadance",
             "brand": "Eichholtz",
-            "image": "https://www.2shades.ru/catalog/chasy/chasy_nastolnye/chasy_cadance.html",
+            "image": [
+                "./img/accessories/watch/watch_Eichholtz/watch_Eichholtz_main.jpeg",
+                "./img/accessories/watch/watch_Eichholtz/watch_Eichholtz1.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Черные настольные часы в стиле Арт-Деко",
@@ -1404,7 +1507,12 @@
             "code": "1070036",
             "name": "Часы Tic&Tac",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/chasy/chasy_nastennye/chasy_tic_tac.html",
+            "image": [
+                "./img/accessories/watch/watch_Kartell/watch_Kartell_main.jpeg",
+                "./img/accessories/watch/watch_Kartell/watch_Kartell1.jpeg",
+                "./img/accessories/watch/watch_Kartell/watch_Kartell2.jpeg",
+                "./img/accessories/watch/watch_Kartell/watch_Kartell3.jpeg"
+            ],
             "quantity": 10,
             "color": "Белый",
             "description": "Картелл считает часы и представляет свои первые настенные часы. Прозрачная квадратная коробка, размером 30x30 см с римскими цифрами, выгравированными на поверхности, охватывающей плоский циферблат, где тоненькая пара цветных стрелок выделяется в хроматическом синтезе преобразования времени в эстетический опыт. Tic&Tac - часы с впечатляющими толщинами, создающими игру света и отражений. Неподражаемая рука Старка сделала акцент на оранжевых стрелкахи цветном фетише дизайнера.",
@@ -1420,7 +1528,10 @@
             "code": "1931/GG",
             "name": "Часы Air du Temps",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/chasy/chasy_nastolnye/chasy_air_du_temps.html",
+            "image": [
+                "./img/accessories/watch/watch_Kartell_Air/watch_Kartell_Air_main.jpg",
+                "./img/accessories/watch/watch_Kartell_Air/watch_Kartell_Air1.jpg"
+            ],
             "quantity": 10,
             "color": "Золотой",
             "description": "Легкость - это лозунг новых часов L'Air du Temps от Eugeni Quitllet, который позволяет осветить поток времени, подвешенный на одной пластиковой поверхности в трех прозрачных, непрозрачных и металлических вариантах",
@@ -1436,7 +1547,12 @@
             "code": "1910/M3",
             "name": "Часы Tic&Tac",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/chasy/chasy_nastennye/chasy_tic_tac_4.html",
+            "image": [
+                "./img/accessories/watch/watch_Kartell_Tic/watch_Kartell_Tic_main.jpeg",
+                "./img/accessories/watch/watch_Kartell_Tic/watch_Kartell_Tic1.jpeg",
+                "./img/accessories/watch/watch_Kartell_Tic/watch_Kartell_Tic2.jpeg",
+                "./img/accessories/watch/watch_Kartell_Tic/watch_Kartell_Tic3.jpeg"
+            ],
             "quantity": 10,
             "color": "Зеленый",
             "description": "Картелл считает часы и представляет свои первые настенные часы. Прозрачная квадратная коробка, размером 3x3 см с римскими цифрами, выгравированными на поверхности, охватывающей плоский циферблат, где тоненькая пара цветных стрелок выделяется в хроматическом синтезе преобразования времени в эстетический опыт. Tic&Tac - часы с впечатляющими толщинами, создающими игру света и отражений. Неподражаемая рука Старка сделала акцент на оранжевых стрелкахи цветном фетише дизайнера.",
@@ -1452,7 +1568,10 @@
             "code": "1930/09",
             "name": "Часы Air du Temps",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/chasy/chasy_nastolnye/chasy_air_du_temps_4.html",
+            "image": [
+                "./img/accessories/watch/watch_Kartell_Air_Black/watch_Kartell_Air_Black_main.jpg",
+                "./img/accessories/watch/watch_Kartell_Air_Black/watch_Kartell_Air_Black1.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Легкость - это лозунг новых часов L'Air du Temps от Eugeni Quitllet, который позволяет осветить поток времени, подвешенный на одной пластиковой поверхности в трех прозрачных, непрозрачных и металлических вариантах.",
@@ -1472,7 +1591,9 @@
             "code": "1036460",
             "name": "Ваза для цветов / декорация",
             "brand": "Trame in bianco",
-            "image": "https://esteema.ua/vaza-dlya-cvetov-dekoraciya",
+            "image": [
+                "./img/accessories/vase/vase_Trame_in_bianco/vase_Trame_in_bianco_main.jpg"
+            ],
             "quantity": 10,
             "color": "Белый",
             "description": "Роскошная декорация для дома в аристократическом стиле. Традиционная интерьерная и столовая ваза из фарфора, классической формы. ",
@@ -1488,7 +1609,10 @@
             "code": "28450",
             "name": "Ваза Hurricane Venice Green",
             "brand": "Hurricane",
-            "image": "https://esteema.ua/vaza-hurricane-venice-green-malenkaya",
+            "image": [
+                "./img/accessories/vase/vase_Hurricane/vase_Hurricane_main.jpg",
+                "./img/accessories/vase/vase_Hurricane/vase_Hurricane1.jpg"
+            ],
             "quantity": 10,
             "color": "Зеленый",
             "description": "Декорация для дома в классическом стиле",
@@ -1503,8 +1627,10 @@
             "category": "vase",
             "code": "1036473",
             "name": "Ваза для конфет",
-            "brand": "Trame in bianco",
-            "image": "https://esteema.ua/vaza-hurricane-venice-green-malenkaya",
+            "brand": "Trame",
+            "image": [
+                "./img/accessories/vase/vase_Trame/vase_Trame_main.jpg"
+            ],
             "quantity": 10,
             "color": "Белый",
             "description": "Традиционная интерьерная и столовая ваза из фарфора, классической формы; с декоративной крышкой-шляпкой. Шляпку украшают уже известные нам три граната прекрасной ручной работы. ",
@@ -1523,7 +1649,12 @@
             "code": "Dxsp",
             "name": "Шкаф DEXTER",
             "brand": "METNER",
-            "image": "https://www.2shades.ru/catalog/shkafy_stellazhi_stenki/shkafy/shkaf_dexter.html",
+            "image": [
+                "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner_main.jpeg",
+                "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner1.jpeg",
+                "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner2.jpeg",
+                "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner3.jpeg"
+            ],
             "quantity": 10,
             "color": "Коричневый",
             "description": "Классический шкаф «Dexter» в стиле американской буржуазности займет центральное положение в интерьере. Может быть изготовлена по вашим размерам. Изменение размера на 10-15% бесплатно. Отделка может быть выполнена в разных оттенках от чёрного до натурального, включая покраску по ралу. В дополнение к этому мы предлагаем вам заказать предметы из коллекции с эксклюзивными вариантами отделки с использованием многослойных покрытий и различных текстур.",
@@ -1539,7 +1670,9 @@
             "code": "ABU0003 ROS0065",
             "name": "Шкаф",
             "brand": "Colonial Club",
-            "image": "https://www.2shades.ru/catalog/shkafy_stellazhi_stenki/shkafy/shkaf_33.html",
+            "image": [
+                "./img/storage/wardrobe/wardrobe_Colonial_Club/wardrobe_Colonial_Club_main.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Буфет с 4 дверками выполнен в стиле Ар деко.",
@@ -1555,7 +1688,13 @@
             "code": "56ROS0065",
             "name": "Книжный шкаф VENEZIA",
             "brand": "Fratelli Barri",
-            "image": "https://www.2shades.ru/catalog/shkafy_stellazhi_stenki/shkafy/knizhnyy_shkaf_venezia.html",
+            "image": [
+                "./img/storage/wardrobe/wardrobe_Fratelli_Barri/wardrobe_Fratelli_Barri_main.jpeg",
+                "./img/storage/wardrobe/wardrobe_Fratelli_Barri/wardrobe_Fratelli_Barri1.jpeg",
+                "./img/storage/wardrobe/wardrobe_Fratelli_Barri/wardrobe_Fratelli_Barri2.jpeg",
+                "./img/storage/wardrobe/wardrobe_Fratelli_Barri/wardrobe_Fratelli_Barri3.jpeg",
+                "./img/storage/wardrobe/wardrobe_Fratelli_Barri/wardrobe_Fratelli_Barri4.jpeg"
+            ],
             "quantity": 10,
             "color": "Белый",
             "description": "Книжный шкаф на гнутых ножках выполнена в классическом стиле. Отделка перламутровый кремовый лак, ножки и база сусальное серебро, покрытое лаком шампань. Дверки - стекло. Боковины деревянные. Функционал дополнен 2 выдвижными ящиками в нижней части.\nВнутреннее наполнение - 3 деревянные полки.",
@@ -1571,7 +1710,11 @@
             "code": "DB004944",
             "name": "Шкаф с лестницей",
             "brand": "Dialma Brown",
-            "image": "https://www.2shades.ru/catalog/shkafy_stellazhi_stenki/shkafy/shkaf_s_lestnitsey_2.html",
+            "image": [
+                "./img/storage/wardrobe/wardrobe_Dialma/wardrobe_Dialma_main.jpeg",
+                "./img/storage/wardrobe/wardrobe_Dialma/wardrobe_Dialma1.jpeg",
+                "./img/storage/wardrobe/wardrobe_Dialma/wardrobe_Dialma2.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Книжный шкаф с лестницей из массива элитного дерева",
@@ -1589,10 +1732,14 @@
             "code": "PSEM",
             "name": "Комод",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/komody_i_tumby/komody/komod.html",
+            "image": [
+                "./img/storage/dresser/dresser_Pusha/dresser_Pusha_main.jpeg",
+                "./img/storage/dresser/dresser_Pusha/dresser_Pusha1.jpeg",
+                "./img/storage/dresser/dresser_Pusha/dresser_Pusha2.jpeg"
+            ],
             "quantity": 10,
             "color": "Коричневый",
-            "description": "Комод – это тот предмет интерьера, который необходим в гостиной или столовой. Комод Exclusive отлично вписывается в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Комод отделан натуральным шпоном эбенового или, как его ещё называют, \"музыкального\" дерева. Такая отделка характеризуется красивым окрасом, устойчивостью к различным внешним влияниям, а также металлическим блеском, приобретаемым после полировки. Столешница выполнена из закаленного стекла черного цвета. ",
+            "description": "Благодаря линиям дизайна и очарованию предлагаемых цветовых решений, эти изделия могут использоваться в домашнем или офисном интерьере, выполняя различное функциональное назначение. Ящик в комбинации с полками и верхней поверхностью представляет собой основной компонент системы.",
             "price": 35999,
             "height": 50,
             "width": 120,
@@ -1604,11 +1751,16 @@
             "category": "dresser",
             "code": "PSTM",
             "name": "Комод Techno",
-            "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/komody_i_tumby/komody/komod_techno.html",
+            "brand": "Fratelli Barri",
+            "image": [
+                "./img/storage/dresser/dresser_Fratelli_Barri/dresser_Fratelli_Barri_main.jpeg",
+                "./img/storage/dresser/dresser_Fratelli_Barri/dresser_Fratelli_Barri1.jpeg",
+                "./img/storage/dresser/dresser_Fratelli_Barri/dresser_Fratelli_Barri2.jpeg",
+                "./img/storage/dresser/dresser_Fratelli_Barri/dresser_Fratelli_Barri3.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
-            "description": "Комод TECHNO от Pusha отлично вписывается в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Комод можно использовать как буфет с тремя вместительными отделениями для хранения. Также он подойдет и для современной гостиной как ТВ тумба. Поверхность комода выполнена из черного закаленного стекла, которое характеризуется повышенной механической прочностью, термостойкостью и безопасностью, что является находкой для современных интерьеров. Отделка корпуса - натуральный шпон черного дуба и алюминий.",
+            "description": "Комод высокий с 5 выдвижными ящиками выполнен в стиле Неоклассика. Отделка шпон вишни. Сделан из массива дерева и высококачественного МДФ высокой плотности.",
             "price": 40999,
             "height": 45,
             "width": 160,
@@ -1621,7 +1773,11 @@
             "code": "4967/03",
             "name": "Контейнер Componibili",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/komody_i_tumby/komody/konteyner_componibili_19.html",
+            "image": [
+                "./img/storage/dresser/dresser_Kartell/dresser_Kartell_main.jpg",
+                "./img/storage/dresser/dresser_Kartell/dresser_Kartell1.jpg",
+                "./img/storage/dresser/dresser_Kartell/dresser_Kartell2.jpg"
+            ],
             "quantity": 10,
             "color": "Белый",
             "description": "Сomponibili были созданы для выполнения различных функций и использования домашней атмосфере любого типа: в ванной комнате, в спальне, на кухне или в гостиной. Проектное решение, давшее жизнь системе Componibil – это обычная установка отдельных элементов друг на друга, которые посредством простых шпунтовых соединений, становятся практичной мебельной стенкой. Функциональные, практичные, изделия этой модели выпускаются уже около сорока лет, получив всеобщее признание за оригинальность и новинку проекта (выставлены в музее современного искусства в Нью-Йорке и центре Жоржа Помпиду в Париже).",
@@ -1637,7 +1793,11 @@
             "code": "3210/E5",
             "name": "Комод Ghost Buster",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/komody_i_tumby/komody/komod_ghost_buster_1.html",
+            "image": [
+                "./img/storage/dresser/dresser_Kartell_Ghost/dresser_Kartell_Ghost_main.jpg",
+                "./img/storage/dresser/dresser_Kartell_Ghost/dresser_Kartell_Ghost1.jpg",
+                "./img/storage/dresser/dresser_Kartell_Ghost/dresser_Kartell_Ghost2.jpg"
+            ],
             "quantity": 10,
             "color": "Белый",
             "description": "Каталог Kartell добавляет еще один элемент к своей коллекции мебели, комод. Старк посмотрел на это по-новому и комод в стиле Kartell возобновляет линии классической мебели, в то время как ее прозрачность и пластмассовый материал дают ему современные нотки. Углы, кривые, прямые и изивлистые линии его поверхности дают жизнь интригующей игре привлекательных перспектив и размышлений. Ghost Buster с тремя открытыми передними полками и четырьмя двусторонними ножками - крупнейший пластмассовый моноблок когда-либо созданный в мире мебели - ещё одна демонстрация намерения Kartell сломать все барьеры технического вызова.",
