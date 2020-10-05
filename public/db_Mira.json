@@ -362,9 +362,9 @@
             "length": 39
         }
     ],
+    "tables": [
 
-
-    "tables": [{
+        {
             "category": "kitchen",
             "code": "PSET180",
             "name": "Стол обеденный Exclusive",
@@ -546,13 +546,13 @@
             "name": "Рабочий стол KOBE",
             "brand": "Galimberti Nino",
             "image": [
-                "./img/tables/kitchen/table_Galimberti_Nino/table_Galimberti_Nino_main.jpeg",
-                "./img/tables/kitchen/table_Galimberti_Nino/table_Galimberti_Nino1.jpeg",
-                "./img/tables/kitchen/table_Galimberti_Nino/table_Galimberti_Nino2.jpeg",
-                "./img/tables/kitchen/table_Galimberti_Nino/table_Galimberti_Nino3.jpeg",
-                "./img/tables/kitchen/table_Galimberti_Nino/table_Galimberti_Nino4.jpeg",
-                "./img/tables/kitchen/table_Galimberti_Nino/table_Galimberti_Nino5.jpeg",
-                "./img/tables/kitchen/table_Galimberti_Nino/table_Galimberti_Nino6.jpeg"
+                "./img/tables/office/table_Galimberti_Nino/table_Galimberti_Nino_main.jpeg",
+                "./img/tables/office/table_Galimberti_Nino/table_Galimberti_Nino1.jpeg",
+                "./img/tables/office/table_Galimberti_Nino/table_Galimberti_Nino2.jpeg",
+                "./img/tables/office/table_Galimberti_Nino/table_Galimberti_Nino3.jpeg",
+                "./img/tables/office/table_Galimberti_Nino/table_Galimberti_Nino4.jpeg",
+                "./img/tables/office/table_Galimberti_Nino/table_Galimberti_Nino5.jpeg",
+                "./img/tables/office/table_Galimberti_Nino/table_Galimberti_Nino6.jpeg"
             ],
             "quantity": 10,
             "color": "Коричневый",
@@ -570,10 +570,10 @@
             "name": "Письменный стол MESTRE",
             "brand": "Fratelli Barri",
             "image": [
-                "./img/tables/kitchen/table_Fratelli_Barri/table_Fratelli_Barri_main.jpeg",
-                "./img/tables/kitchen/table_Fratelli_Barri/table_Fratelli_Barri1.jpeg",
-                "./img/tables/kitchen/table_Fratelli_Barri/table_Fratelli_Barri2.jpeg",
-                "./img/tables/kitchen/table_Fratelli_Barri/table_Fratelli_Barri3.jpeg"
+                "./img/tables/office/table_Fratelli_Barri/table_Fratelli_Barri_main.jpeg",
+                "./img/tables/office/table_Fratelli_Barri/table_Fratelli_Barri1.jpeg",
+                "./img/tables/office/table_Fratelli_Barri/table_Fratelli_Barri2.jpeg",
+                "./img/tables/office/table_Fratelli_Barri/table_Fratelli_Barri3.jpeg"
             ],
             "quantity": 10,
             "color": "Коричневый",
@@ -591,15 +591,15 @@
             "name": "Стол письменный Inkiostro",
             "brand": "Arketipo",
             "image": [
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo_main.jpg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo1.jpeg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo2.jpeg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo3.jpeg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo4.jpeg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo5.jpeg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo6.jpeg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo7.jpg",
-                "./img/tables/kitchen/table_Arketipo/table_Arketipo8.jpg"
+                "./img/tables/office/table_Arketipo/table_Arketipo_main.jpg",
+                "./img/tables/office/table_Arketipo/table_Arketipo1.jpeg",
+                "./img/tables/office/table_Arketipo/table_Arketipo2.jpeg",
+                "./img/tables/office/table_Arketipo/table_Arketipo3.jpeg",
+                "./img/tables/office/table_Arketipo/table_Arketipo4.jpeg",
+                "./img/tables/office/table_Arketipo/table_Arketipo5.jpeg",
+                "./img/tables/office/table_Arketipo/table_Arketipo6.jpeg",
+                "./img/tables/office/table_Arketipo/table_Arketipo7.jpg",
+                "./img/tables/office/table_Arketipo/table_Arketipo8.jpg"
             ],
             "quantity": 10,
             "color": "Коричневый",
@@ -620,7 +620,18 @@
             "code": "LITH",
             "name": "Столик приставной Lith",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/pristavnye_stoly/stolik_pristavnoy_lith_arketipo_2019.html",
+            "image": [
+                "./img/tables/side_table/table_Arketipo/table_Arketipo_main.jpg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo1.jpeg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo2.jpeg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo3.jpeg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo4.jpeg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo5.jpeg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo6.jpg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo7.jpg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo8.jpg",
+                "./img/tables/side_table/table_Arketipo/table_Arketipo9.jpg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Знаменитая коллекция LITH обогатилась тремя новыми исполнениями столиков различной формы и высоты, а также утонченной этажеркой.\nОпорные поверхности отличаются геометрическими формами с закругленными краями, а металлические основания образуют фигуры с очень сильным скульптурным эффектом, выражающим космополитические идеи дизайнерского решения.\nУ вас есть возможность создать композицию, исходя из собственных предпочтений. Все варианты представлены в PDF файле.\nМодель в наличии выполнена в следующей отделке:\n\nоснование – металл, покрытие черный никель;\nстолешница – мрамор Moon grey",
@@ -636,7 +647,9 @@
             "code": "ps272B",
             "name": "Приставной стол Smoked",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/pristavnye_stoly/pristavnoy_stol_smoked_1.html",
+            "image": [
+                "./img/tables/side_table/table_Pusha/table_Pusha_main.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Основная цель приставного столика – обеспечение удобства и, как следствие, придание интерьеру законченности. Приставные столики от Pusha отлично вписываются в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Данная модель выполнена в сочетании из дерева и металла; материалы не перегружают друг друга – напротив, кажется, что столик невесомый. Столешница отделана натуральным шпоном дуба, покрытым глянцевым лаком. Каркас и ножки изготовлены из хромированной стали. Правильно подобранные материалы дополняют друг друга, что заставляет предмет смотреться органично и интересно.",
@@ -652,7 +665,14 @@
             "code": "MOONINVADERS",
             "name": "Столик приставной Moon Invaders",
             "brand": "Arketipo",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/pristavnye_stoly/stolik_pristavnoy_moon_invaders_arketipo_2019.html",
+            "image": [
+                "./img/tables/side_table/table_Arketipo_Moon/table_Arketipo_Moon_main.jpg",
+                "./img/tables/side_table/table_Arketipo_Moon/table_Arketipo_Moon1.jpeg",
+                "./img/tables/side_table/table_Arketipo_Moon/table_Arketipo_Moon2.jpeg",
+                "./img/tables/side_table/table_Arketipo_Moon/table_Arketipo_Moon3.jpeg",
+                "./img/tables/side_table/table_Arketipo_Moon/table_Arketipo_Moon4.jpg",
+                "./img/tables/side_table/table_Arketipo_Moon/table_Arketipo_Moon5.jpg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "В эксклюзивном сочетании материалов заключается оригинальность новой серии столов MOON INVADERS, выполненных в квадратном и прямоугольном исполнениях.\nМрамор является главным героем коллекции, а профили, покрытые изысканной кожей растительного дубления, опираются на тонкие металлические ножки. У вас есть возможность создать дизайнерское решение, исходя из собственных предпочтений. Все варианты представлены в PDF файле.",
@@ -668,7 +688,9 @@
             "code": "8089",
             "name": "Приставной столик Berlin",
             "brand": "RVAstley",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/pristavnye_stoly/pristavnoy_stolik_berlin.html",
+            "image": [
+                "./img/tables/side_table/table_RVAstley/table_RVAstley_main.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Приставной столик Berlin дополняет консоль Berlin (8088). Хорошо сочетается в паре с другим таким же столиком по обе стороны дивана или может находится сам по себе. Этот предмет каждый раз привносит неповторимый стиль в интерьер. Если его размер слишком большой, взгляните на винный столик Berlin (8090). Если вам нужно зеркало, чтобы закончить образ, взгляните на зеркало Berlin (8091) или Flexi Berlin (8012 & 8013), а также на овальное зеркало (8119).",
@@ -684,7 +706,9 @@
             "code": "88231089",
             "name": "Приставной столик Volterra Accent",
             "brand": "RVAstley",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/pristavnye_stoly/pristavnoy_stolik_volterra_accent_ekspozitsiya.html",
+            "image": [
+                "./img/tables/side_table/table_RVAstley_Volterra/table_RVAstley_Volterra_main.jpeg"
+            ],
             "quantity": 10,
             "color": "Коричневый",
             "description": "Приставной столик Volterra Accent взбудоражит ваши дизайнерские чувства и заставит вас задуматься о том, где бы использовать этот прекрасный классический предмет мебели в вашем интерьере. ",
@@ -700,7 +724,17 @@
             "code": "632",
             "name": "Приставной стол Toi",
             "brand": "Zanotta",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/pristavnye_stoly/pristavnoy_stol_toi.html",
+            "image": [
+                "./img/tables/side_table/table_Zanotta/table_Zanotta_main.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta1.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta2.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta3.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta4.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta5.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta6.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta7.jpeg",
+                "./img/tables/side_table/table_Zanotta/table_Zanotta8.jpeg"
+            ],
             "quantity": 10,
             "color": "Белый",
             "description": "Небольшой стол-дополнение, разработанный Сальваторе Индриоло для Zanotta, где технологии на службе у функциональности. Жесткая полиуретановая рама. Алюминиевая фанерная столешница. Лак черного, белого или красного цвета. Отделение органайзера раскрывается вращающейся столешницей на 360 градусов.",
@@ -717,9 +751,12 @@
         {
             "category": "coffee table",
             "code": "PS22",
-            "name": "Журнальный столик Exclusive",
+            "name": "Журнальный столик Expert",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/zhurnalnye_stoly/zhurnalnyy_stolik_exclusive_6.html",
+            "image": [
+                "./img/tables/coffee_table/table_Pusha/table_Pusha_main.jpeg",
+                "./img/tables/coffee_table/table_Pusha/table_Pusha1.jpg"
+            ],
             "quantity": 10,
             "color": "Коричневый",
             "description": "Обеденные столы и журнальные столики коллекции Exclusive от Pusha отлично вписываются в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Данная модель выполнена в сочетании из нескольких материалов: дерева, стекла и металла. Основной материал – эбеновое или, как его ещё называют, \"музыкальное\" дерево. Древесина эбена обладает красивым окрасом, устойчива к различным внешним влияниям, после полировки приобретает металлический блеск. Каркас изготовлен из хромированной стали, полка – из закаленного стекла. Закаленное стекло характеризуется повышенной механической прочностью, термостойкостью и безопасностью. Правильно подобранные материалы дополняют друг друга, что заставляет предмет смотреться органично и интересно",
@@ -735,7 +772,12 @@
             "code": "PS23",
             "name": "Журнальный столик Exclusive",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/zhurnalnye_stoly/zhurnalnyy_stolik_exclusive_2.html",
+            "image": [
+                "./img/tables/coffee_table/table_Pusha_Exclusive/table_Pusha_Exclusive_main.jpeg",
+                "./img/tables/coffee_table/table_Pusha_Exclusive/table_Pusha_Exclusive1.jpeg",
+                "./img/tables/coffee_table/table_Pusha_Exclusive/table_Pusha_Exclusive2.jpg",
+                "./img/tables/coffee_table/table_Pusha_Exclusive/table_Pusha_Exclusive3.jpg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Обеденные столы и журнальные столики коллекции Exclusive от Pusha отлично вписываются в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Данная модель выполнена из дымчатого закаленного стекла. Закаленное стекло характеризуется повышенной механической прочностью, термостойкостью и безопасностью. Каркас изготовлен из хромированной стали.",
@@ -751,7 +793,9 @@
             "code": "PS15",
             "name": "Журнальный столик Techno",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/zhurnalnye_stoly/zhurnalnyy_stolik_techno_2.html",
+            "image": [
+                "./img/tables/coffee_table/table_Pusha_Techno/table_Pusha_Techno_main.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Журнальный столик TECHNO от Pusha отлично вписывается в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Столик выполнен в отделке из натурального шпона дуба в благородном цвете венге. Столешница изготовлена из тонированного стекла. Классическая форма по периметру декорирована вставкой из никелированной стали, что придает столику легкий налет футуристичности.",
@@ -767,7 +811,13 @@
             "code": "661",
             "name": "Журнальный стол Spotty",
             "brand": "Zanotta",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/zhurnalnye_stoly/zhurnalnyy_stol_spotty.html",
+            "image": [
+                "./img/tables/coffee_table/table_Zanotta/table_Zanotta_main.jpeg",
+                "./img/tables/coffee_table/table_Zanotta/table_Zanotta1.jpeg",
+                "./img/tables/coffee_table/table_Zanotta/table_Zanotta2.jpeg",
+                "./img/tables/coffee_table/table_Zanotta/table_Zanotta3.jpeg",
+                "./img/tables/coffee_table/table_Zanotta/table_Zanotta4.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Семейство столов трех разных размеров, характеризующихся только основными линиями и сбалансированными пропорциями. Ламинированные столешницы передают объем, украшенный эксклюзивным дизайном, выполненным вручную Пьером Шарпеном, и поддерживаются четырьмя цилиндрическими ножками. Пространство повторяющихся пятен на полурегулярных интервалах дает поверхности простой, но неотразимый ритм. Столы могут использоваться отдельно или комбинироваться по желанию по высоте и цветовым комбинациям. Ножки из черного лакированного бука. Верх из ДВП средней плотности, покрытый шелкографическим ламинатом Print, с отделкой «папье-бумага». Эксклюзивное украшение в двух вариантах: черные точки на белом верхе или белые точки на черном верхе.",
@@ -783,7 +833,11 @@
             "code": "8805/B4",
             "name": "Столик журнальный Sparkle",
             "brand": "Kartell",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/zhurnalnye_stoly/stolik_zhurnalnyy_sparkle.html",
+            "image": [
+                "./img/tables/coffee_table/table_Kartell/table_Kartell_main.jpg",
+                "./img/tables/coffee_table/table_Kartell/table_Kartell1.jpg",
+                "./img/tables/coffee_table/table_Kartell/table_Kartell2.jpg"
+            ],
             "quantity": 10,
             "color": "Прозрачный",
             "description": "Новая коллекция столиков Sparkle Токуджин Йошиока также ослепительна, как луч солнечного света. Уникальное плиссирование пластмассы (как внутри, так и снаружи) отражено в конечном результате: это новое украшения для дома, которое похоже на драгоценный камень. Алмазы или сапфиры, изумруды, топазы или рубины, в зависимости от выбранного цвета. Их можно также использовать на открытом воздухе, поскольку они устойчивы к царапинам и ударпрочные.",
@@ -799,7 +853,9 @@
             "code": "PS8",
             "name": "Журнальный столик Vision",
             "brand": "Pusha",
-            "image": "https://www.2shades.ru/catalog/stoly_i_konsoli/zhurnalnye_stoly/zhurnalnyy_stolik_vision_12.html",
+            "image": [
+                "./img/tables/coffee_table/table_Pusha_Vision/table_Pusha_Vision_main.jpeg"
+            ],
             "quantity": 10,
             "color": "Коричневый",
             "description": "Отличительные черты журнальных столиков VISION от PUSHA – простота и функциональность – как нельзя лучше вписываются в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Столик выполнен в отделке из натурального шпона вяза. Классическая форма столика дополнена полочками для мелочей. Журнальный столик придется по душе поклонникам практичных предметов интерьера.",
@@ -811,12 +867,16 @@
             "inCart": false
         }
     ],
-    "sofas": [{
-            "category": "coach",
+    "sofas": [
+
+        {
+            "category": "couch",
             "code": "109838",
             "name": "Кушетка Gaby",
             "brand": "Eichholtz",
-            "image": "https://www.2shades.ru/catalog/divany/kushetki/kushetka_gaby.html",
+            "image": [
+                "./img/sofas/couch/couch_Eichhoitz/couch_Eichhoitz_main.jpeg"
+            ],
             "quantity": 10,
             "color": "Черный",
             "description": "Черная мягкая кушетка в классическом стиле",
@@ -828,14 +888,14 @@
             "inCart": false
         },
         {
-            "category": "coach",
+            "category": "couch",
             "code": "ORFIGI100",
             "name": "Кушетка Figi",
             "brand": "Orizzonti",
             "image": "https://www.2shades.ru/catalog/divany/kushetki/kushetka_figi_ekspozitsiya.html",
             "quantity": 10,
-            "color": "Красный",
-            "description": "Фабрика: Orizzonti Название: Figi compact isolina\nОтделка: Cortina511, Como14 и Perugia809 подушки. Сидение с капитоне + второй матрас Sit&Sleep Memory для доп.спального места включен",
+            "color": "Черный",
+            "description": "Фабрика: Orizzonti Название: Figi compact isolina. Отделка: Cortina511, Como14 и Perugia809 подушки. Сидение с капитоне + второй матрас Sit&Sleep Memory для доп.спального места включен",
             "price": 39499,
             "height": 120,
             "width": 70,
@@ -844,7 +904,7 @@
             "inCart": false
         },
         {
-            "category": "coach",
+            "category": "couch",
             "code": "MANTA",
             "name": "Кушетка Manta",
             "brand": "Arketipo",
@@ -1012,7 +1072,9 @@
             "inCart": false
         }
     ],
-    "beds": [{
+    "beds": [
+
+        {
             "category": "soft",
             "code": "33902",
             "name": "Erica с ПМ ",
@@ -1226,7 +1288,9 @@
 
 
     ],
-    "accessories": [{
+    "accessories": [
+
+        {
             "category": "mirrors",
             "code": "VANITYFAIR",
             "name": "Зеркало настенное Vanity Fair",
@@ -1452,7 +1516,9 @@
             "inCart": false
         }
     ],
-    "storage": [{
+    "storage": [
+
+        {
             "category": "wardrobe",
             "code": "Dxsp",
             "name": "Шкаф DEXTER",
