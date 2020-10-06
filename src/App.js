@@ -1,12 +1,13 @@
 import React from 'react';
 import './styles/style.scss';
+import {PopularCategoryItem} from "./components/PopularCategory/PopularCategoryItem";
 
 function App() {
-  return (
-    <div className="App">
-     <h1>kjnvsnvjkvkjn</h1>
-    </div>
-  );
+    return (
+
+            <PopularCategoryItem/>
+
+    );
 }
 
 export default App;
