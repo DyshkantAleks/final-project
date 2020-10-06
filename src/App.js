@@ -1,12 +1,11 @@
 import React from 'react';
 import './styles/style.scss';
-import {PopularCategoryItem} from "./components/PopularCategory/PopularCategoryItem";
+import {Wrapper} from "./components/Wrapper/Wrapper";
+
 
 function App() {
     return (
-
-            <PopularCategoryItem/>
-
+        <Wrapper/>
     );
 }
 
