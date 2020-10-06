@@ -1,12 +1,15 @@
 import React from "react";
+import './popularCategory.scss'
 
 
-export const PopularCategoryItem = () => {
+export const PopularCategoryItem = (props) => {
+    const {textForTitle, textForSubtitle} = props;
+
     return (
-        <div>
-            <h4>Tables</h4>
-            <h5>Tables Tables Tables Tables Tables TablesTablesTables</h5>
-        </div>
+        <section className={'popular-category'}>
+            <h3 className={'popular-category__title'}>{textForTitle}</h3>
+            <h4 className={'popular-category__subtitle'}>{textForSubtitle}</h4>
+        </section>
 
-        )
-}
+    )
+};
