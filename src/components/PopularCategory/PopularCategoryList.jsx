@@ -7,16 +7,7 @@ export const PopularCategoryList = () => {
     return (
         <>
             <Title text={'Популярные категории'}/>
-            <div className={'popular-category__list'}>
-                <PopularCategoryItem textForTitle={'Tables'}
-                                     textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
-                <PopularCategoryItem textForTitle={'Tables'}
-                                     textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
-                <PopularCategoryItem textForTitle={'Tables'}
-                                     textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
-                <PopularCategoryItem textForTitle={'Tables'}
-                                     textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
-            </div>
+            <div className={'popular-category__list'}></div>
         </>
 
     )
