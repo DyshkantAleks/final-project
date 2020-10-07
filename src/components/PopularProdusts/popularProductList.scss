@@ -1,0 +1,13 @@
+@media (min-width: 320px) {
+  .popular-product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .popular-product-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
