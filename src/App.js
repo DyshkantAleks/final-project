@@ -1,12 +1,14 @@
 import React from 'react';
 import './styles/style.scss';
-import {Wrapper} from "./components/Wrapper/Wrapper";
+import {Content} from "./components/Content/Content";
 
 
 function App() {
     return (
-        <Wrapper/>
+        <Content/>
     );
 }
 
 export default App;
+
+
