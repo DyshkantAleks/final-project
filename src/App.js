@@ -4,11 +4,12 @@ import {Content} from "./components/Content/Content";
 
 
 function App() {
-    return (
-        <Content/>
-    );
+  return (
+    <div className="App">
+
+    </div>
+  );
+
 }
 
 export default App;
-
-
