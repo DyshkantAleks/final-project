@@ -15,7 +15,8 @@
         "styled-components": "^5.2.0",
         "stylelint": "^13.7.2",
         "stylelint-config-rational-order": "^0.1.2",
-        "stylelint-order": "^4.1.0"
+        "stylelint-order": "^4.1.0",
+        "swiper": "^6.3.2"
     },
     "scripts": {
         "start": "npm-run-all -p watch-sass-js start-js",
