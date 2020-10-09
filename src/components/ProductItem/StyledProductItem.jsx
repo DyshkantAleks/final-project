@@ -6,10 +6,7 @@ width: 28.2rem;
 border: .1rem solid #F5F5F5;
 position: relative;
 `;
-export const ItemLink = styled.a`
-text-decoration:none;
-cursor:pointer;
-`;
+
 
 export const Photo = styled.img`
 max-width: 100%;
@@ -23,7 +20,7 @@ flex-direction: column;
 padding: 2.3rem 0 .5rem .5rem;
 `;
 
-export const Name = styled.a`
+export const Name = styled.span`
 font-size: 1.4rem;
 `;
 
