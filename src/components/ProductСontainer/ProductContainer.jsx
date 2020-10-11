@@ -3,28 +3,32 @@ import React from 'react';
 import { Title } from '../Title/Title';
 import styled from 'styled-components';
 import { ProductItem } from '../ProductItem/ProductItem';
-import { ProductCarousel } from "../ProductCarousel/ProductCarousel"
+import { ProductCarousel } from "../ProductCarousel/ProductCarousel";
+import {ProductItemDetails} from "../ProductItemDetails/ProductItemDetails"
 
 
 export const ProductContainer = (props) => {
-    const { name = 'Стул обеденный' } = props;
+    const { name = 'Стул полубарный NATA' } = props;
     return (
-        <Container>
-            <Title text={name} />
+        <>
+            <ContainerTitle>
+                <Title text={name} />
+            </ContainerTitle>
             <ContainerDetails>
                 <ProductCarousel />
-                <ProductItem />
+                <ProductItemDetails/>
             </ContainerDetails>
-        </Container>
+        </>
+
     )
 }
 
-const Container = styled.section`
-background: paleturquoise;
+const ContainerTitle = styled.div`
+padding-left: 5rem;
 `;
 
 const ContainerDetails = styled.div`
 display: grid;
 grid-template-columns: 55% 35%;
-gap: 12rem;
+gap: 10rem;
 `;
