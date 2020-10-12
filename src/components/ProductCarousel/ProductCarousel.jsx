@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Thumbs, Controller} from 'swiper';
 import 'swiper/swiper-bundle.css';
 
-import styled from 'styled-components';
 import './productCarousel.scss';
+import {SwiperContainer, SwiperThumbs, SwiperGallery, ImageMain, Image} from './StyledProductCarousel'
 
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 
@@ -14,22 +14,13 @@ export const ProductCarousel = () => {
     const [firstSwiper, setFirstSwiper] = useState(null);
     const [secondSwiper, setSecondSwiper] = useState(null);
 
-    // const slides = [];
-    // for (let i = 0; i < 5; i+=1) {
-    //     slides.push(
-    //         <SwiperSlide key={`slide-${i}`} tag="li">
-    //             <img src={`https://picsum.photos/id/${i + 1}/500/300`} alt={`Slide ${i}`}/>        
-    //         </SwiperSlide>
-    //     )
-    // }
-    const url = window.location.origin;
-
     const images = [
-        { src: url + '/images/chairs/bar/chair_Bontempi_main.png' },
-        { src: url + '/images/chairs/bar/chair_Bontempi1.jpg' },
-        { src: url + '/images/chairs/bar/chair_Bontempi2.jpg' },
-        { src: url + '/images/chairs/bar/chair_Bontempi3.jpg' }
+        { src: '/images/chairs/bar/chair_Bontempi_main.png' },
+        { src: '/images/chairs/bar/chair_Bontempi1.jpg' },
+        { src: '/images/chairs/bar/chair_Bontempi2.jpg' },
+        { src: '/images/chairs/bar/chair_Bontempi3.jpg' }
     ]
+
     const res = images.map(i => i.src);
 
     const slides = [];
@@ -90,33 +81,3 @@ export const ProductCarousel = () => {
     )
 }
 
-const SwiperContainer = styled.section`
-display: flex;
-flex-flow: row;
-height: 100%;
-`;
-
-const SwiperThumbs = styled.div`
-width:20%;
-margin-left:5rem;
-margin-top: 1rem;
-`;
-
-const SwiperGallery = styled.div`
-width:80%;
-`;
-
-const ImageMain = styled.img`
-display: block;
-max-width: 99%;
-max-height: 100%;
-margin: 0 auto;
-object-fit: cover;
-
-`;
-
-const Image = styled.img`
-display: block;
-height: 7.8rem;
-object-fit: cover;
-`;
