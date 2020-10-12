@@ -1,33 +1,36 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
-import {CatalogList} from "./Catalog/CatalogList";
-import {Example} from "./MobileMenu/MobileMenu";
 import {InfoLinks} from "./InfoLinks/InfoLinkList";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import {Logo} from "./Logo/Logo";
-import {HeaderCart} from "./AccountInfo/HeaderCart";
-import {HeaderAccount} from "./AccountInfo/HeaderAccount";
-import {HeaderFavorites} from "./AccountInfo/HeaderFavorites";
 import {AccountInfoList} from "./AccountInfo/AccountInfoList";
 import {device} from "../../styles/breakpoints/breakpoints";
-
+import {MobileMenu} from "./MobileMenu/MobileMenu";
+import {CatalogList} from "./Catalog/CatalogList";
 
 
 export const Header = () => {
     const {width} = useWindowDimensions();
     return (
+        <>
         <StyledHeader>
-            <Container>
+            <HeaderContainer>
                 {width >= 1200 && (
                     <InfoLinks/>
                 )}
                 <Logo/>
-                <Example/>
+                <MobileMenu/>
                 <AccountInfoList/>
-            </Container>
+            </HeaderContainer>
         </StyledHeader>
+
+                {width >= 1200 && (
+                    <CatalogList/>
+                )}
+
+
+        </>
     )
 }
 
@@ -36,7 +39,7 @@ const StyledHeader = styled.header`
     border-bottom: 1px solid black;
 `;
 
-const Container = styled.div`
+const HeaderContainer = styled.div`
     position: relative;
     padding: 1.6rem;
         @media ${device.tablet}{

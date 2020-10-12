@@ -9,7 +9,7 @@ import {CatalogList} from "../Catalog/CatalogList";
 
 
 
-export const Example = () => {
+export const MobileMenu = () => {
     const {width} = useWindowDimensions();
 
 
