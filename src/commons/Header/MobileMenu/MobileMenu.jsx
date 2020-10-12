@@ -5,6 +5,7 @@ import {InfoLinks} from "../InfoLinks/InfoLinkList";
 import styled from 'styled-components'
 import {device} from "../../../styles/breakpoints/breakpoints";
 import useWindowDimensions from "../../../utils/useWindowDimensions";
+import {CatalogList} from "../Catalog/CatalogList";
 
 
 
@@ -16,6 +17,7 @@ export const Example = () => {
         <>
             {width < 1200 && (
                 <Menu>
+                    <CatalogList/>
                     <InfoLinks/>
                 </Menu>
 

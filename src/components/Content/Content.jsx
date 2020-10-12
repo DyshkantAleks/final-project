@@ -1,10 +1,7 @@
 import React from "react";
-
-
 import {device} from "../../styles/breakpoints/breakpoints";
 import styled from 'styled-components'
-import {Example} from "../../commons/Header/MobileMenu/MenuBurgerTest";
-import {SliderTest} from "../SliderMain/SliderMain";
+import {CatalogList} from "../../commons/Header/Catalog/CatalogList";
 
 
 export const Content = () => {

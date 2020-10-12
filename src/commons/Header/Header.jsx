@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {CatalogList} from "./Catalog/CatalogList";
-import {Example} from "./MobileMenu/MenuBurgerTest";
+import {Example} from "./MobileMenu/MobileMenu";
 import {InfoLinks} from "./InfoLinks/InfoLinkList";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import {Logo} from "./Logo/Logo";
@@ -27,18 +27,17 @@ export const Header = () => {
                 <Example/>
                 <AccountInfoList/>
             </Container>
-
         </StyledHeader>
     )
 }
 
 const StyledHeader = styled.header`
-    border-bottom: 1px solid black;
-    position: relative;
     //background-color: #848484;
+    border-bottom: 1px solid black;
 `;
 
 const Container = styled.div`
+    position: relative;
     padding: 1.6rem;
         @media ${device.tablet}{
         padding: 2.4rem

@@ -6,18 +6,16 @@ import {CatalogItem} from "./CatalogItem";
 
 export const CatalogList = () => {
     return (
-        <Container>
+
             <List>
-                <CatalogItem>Category
-                    <CatalogSublist><CatalogSubitem/></CatalogSublist>
-                </CatalogItem>
+                <CatalogItem/>
             </List>
-        </Container>
+
     )
 };
-const Container = styled.nav`
-width: 100%;
-`;
+// const Container = styled.nav`
+// width: 100%;
+// `;
 const List = styled.ul`
 list-style: none;
     padding-left: 0;

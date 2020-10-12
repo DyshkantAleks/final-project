@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import {CatalogSubitem} from "./CatalogSubitem";
 
 export const CatalogSublist = () => {
     return (
 
-                    <SubList></SubList>
+                    <SubList>
+                        <CatalogSubitem/>
+                    </SubList>
 
     )
 };
@@ -14,5 +17,5 @@ list-style: none;
     padding-left: 2.5rem;
     margin: 0;
     width: 100%;
-    
+
 `;
