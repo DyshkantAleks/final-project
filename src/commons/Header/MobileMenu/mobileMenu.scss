@@ -1,10 +1,10 @@
 .bm-burger-button {
   position: absolute;
-  left: 1.6rem;
   top: 50%;
-  transform: translate(0, -50%);
+  left: 1.6rem;
   width: 2rem;
   height: 1.4rem;
+  transform: translate(0, -50%);
 }
 @media (min-width: 481px) {
   .bm-burger-button {
@@ -30,8 +30,8 @@
 }
 
 .bm-cross-button {
-  height: 24px;
   width: 24px;
+  height: 24px;
 }
 
 .bm-cross {
@@ -40,13 +40,13 @@
 
 .bm-menu-wrap {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   height: 100%;
 }
 .bm-menu {
-  background: #FFFFFF;
   padding: 4rem 3rem 4rem 1.6rem;
+  background: #FFFFFF;
   //font-size: 1.15em;
 }
 
@@ -65,5 +65,5 @@
 
 .bm-overlay {
   top: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, .3);
 }
