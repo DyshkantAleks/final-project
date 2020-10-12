@@ -17,5 +17,4 @@ list-style: none;
     padding-left: 2.5rem;
     margin: 0;
     width: 100%;
-
 `;

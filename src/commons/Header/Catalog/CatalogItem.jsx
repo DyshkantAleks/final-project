@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {CatalogSublist} from "./CatalogSublist";
 
 export const CatalogItem = () => {
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <Item>Стулья
-                <CatalogSublist/>
+            <Item onClick={() => {
+                setIsOpen(!isOpen);
+            }}>Стулья
+                {isOpen && (
+                    <CatalogSublist/>
+
+                )}
             </Item>
             <Item>Не стулья</Item>
         </>
