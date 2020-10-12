@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import styled from 'styled-components';
-import {ROUTES} from "../../pages/navigation/routes";
-import {device} from "../../styles/breakpoints/breakpoints";
+import {ROUTES} from "../../../pages/navigation/routes";
+import {device} from "../../../styles/breakpoints/breakpoints";
 
 export const InfoLinks = () => {
     return (
@@ -24,7 +24,6 @@ export const InfoLinks = () => {
 const List = styled.ul`
     
     padding: 0;
-    //text-align: center;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -32,19 +31,21 @@ const List = styled.ul`
     
     @media ${device.desktop}{
     flex-direction: row;
-    flex-grow: 3;
+    flex-basis: 40%;
     }
 `;
 
 const Item = styled.li`
-     
-        text-align: left;
-        font-size: 1.4rem;
-        line-height: 2.5rem;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+        @media ${device.tabletL}{
+          font-size: 1.6rem;
+          }
         @media ${device.desktop}{
           //margin: 0 15px;
           text-align: center;
-          font-size: 1.6rem;
+          font-size: 2rem;
           margin: 0 1.5rem
           }
       a {

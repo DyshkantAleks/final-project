@@ -4,4 +4,7 @@ export const ROUTES = Object.freeze({
     PROMOTIONS: '/promotions',
     STORES: '/stores',
     DELIVERY: '/delivery',
+    CART: '/cart',
+    FAVORITES: '/favorites',
+    ACCOUNT: '/account',
 });

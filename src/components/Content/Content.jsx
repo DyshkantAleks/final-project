@@ -21,7 +21,10 @@ const ContentContairer = styled.div`
     margin: 0 auto;
     
     @media ${device.tablet}{
-        padding: 0 3.2rem;
+        padding: 0 2.4rem;
+    }
+    @media ${device.tabletL}{
+        padding: 0 5rem;
     }
     
     @media ${device.desktop}{
