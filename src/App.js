@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
+import './styles/style.scss';
+
+
+
 
 import { Button } from './components/Button';
 import { Modal } from './components/Modal';
@@ -16,7 +20,7 @@ function App () {
   return (
     <div className="App">
       {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())}/>}
-      
+
       <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))}/>
     </div>
   );
