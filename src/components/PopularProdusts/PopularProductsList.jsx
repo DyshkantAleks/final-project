@@ -1,21 +1,26 @@
 import React from "react";
-import { ProductItem } from "../ProductItem/ProductItem";
-
-
+import styled from "styled-components";
 import {Title} from "../Title/Title";
 
-import './popularProductList.scss'
+
+import {device} from "../../styles/breakpoints/breakpoints";
 
 export const PopularProductsList = () => {
     return (
         <>
             <Title text={'Популярные товары'}/>
-            <div className={'popular-product-list'}>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            <ProductItem/>
-            </div>
+            <List></List>
         </>
     )
 }
+
+const List = styled.div`
+display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2rem;
+    
+    @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+`
