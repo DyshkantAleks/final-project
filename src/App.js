@@ -8,8 +8,6 @@ import { Modal } from './components/Modal';
 import { ModalThanks } from './components/Modal/ModalThanks';
 import { closeModal, openModal } from './store/modal/actions';
 import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
-import {ProductItemDetails} from './components/ProductItemDetails/ProductItemDetails';
-
 
 function App() {
     const dispatch = useDispatch();
@@ -17,12 +15,11 @@ function App() {
     const modalContent = useSelector(selectModalContent);
 
     return (
-        // <div className="App">
-        //   {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())}/>}
+        <div className="App">
+          {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())}/>}
 
-        //   <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))}/>
-        // </div>
-        <ProductItemDetails/>
+          <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))}/>
+        </div>
     );
 }
 
