@@ -4,6 +4,7 @@ import { Title } from '../Title/Title';
 import { ProductCarousel } from "../ProductCarousel/ProductCarousel";
 import { Content, ContainerDetails, ContainerProduct, Price, Article, Description, Subtitle, SpecificationContainer, DescriptionKey } from "./StyledProductItemDetails";
 import { PopularProductsList } from '../PopularProdusts/PopularProductsList';
+import {Button} from '../Button';
 
 const specifications = {
     covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
@@ -33,6 +34,7 @@ export const ProductItemDetails = (props) => {
                             <Description>Ширина - {width} cм, </Description>
                             <Description>Глубина - {length} cм </Description>
                         </Subtitle>
+                        <Button text={'Купить'}/>
                     </ContainerProduct>
                     <Subtitle>Характеристики
                     <SpecificationContainer>

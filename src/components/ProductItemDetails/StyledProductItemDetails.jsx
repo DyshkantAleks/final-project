@@ -54,7 +54,7 @@ display: flex;
 flex-direction: column;
 font-size: 2rem;
 font-weight: 700;
-padding-top: 2rem;
+padding: 2rem 0;
 `;
 
 export const SpecificationContainer = styled.div`

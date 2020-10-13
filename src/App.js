@@ -7,18 +7,19 @@ import { Modal } from './components/Modal';
 import { ModalThanks } from './components/Modal/ModalThanks';
 import { closeModal, openModal } from './store/modal/actions';
 import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
-
-function App () {
+import { Wrapper } from "./components/Wrapper/Wrapper";
+import './styles/style.scss';
+function App() {
   const dispatch = useDispatch();
   const modalIsOpen = useSelector(selectModalIsOpen);
   const modalContent = useSelector(selectModalContent);
 
   return (
-    <div className="App">
-      {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())}/>}
-      
-      <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))}/>
-    </div>
+    // <div className="App">
+    //   {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())} />}
+    //   <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))} />
+    // </div>
+    <Wrapper/>
   );
 }
 
