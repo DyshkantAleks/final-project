@@ -11,7 +11,7 @@ import { Modal } from './components/Modal';
 import { ModalThanks } from './components/Modal/ModalThanks';
 import { closeModal, openModal } from './store/modal/actions';
 import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
-
+import {CartPage} from '../src/pages/Cart/'
 function App () {
   const dispatch = useDispatch();
   const modalIsOpen = useSelector(selectModalIsOpen);
@@ -20,8 +20,8 @@ function App () {
   return (
     <div className="App">
       {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())}/>}
-
       <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))}/>
+      <CartPage />
     </div>
   );
 }

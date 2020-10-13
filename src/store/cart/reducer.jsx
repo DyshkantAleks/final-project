@@ -1,18 +1,14 @@
-export const ADD_TO_CART = 'ADD_TO_CART';
-export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
-
-export const MODULE_NAME = 'cart';
-export const selectCart = state => state[MODULE_NAME].dummydata; //change then to cartItems
+import { ADD_TO_CART, REMOVE_FROM_CART } from './actions'
 
 const InitialState = {
-   // cartItems: [],
+// cartItems: [],
     dummydata: [
         {
             "category": "kitchen",
             "code": "9001603-08",
             "name": "Стул обеденный",
             "brand": "Hollywood Loft",
-            "image": "../../public/img/chairs/office/chair_Kartell_Maui/",
+            "image": "https://kupistul.ua/public/cache/600x600/stul-bryan-wood-beliy-10003627.jpg?v1",
             "quantity": 10,
             "color": "Бежевый",
             "description": "Стул стиля Hollywood Loft - простой, лаконичный, с четкой геометрией рисунка; каркас и ноги стула выполнены из 100% массива; мягкая обивка сиденья и спинки обеспечивает комфорт и необычайно эргономична; сиденье и спинка стула обтянуты роскошной мерцающей тканью, заключенной в светлую рамку элементов конструкции; основной акцент обеденного стула - зеркальные вертикальные планки по обеим сторонам спинки",
@@ -28,7 +24,7 @@ const InitialState = {
             "code": "9029004A-812",
             "name": "Стул с подлокотником, стеганная кожа",
             "brand": "Cosmopolitan Orange",
-            "image": "../../public/img/chairs/office/chair_Gubi_Bat/",
+            "image": "https://1i9wu42vzknf1h4zwf2to5aq-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/x_96-9328-CH_LeoChrLthr1_na_s_.jpg",
             "quantity": 10,
             "color": "Оранжевый",
             "description": "Взрыв эмоций на почве любви к Lamborghini. Смелость и простота позднего модерна 70-х годов прошлого века. И инновации 20-х годов века нынешнего",
@@ -44,7 +40,7 @@ const InitialState = {
             "code": "9051003-202",
             "name": "Стул",
             "brand": "Bella Veneto",
-            "image": "../../public/img/chairs/kitchen/chair_Trance/",
+            "image": "https://secure.img1-fg.wfcdn.com/im/19556338/resize-h600-w600%5Ecompr-r85/3444/34441276/Kitchen+%26+Dining+Chairs.jpg",
             "quantity": 10,
             "color": "Бежевый",
             "description": "Стул с мягкой обивкой Bella Veneto в классическом стиле прекрасно дополнит интерьер столовой. Деревянные ножки с изгибами и мягкая обивка с высококачественной вышивкой придас изысканности кухонному ансамблю",
@@ -75,13 +71,5 @@ export function reducer(state = InitialState, { type, payload }) {
         }
     }
 
-export const addToCart = id => ({
-    type: 'ADD_TO_CART',
-    payload: id
-});
 
-export const removeFromCart = id => ({
-    type: 'REMOVE_FROM_CART',
-    payload: id
-})
 
