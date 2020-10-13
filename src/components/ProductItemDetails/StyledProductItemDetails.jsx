@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
 export const Content = styled.section`
-padding-left: 5rem;`;
+padding-bottom: 2rem;
+`;
 
 export const ContainerDetails = styled.div`
 display: grid;
 grid-template-columns: 55% auto;
 grid-template-rows: 50rem 20rem;
 gap: 1rem 10rem;
+border-bottom: .1rem solid #D3D7DA;
+padding-bottom: 4.2rem;
 `;
 
 export const ContainerProduct = styled.div`
