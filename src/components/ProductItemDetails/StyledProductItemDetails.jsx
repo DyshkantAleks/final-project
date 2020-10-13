@@ -24,7 +24,7 @@ export const Price = styled.span`
 font-size: 4rem;
 font-weight: 800;
 color: #007042;
-padding-top: 1.5rem;
+padding: 1.5rem 0 2rem;
 ::after{
     content: 'грн';
     position: relative;
