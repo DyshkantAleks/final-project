@@ -19,7 +19,7 @@ display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem 2rem;
     
-    @media ${device.tablet} {
+    @media ${device.tabletM} {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 

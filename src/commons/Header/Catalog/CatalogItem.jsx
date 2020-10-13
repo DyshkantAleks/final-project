@@ -4,7 +4,7 @@ import {CatalogSublist} from "./CatalogSublist";
 import {device} from "../../../styles/breakpoints/breakpoints";
 
 export const CatalogItem = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    //const [isOpen, setIsOpen] = useState(false);
     const [hover, setHover] = useState(false);
     return (
         <>
@@ -37,11 +37,13 @@ font-size: 1.6rem;
 font-weight: 500;
 line-height: 3.5rem;
 border-bottom: 1px solid;
+text-align: left;
 
 @media ${device.desktop}{
 position: relative;
 border-bottom: 0;
 margin: 0 5rem;
+text-align: center;
 
 
 

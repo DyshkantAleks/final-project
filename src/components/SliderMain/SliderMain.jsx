@@ -15,7 +15,9 @@ export const SliderTest = () => {
     return (
         <Swiper id={'main'} tag={'div'} wrapperTag={'ul'} navigation={{clickable: true}} pagination={{clickable: true}}
                 scrollbar={{draggable: true}}>
-            <SwiperSlide tag={'li'}></SwiperSlide>
+            <SwiperSlide tag={'li'}>
+                
+            </SwiperSlide>
         </Swiper>
 
     )
