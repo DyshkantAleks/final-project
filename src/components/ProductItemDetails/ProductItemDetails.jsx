@@ -2,9 +2,10 @@ import React from 'react'
 
 import { Title } from '../Title/Title';
 import { ProductCarousel } from "../ProductCarousel/ProductCarousel";
-import { Content, ContainerDetails, ContainerProduct, Price, Article, Description, Subtitle, SpecificationContainer, DescriptionKey } from "./StyledProductItemDetails";
+import { ContainerDetails, ContainerProduct, Price, Article, Description, Subtitle, SpecificationContainer, DescriptionKey } from "./StyledProductItemDetails";
 import { PopularProductsList } from '../PopularProdusts/PopularProductsList';
-import {Button} from '../Button';
+import { Button } from '../Button';
+import { ContentContairer } from '../Content/Content';
 
 const specifications = {
     covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
@@ -21,31 +22,30 @@ export const ProductItemDetails = (props) => {
         length = 47 } = props;
 
     return (
-            <Content>
-                <Title text={name} />
-                <ContainerDetails>
-                    <ProductCarousel />
-                    <ContainerProduct>
-                        <Price>{price}</Price>
-                        <Article>Код: {code}</Article>
-                        <Description>{description}</Description>
-                        <Subtitle>Габариты
+        <ContentContairer>
+            <Title text={name} />
+            <ContainerDetails>
+                <ProductCarousel />
+                <ContainerProduct>
+                    <Price>{price}</Price>
+                    <Article>Код: {code}</Article>
+                    <Description>{description}</Description>
+                    <Subtitle>Габариты
                         <Description>Высота - {height} cм, </Description>
-                            <Description>Ширина - {width} cм, </Description>
-                            <Description>Глубина - {length} cм </Description>
-                        </Subtitle>
-                        <Button text={'Купить'}/>
-                    </ContainerProduct>
-                    <Subtitle>Характеристики
-                    <SpecificationContainer>
-                            <DescriptionKey>Покрытие</DescriptionKey>
-                            <Description>{specifications.covering}</Description>
-                            <DescriptionKey>Обивка</DescriptionKey>
-                            <Description>{specifications.casing}</Description>
-                        </SpecificationContainer>
+                        <Description>Ширина - {width} cм, </Description>
+                        <Description>Глубина - {length} cм </Description>
                     </Subtitle>
-                </ContainerDetails>
-                <PopularProductsList />
-            </Content>
+                    <Button text={'Купить'} />
+                </ContainerProduct>
+                <Subtitle>Характеристики
+                    <SpecificationContainer>
+                        <DescriptionKey>Покрытие</DescriptionKey>
+                        <Description>{specifications.covering}</Description>
+                        <DescriptionKey>Обивка</DescriptionKey>
+                        <Description>{specifications.casing}</Description>
+                    </SpecificationContainer>
+                </Subtitle>
+            </ContainerDetails>
+        </ContentContairer>
     )
 }

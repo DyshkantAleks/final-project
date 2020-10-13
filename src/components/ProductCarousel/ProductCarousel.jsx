@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Thumbs, Controller} from 'swiper';
+import SwiperCore, { Navigation, Pagination, Thumbs, Controller } from 'swiper';
 import 'swiper/swiper-bundle.css';
 
 import './productCarousel.scss';
-import {SwiperContainer, SwiperThumbs, SwiperGallery, ImageMain, Image} from './StyledProductCarousel'
+import { SwiperContainer, SwiperThumbs, SwiperGallery, ImageMainContainer, ImageMain, ImageThumbsContainer, ImageThumbs } from './StyledProductCarousel'
 
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 
@@ -14,31 +14,34 @@ export const ProductCarousel = () => {
     const [firstSwiper, setFirstSwiper] = useState(null);
     const [secondSwiper, setSecondSwiper] = useState(null);
 
-    const images = [
-        { src: '/images/chairs/bar/chair_Bontempi_main.png' },
-        { src: '/images/chairs/bar/chair_Bontempi1.jpg' },
-        { src: '/images/chairs/bar/chair_Bontempi2.jpg' },
-        { src: '/images/chairs/bar/chair_Bontempi3.jpg' }
+    const img = [
+        './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
+        './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
+        './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
+        './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
     ]
-
-    const res = images.map(i => i.src);
 
     const slides = [];
     for (let i = 0; i < 4; i += 1) {
         slides.push(
             <SwiperSlide key={`slide-${i}`} tag="li">
-                <ImageMain src={res[i]} alt={`Slide ${i}`} />
+                <ImageMainContainer>
+                    <ImageMain src={img[i]} alt={`Slide ${i}`} />
+                </ImageMainContainer>
             </SwiperSlide>
         )
-    }
+    };
+
     const thumbs = [];
     for (let i = 0; i < 4; i += 1) {
         thumbs.push(
             <SwiperSlide key={`thumb-${i}`} tag="li">
-                <Image src={res[i]} alt={`Thumbnail ${i}`} width={78} />
+                <ImageThumbsContainer>
+                    <ImageThumbs src={img[i]} alt={`Thumbnail ${i}`} />
+                </ImageThumbsContainer>
             </SwiperSlide>
         )
-    }
+    };
 
     return (
         <SwiperContainer>
@@ -76,7 +79,7 @@ export const ProductCarousel = () => {
                 >
                     {slides}
                 </Swiper>
-            </SwiperGallery> 
+            </SwiperGallery>
         </SwiperContainer>
     )
 }
