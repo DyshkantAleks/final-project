@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
 
 import { Button } from './components/Button';
 import { Modal } from './components/Modal';
@@ -9,6 +8,7 @@ import { closeModal, openModal } from './store/modal/actions';
 import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
 import { Wrapper } from "./components/Wrapper/Wrapper";
 import './styles/style.scss';
+
 function App() {
   const dispatch = useDispatch();
   const modalIsOpen = useSelector(selectModalIsOpen);
