@@ -26,7 +26,7 @@
     "stylelint": "^13.7.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^4.1.0",
-    "swiper": "^6.3.2"
+    "swiper": "^6.3.3"
   },
   "scripts": {
     "start": "npm-run-all -p watch-sass-js start-js",
