@@ -2,15 +2,19 @@ import React from 'react'
 
 import { Title } from '../Title/Title';
 import { ProductCarousel } from "../ProductCarousel/ProductCarousel";
-import { ContainerDetails, ContainerProduct, Price, Article, Description, Subtitle, SpecificationContainer, DescriptionKey } from "./StyledProductItemDetails";
-import { PopularProductsList } from '../PopularProdusts/PopularProductsList';
+import { ContainerDetails, ContainerProduct, Price, StyledFontAwesomeIcon, Article, Description, Subtitle, Actions, SpecificationContainer, DescriptionKey, ProductItemList } from "./StyledProductItemDetails";
 import { Button } from '../Button';
 import { ContentContairer } from '../Content/Content';
+import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
+import { useToggle } from '../../utils/useToggle';
+import { ProductItem } from '../ProductItem/ProductItem';
 
 const specifications = {
     covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
     casing: 'Обивка монолитного сидения может быть разной: эко-кожа, дизайнерская ткань, водонепроницаемый нубук, натуральная шерсть, бархат, кожа премиум-класса.',
-}
+};
+
 export const ProductItemDetails = (props) => {
     const {
         price = 4899,
@@ -19,7 +23,10 @@ export const ProductItemDetails = (props) => {
         code = 3435,
         height = 95,
         width = 52,
-        length = 47 } = props;
+        length = 47 
+    } = props;
+
+    const [inFavorite, toggleInFavorite] = useToggle();
 
     return (
         <ContentContairer>
@@ -28,6 +35,8 @@ export const ProductItemDetails = (props) => {
                 <ProductCarousel />
                 <ContainerProduct>
                     <Price>{price}</Price>
+                    { !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} /> }
+                    { inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} /> }
                     <Article>Код: {code}</Article>
                     <Description>{description}</Description>
                     <Subtitle>Габариты
@@ -35,7 +44,10 @@ export const ProductItemDetails = (props) => {
                         <Description>Ширина - {width} cм, </Description>
                         <Description>Глубина - {length} cм </Description>
                     </Subtitle>
-                    <Button text={'Купить'} />
+                    <Actions>
+                        <Button text={'Купить'} />
+                        <Button text={'Купить'} />
+                    </Actions>
                 </ContainerProduct>
                 <Subtitle>Характеристики
                     <SpecificationContainer>
@@ -46,6 +58,13 @@ export const ProductItemDetails = (props) => {
                     </SpecificationContainer>
                 </Subtitle>
             </ContainerDetails>
+            <Title text={'Вас так же могут заинтересовать'} />
+            <ProductItemList>
+                <ProductItem />
+                <ProductItem />
+                <ProductItem />
+                <ProductItem />
+            </ProductItemList>
         </ContentContairer>
     )
 }

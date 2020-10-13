@@ -2,9 +2,18 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Thumbs, Controller } from 'swiper';
 import 'swiper/swiper-bundle.css';
-
+// import 'swiper/swiper.scss';
+// import 'swiper/components/thumbs/thumbs.scss';
+// import 'swiper/components/controller/controller.scss';
 import './productCarousel.scss';
-import { SwiperContainer, SwiperThumbs, SwiperGallery, ImageMainContainer, ImageMain, ImageThumbsContainer, ImageThumbs } from './StyledProductCarousel'
+import { 
+    SwiperContainer, 
+    SwiperThumbs, 
+    SwiperGallery, 
+    ImageMainContainer, 
+    ImageMain, 
+    ImageThumbsContainer, 
+    ImageThumbs } from './StyledProductCarousel'
 
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 

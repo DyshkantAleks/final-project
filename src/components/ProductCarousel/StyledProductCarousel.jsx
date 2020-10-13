@@ -13,7 +13,7 @@ export const SwiperGallery = styled.div`
 width: 85%;
 `;
 
-export const ImageMainContainer=styled.div`
+export const ImageMainContainer = styled.div`
 flex-basis: 48.5rem;
 `;
 

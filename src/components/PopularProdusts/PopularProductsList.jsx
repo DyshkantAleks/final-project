@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Title} from "../Title/Title";
 
 
+
 import {device} from "../../styles/breakpoints/breakpoints";
 
 export const PopularProductsList = () => {
