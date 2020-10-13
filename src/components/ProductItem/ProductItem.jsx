@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 
-import { ConteinerItem, PhotoBox, Photo, TitleBox, Name, Price, FavoriteItem } from './StyledProductItem';
+import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
+import { ConteinerItem, PhotoBox, Photo, TitleBox, Name, Price, StyledFontAwesomeIcon } from './StyledProductItem';
 
 export const ProductItem = (props) => {
     const {
         price = 4899,
         name = 'Стул обеденный',
         image = "/images/chairs/bar/chair_Bontempi_main.png",
-        inFavorite = false } = props;
+    } = props;
+
+    const useToggle = (initialValue = false) => {
+        const [inFavorite, setInFavorite] = useState(initialValue);
+
+        const toggle = useCallback(() => {
+            setInFavorite(value => !value);
+        }, []);
+        return [inFavorite, toggle];
+    };
+
+    const [inFavorite, toggleInFavorite] = useToggle();
 
     return (
         <>
@@ -15,12 +28,11 @@ export const ProductItem = (props) => {
                 <PhotoBox>
                     <Photo alt='our product' src={image} />
                 </PhotoBox>
-
                 {
-                    !inFavorite && <FavoriteItem className="far fa-heart" />
+                    !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />
                 }
                 {
-                    inFavorite && <FavoriteItem className="fas fa-heart" />
+                    inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />
                 }
 
                 <TitleBox>

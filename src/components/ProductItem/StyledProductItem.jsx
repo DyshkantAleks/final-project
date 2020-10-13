@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 export const ConteinerItem = styled.li`
 list-style: none;
@@ -47,11 +49,11 @@ padding-top: 1.5rem;
 }
 `;
 
-export const FavoriteItem = styled.span`
-    position:absolute;
-    top:1rem;
-    left:24.5rem;
-    font-size: 2.5rem;
-    color: #ED4D71;
-    cursor:pointer;
-`;
+export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+position:absolute;
+top:1rem;
+left:24.5rem;
+font-size: 2.5rem;
+color: #ED4D71;
+cursor:pointer;
+`; 
