@@ -4,6 +4,8 @@ import './App.css';
 import './styles/style.scss';
 
 
+
+
 import {Button} from './components/Button';
 import {Modal} from './components/Modal';
 import {ModalThanks} from './components/Modal/ModalThanks';
@@ -18,7 +20,7 @@ function App() {
 
     return (
         <div className="App">
-            
+
         </div>
     );
 }
