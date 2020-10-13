@@ -28,8 +28,6 @@ export const Header = () => {
                 {width >= 1200 && (
                     <CatalogList/>
                 )}
-
-
         </>
     )
 }
