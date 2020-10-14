@@ -13,14 +13,17 @@ export const PopularCategoryList = ({props}) => {
         <>
             <Title text={'Популярные категории'}/>
             <List>
-                <PopularCategoryItem backGround={'https://dominterier.ru/wp-content/uploads/2018/12/vr-13.jpg'}
+                <PopularCategoryItem backGround={'./img/table.png'}
                     textForTitle={'Tables'}
                                      textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
                 <PopularCategoryItem textForTitle={'Tables'}
+                                     backGround={'./img/table.png'}
                                      textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
                 <PopularCategoryItem textForTitle={'Tables'}
+                                     backGround={'./img/table.png'}
                                      textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
                 <PopularCategoryItem textForTitle={'Tables'}
+                                     backGround={'./img/table.png'}
                                      textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
             </List>
         </>

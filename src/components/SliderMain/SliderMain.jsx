@@ -24,8 +24,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar]);
 export const SliderTest = () => {
     return (
         <SliderContainer>
-            <Swiper id={'main'} tag='div' wrapperTag='ul' navigation={{clickable: true}} pagination={{clickable: true}} scrollbar={{clickable: true}}>
-                <SwiperSlide tag='li'>
+            <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}} pagination={{clickable: true}} scrollbar={{clickable: true}}>
+                <SwiperSlide id={'homepage-slide'} tag='li'>
 
                         <ImageContainer>
                             <Image
@@ -70,7 +70,7 @@ height: 100%;
 const Image = styled.img`
 width: 100%;
 height: auto;
-`
+`;
 
 
 // import React, { useState } from 'react';
