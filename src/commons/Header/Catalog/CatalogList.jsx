@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import {CatalogSublist} from "./CatalogSublist";
-import {CatalogSubitem} from "./CatalogSubitem";
+
 import {CatalogItem} from "./CatalogItem";
 import {device} from "../../../styles/breakpoints/breakpoints";
 
 export const CatalogList = () => {
     return (
-
-            <List>
-                <CatalogItem/>
-            </List>
+            <Container>
+                <List>
+                    <CatalogItem/>
+                </List>
+            </Container>
 
     )
 };
-// const Container = styled.nav`
-// width: 100%;
-// `;
+const Container = styled.div`
+width: 100%;
+background-color: #f2f2f2;
+`;
 const List = styled.ul`
 list-style: none;
     padding-left: 0;
@@ -27,7 +28,7 @@ list-style: none;
     display: flex;
     width: fit-content;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 1rem 0;
     }
 `;
 

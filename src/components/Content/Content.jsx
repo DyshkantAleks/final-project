@@ -1,7 +1,7 @@
 import React from "react";
 import {device} from "../../styles/breakpoints/breakpoints";
 import styled from 'styled-components'
-import {CatalogList} from "../../commons/Header/Catalog/CatalogList";
+
 
 
 export const Content = () => {
@@ -17,7 +17,7 @@ export const ContentContairer = styled.div`
     padding: 0 1.6rem;
     margin: 0 auto;
     
-    @media ${device.tablet}{
+    @media ${device.tabletM}{
         padding: 0 2.4rem;
     }
     @media ${device.tabletL}{

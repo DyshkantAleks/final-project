@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {ROUTES} from "../../../pages/navigation/routes";
 import {device} from "../../../styles/breakpoints/breakpoints";
 
-const url = window.location.origin;
+export const url = window.location.origin;
 
 export const Logo = (props) => {
     return (
@@ -42,7 +42,7 @@ const Container = styled.div`
     //margin-right: -50%;
     transform: translate(-50%, -50%);
     
-        @media ${device.tablet}{
+        @media ${device.tabletM}{
         width: 8rem;
         }
         @media ${device.desktop}{

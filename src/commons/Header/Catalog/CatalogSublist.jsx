@@ -6,9 +6,9 @@ import {device} from "../../../styles/breakpoints/breakpoints";
 export const CatalogSublist = () => {
     return (
 
-                    <SubList>
-                        <CatalogSubitem/>
-                    </SubList>
+        <SubList>
+            <CatalogSubitem/>
+        </SubList>
 
     )
 };
@@ -20,8 +20,11 @@ list-style: none;
     width: 100%;
     @media ${device.desktop}{
     position: absolute;
-    width: 200px;
+    //top:4.5rem;
+    width: 20rem;
     padding: 1rem;
-    border: 1px solid black;
+    //border: .1rem solid black;
+    text-align: left;
+    
     }
 `;

@@ -275,7 +275,8 @@
             "length": 39
         }
     ],
-    "tables": [{
+    "tables": [
+        {
             "category": "kitchen",
             "code": "PSET180",
             "name": "Стол обеденный Exclusive",
@@ -654,7 +655,8 @@
             "inCart": false
         }
     ],
-    "sofas": [{
+    "sofas": [
+        {
             "category": "coach",
             "code": "109838",
             "name": "Кушетка Gaby",
@@ -855,7 +857,8 @@
             "inCart": false
         }
     ],
-    "beds": [{
+    "beds": [
+        {
             "category": "soft",
             "code": "33902",
             "name": "Erica с ПМ ",
@@ -1069,7 +1072,8 @@
 
 
     ],
-    "accessories": [{
+    "accessories": [
+        {
             "category": "mirrors",
             "code": "VANITYFAIR",
             "name": "Зеркало настенное Vanity Fair",
@@ -1295,7 +1299,8 @@
             "inCart": false
         }
     ],
-    "storage": [{
+    "storage": [
+        {
             "category": "wardrobe",
             "code": "Dxsp",
             "name": "Шкаф DEXTER",
