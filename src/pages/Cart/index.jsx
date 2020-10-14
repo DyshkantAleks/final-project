@@ -8,12 +8,16 @@ import { Button } from '../../components/Button'
 
 export const CartPage = () => {
 
-    const cartItems = useSelector(selectCart)
-
+    const cartItems = useSelector(selectCart);
+    const menuArray = [ null, null, 'Назва товару', 'Колір', 'Кількість', 'Ціна'];
     return (
         <>
             <h1>Кошик</h1>
+            
             <CartContainer>
+            <CartMenu> 
+                {menuArray.map(item => <p>{item}</p>)}
+            </CartMenu>
                 {
                     cartItems.map(item =>
                         <CartItem {...item}
@@ -31,8 +35,21 @@ export const CartPage = () => {
 }
 
 const CartContainer = styled.div`
-color: red;
+
 `
+
+const CartMenu = styled.div`
+    display: grid;
+    grid-template-columns: 5% 10% 20% 1fr 1fr 10%;
+    background-color: #F5F5F5;
+
+    p {
+        padding: 0.8rem;
+        color: #007042;
+        font-weight: bold;
+    }
+`
+
 const CartTotalContainer = styled.div`
 padding-top: 2rem;
 display: flex; 

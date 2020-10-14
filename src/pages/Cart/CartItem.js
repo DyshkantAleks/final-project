@@ -26,8 +26,8 @@ export const CartItem = ({ image, price, name, color, code }) => {
 const CartItemContainer = styled.div`
         align-items: center;
         display: grid;
-        grid-template-columns: 5% 10% 1fr 1fr 1fr 15%;
-        grid-gap: 0.7rem;
+        grid-template-columns: 5% 10% 20% 1fr 1fr 10%;
+        grid-gap: 1.8rem;
         padding: 1.5rem;
         border-bottom: 1px solid #D3D7DA;
 
