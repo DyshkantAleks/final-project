@@ -1,34 +1,56 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import {device} from "../../styles/breakpoints/breakpoints";
 
 export const ConteinerItem = styled.li`
-position: relative;
 width: 29rem;
 list-style: none;
 border: .1rem solid #F5F5F5;
 transition: all .3s linear;
+margin-bottom: 2rem;
     &:hover{
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+    @media ${device.tabletM}{
+        width: 25.2rem;
+    }
+    @media ${device.tabletL}{
+        width: 21.5rem;
+    }
+    @media ${device.desktop}{
+        /* width: 26.5rem; */
+        width: 100%;
+        
     }
 `;
 
 export const PhotoBox = styled.div`
-height: 26.2rem;
-overflow: hidden;
-/* border-bottom: .1rem solid #F5F5F5; */
-padding: 1.4rem;
+display: flex;
+height: 29rem;
+justify-content: center;
+align-items: center;
+padding: .5rem;
+    @media ${device.tabletM}{
+        height: 25.2rem;
+        padding: 1rem;
+    }
+    @media ${device.tabletL}{
+        height: 21.5rem;
+    }
+    @media ${device.desktop}{
+        height: 26.5rem;
+        padding: 1.3rem;
+    }
 `;
 
 export const Photo = styled.img`
-display: block;
 max-width: 100%;
 max-height: 100%;
-object-fit: cover;
-margin: 0 auto;
+
 `;
 
 export const TitleBox = styled.div`
+position: relative;
 display: flex;
 flex-direction: column;
 padding: .5rem 1.4rem 1.4rem 1.4rem;
@@ -39,22 +61,32 @@ font-size: 1.4rem;
 `;
 
 export const Price = styled.span`
+font-size: 2.5rem;
 font-weight: 800;
-font-size: 3rem;
 color: #007042;
-padding-top: 1.5rem;
+padding: 1rem 0;
     &::after{
         content: 'грн';
         position: relative;
-        left: 1rem;
-        font-size: 1.8rem;
+        left: .5rem;
+        font-size: 1.3rem;
         font-weight: 700;
+    }
+    @media ${device.tabletM}{
+    font-weight: 800;
+    font-size: 3rem;
+    padding-top: 1.5rem;
+        &::after{
+            left: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
     }
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 position: absolute;
-top: 28.2rem;
+top: 0;
 right: 1.4rem;
 font-size: 2.5rem;
 color: #E6ADBF;
