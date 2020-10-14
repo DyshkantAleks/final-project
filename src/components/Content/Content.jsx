@@ -13,7 +13,7 @@ export const Content = () => {
     )
 };
 
-const ContentContairer = styled.div`
+export const ContentContairer = styled.div`
     padding: 0 1.6rem;
     margin: 0 auto;
     

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Title} from "../Title/Title";
 
 
+
 import {device} from "../../styles/breakpoints/breakpoints";
 
 export const PopularProductsList = () => {
@@ -14,7 +15,7 @@ export const PopularProductsList = () => {
     )
 }
 
-const List = styled.div`
+export const List = styled.div`
 display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem 2rem;
