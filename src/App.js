@@ -20,7 +20,8 @@ function App() {
         //   {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())}/>}
         //   <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))}/>
         // </div>
-    <Navigation/>
+        <
+        Navigation / >
 
     );
 }
