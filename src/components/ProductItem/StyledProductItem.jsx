@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export const ConteinerItem = styled.li`
-position: relative;
-width: 29rem;
+//width: 29rem;
 list-style: none;
 border: .1rem solid #F5F5F5;
 transition: all .3s linear;
@@ -14,18 +13,23 @@ transition: all .3s linear;
 `;
 
 export const PhotoBox = styled.div`
+position: relative;
 height: 26.2rem;
 overflow: hidden;
 /* border-bottom: .1rem solid #F5F5F5; */
-padding: 1.4rem;
+//padding: 1.4rem;
+display: flex;
+justify-content: center;
+align-items: center;
+
 `;
 
 export const Photo = styled.img`
-display: block;
-max-width: 100%;
-max-height: 100%;
-object-fit: cover;
-margin: 0 auto;
+//display: block;
+width: 100%;
+height: auto;
+//object-fit: cover;
+//margin: 0 auto;
 `;
 
 export const TitleBox = styled.div`
@@ -54,7 +58,7 @@ padding-top: 1.5rem;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 position: absolute;
-top: 28.2rem;
+top: 1.5rem;
 right: 1.4rem;
 font-size: 2.5rem;
 color: #E6ADBF;

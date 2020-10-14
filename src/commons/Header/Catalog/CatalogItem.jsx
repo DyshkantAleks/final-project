@@ -4,7 +4,7 @@ import {CatalogSublist} from "./CatalogSublist";
 import {device} from "../../../styles/breakpoints/breakpoints";
 
 export const CatalogItem = () => {
-    //const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [hover, setHover] = useState(false);
     return (
         <>
