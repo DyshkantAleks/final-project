@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@testing-library/jest-dom": "^4.2.4",
@@ -26,7 +27,7 @@
     "stylelint": "^13.7.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^4.1.0",
-    "swiper": "^6.3.2"
+    "swiper": "^6.3.3"
   },
   "scripts": {
     "start": "npm-run-all -p watch-sass-js start-js",
@@ -74,3 +75,4 @@
     "standard": "^14.3.4"
   }
 }
+

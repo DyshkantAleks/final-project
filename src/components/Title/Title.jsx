@@ -15,6 +15,7 @@ const MainTitle = styled.h2`
 font-size: 1.8rem;
     font-weight: bold;
     margin: 2rem 0;
+    text-align: left;
     
     @media ${device.tablet}{
     font-size: 2.4rem;
