@@ -27,7 +27,7 @@ const CartItemContainer = styled.div`
         align-items: center;
         display: grid;
         grid-template-columns: 5% 10% 20% 1fr 1fr 10%;
-        grid-gap: 1.8rem;
+        grid-gap: 1.9rem;
         padding: 1.5rem;
         border-bottom: 1px solid #D3D7DA;
 
