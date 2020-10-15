@@ -61,6 +61,7 @@ const Item = styled.section`
 
 @media ${device.tabletL} {
  height: 25rem;
+
 }   
 `;
 
@@ -69,6 +70,7 @@ const Title = styled.h3`
       line-height: 1.5;
       margin: 0;
       font-weight: bold;
+      text-shadow: 0 0 black;
     
     
 @media ${device.tabletM} {
@@ -82,6 +84,7 @@ const Subtitle = styled.h4`
       max-width: 80%;
       margin: 1rem 0;
       text-align: left;
+      text-shadow: 0 0 black;
     
     
 @media ${device.tabletM} {

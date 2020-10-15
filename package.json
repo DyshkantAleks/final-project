@@ -1,10 +1,10 @@
 {
-
   "name": "final-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@testing-library/jest-dom": "^4.2.4",
@@ -61,51 +61,18 @@
         "/src/**/*.scss"
       ],
       "extensions": "scss"
-
     },
-    "scripts": {
-        "start": "npm-run-all -p watch-sass-js start-js",
-        "build": "npm run eslint && npm run stylelint-build && react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "eslint": "eslint 'src/**/*.js'",
-        "start-js": "react-scripts start",
-        "stylelint-dev": "stylelint 'src/**/*.scss' --cache --cache-location './.stylelintcache'; exit 0",
-        "stylelint-build": "stylelint 'src/**/*.scss'",
-        "watch-sass-js": "npm-watch"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "watch": {
-        "stylelint-dev": {
-            "patterns": [
-                "/src/**/*.scss"
-            ],
-            "extensions": "scss"
-        },
-        "eslint": {
-            "patterns": [
-                "/src/**/*.js"
-            ],
-            "extensions": "js"
-        }
-    },
-    "devDependencies": {
-        "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-react": "^7.21.3",
-        "standard": "^14.3.4"
+    "eslint": {
+      "patterns": [
+        "/src/**/*.js"
+      ],
+      "extensions": "js"
     }
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.21.3",
+    "standard": "^14.3.4"
+  }
 }
+

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
-import { ConteinerItem, PhotoBox, Photo, TitleBox, Name, Price, StyledFontAwesomeIcon } from './StyledProductItem';
-import { useToggle } from '../../utils/useToggle';
-import { Button } from '../Button';
+import {faHeart as fasFaHeart} from '@fortawesome/free-solid-svg-icons';
+import {faHeart as farFaHeart} from '@fortawesome/free-regular-svg-icons';
+import {ConteinerItem, PhotoBox, Photo, TitleBox, Name, Price, StyledFontAwesomeIcon} from './StyledProductItem';
+import {useToggle} from '../../utils/useToggle';
+import {Button} from '../Button';
 
 export const ProductItem = (props) => {
     const {
@@ -17,16 +17,16 @@ export const ProductItem = (props) => {
     const [inFavorite, toggleInFavorite] = useToggle();
 
     return (
-        <ConteinerItem >
+        <ConteinerItem>
             <PhotoBox>
-                <Photo alt='our product' src={image} />
+                <Photo alt='our product' src={image}/>
+                {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite}/>}
+                {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite}/>}
             </PhotoBox>
-            { !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} /> }
-            { inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} /> }
             <TitleBox>
                 <Name>{name}</Name>
                 <Price>{price}</Price>
-                <Button text={'Купить'} />
+                <Button text={'Купить'}/>
             </TitleBox>
         </ConteinerItem>
     )

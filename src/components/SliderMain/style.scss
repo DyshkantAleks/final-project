@@ -1,13 +1,16 @@
 
-
 .swiper-wrapper {
   padding: 0;
   list-style: none;
 }
-.swiper-slide {
+
+#homepage-slide {
   width: 100%;
 }
-.swiper-container {
+
+#homepage-swiper-container{
   width: 100%;
-padding-bottom: 40%;
+  height: unset;
+  padding-bottom: 50%;
+
 }
