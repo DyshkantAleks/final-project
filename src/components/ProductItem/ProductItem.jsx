@@ -10,8 +10,8 @@ export const ProductItem = (props) => {
     const {
         price = 4899,
         name = 'Стул обеденный',
-        // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
-        image = './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
+        image = './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
+        // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
         // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
         // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
         // image = './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',

@@ -9,13 +9,12 @@ width: 100%;
     @media ${device.tabletL}{
         display: grid;
         grid-template-columns: 50% auto;
-        grid-template-rows: 50rem 20rem;
+        grid-template-rows: 53rem 20rem;
         gap: 1rem 3rem;
         border-bottom: .1rem solid #D3D7DA;
         padding-bottom: 4.2rem;
         margin-bottom: 10rem;
     }
-
 `;
 
 export const ContainerProduct = styled.div`
@@ -121,5 +120,4 @@ justify-content: center;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     }
-
 `;

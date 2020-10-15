@@ -14,14 +14,20 @@ width: 85%;
 `;
 
 export const ImageMainContainer = styled.div`
-flex-basis: 48.5rem;
+width: 51rem;
+height: 51rem;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 export const ImageMain = styled.img`
 display: block;
 max-width: 100%;
-max-height: 100%;
+height: auto;
 margin: 0 auto;
+
 `;
 
 export const ImageThumbsContainer=styled.div`
