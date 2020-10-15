@@ -1,11 +1,14 @@
-.main {
+#item {
     width: 48.5rem;
     height: 48.5rem;
 }
 
-.qwerty {
-    max-height: 48.5rem;
-    overflow: hidden;
+#thumbs {
+    width: 8rem;
+    height: 48.5rem;
+}
+
+.swiper-slide {
     cursor: pointer;
 }
 
