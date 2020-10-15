@@ -16,29 +16,6 @@ export const CatalogItem = () => {
     const {width} = useWindowDimensions();
     return (
         <>
-            {/*{width < 1200 && (*/}
-            {/*    <Item onClick={() => {*/}
-            {/*        setIsOpen(!isOpen);*/}
-            {/*    }}>Не стулья*/}
-            {/*        {isOpen && (*/}
-            {/*            <CatalogSublist/>*/}
-            {/*        )}*/}
-            {/*    </Item>*/}
-            {/*)}*/}
-            {/*{width >= 1200 && (*/}
-            {/*    <Item onMouseEnter={() => {*/}
-            {/*        setHover(true)*/}
-            {/*    }}*/}
-            {/*          onMouseLeave={() => {*/}
-            {/*              setHover(false)*/}
-            {/*          }}*/}
-            {/*    >kjvjsvbjbsjbskvbksjbvv*/}
-            {/*        {hover && (*/}
-            {/*            <CatalogSublist/>*/}
-
-            {/*        )}*/}
-            {/*    </Item>*/}
-            {/*)}*/}
             <NewItem>
                 <IconContainer>
                     {CatalogIcons.chair}

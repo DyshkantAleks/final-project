@@ -102,6 +102,8 @@ list-style: none;
     padding: 0;
     border: .1rem solid #aecfd9;
     text-align: left;
+    z-index: 1000;
+    background-color: white;
     
     }
 `;
