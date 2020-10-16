@@ -1,11 +1,10 @@
 import { useState, useCallback } from 'react';
 
-
 export const useToggle = (initialValue = false) => {
-    const [inFavorite, setInFavorite] = useState(initialValue);
+    const [value, setValue] = useState(initialValue);
 
     const toggle = useCallback(() => {
-        setInFavorite(value => !value);
+        setValue(val => !val);
     }, []);
-    return [inFavorite, toggle];
+    return [value, toggle];
 };

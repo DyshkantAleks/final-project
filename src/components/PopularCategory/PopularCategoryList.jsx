@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+
+import {List} from "./StyledPopularCategory";
 
 
-
-import {PopularCategoryItem} from "./PopularCategoryItem";
+import {PopularCategoryItem} from "./PopularCategoryComponents/PopularCategoryItem";
 
 import {Title} from "../Title/Title";
-import {device} from "../../styles/breakpoints/breakpoints";
+
 
 export const PopularCategoryList = ({props}) => {
     return (
@@ -32,13 +32,3 @@ export const PopularCategoryList = ({props}) => {
 
 }
 
-const List = styled.div`
-     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem 2rem;
-   
-@media ${device.tabletM} {
- grid-template-columns: 1fr 1fr;
-}
-
-`;

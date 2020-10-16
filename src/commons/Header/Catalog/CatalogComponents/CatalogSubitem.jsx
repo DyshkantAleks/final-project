@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+
+import {SubItem} from "../StyledCatalog";
 
 export const CatalogSubitem = () => {
     return (
@@ -11,9 +12,3 @@ export const CatalogSubitem = () => {
     )
 };
 
-const SubItem = styled.li`
-font-size: 1.6rem;
-line-height: 3.5rem;
-font-weight: normal;
-
-`
