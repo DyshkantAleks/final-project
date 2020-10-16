@@ -4,7 +4,7 @@ import { Title } from '../Title/Title';
 import { ProductCarousel } from "../ProductCarousel/ProductCarousel";
 import { ContainerDetails, ContainerProduct, Price, StyledFontAwesomeIcon, Article, Description, Subtitle, Actions, SpecificationContainer, DescriptionKey, ProductItemList } from "./StyledProductItemDetails";
 import { Button } from '../Button';
-import { ContentContairer } from '../Content/Content';
+// import { ContentContairer } from '../Content/Content';
 import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
 import { useToggle } from '../../utils/useToggle';
@@ -29,10 +29,12 @@ export const ProductItemDetails = (props) => {
     const [inFavorite, toggleInFavorite] = useToggle();
 
     return (
-        <ContentContairer>
+        // <ContentContairer>
+        <>
             <Title text={name} />
             <ContainerDetails>
                 <ProductCarousel />
+                {/* <h1>Hello</h1> */}
                 <ContainerProduct>
                     <Price>{price}</Price>
                     { !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} /> }
@@ -45,7 +47,7 @@ export const ProductItemDetails = (props) => {
                         <Description>Глубина - {length} cм </Description>
                     </Subtitle>
                     <Actions>
-                        <Button text={'Купить'} />
+                        <h2>Counter</h2>
                         <Button text={'Купить'} />
                     </Actions>
                 </ContainerProduct>
@@ -65,6 +67,7 @@ export const ProductItemDetails = (props) => {
                 <ProductItem />
                 <ProductItem />
             </ProductItemList>
-        </ContentContairer>
+            </>
+        // </ContentContairer>
     )
 }

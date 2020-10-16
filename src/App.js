@@ -1,5 +1,5 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 
@@ -12,7 +12,6 @@ function App() {
     // const dispatch = useDispatch();
     // const modalIsOpen = useSelector(selectModalIsOpen);
     // const modalContent = useSelector(selectModalContent);
-
 
     return (
         <div className="App">
