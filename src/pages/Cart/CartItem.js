@@ -13,9 +13,8 @@ export const CartItem = ({ image, price, name, color, code }) => {
                 <h4>{name}</h4>
                 <p>Код: {code}</p>
             </CartNameCode>
-
             <CartColor>
-                <option value={color}>{color}</option>  
+               {color}
             </CartColor>
             <CartItemsNumber></CartItemsNumber>
             <CartPrice>{price} грн</CartPrice>
@@ -28,8 +27,9 @@ const CartItemContainer = styled.div`
         display: grid;
         grid-template-columns: 5% 10% 20% 1fr 1fr 10%;
         grid-gap: 1.9rem;
-        padding: 1.5rem;
+        padding: 1.7rem;
         border-bottom: 1px solid #D3D7DA;
+        font-size: 14px;
 
         :last-child {
                 border-bottom: 2px solid #007042;
@@ -60,19 +60,15 @@ h4 {
 p {
 color: #57646E;
 display: block;
+font-size: 12px;
 margin: 0;
 }
 `
 
-const CartColor = styled.select`
-border: 1px solid #D3D7DA;
-border-radius: 3px;
-
-    option {
-        font-family: inherit;
-        font-size: 14px;
-        color: #000000;
-    }
+const CartColor = styled.p`
+font-family: Open Sans;
+font-size: 14px;
+color: #000000;
 `
 
 const CartItemsNumber = styled.div`
@@ -81,7 +77,7 @@ const CartItemsNumber = styled.div`
 
 const CartPrice = styled.p`
 font-weight: bold;
-font-size: 1rem;
+font-size: 1em;
 font-family: inherit;
 color: #000000;
 `

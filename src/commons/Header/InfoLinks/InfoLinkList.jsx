@@ -49,7 +49,7 @@ const Item = styled.li`
           margin: 0 1.5rem
           }
       a {
-        color: black;
+        color: #333333;
         text-decoration: none;
         display: block;
           }

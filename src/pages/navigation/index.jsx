@@ -15,12 +15,16 @@ import {StoresPage} from "../Stores";
 import {CartPage} from "../Cart";
 import {FavoritesPage} from "../Favorites";
 import {AccountPage} from "../Account";
+import {ProductPage} from '../Product';
 
 
 
 export const Navigation = () => (
     <Router>
         <Switch>
+            <Route path={ROUTES.PRODUCT}>
+                <ProductPage/>
+            </Route>
             <Route path={ROUTES.ABOUT}>
                 <AboutPage/>
             </Route>

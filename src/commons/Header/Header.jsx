@@ -28,15 +28,13 @@ export const Header = () => {
                 {width >= 1200 && (
                     <CatalogList/>
                 )}
-
-
         </>
     )
 }
 
 const StyledHeader = styled.header`
     //background-color: #848484;
-    border-bottom: 1px solid black;
+    //border-bottom: 1px solid black;
 `;
 
 const HeaderContainer = styled.div`
