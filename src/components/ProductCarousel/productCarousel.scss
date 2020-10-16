@@ -1,0 +1,16 @@
+.swiper-container {
+    width: 48.5rem;
+    height: 48.5rem;
+}
+
+.swiper-slide {
+    max-height: 48.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.swiper-wrapper {
+    padding-inline-start: 0;
+    list-style: none;
+    padding: 0;
+}
