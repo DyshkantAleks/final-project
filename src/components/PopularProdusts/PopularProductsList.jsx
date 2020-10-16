@@ -12,10 +12,7 @@ export const PopularProductsList = () => {
         <>
             <Title text={'Популярные товары'}/>
             <List>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
+
             </List>
         </>
     )
