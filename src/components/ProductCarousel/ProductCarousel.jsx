@@ -13,7 +13,7 @@ import {
     ImageMainContainer, 
     ImageMain, 
     ImageThumbsContainer, 
-    ImageThumbs } from './StyledProductCarousel'
+    ImageThumbs } from './StyledProductCarousel';
 
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 
@@ -33,7 +33,7 @@ export const ProductCarousel = () => {
     const slides = [];
     for (let i = 0; i < 4; i += 1) {
         slides.push(
-            <SwiperSlide key={`slide-${i}`} tag="li">
+            <SwiperSlide id={'qwer123'} key={`slide-${i}`} tag="li">
                 <ImageMainContainer>
                     <ImageMain src={img[i]} alt={`Slide ${i}`} />
                 </ImageMainContainer>
@@ -44,7 +44,7 @@ export const ProductCarousel = () => {
     const thumbs = [];
     for (let i = 0; i < 4; i += 1) {
         thumbs.push(
-            <SwiperSlide key={`thumb-${i}`} tag="li">
+            <SwiperSlide id={'qwerty'} key={`thumb-${i}`} tag="li">
                 <ImageThumbsContainer>
                     <ImageThumbs src={img[i]} alt={`Thumbnail ${i}`} />
                 </ImageThumbsContainer>
@@ -76,7 +76,7 @@ export const ProductCarousel = () => {
 
             <SwiperGallery>
                 <Swiper
-                    id="main"
+                    id="item"
                     thumbs={{ swiper: thumbsSwiper }}
                     onSwiper={setSecondSwiper} controller={{ control: firstSwiper }}
                     wrapperTag="ul"

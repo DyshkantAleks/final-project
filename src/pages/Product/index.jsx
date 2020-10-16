@@ -1,13 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import {Header} from '../../commons/Header/Header';
-import {ProductItemDetails} from '../../components/ProductItemDetails/ProductItemDetails';
+import { Header } from '../../commons/Header/Header';
+import { ProductItemDetails } from '../../components/ProductItemDetails/ProductItemDetails';
+import {ContentContairer} from '../../components/Content/Content';
+
 
 export const ProductPage = () => {
     return (
         <>
-            <Header/>
-            <ProductItemDetails/>
+            <Header />
+            <ContentContairer>
+                <ProductItemDetails />
+            </ContentContairer>
         </>
     )
 }
