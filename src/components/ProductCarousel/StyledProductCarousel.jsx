@@ -7,19 +7,17 @@ flex-flow: row;
 
 export const SwiperThumbs = styled.div`
 width: 15%;
+padding-right: 3rem;
 `;
 
 export const SwiperGallery = styled.div`
-width: 85%;
+width: 80%;
 `;
 
 export const ImageMainContainer = styled.div`
 width: 51rem;
 height: 51rem;
 overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
 `;
 
 export const ImageMain = styled.img`

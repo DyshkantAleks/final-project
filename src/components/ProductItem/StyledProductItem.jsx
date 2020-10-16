@@ -11,6 +11,9 @@ margin-bottom: 2rem;
     &:hover{
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     }
+    @media ${device.tabletS}{
+        width: 33rem;
+    }
     @media ${device.tabletM}{
         width: 25.2rem;
     }
@@ -30,6 +33,9 @@ height: 29rem;
 justify-content: center;
 align-items: center;
 padding: .5rem;
+    @media ${device.tabletS}{
+        height: 33rem;
+    }
     @media ${device.tabletM}{
         height: 25.2rem;
         padding: 1rem;

@@ -2,14 +2,17 @@
     width: 100%;
 }
 
-// #thumbs {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     justify-content: flex-start;
-//     width: 8rem;
-// }
-.swiper-slide {
+#thumbs {
+    width: 8rem;
+    height: 48.5rem;
+}
+
+#thumbs .swiper-wrapper {
+    position: relative;
+    bottom: 18.375rem;
+}
+
+#thumbs .swiper-slide {
     cursor: pointer;
 }
 
