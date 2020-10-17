@@ -32,7 +32,7 @@ align-items: center;
 width: 99%;
 height: 28rem;
 overflow: hidden;
-border: .1rem solid #F5F5F5;
+border: .1rem solid #e6e9ef;
     @media ${device.tabletS}{
         height: 55rem;
     };
@@ -50,6 +50,7 @@ max-width: 100%;
 height: unset;
 margin: 0 auto;
 overflow: hidden;
+padding: .5rem;
 `;
 
 export const ImageThumbsContainer=styled.div`
@@ -58,7 +59,7 @@ justify-content: center;
 align-items: center;
 width: 98%;
 height: 7rem;
-border: .1rem solid #F5F5F5;
+border: .1rem solid #e6e9ef;
 overflow: hidden;
 @media ${device.tabletS}{
     height: 9rem;
@@ -76,4 +77,5 @@ display: block;
 max-width: 99%;
 height: unset;
 margin: 0 auto;
+padding: .5rem;
 `;
