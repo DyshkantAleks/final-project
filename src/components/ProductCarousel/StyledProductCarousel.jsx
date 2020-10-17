@@ -57,7 +57,7 @@ export const ImageThumbsContainer=styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 98%;
+width: 97%;
 height: 7rem;
 border: .1rem solid #e6e9ef;
 overflow: hidden;
