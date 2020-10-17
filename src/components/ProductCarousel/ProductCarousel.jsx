@@ -11,23 +11,32 @@ import {
     ImageMainContainer,
     ImageMain,
     ImageThumbsContainer,
-    ImageThumbs
+    ImageThumbs,
+    SwiperContainerHorizontal,
+    SwiperGalleryHorizontal,
+    SwiperThumbsHorizontal
+
 } from './StyledProductCarousel';
+import useWindowDimensions from "../../utils/useWindowDimensions";
 
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 
 export const ProductCarousel = () => {
+    const { width } = useWindowDimensions();
 
     const img = [
         './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
         './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
         './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
         './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
-        './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
+        './img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg',
+        './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
+        './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
+        './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
     ]
 
     const slides = [];
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < img.length; i++) {
         slides.push(
             <SwiperSlide key={`slide-${i}`} tag="li">
                 <ImageMainContainer>
@@ -38,7 +47,7 @@ export const ProductCarousel = () => {
     };
 
     const thumbs = [];
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < img.length; i++) {
         thumbs.push(
             <SwiperSlide key={`thumb-${i}`} tag="li">
                 <ImageThumbsContainer>
@@ -66,8 +75,17 @@ export const ProductCarousel = () => {
         slideToClickedSlide: true,
         centeredSlides: true,
         direction: 'vertical',
-        mousewheel: true,
-    }
+
+    };
+
+    const thumbsSwiperParamsHorizontal = {
+        wrapperTag: 'ul',
+        spaceBetween: 5,
+        slidesPerView: 5,
+        slideToClickedSlide: true,
+        centeredSlides: true,
+        direction: 'horizontal',
+    };
 
     useEffect(() => {
         const gallerySwiper = gallerySwiperRef.current.swiper;
@@ -77,22 +95,37 @@ export const ProductCarousel = () => {
             gallerySwiper.controller.control = thumbsSwiper;
             thumbsSwiper.controller.control = gallerySwiper;
         }
-    }, [])
-
+    }, []);
 
     return (
-        <SwiperContainer>
-            <SwiperThumbs>
-                <Swiper id="thumbs" {...thumbsSwiperParams} ref={thumbsSwiperRef}>
-                    {thumbs}
-                </Swiper>
-            </SwiperThumbs>
-            <SwiperGallery>
-                <Swiper id="item" {...gallerySwiperParams} ref={gallerySwiperRef}>
-                    {slides}
-                </Swiper>
-            </SwiperGallery>
-        </SwiperContainer>
+        <>
+            {width >= 768 ? (<SwiperContainer>
+                <SwiperThumbs>
+                    <Swiper id="thumbs" {...thumbsSwiperParams} ref={thumbsSwiperRef}>
+                        {thumbs}
+                    </Swiper>
+                </SwiperThumbs>
+                <SwiperGallery>
+                    <Swiper id="item" {...gallerySwiperParams} ref={gallerySwiperRef}>
+                        {slides}
+                    </Swiper>
+                </SwiperGallery>
+            </SwiperContainer>) : (<SwiperContainerHorizontal>
+                <SwiperGalleryHorizontal>
+                    <Swiper id="item" {...gallerySwiperParams} ref={gallerySwiperRef}>
+                        {slides}
+                    </Swiper>
+                </SwiperGalleryHorizontal>
+                <SwiperThumbsHorizontal>
+                    <Swiper id="thumbs-horizontal" {...thumbsSwiperParamsHorizontal} ref={thumbsSwiperRef}>
+                        {thumbs}
+                    </Swiper>
+                </SwiperThumbsHorizontal>
+            </SwiperContainerHorizontal>)
+            }
+        </>
     )
 }
+
+
 

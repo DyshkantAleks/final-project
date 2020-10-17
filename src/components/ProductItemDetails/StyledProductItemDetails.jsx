@@ -9,7 +9,6 @@ width: 100%;
     @media ${device.tabletL}{
         display: grid;
         grid-template-columns: 50% auto;
-        grid-template-rows: 53rem 20rem;
         gap: 1rem 3rem;
         border-bottom: .1rem solid #D3D7DA;
         padding-bottom: 4.2rem;
