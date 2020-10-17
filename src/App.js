@@ -10,6 +10,9 @@ import './styles/style.scss';
 // import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
 import { Navigation } from './pages/navigation';
 
+import './styles/style.scss';
+
+
 function App() {
     // const dispatch = useDispatch();
     // const modalIsOpen = useSelector(selectModalIsOpen);

@@ -17,37 +17,73 @@ SwiperCore.use([Navigation, Pagination, Scrollbar]);
 // const imagesDesctop = ['./img/promoSlider/podarok-desctop.jpg', './img/promoSlider/podushka-promo-desctop.jpg',
 //     './img/promoSlider/primerka-mebeli-desctop.jpg'];
 //
-// const imagesMobile = ['./img/promoSlider/podarok-mobile.jpg', './img/promoSlider/podushka-promo-mobile.jpg',
-//     './img/promoSlider/primerka-mebeli_anons-mobile.jpg'];
 
 
 export const SliderTest = () => {
+
+    const imagesSlider = ['./img/promoSlider/podarok-slider.png', './img/promoSlider/podushka-slider.png',
+        './img/promoSlider/primerka-mebeli-slider.png'];
+
+    // const res = imagesSlider.map(i => i);
+
+    const slides = [];
+    for (let i = 0; i >= imagesSlider.length; i++) {
+        slides.push(
+            <SwiperSlide id={'homepage-slide'} key={`slide-${i}`} tag="li">
+                <ImageContainer>
+                    <Image
+                        src={imagesSlider[i]}/>
+                </ImageContainer>
+            </SwiperSlide>
+        )
+    }
+    console.log(slides);
     return (
         <SliderContainer>
-            <Swiper id={'main'} tag='div' wrapperTag='ul' navigation={{clickable: true}} pagination={{clickable: true}} scrollbar={{clickable: true}}>
-                <SwiperSlide tag='li'>
-
-                        <ImageContainer>
-                            <Image
-                                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>
-                        </ImageContainer>
-
+            <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}}
+                    pagination={{clickable: true}} scrollbar={{clickable: true}}>
+                <SwiperSlide id={'homepage-slide'}  tag="li">
+                    <ImageContainer>
+                        <Image
+                            src={'./img/promoSlider/podarok-slider.png'}/>
+                    </ImageContainer>
                 </SwiperSlide>
-                <SwiperSlide tag='li'>
-
-                        <ImageContainer>
-                            <Image
-                                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>
-                        </ImageContainer>
-
+                <SwiperSlide id={'homepage-slide'}  tag="li">
+                    <ImageContainer>
+                        <Image
+                            src={'./img/promoSlider/podushka-slider.png'}/>
+                    </ImageContainer>
                 </SwiperSlide>
-                <SwiperSlide tag='li'>
-                        <ImageContainer>
-                            <Image
-                                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>
-                        </ImageContainer>
-
+                <SwiperSlide id={'homepage-slide'}  tag="li">
+                    <ImageContainer>
+                        <Image
+                            src={'./img/promoSlider/primerka-mebeli-slider.png'}/>
+                    </ImageContainer>
                 </SwiperSlide>
+                {/*{slides}*/}
+                {/*<SwiperSlide id={'homepage-slide'} tag='li'>*/}
+
+                {/*<ImageContainer>*/}
+                {/*    <Image*/}
+                {/*        src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
+                {/*</ImageContainer>*/}
+
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide tag='li'>*/}
+
+                {/*        <ImageContainer>*/}
+                {/*            <Image*/}
+                {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
+                {/*        </ImageContainer>*/}
+
+                {/*</SwiperSlide>*/}
+                {/*<SwiperSlide tag='li'>*/}
+                {/*        <ImageContainer>*/}
+                {/*            <Image*/}
+                {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
+                {/*        </ImageContainer>*/}
+
+                {/*</SwiperSlide>*/}
             </Swiper>
         </SliderContainer>
 
@@ -70,7 +106,7 @@ height: 100%;
 const Image = styled.img`
 width: 100%;
 height: auto;
-`
+`;
 
 
 // import React, { useState } from 'react';
