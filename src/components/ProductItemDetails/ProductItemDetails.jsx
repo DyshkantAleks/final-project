@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Title } from '../Title/Title';
 import { ProductCarousel } from "../ProductCarousel/ProductCarousel";
-import { ContainerDetails, ContainerProduct, Price, StyledFontAwesomeIcon, Article, Description, Subtitle, Actions, SpecificationContainer, DescriptionKey, ProductItemList } from "./StyledProductItemDetails";
 import { Button } from '../Button';
-// import { ContentContairer } from '../Content/Content';
 import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
 import { useToggle } from '../../utils/useToggle';
 import { ProductItem } from '../ProductItem/ProductItem';
+import {
+    ContainerDetails,
+    ContainerProduct,
+    Price,
+    StyledFontAwesomeIcon,
+    Article,
+    DimensionsContainer,
+    Description,
+    Subtitle,
+    Actions,
+    SpecificationContainer,
+    DescriptionKey,
+    ProductItemList,
+    ShowMore
+} from "./StyledProductItemDetails";
 
 const specifications = {
     covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
@@ -23,51 +36,80 @@ export const ProductItemDetails = (props) => {
         code = 3435,
         height = 95,
         width = 52,
-        length = 47 
+        length = 47
     } = props;
 
     const [inFavorite, toggleInFavorite] = useToggle();
+    const [isSpecification, setIsSpecification] = useState(false);
+    const [isDimensions, setIsDimensions] = useState(false);
+
+    const toggleSpecificationBtn = () => {
+        if (isSpecification) {
+            return (
+                <ShowMore onClick={() => setIsSpecification(false)}>&#9650;</ShowMore>
+            );
+        }
+        return (
+            <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
+        );
+    };
+
+    const toggleDimensionsBtn = () => {
+        if (isDimensions) {
+            return (
+                <ShowMore onClick={() => setIsDimensions(false)}>&#9650;</ShowMore>
+            );
+        }
+        return (
+            <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
+        );
+    };
+
+    const productList = [];
+    for (let i = 0; i <= 3; i++) {
+        productList.push(
+            <ProductItem key={`product-${i}`}/>
+        );
+    };
 
     return (
-        // <ContentContairer>
         <>
             <Title text={name} />
             <ContainerDetails>
                 <ProductCarousel />
-                {/* <h1>Hello</h1> */}
                 <ContainerProduct>
                     <Price>{price}</Price>
-                    { !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} /> }
-                    { inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} /> }
+                    {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
+                    {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
                     <Article>Код: {code}</Article>
                     <Description>{description}</Description>
                     <Subtitle>Габариты
+                        {toggleDimensionsBtn()}
+                    </Subtitle>
+                    {isDimensions && <DimensionsContainer>
                         <Description>Высота - {height} cм, </Description>
                         <Description>Ширина - {width} cм, </Description>
                         <Description>Глубина - {length} cм </Description>
-                    </Subtitle>
+                    </DimensionsContainer>}
                     <Actions>
                         <h2>Counter</h2>
                         <Button text={'Купить'} />
                     </Actions>
                 </ContainerProduct>
                 <Subtitle>Характеристики
-                    <SpecificationContainer>
+                    {toggleSpecificationBtn()}
+                    {isSpecification && <SpecificationContainer>
                         <DescriptionKey>Покрытие</DescriptionKey>
                         <Description>{specifications.covering}</Description>
                         <DescriptionKey>Обивка</DescriptionKey>
                         <Description>{specifications.casing}</Description>
-                    </SpecificationContainer>
+                    </SpecificationContainer>}
                 </Subtitle>
             </ContainerDetails>
             <Title text={'Вас так же могут заинтересовать'} />
             <ProductItemList>
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
+                {productList}
             </ProductItemList>
-            </>
-        // </ContentContairer>
+        </>
     )
 }

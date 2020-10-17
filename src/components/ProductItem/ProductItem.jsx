@@ -1,15 +1,18 @@
 import React from 'react';
 
-import {faHeart as fasFaHeart} from '@fortawesome/free-solid-svg-icons';
-import {faHeart as farFaHeart} from '@fortawesome/free-regular-svg-icons';
-import {ConteinerItem, PhotoBox, Photo, TitleBox, Name, Price, StyledFontAwesomeIcon} from './StyledProductItem';
-import {useToggle} from '../../utils/useToggle';
-import {Button} from '../Button';
+import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
+import { ConteinerItem, PhotoBox, Photo, TitleBox, Name, Price, StyledFontAwesomeIcon, StyledLink } from './StyledProductItem';
+import { useToggle } from '../../utils/useToggle';
+import { Button } from '../Button';
+import { ROUTES } from "../../pages/navigation/routes";
+
+
 
 export const ProductItem = (props) => {
     const {
         price = 4899,
-        name = 'Стул обеденный',
+        name = 'Стул полубарный NATA',
         // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
         image = './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
         // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
@@ -23,17 +26,23 @@ export const ProductItem = (props) => {
     const [inFavorite, toggleInFavorite] = useToggle();
 
     return (
+
         <ConteinerItem>
             <PhotoBox>
-                <Photo alt='our product' src={image}/>
+                <StyledLink to={ROUTES.PRODUCT}>
+                    <Photo alt='our product' src={image} />
+                </StyledLink>
             </PhotoBox>
             <TitleBox>
-                <Name>{name}</Name>
-                { !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} /> }
-                { inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} /> }
+                <StyledLink to={ROUTES.PRODUCT}>
+                    <Name>{name}</Name>
+                </StyledLink>
+                {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
+                {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
                 <Price>{price}</Price>
-                <Button text={'Купить'}/>
+                <Button text={'Купить'} />
             </TitleBox>
         </ConteinerItem>
+
     )
 }

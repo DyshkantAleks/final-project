@@ -15,7 +15,6 @@ import {
     SwiperContainerHorizontal,
     SwiperGalleryHorizontal,
     SwiperThumbsHorizontal
-
 } from './StyledProductCarousel';
 import useWindowDimensions from "../../utils/useWindowDimensions";
 
@@ -75,7 +74,6 @@ export const ProductCarousel = () => {
         slideToClickedSlide: true,
         centeredSlides: true,
         direction: 'vertical',
-
     };
 
     const thumbsSwiperParamsHorizontal = {

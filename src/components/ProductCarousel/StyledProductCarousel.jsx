@@ -34,7 +34,7 @@ height: 28rem;
 overflow: hidden;
 border: .1rem solid #e6e9ef;
     @media ${device.tabletS}{
-        height: 55rem;
+        height: 52rem;
     };
     @media ${device.tabletM}{
         height: 57.6rem;
@@ -78,4 +78,8 @@ max-width: 99%;
 height: unset;
 margin: 0 auto;
 padding: .5rem;
+transition: all .3s linear;
+    &:hover{
+        transform: scale(1.2);
+    }
 `;

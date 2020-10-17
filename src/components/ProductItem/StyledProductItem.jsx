@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {device} from "../../styles/breakpoints/breakpoints";
+import {device} from '../../styles/breakpoints/breakpoints';
+import { Link } from 'react-router-dom';
+
 
 export const ConteinerItem = styled.li`
 width: 29rem;
 list-style: none;
-border: .1rem solid #F5F5F5;
+border: .1rem solid #e6e9ef;
 transition: all .3s linear;
 margin-bottom: 2rem;
     &:hover{
@@ -32,6 +34,7 @@ display: flex;
 height: 29rem;
 justify-content: center;
 align-items: center;
+overflow: hidden;
 padding: .5rem;
     @media ${device.tabletS}{
         height: 33rem;
@@ -52,7 +55,6 @@ padding: .5rem;
 export const Photo = styled.img`
 max-width: 100%;
 max-height: 100%;
-
 `;
 
 export const TitleBox = styled.div`
@@ -64,6 +66,10 @@ padding: .5rem 1.4rem 1.4rem 1.4rem;
 
 export const Name = styled.span`
 font-size: 1.4rem;
+font-weight: 700;
+    @media ${device.tabletS}{
+        font-size: 1.6rem;
+    };
 `;
 
 export const Price = styled.span`
@@ -100,5 +106,16 @@ cursor: pointer;
 transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
+    };
+    @media ${device.tabletL}{
+        top: 2.5rem;
+    }
+    @media ${device.desktop}{
+        top: 0;
     }
 `; 
+
+export const StyledLink = styled(Link)`
+text-decoration: none;
+color: #333333;
+`;
