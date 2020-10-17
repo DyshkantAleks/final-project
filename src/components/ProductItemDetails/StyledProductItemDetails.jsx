@@ -26,7 +26,7 @@ padding: 0 1.2rem 1.2rem;
 export const Price = styled.span`
 font-size: 4rem;
 font-weight: 800;
-color: #007042;
+color: #6F909A;
 padding-bottom: 2rem;
     &::after{
         content: 'грн';
@@ -41,7 +41,7 @@ position: absolute;
 top: 1rem;
 right: 1.2rem;
 font-size: 2rem;
-color: #E6ADBF;
+color: #aecfd9;
 cursor: pointer;
 transition: all .3s linear;
     &:hover{
