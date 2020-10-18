@@ -23,9 +23,7 @@ margin-bottom: 2rem;
         width: 21.5rem;
     }
     @media ${device.desktop}{
-        /* width: 26.5rem; */
         width: 100%;
-        
     }
 `;
 
@@ -34,6 +32,7 @@ display: flex;
 height: 29rem;
 justify-content: center;
 align-items: center;
+position: relative;
 overflow: hidden;
 padding: .5rem;
     @media ${device.tabletS}{
@@ -55,6 +54,32 @@ padding: .5rem;
 export const Photo = styled.img`
 max-width: 100%;
 max-height: 100%;
+`;
+export const ProductActivityContainer = styled.div`
+position: absolute; 
+top: 0;
+left: 0;
+width: 6.7rem;
+height: 6.7rem;
+border-bottom-right-radius:100%;
+background-color: #e6e9ef;
+`;
+
+export const IconContainer = styled.span`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 5rem;
+/* background-color: #e6e9ef; */
+`;
+export const SaleIcon = styled.span`
+    fill: #8D145E;
+`;
+export const NewIcon = styled.span`
+    fill: #8CB6DB;
+`;
+export const TopRatedIcon = styled.span`
+    fill: #7D37A3;
 `;
 
 export const TitleBox = styled.div`
@@ -98,7 +123,7 @@ padding: 1rem 0;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 position: absolute;
-top: 0;
+top: .3rem;
 right: 1.4rem;
 font-size: 2.5rem;
 color: #aecfd9;
@@ -107,11 +132,11 @@ transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
     };
-    @media ${device.tabletL}{
-        top: 2.5rem;
+    @media ${device.tabletM}{
+        top: 2rem;
     }
     @media ${device.desktop}{
-        top: 0;
+        top: 2.2rem;
     }
 `; 
 
@@ -119,3 +144,4 @@ export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #333333;
 `;
+

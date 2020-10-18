@@ -65,12 +65,12 @@ export const ProductItemDetails = (props) => {
         );
     };
 
-    const productList = [];
-    for (let i = 0; i <= 3; i++) {
-        productList.push(
-            <ProductItem key={`product-${i}`}/>
-        );
-    };
+    // const productList = [];
+    // for (let i = 0; i <= 3; i++) {
+    //     productList.push(
+    //         <ProductItem key={`product-${i}`}/>
+    //     );
+    // };
 
     return (
         <>
@@ -108,7 +108,30 @@ export const ProductItemDetails = (props) => {
             </ContainerDetails>
             <Title text={'Вас так же могут заинтересовать'} />
             <ProductItemList>
-                {productList}
+                {/* {productList} */}
+                <ProductItem 
+                isDiscount={true}
+                name={'Стул полубарный NATA'}
+                price={4899}
+                image={'./img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg'}
+                />
+                <ProductItem 
+                isNew={true}
+                name={'Диван Starman'}
+                price={15299}
+                image={'./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg'}
+                />
+                <ProductItem 
+                isTopRated={true}
+                name={'Стол обеденный Exclusive'}
+                price={5599}
+                image={'./img/tables/kitchen/table_Pusha/table_Pusha1.jpg'}
+                />
+                <ProductItem 
+                name={'Стул обеденный Hollywood'}
+                price={12799}
+                image={'./img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg'}
+                />
             </ProductItemList>
         </>
     )
