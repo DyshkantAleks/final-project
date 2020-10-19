@@ -10,7 +10,7 @@ export const Counter = ({ id, value }) => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const quantity = getQuantity(products, id)
-  console.log(products)
+
   const increaseQty = () => {
     if (value < quantity) { // quantity
       dispatch(quantityUp(id))
@@ -24,7 +24,7 @@ export const Counter = ({ id, value }) => {
   return (
     <CouterContainer>
       <BtnDecr onClick ={() => decreaseQty()}>-</BtnDecr>
-      <CountInput value={value + ' шт'}/>
+      <CountInput readOnly value={value + ' шт'}/>
       <BtnIncr onClick={() => increaseQty()}>+</BtnIncr>
     </CouterContainer>
   )
