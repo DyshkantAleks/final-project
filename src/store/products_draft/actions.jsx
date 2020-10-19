@@ -14,11 +14,11 @@ export const setLoader = () => ({
 export const getProductList = () => async dispatch => {
     try {
            dispatch(setLoader());
-            const res = await fetch('./db.json');
+            const res = await fetch('./db_Mira.json');
             const data = await res.json();   
-            dispatch(setProducts(data));
-
+            dispatch(setProducts(data));            
     } catch (err) {
         console.log(err);
     }
 }
+
