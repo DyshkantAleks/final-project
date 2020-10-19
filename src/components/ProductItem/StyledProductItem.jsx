@@ -11,6 +11,9 @@ margin-bottom: 2rem;
     &:hover{
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     }
+    @media ${device.tabletS}{
+        width: 33rem;
+    }
     @media ${device.tabletM}{
         width: 25.2rem;
     }
@@ -26,10 +29,12 @@ margin-bottom: 2rem;
 
 export const PhotoBox = styled.div`
 display: flex;
-height: 29rem;
 justify-content: center;
 align-items: center;
 padding: .5rem;
+    @media ${device.tabletS}{
+        height: 33rem;
+    }
     @media ${device.tabletM}{
         height: 25.2rem;
         padding: 1rem;
@@ -63,7 +68,7 @@ font-size: 1.4rem;
 export const Price = styled.span`
 font-size: 2.5rem;
 font-weight: 800;
-color: #007042;
+color: #6F909A;
 padding: 1rem 0;
     &::after{
         content: 'грн';
@@ -89,10 +94,10 @@ position: absolute;
 top: 0;
 right: 1.4rem;
 font-size: 2.5rem;
-color: #E6ADBF;
+color: #aecfd9;
 cursor: pointer;
 transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
     }
-`; 
+`;
