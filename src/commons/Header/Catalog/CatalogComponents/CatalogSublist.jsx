@@ -1,15 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import {CatalogSubitem} from "./CatalogSubitem";
-import {SubList} from "../StyledCatalog";
+import {CatalogSubitem} from './CatalogSubitem';
+import {SubList} from '../StyledCatalog';
 
 export const CatalogSublist = () => {
-    return (
+  return (
 
-        <SubList>
-            <CatalogSubitem/>
-        </SubList>
+    <SubList>
+      <CatalogSubitem/>
+    </SubList>
 
-    )
+  )
 };
-

@@ -49,6 +49,7 @@ const BtnDecr = styled.button`
     }
     &:hover{
       background-color: #e2e6ea;
+      cursor: pointer;
     } 
     &:active{
       font-weight: bold;
@@ -66,6 +67,7 @@ const BtnIncr = styled.button`
     }  
     &:hover{
       background-color: #e2e6ea;
+      cursor: pointer;
     }
     &:active{
       font-weight: bold;

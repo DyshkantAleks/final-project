@@ -81,6 +81,7 @@ const CloseBtn = styled(FontAwesomeIcon)`
 font-size: 2em;
 color: #A0A9AF;
 &:hover{
+    cursor: pointer;
     color: #007042;
 }
 `

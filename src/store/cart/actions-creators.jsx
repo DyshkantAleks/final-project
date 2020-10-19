@@ -1,4 +1,4 @@
-import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART } from "./action-types";
+import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART } from './action-types';
 
 export const addToCart = (payload) => ({
   type: ADD_TO_CART,
