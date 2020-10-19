@@ -26,8 +26,6 @@ export const ProductItem = (props) => {
         <ConteinerItem>
             <PhotoBox>
                 <Photo alt='our product' src={image}/>
-                {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite}/>}
-                {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite}/>}
             </PhotoBox>
             <TitleBox>
                 <Name>{name}</Name>
