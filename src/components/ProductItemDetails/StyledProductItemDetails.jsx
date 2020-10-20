@@ -95,12 +95,16 @@ color: #57646E;
     @media ${device.tabletM}{
         top: 4.5rem;
         font-size: 1.5rem;
-
     };
     @media ${device.tabletL}{
         right: 1.2rem;
         font-size: 1.6rem;
     };
+`;
+
+export const Brand = styled.span`
+font-size: 2rem;
+font-weight: 600;
 `;
 
 export const Description = styled.span`

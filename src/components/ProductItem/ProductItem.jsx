@@ -39,7 +39,7 @@ export const ProductItem = (props) => {
         isTopRated = false
     } = props;
 
-  const [inFavorite, toggleInFavorite] = useToggle();
+    const [inFavorite, toggleInFavorite] = useToggle();
 
     return (
 
@@ -77,10 +77,9 @@ export const ProductItem = (props) => {
                 </StyledLink>
                 {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
                 {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
-                <Price>{price}</Price>
+                <Price>{price.toLocaleString()}</Price>
                 <Button text={'Купить'} />
             </TitleBox>
         </ConteinerItem>
-
     )
 }
