@@ -13,7 +13,10 @@ import {
   Price,
   StyledFontAwesomeIcon,
   Article,
-  Brand,
+  Checkbox,
+  CheckboxItem,
+  AvailabilityArticleWrap,
+  Availability,
   DimensionsContainer,
   Description,
   Subtitle,
@@ -87,8 +90,11 @@ export const ProductItemDetails = (props) => {
           <Price>{price.toLocaleString()}</Price>
           {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
           {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
-          <Article>Код: {code}</Article>
-          <Brand>{brand}</Brand>
+          <Subtitle>Бренд: {brand}</Subtitle>
+          <AvailabilityArticleWrap>
+            <Availability>&#10004; в наличии</Availability>
+            <Article>Артикул: {code}</Article>
+          </AvailabilityArticleWrap>
           <Subtitle>Описание товара</Subtitle>
           <Description>{description}</Description>
           {width >= 768
@@ -108,7 +114,7 @@ export const ProductItemDetails = (props) => {
             </>
           }
           <Actions>
-            <ProductCounter value={value} setValue={setValue}/>
+            <ProductCounter value={value} setValue={setValue} />
             <Button text={'Купить'} />
           </Actions>
         </ContainerProduct>
