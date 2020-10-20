@@ -55,7 +55,8 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     color: #A0A9AF;
     padding: 5px 7px 0 0;
     &:hover{
-        color: #007042;
+      cursor: pointer;
+      color: #007042;
     }
 `
 const ModalText = styled.div`

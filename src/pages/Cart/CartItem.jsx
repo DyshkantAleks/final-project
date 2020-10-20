@@ -1,25 +1,25 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Counter } from '../../components/Counter'
 
-export const CartItem = ({ image, price, name, color, code }) => {
-
-    return (
-        <CartItemContainer>
-            <CloseBtn icon={faTimes} />
-            <CartImage src={image} />
-            <CartNameCode>
-                <h4>{name}</h4>
-                <p>Код: {code}</p>
-            </CartNameCode>
-            <CartColor>
-               {color}
-            </CartColor>
-            <CartItemsNumber></CartItemsNumber>
-            <CartPrice>{price} грн</CartPrice>
-        </CartItemContainer>
-    );
+export const CartItem = ({ image, price, name, color, code, quantity, value }) => {
+  return (
+    <CartItemContainer>
+      <CloseBtn icon={faTimes} />
+      <CartImage src={image[0]} />
+      <CartNameCode>
+        <h4>{name}</h4>
+        <p>Код: {code}</p>
+      </CartNameCode>
+      <CartColor>
+        {color}
+      </CartColor>
+      <Counter value={value} id={code}/>
+      <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
+    </CartItemContainer>
+  );
 }
 
 const CartItemContainer = styled.div`
@@ -68,12 +68,7 @@ margin: 0;
 const CartColor = styled.p`
 font-family: Open Sans;
 font-size: 14px;
-color: #000000;
-`
-
-const CartItemsNumber = styled.div`
-
-`
+color: #000000;`
 
 const CartPrice = styled.p`
 font-weight: bold;
@@ -86,6 +81,7 @@ const CloseBtn = styled(FontAwesomeIcon)`
 font-size: 2em;
 color: #A0A9AF;
 &:hover{
+    cursor: pointer;
     color: #007042;
 }
 `

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 
 import {CatalogSublist} from "./CatalogSublist";
 import useWindowDimensions from "../../../../utils/useWindowDimensions";

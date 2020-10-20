@@ -1,10 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import {Title} from "../Title/Title";
+import React from 'react';
+import styled from 'styled-components';
+import {Title} from '../Title/Title';
 
-
-import {device} from "../../styles/breakpoints/breakpoints";
-import {ProductItem} from "../ProductItem/ProductItem";
+import {device} from '../../styles/breakpoints/breakpoints';
+// import {ProductItem} from '../ProductItem/ProductItem';
 
 export const PopularProductsList = () => {
   return (
