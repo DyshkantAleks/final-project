@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {device} from '../../styles/breakpoints/breakpoints';
-import { Title } from '../Title/Title';
+import { Button } from '../Button';
 
 export const ContainerDetails = styled.div`
 display: flex;
@@ -139,11 +139,16 @@ display: flex;
 flex-direction: column;
 `;
 
-export const Actions = styled.div`
+export const ActionsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(2, 1fr);
-gap: 3rem;
 padding-top: 1rem;
+`;
+
+export const Actions = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 export const SpecificationContainer = styled.div`

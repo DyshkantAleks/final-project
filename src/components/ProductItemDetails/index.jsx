@@ -13,13 +13,12 @@ import {
   Price,
   StyledFontAwesomeIcon,
   Article,
-  Checkbox,
-  CheckboxItem,
   AvailabilityArticleWrap,
   Availability,
   DimensionsContainer,
   Description,
   Subtitle,
+  ActionsContainer,
   Actions,
   SpecificationContainer,
   DescriptionKey,
@@ -113,10 +112,17 @@ export const ProductItemDetails = (props) => {
               </DimensionsContainer>}
             </>
           }
-          <Actions>
+          <ActionsContainer>
+            <Actions>
             <ProductCounter value={value} setValue={setValue} />
+            </Actions>
+            <Actions>
             <Button text={'Купить'} />
-          </Actions>
+            </Actions>
+            
+          </ActionsContainer>
+
+          
         </ContainerProduct>
         {width >= 768
           ? <Subtitle>Характеристики
