@@ -1,24 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-
-
-import {Navigation} from "./pages/navigation";
-
 import './styles/style.scss';
 
+import { Navigation } from './pages/navigation';
 
-function App() {
-    // const dispatch = useDispatch();
-    // const modalIsOpen = useSelector(selectModalIsOpen);
-    // const modalContent = useSelector(selectModalContent);
+function App () {
+  return (
 
-    return (
-        <div className="App">
-            <Navigation/>
-        </div>
+    <Navigation />
 
-    );
+  );
 }
 
 export default App;

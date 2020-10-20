@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from './actions'
+import { CLOSE_MODAL, OPEN_MODAL } from './action-types';
 
 const initialState = {
   

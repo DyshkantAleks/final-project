@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Navigation, Pagination, Scrollbar} from 'swiper';
-
 
 import styled from 'styled-components'
 import 'swiper/swiper.scss';
@@ -9,8 +8,7 @@ import './style.scss'
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
-import {device} from "../../styles/breakpoints/breakpoints";
-
+import {device} from '../../styles/breakpoints/breakpoints';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar]);
 
@@ -18,76 +16,74 @@ SwiperCore.use([Navigation, Pagination, Scrollbar]);
 //     './img/promoSlider/primerka-mebeli-desctop.jpg'];
 //
 
-
 export const SliderTest = () => {
+  const imagesSlider = ['./img/promoSlider/podarok-slider.png', './img/promoSlider/podushka-slider.png',
+    './img/promoSlider/primerka-mebeli-slider.png'];
 
-    const imagesSlider = ['./img/promoSlider/podarok-slider.png', './img/promoSlider/podushka-slider.png',
-        './img/promoSlider/primerka-mebeli-slider.png'];
+  // const res = imagesSlider.map(i => i);
 
-    // const res = imagesSlider.map(i => i);
-
-    const slides = [];
-    for (let i = 0; i >= imagesSlider.length; i++) {
-        slides.push(
-            <SwiperSlide id={'homepage-slide'} key={`slide-${i}`} tag="li">
-                <ImageContainer>
-                    <Image
-                        src={imagesSlider[i]}/>
-                </ImageContainer>
-            </SwiperSlide>
-        )
-    }
-    console.log(slides);
-    return (
-        <SliderContainer>
-            <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}}
-                    pagination={{clickable: true}} scrollbar={{clickable: true}}>
-                <SwiperSlide id={'homepage-slide'}  tag="li">
-                    <ImageContainer>
-                        <Image
-                            src={'./img/promoSlider/podarok-slider.png'}/>
-                    </ImageContainer>
-                </SwiperSlide>
-                <SwiperSlide id={'homepage-slide'}  tag="li">
-                    <ImageContainer>
-                        <Image
-                            src={'./img/promoSlider/podushka-slider.png'}/>
-                    </ImageContainer>
-                </SwiperSlide>
-                <SwiperSlide id={'homepage-slide'}  tag="li">
-                    <ImageContainer>
-                        <Image
-                            src={'./img/promoSlider/primerka-mebeli-slider.png'}/>
-                    </ImageContainer>
-                </SwiperSlide>
-                {/*{slides}*/}
-                {/*<SwiperSlide id={'homepage-slide'} tag='li'>*/}
-
-                {/*<ImageContainer>*/}
-                {/*    <Image*/}
-                {/*        src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
-                {/*</ImageContainer>*/}
-
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide tag='li'>*/}
-
-                {/*        <ImageContainer>*/}
-                {/*            <Image*/}
-                {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
-                {/*        </ImageContainer>*/}
-
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide tag='li'>*/}
-                {/*        <ImageContainer>*/}
-                {/*            <Image*/}
-                {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
-                {/*        </ImageContainer>*/}
-
-                {/*</SwiperSlide>*/}
-            </Swiper>
-        </SliderContainer>
-
+  const slides = [];
+  for (let i = 0; i >= imagesSlider.length; i++) {
+    slides.push(
+      <SwiperSlide id={'homepage-slide'} key={`slide-${i}`} tag="li">
+        <ImageContainer>
+          <Image
+            src={imagesSlider[i]}/>
+        </ImageContainer>
+      </SwiperSlide>
     )
+  }
+  console.log(slides);
+  return (
+    <SliderContainer>
+      <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}}
+        pagination={{clickable: true}} scrollbar={{clickable: true}}>
+        <SwiperSlide id={'homepage-slide'} tag="li">
+          <ImageContainer>
+            <Image
+              src={'./img/promoSlider/podarok-slider.png'}/>
+          </ImageContainer>
+        </SwiperSlide>
+        <SwiperSlide id={'homepage-slide'} tag="li">
+          <ImageContainer>
+            <Image
+              src={'./img/promoSlider/podushka-slider.png'}/>
+          </ImageContainer>
+        </SwiperSlide>
+        <SwiperSlide id={'homepage-slide'} tag="li">
+          <ImageContainer>
+            <Image
+              src={'./img/promoSlider/primerka-mebeli-slider.png'}/>
+          </ImageContainer>
+        </SwiperSlide>
+        {/* {slides} */}
+        {/* <SwiperSlide id={'homepage-slide'} tag='li'> */}
+
+        {/* <ImageContainer> */}
+        {/*    <Image */}
+        {/*        src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/> */}
+        {/* </ImageContainer> */}
+
+        {/* </SwiperSlide> */}
+        {/* <SwiperSlide tag='li'> */}
+
+        {/*        <ImageContainer> */}
+        {/*            <Image */}
+        {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/> */}
+        {/*        </ImageContainer> */}
+
+        {/* </SwiperSlide> */}
+        {/* <SwiperSlide tag='li'> */}
+        {/*        <ImageContainer> */}
+        {/*            <Image */}
+        {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/> */}
+        {/*        </ImageContainer> */}
+
+        {/* </SwiperSlide> */}
+      </Swiper>
+    </SliderContainer>
+
+  )
 };
 
 const SliderContainer = styled.div`
@@ -107,7 +103,6 @@ const Image = styled.img`
 width: 100%;
 height: auto;
 `;
-
 
 // import React, { useState } from 'react';
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -191,4 +186,3 @@ height: auto;
 //         </SwiperContainer>
 //     )
 // }
-

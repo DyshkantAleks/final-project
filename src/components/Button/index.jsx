@@ -17,21 +17,24 @@ const GreendBtn = styled.button`
   border-radius: 5px;
   font-weight: bold;
     &:hover{
+      cursor: pointer;
       color:#007042;
-      background-color: #fff
+      background-color: #fff;
+      border: 1px solid #007042;
     }
     &:focus{
         outline: none;
     } 
 `
 const WhitedBtn = styled.button`
-  border: none;
+  border: 1px solid #007042;
   color:#007042;
   background-color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
     &:hover{
+      cursor: pointer;
       color: #fff;
       background-color: #007042;
     }

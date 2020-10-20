@@ -1,5 +1,4 @@
-export const OPEN_MODAL = 'OPEN_MODAL';
-export const CLOSE_MODAL = 'CLOSE_MODAL';
+import { CLOSE_MODAL, OPEN_MODAL } from './action-types';
 
 export const openModal = (payload) => ({
   type: OPEN_MODAL,

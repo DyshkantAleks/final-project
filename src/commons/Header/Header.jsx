@@ -1,35 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {InfoLinks} from "./InfoLinks/InfoLinkList";
-import useWindowDimensions from "../../utils/useWindowDimensions";
-import {Logo} from "./Logo/Logo";
-import {AccountInfoList} from "./AccountInfo/AccountInfoList";
-import {device} from "../../styles/breakpoints/breakpoints";
-import {MobileMenu} from "./MobileMenu/MobileMenu";
-import {CatalogList} from "./Catalog/CatalogList";
-
+import {InfoLinks} from './InfoLinks/InfoLinkList';
+import useWindowDimensions from '../../utils/useWindowDimensions';
+import {Logo} from './Logo/Logo';
+import {AccountInfoList} from './AccountInfo/AccountInfoList';
+import {device} from '../../styles/breakpoints/breakpoints';
+import {MobileMenu} from './MobileMenu/MobileMenu';
+import {CatalogList} from './Catalog/CatalogList';
 
 export const Header = () => {
-    const {width} = useWindowDimensions();
-    return (
-        <>
-        <StyledHeader>
-            <HeaderContainer>
-                {width >= 1200 && (
-                    <InfoLinks/>
-                )}
-                <Logo/>
-                <MobileMenu/>
-                <AccountInfoList/>
-            </HeaderContainer>
-        </StyledHeader>
+  const {width} = useWindowDimensions();
+  return (
+    <>
+      <StyledHeader>
+        <HeaderContainer>
+          {width >= 1200 && (
+            <InfoLinks/>
+          )}
+          <Logo/>
+          <MobileMenu/>
+          <AccountInfoList/>
+        </HeaderContainer>
+      </StyledHeader>
 
-                {width >= 1200 && (
-                    <CatalogList/>
-                )}
-        </>
-    )
+      {width >= 1200 && (
+        <CatalogList/>
+      )}
+    </>
+  )
 }
 
 const StyledHeader = styled.header`
@@ -54,6 +53,4 @@ const HeaderContainer = styled.div`
         width: 120rem;
         margin: 0 auto;
         }
-
 `
-

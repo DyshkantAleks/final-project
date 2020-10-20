@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {device} from "../../styles/breakpoints/breakpoints";
+import {device} from '../../styles/breakpoints/breakpoints';
 
 export const ContainerDetails = styled.div`
 display: flex;
@@ -9,13 +9,11 @@ width: 100%;
     @media ${device.tabletL}{
         display: grid;
         grid-template-columns: 50% auto;
-        grid-template-rows: 50rem 20rem;
         gap: 1rem 3rem;
         border-bottom: .1rem solid #D3D7DA;
         padding-bottom: 4.2rem;
         margin-bottom: 10rem;
     }
-
 `;
 
 export const ContainerProduct = styled.div`
@@ -28,7 +26,7 @@ padding: 0 1.2rem 1.2rem;
 export const Price = styled.span`
 font-size: 4rem;
 font-weight: 800;
-color: #007042;
+color: #6F909A;
 padding-bottom: 2rem;
     &::after{
         content: 'грн';
@@ -43,7 +41,7 @@ position: absolute;
 top: 1rem;
 right: 1.2rem;
 font-size: 2rem;
-color: #E6ADBF;
+color: #aecfd9;
 cursor: pointer;
 transition: all .3s linear;
     &:hover{
@@ -121,5 +119,4 @@ justify-content: center;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     }
-
 `;
