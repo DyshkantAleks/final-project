@@ -1,43 +1,63 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useSelector } from 'react-redux';
 import { selectCart } from '../../store/cart/selectors';
-import { CartItem } from "./CartItem";
+import { CartItem } from './CartItem';
 import { Button } from '../../components/Button'
-import {CartForOrder} from './CartForOrder'
+import { Header } from '../../commons/Header/Header';
+import { getProductList } from '../../store/products_draft/actions';
+import { selectProducts } from '../../store/products_draft/selectors';
+import { getCartList } from '../../utils/filters';
 
 export const CartPage = () => {
+  const dispatch = useDispatch()
 
-    const cartItems = useSelector(selectCart);
-    const menuArray = [null, null, 'Назва товару', 'Колір', 'Кількість', 'Ціна'];
-    return (
-        <>
-            <h1>Кошик</h1>
+  // -- tempurary --
+  useEffect(() => {
+    dispatch(getProductList())
+  }, [dispatch]);
+  // -- ----- --
 
-            <CartContainer>
-                <CartMenu>
-                    {menuArray.map(item => <p>{item}</p>)}
-                </CartMenu>
-                {
-                    cartItems.map(item =>
-                        <CartItem {...item}
-                        // key={item.id}
-                        />
-                    )}
-            </CartContainer>
+  const cartItems = useSelector(selectCart);
+  const products = useSelector(selectProducts);
+  
+  const cartList = getCartList(products, cartItems, 'code');
+  const sumCart = cartList.reduce(function (sum, current) {
+    return sum + current.price * current.quantity
+  }, 0)
 
-            <CartTotalContainer>
-                <CartTotalText>Всього у кошику N товари на суму</CartTotalText>
-                <Button text="Оформити замовлення" color="green" />
-            </CartTotalContainer>
+  const menuArray = [null, null, 'Назва товару', 'Колір', 'Кількість', 'Ціна'];
+  return (
+    <>
+      <Header/>
+      <h1>Кошик</h1>
 
-            <CartForOrder />
-        </>
-    )
+      <CartContainer>
+        <CartMenu>
+          {menuArray.map((item, index) => <p key={index}>{item}</p>)}
+        </CartMenu>
+        {
+          cartList.map(item =>
+            <CartItem
+              {...item}
+              value={item.quantity}
+              key={item.code}
+            />
+          )}
+      </CartContainer>
+
+      <CartTotalContainer>
+        <CartTotalText>Всього у кошику {cartList.length} товари на суму {sumCart.toLocaleString()}</CartTotalText>
+        <Button text="Оформити замовлення" color="green" />
+      </CartTotalContainer>
+    </>
+  )
 }
 
 const CartContainer = styled.div`
+ max-width: 120rem;
+ margin: 0 auto;
 `
 
 const CartMenu = styled.div`
@@ -59,6 +79,11 @@ const CartTotalContainer = styled.div`
 padding-top: 2rem;
 display: flex; 
 justify-content: space-between;
+<<<<<<< HEAD
+=======
+max-width: 120rem;
+margin: 0 auto;
+>>>>>>> dev
 `
 
 const CartTotalText = styled.h4`

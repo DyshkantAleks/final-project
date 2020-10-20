@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {device} from "../../../../styles/breakpoints/breakpoints";
+import styled from 'styled-components';
+import {device} from '../../../../styles/breakpoints/breakpoints';
 
 export const Item = styled.div`
 width: 2rem;
