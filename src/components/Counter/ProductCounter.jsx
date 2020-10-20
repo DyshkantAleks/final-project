@@ -1,24 +1,22 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { quantityDown, quantityUp } from '../../store/cart/actions-creators';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { getQuantity } from '../../utils/getQuantity';
+// import { selectProducts } from '../../store/products_draft/selectors';
+// import { getQuantity } from '../../utils/getQuantity';
 
-export const Counter = ({ id, value }) => {
-  const dispatch = useDispatch();
-  const products = useSelector(selectProducts);
-  const quantity = getQuantity(products, id)
+export const ProductCounter = ({ id, value, setValue }) => {
+//   const products = useSelector(selectProducts);
+//   const quantity = getQuantity(products, id)
 
   const increaseQty = () => {
-    if (value < quantity) {
-      dispatch(quantityUp(id))
+    if (value < 10) { // quantity
+      setValue(value + 1)
     }
   };
   const decreaseQty = () => {
     if (value > 1) {
-      dispatch(quantityDown(id))
+      setValue(value - 1)
     }
   }
   return (

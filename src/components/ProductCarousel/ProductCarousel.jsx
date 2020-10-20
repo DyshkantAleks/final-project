@@ -15,7 +15,6 @@ import {
   SwiperContainerHorizontal,
   SwiperGalleryHorizontal,
   SwiperThumbsHorizontal
-
 } from './StyledProductCarousel';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 
@@ -33,7 +32,7 @@ export const ProductCarousel = () => {
     './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
-  ]
+  ];
 
   const slides = [];
   for (let i = 0; i < img.length; i++) {
@@ -75,7 +74,6 @@ export const ProductCarousel = () => {
     slideToClickedSlide: true,
     centeredSlides: true,
     direction: 'vertical',
-
   };
 
   const thumbsSwiperParamsHorizontal = {
@@ -95,7 +93,7 @@ export const ProductCarousel = () => {
       gallerySwiper.controller.control = thumbsSwiper;
       thumbsSwiper.controller.control = gallerySwiper;
     }
-  }, []);
+  }, [width]);
 
   return (
     <>
@@ -125,4 +123,4 @@ export const ProductCarousel = () => {
       }
     </>
   )
-}
+};
