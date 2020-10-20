@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {Provider, useDispatch, useSelector} from 'react-redux';
 import './App.css';
 
 import './styles/style.scss';
@@ -11,6 +11,7 @@ import './styles/style.scss';
 import { Navigation } from './pages/navigation';
 
 import './styles/style.scss';
+import {store} from "./store";
 
 
 function App() {
@@ -19,12 +20,9 @@ function App() {
     // const modalContent = useSelector(selectModalContent);
 
     return (
-        // <div className="App">
-        //   {modalIsOpen && <Modal {...modalContent} closeModalHandler={() => dispatch(closeModal())}/>}
-        //   <Button text="БЕЛАЯ КНОПКА" color='white' onClick={() => dispatch(openModal(ModalThanks))}/>
-        // </div>
+       <Provider store={store}>
             <Navigation />
-
+       </Provider>
     );
 }
 

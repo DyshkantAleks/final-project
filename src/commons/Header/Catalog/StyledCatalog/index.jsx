@@ -30,6 +30,7 @@ cursor: pointer;
 border-bottom: .1rem solid #aecfd9;
 padding: 1rem 0;
 text-align: left;
+
 @media ${device.desktop}{
 position: relative;
 //margin: 0 40px;

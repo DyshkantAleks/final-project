@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
-import { selectProducts, selectLoader, getProductList } from '../../store/products_draft/actions';
-import { addToCart } from '../../store/cart/selectors'
+//import { selectProducts, selectLoader, getProductList } from '../../store/products_draft/actions';
+import {selectLoader, selectProducts} from "../../store/products_draft/selectors";
+import {getProductList} from "../../store/products_draft/actions";
+import {addToCart} from "../../store/cart/actions";
+//import { addToCart } from '../../store/cart/selectors'
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 

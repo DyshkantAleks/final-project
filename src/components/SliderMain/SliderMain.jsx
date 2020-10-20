@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import SwiperCore, {Navigation, Pagination, Scrollbar} from 'swiper';
 
@@ -10,91 +10,51 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import {device} from "../../styles/breakpoints/breakpoints";
+import {useDispatch, useSelector} from "react-redux";
+import {selectPromotions} from "../../store/promotions/selectors";
+import {getPromotionsList} from "../../store/promotions/actions";
 
 
-SwiperCore.use([Navigation, Pagination, Scrollbar]);
-
-// const imagesDesctop = ['./img/promoSlider/podarok-desctop.jpg', './img/promoSlider/podushka-promo-desctop.jpg',
-//     './img/promoSlider/primerka-mebeli-desctop.jpg'];
-//
-
+SwiperCore.use([Navigation, Pagination]);
 
 export const SliderTest = () => {
+  // const dispatch = useDispatch();
+  //
+  // useEffect(() => {
+  //     getPromotionsList()(dispatch)
+  // }, []);
 
-    const imagesSlider = ['./img/promoSlider/podarok-slider.png', './img/promoSlider/podushka-slider.png',
-        './img/promoSlider/primerka-mebeli-slider.png'];
+  const promotions1 = useSelector(selectPromotions);
+  const dispatch = useDispatch();
 
-    // const res = imagesSlider.map(i => i);
+  useEffect(() => {
+    dispatch(getPromotionsList())
+  }, []);
 
-    const slides = [];
-    for (let i = 0; i >= imagesSlider.length; i++) {
-        slides.push(
-            <SwiperSlide id={'homepage-slide'} key={`slide-${i}`} tag="li">
-                <ImageContainer>
-                    <Image
-                        src={imagesSlider[i]}/>
-                </ImageContainer>
-            </SwiperSlide>
-        )
-    }
-    console.log(slides);
-    return (
-        <SliderContainer>
-            <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}}
-                    pagination={{clickable: true}} scrollbar={{clickable: true}}>
-                <SwiperSlide id={'homepage-slide'}  tag="li">
-                    <ImageContainer>
-                        <Image
-                            src={'./img/promoSlider/podarok-slider.png'}/>
-                    </ImageContainer>
-                </SwiperSlide>
-                <SwiperSlide id={'homepage-slide'}  tag="li">
-                    <ImageContainer>
-                        <Image
-                            src={'./img/promoSlider/podushka-slider.png'}/>
-                    </ImageContainer>
-                </SwiperSlide>
-                <SwiperSlide id={'homepage-slide'}  tag="li">
-                    <ImageContainer>
-                        <Image
-                            src={'./img/promoSlider/primerka-mebeli-slider.png'}/>
-                    </ImageContainer>
-                </SwiperSlide>
-                {/*{slides}*/}
-                {/*<SwiperSlide id={'homepage-slide'} tag='li'>*/}
 
-                {/*<ImageContainer>*/}
-                {/*    <Image*/}
-                {/*        src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
-                {/*</ImageContainer>*/}
+  return (
+    <SliderContainer>
+      <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}}
+              pagination={{clickable: true}}>
+        {promotions1.map((e) => (
+          <SwiperSlide id={'homepage-slide'} tag="li">
+            <ImageContainer>
+              <Image src={e['slider-image']}/>
+            </ImageContainer>
+          </SwiperSlide>
+        ))}
 
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide tag='li'>*/}
+      </Swiper>
+    </SliderContainer>
 
-                {/*        <ImageContainer>*/}
-                {/*            <Image*/}
-                {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
-                {/*        </ImageContainer>*/}
-
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide tag='li'>*/}
-                {/*        <ImageContainer>*/}
-                {/*            <Image*/}
-                {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/>*/}
-                {/*        </ImageContainer>*/}
-
-                {/*</SwiperSlide>*/}
-            </Swiper>
-        </SliderContainer>
-
-    )
+  )
 };
 
 const SliderContainer = styled.div`
-//width: 100%;
+
 
 @media${device.tabletS}{
-//height: 250px;
+
 }
 `;
 

@@ -1,12 +1,8 @@
 import React, {useState} from "react";
 
 import {CatalogSublist} from "./CatalogSublist";
-//import {Item} from "../StyledCatalog";
-import {CatalogList} from "../CatalogList";
 import useWindowDimensions from "../../../../utils/useWindowDimensions";
 import {CatalogIcons} from "../CatalogIcons";
-import styled from "styled-components";
-import {device} from "../../../../styles/breakpoints/breakpoints";
 import {NewItem, IconContainer, ItemText} from "../StyledCatalog";
 
 
