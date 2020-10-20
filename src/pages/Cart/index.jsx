@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectCart } from '../../store/cart/selectors';
 import { CartItem } from "./CartItem";
 import { Button } from '../../components/Button'
+import {CartForOrder} from './CartForOrder'
 
 export const CartPage = () => {
 
@@ -30,6 +31,8 @@ export const CartPage = () => {
                 <CartTotalText>Всього у кошику N товари на суму</CartTotalText>
                 <Button text="Оформити замовлення" color="green" />
             </CartTotalContainer>
+
+            <CartForOrder />
         </>
     )
 }

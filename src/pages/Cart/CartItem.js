@@ -42,12 +42,12 @@ const CartItemContainer = styled.div`
 // font-weight: bold;
 // `
 
-const CartImage = styled.img`
+export const CartImage = styled.img`
 height: auto;
 width: 5rem;
 `
 
-const CartNameCode = styled.div`
+export const CartNameCode = styled.div`
 text-align: left;
 
 h4 {
@@ -75,7 +75,7 @@ const CartItemsNumber = styled.div`
 
 `
 
-const CartPrice = styled.p`
+export const CartPrice = styled.p`
 font-weight: bold;
 font-size: 1em;
 font-family: inherit;
