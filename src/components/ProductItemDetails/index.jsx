@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
 import { Title } from '../Title/Title';
-import { ProductCarousel } from '../ProductCarousel/ProductCarousel';
+import { ProductCarousel } from '../ProductCarousel';
 import { Button } from '../Button';
 import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
 import { useToggle } from '../../utils/useToggle';
-import { ProductItem } from '../ProductItem/ProductItem';
+import { ProductItem } from '../ProductItem';
 import {
   ContainerDetails,
   ContainerProduct,
