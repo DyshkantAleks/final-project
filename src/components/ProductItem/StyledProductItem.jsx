@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {device} from "../../styles/breakpoints/breakpoints";
+import {device} from '../../styles/breakpoints/breakpoints';
 
 export const ConteinerItem = styled.li`
 width: 29rem;
@@ -101,4 +101,4 @@ transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
     }
-`; 
+`;

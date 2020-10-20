@@ -1,17 +1,15 @@
-import React from "react";
+import React from 'react';
 
-
-import {CatalogItem} from "./CatalogComponents/CatalogItem";
-import {Container, List} from "./StyledCatalog";
+import {CatalogItem} from './CatalogComponents/CatalogItem';
+import {Container, List} from './StyledCatalog';
 
 export const CatalogList = () => {
-    return (
-            <Container>
-                <List>
-                    <CatalogItem/>
-                </List>
-            </Container>
+  return (
+    <Container>
+      <List>
+        <CatalogItem/>
+      </List>
+    </Container>
 
-    )
+  )
 };
-
