@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Thumbs, Controller } from 'swiper';
 import 'swiper/swiper-bundle.css';
@@ -16,7 +16,7 @@ import {
     SwiperGalleryHorizontal,
     SwiperThumbsHorizontal
 } from './StyledProductCarousel';
-import useWindowDimensions from "../../utils/useWindowDimensions";
+import useWindowDimensions from '../../utils/useWindowDimensions';
 
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 
@@ -123,7 +123,85 @@ export const ProductCarousel = () => {
             }
         </>
     )
-}
+  };
 
+//   const thumbs = [];
+//   for (let i = 0; i < img.length; i++) {
+//     thumbs.push(
+//       <SwiperSlide id={'qwerty'} key={`thumb-${i}`} tag="li">
+//         <ImageThumbsContainer>
+//           <ImageThumbs src={img[i]} alt={`Thumbnail ${i}`} />
+//         </ImageThumbsContainer>
+//       </SwiperSlide>
+//     )
+//   };
 
+//   const gallerySwiperRef = useRef(null);
+//   const thumbsSwiperRef = useRef(null);
 
+//   const gallerySwiperParams = {
+//     wrapperTag: 'ul',
+//     navigation: { clickable: true },
+//     pagination: { clickable: true },
+//     spaceBetween: 5,
+//     grabCursor: true,
+//   };
+
+//   const thumbsSwiperParams = {
+//     wrapperTag: 'ul',
+//     spaceBetween: 5,
+//     slidesPerView: 4,
+//     slideToClickedSlide: true,
+//     centeredSlides: true,
+//     direction: 'vertical',
+
+//   };
+
+//   const thumbsSwiperParamsHorizontal = {
+//     wrapperTag: 'ul',
+//     spaceBetween: 5,
+//     slidesPerView: 5,
+//     slideToClickedSlide: true,
+//     centeredSlides: true,
+//     direction: 'horizontal',
+//   };
+
+//   useEffect(() => {
+//     const gallerySwiper = gallerySwiperRef.current.swiper;
+//     const thumbsSwiper = thumbsSwiperRef.current.swiper;
+
+//     if (gallerySwiper.controller && thumbsSwiper.controller) {
+//       gallerySwiper.controller.control = thumbsSwiper;
+//       thumbsSwiper.controller.control = gallerySwiper;
+//     }
+//   }, []);
+
+//   return (
+//     <>
+//       {width >= 768 ? (<SwiperContainer>
+//         <SwiperThumbs>
+//           <Swiper id="thumbs" {...thumbsSwiperParams} ref={thumbsSwiperRef}>
+//             {thumbs}
+//           </Swiper>
+//         </SwiperThumbs>
+//         <SwiperGallery>
+//           <Swiper id="item" {...gallerySwiperParams} ref={gallerySwiperRef}>
+//             {slides}
+//           </Swiper>
+//         </SwiperGallery>
+//       </SwiperContainer>) : (<SwiperContainerHorizontal>
+//         <SwiperGalleryHorizontal>
+//           <Swiper id="item" {...gallerySwiperParams} ref={gallerySwiperRef}>
+//             {slides}
+//           </Swiper>
+//         </SwiperGalleryHorizontal>
+//         <SwiperThumbsHorizontal>
+//           <Swiper id="thumbs-horizontal" {...thumbsSwiperParamsHorizontal} ref={thumbsSwiperRef}>
+//             {thumbs}
+//           </Swiper>
+//         </SwiperThumbsHorizontal>
+//       </SwiperContainerHorizontal>)
+//       }
+//     </>
+//   )
+// }

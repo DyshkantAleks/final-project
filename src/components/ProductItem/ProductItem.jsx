@@ -39,7 +39,7 @@ export const ProductItem = (props) => {
         isTopRated = false
     } = props;
 
-    const [inFavorite, toggleInFavorite] = useToggle();
+  const [inFavorite, toggleInFavorite] = useToggle();
 
     return (
 

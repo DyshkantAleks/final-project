@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {device} from "../../styles/breakpoints/breakpoints";
+import {device} from '../../styles/breakpoints/breakpoints';
 
 export const SwiperContainer = styled.div`
 display: flex;
@@ -53,7 +53,7 @@ overflow: hidden;
 padding: .5rem;
 `;
 
-export const ImageThumbsContainer=styled.div`
+export const ImageThumbsContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;

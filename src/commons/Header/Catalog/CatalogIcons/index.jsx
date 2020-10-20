@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const CatalogIcons = {
     "chair": <svg height="100%" viewBox="-98 0 512 512" width="100%">
