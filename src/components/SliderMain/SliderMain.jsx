@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
-import SwiperCore, {Navigation, Pagination, Scrollbar} from 'swiper';
+import SwiperCore, {Navigation, Pagination, Autoplay} from 'swiper';
 
 
 import styled from 'styled-components'
@@ -13,37 +13,41 @@ import {device} from "../../styles/breakpoints/breakpoints";
 import {useDispatch, useSelector} from "react-redux";
 import {selectPromotions} from "../../store/promotions/selectors";
 import {getPromotionsList} from "../../store/promotions/actions";
+import {Link} from "react-router-dom";
 
 
-SwiperCore.use([Navigation, Pagination]);
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 export const SliderTest = () => {
-  // const dispatch = useDispatch();
-  //
-  // useEffect(() => {
-  //     getPromotionsList()(dispatch)
-  // }, []);
 
-  const promotions1 = useSelector(selectPromotions);
+  const promotions = useSelector(selectPromotions);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPromotionsList())
   }, []);
-
+  console.log(promotions);
 
   return (
     <SliderContainer>
-      <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}}
-              pagination={{clickable: true}}>
-        {promotions1.map((e) => (
-          <SwiperSlide id={'homepage-slide'} tag="li">
-            <ImageContainer>
-              <Image src={e['slider-image']}/>
-            </ImageContainer>
+      <Swiper id={'homepage-swiper-container'}
+              tag='div'
+              wrapperTag='ul'
+              navigation={{clickable: true}}
+              pagination={{clickable: true}}
+              autoplay={true}
+      >
+        {promotions.map((e, index) => (
+          <SwiperSlide key={index} tag="li">
+            <Link
+              to={`/promo/${e.route}`}>
+              <ImageContainer>
+                <Image src={e['slider-image']}/>
+              </ImageContainer>
+            </Link>
           </SwiperSlide>
         ))}
-
       </Swiper>
     </SliderContainer>
 

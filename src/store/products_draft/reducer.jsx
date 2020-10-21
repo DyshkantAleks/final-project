@@ -4,7 +4,7 @@ const InitialState = {
   products: [],
   isDataLoaded: false
 };
-console.log(InitialState)
+// console.log(InitialState)
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {

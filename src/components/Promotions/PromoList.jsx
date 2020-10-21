@@ -1,24 +1,28 @@
 import React from "react";
-import {List} from "./StyledPromotions";
+import {List, StyledLink} from "./StyledPromotions";
 import {PromoItem} from "./PromotionsComponents/PromoPageItem";
 import {ContentContairer} from "../Content/Content";
 import {useSelector} from "react-redux";
 import {selectPromotions} from "../../store/promotions/selectors";
 
 
+
+
 export const PromoList = () => {
   const promotions = useSelector(selectPromotions);
-
-  console.log(promotions);
 
   return (
     <ContentContairer>
       <List>
         {promotions && promotions.map((e) => (
-          <PromoItem image={e["slider-image"]} title={e.title}
-                     subtitle={e.subtitle}/>
+          <StyledLink
+            to={`/promo/${e.route}`}>
+            <PromoItem image={e["slider-image"]} title={e.title}
+                       subtitle={e.subtitle} route={e.route} text={e["full-description"]}/>
+          </StyledLink>
         ))}
       </List>
     </ContentContairer>
   )
 };
+

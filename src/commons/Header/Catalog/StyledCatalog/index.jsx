@@ -26,14 +26,14 @@ export const NewItem = styled.li`
 //display: flex;
 //align-items: center;
 cursor: pointer;
-border-bottom: .1rem solid #aecfd9;
-padding: 1rem 0;
+//border-bottom: .1rem solid #aecfd9;
+//padding: 1rem 0;
 text-align: left;
 
 @media ${device.desktop}{
 position: relative;
 //margin: 0 40px;
-padding: 1rem 4rem;
+//padding: 1rem 4rem;
 border-bottom: none;
 border:1px solid transparent;
 &:hover {
@@ -75,9 +75,9 @@ font-size: 1.6rem;
 line-height: 3.5rem;
 font-weight: normal;
 padding-left: 4.5rem;
+border-bottom: .1rem solid #aecfd9;
 &:not(:last-child) {
 
-border-bottom: .1rem solid #aecfd9;
 }
 //background-color: #e6e9ef;
 @media ${device.desktop}{
@@ -91,7 +91,7 @@ background-color: #aecfd9;
 `;
 export const SubList = styled.ul`
 list-style: none;
-    padding: 1rem 0 0 0;
+    padding: 0;
     margin: 0;
     width: 100%;
     @media ${device.desktop}{
