@@ -4,8 +4,10 @@ import * as yup from 'yup';
 import styled from 'styled-components';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '../Button';
-import { ErrorField } from './ErrorField';
+import { Button } from '../../Button';
+import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton';
+import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
+
 
 export const LoginForm = ({handleSubmit}) => {
   const dispatch = useDispatch()
@@ -37,6 +39,7 @@ export const LoginForm = ({handleSubmit}) => {
           <StyledForm>
             <Field
               name="login"
+              autoComplete='off'
               type="text"
               placeholder="введите логин"
               onBlur={handleBlur}
@@ -45,11 +48,15 @@ export const LoginForm = ({handleSubmit}) => {
             <Field
               name="password"
               type="text"
+              autoComplete='off'
               placeholder="введите пароль"
               onBlur={handleBlur}
             />
-            <ErrorField errors={props.errors}/>
             <Button text="Войти" type="submit"/>
+            <div>
+              <FaceBookButton text="Войти с помощью FaceBook"/>
+              <GoogleButton text="Войти с помощью Google"/>
+            </div>
           </StyledForm>
         )}
       </Formik>
