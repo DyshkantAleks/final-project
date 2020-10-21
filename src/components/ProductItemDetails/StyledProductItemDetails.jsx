@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {device} from '../../styles/breakpoints/breakpoints';
-import { Button } from '../Button';
 
 export const ContainerDetails = styled.div`
 display: flex;
@@ -194,6 +193,7 @@ justify-content: center;
         gap: 2rem;
     };
 `;
+
 export const ShowMore = styled.button`
 font-size: 1.8rem;
 color: #e6e9ef;

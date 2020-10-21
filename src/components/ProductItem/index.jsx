@@ -11,6 +11,7 @@ import {
   PhotoBox,
   Photo,
   TitleBox,
+  NameContainer,
   Name,
   Price,
   StyledFontAwesomeIcon,
@@ -21,6 +22,10 @@ import {
   NewIcon,
   TopRatedIcon
 } from './StyledProductItem';
+// import styled from 'styled-components'
+// import { getProductList, setProduct, setLoader } from '../../store/products_draft/actions';
+// import { selectProducts, selectLoader } from '../../store/products_draft/selectors';
+
 
 export const ProductItem = (props) => {
   const {
@@ -40,21 +45,19 @@ export const ProductItem = (props) => {
   } = props;
 
   const [inFavorite, toggleInFavorite] = useToggle();
-
   return (
-
     <ConteinerItem>
       <PhotoBox>
         <StyledLink to={ROUTES.PRODUCT}>
           <Photo alt='our product' src={image} />
           {isDiscount &&
-                        <ProductActivityContainer>
-                          <IconContainer>
-                            <SaleIcon>
-                              {ProductActivity.sale}
-                            </SaleIcon>
-                          </IconContainer>
-                        </ProductActivityContainer>}
+            <ProductActivityContainer>
+              <IconContainer>
+                <SaleIcon>
+                  {ProductActivity.sale}
+                </SaleIcon>
+              </IconContainer>
+            </ProductActivityContainer>}
           {isNew && <ProductActivityContainer>
             <IconContainer>
               <NewIcon>
@@ -73,12 +76,14 @@ export const ProductItem = (props) => {
       </PhotoBox>
       <TitleBox>
         <StyledLink to={ROUTES.PRODUCT}>
-          <Name>{name}</Name>
+          <NameContainer>
+            <Name>{name}</Name>
+          </NameContainer>
         </StyledLink>
         {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
         {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
         <Price>{price.toLocaleString()}</Price>
-        <Button text={'Купить'} />
+        {/* <Button text={'Купить'} /> */}
       </TitleBox>
     </ConteinerItem>
   )

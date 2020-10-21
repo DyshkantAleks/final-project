@@ -21,7 +21,7 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 
 export const ProductCarousel = () => {
-  const { width } = useWindowDimensions();
+  const { screenWidth } = useWindowDimensions();
 
   const img = [
     './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
@@ -93,11 +93,11 @@ export const ProductCarousel = () => {
       gallerySwiper.controller.control = thumbsSwiper;
       thumbsSwiper.controller.control = gallerySwiper;
     }
-  }, [width]);
+  }, [screenWidth]);
 
   return (
     <>
-      {width >= 768 ? (<SwiperContainer>
+      {screenWidth >= 768 ? (<SwiperContainer>
         <SwiperThumbs>
           <Swiper id="thumbs" {...thumbsSwiperParams} ref={thumbsSwiperRef}>
             {thumbs}

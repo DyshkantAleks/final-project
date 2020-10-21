@@ -91,6 +91,10 @@ position: relative;
 padding: .5rem 1.4rem 1.4rem 1.4rem;
 `;
 
+export const NameContainer = styled.div`
+height: 4rem;
+`;
+
 export const Name = styled.span`
 font-size: 1.4rem;
 font-weight: 700;
@@ -103,7 +107,6 @@ export const Price = styled.span`
 font-size: 2.5rem;
 font-weight: 800;
 color: #6F909A;
-padding: 1rem 0;
     &::after{
         content: 'грн';
         position: relative;
@@ -114,7 +117,6 @@ padding: 1rem 0;
     @media ${device.tabletM}{
         font-weight: 800;
         font-size: 3rem;
-        padding-top: 1.5rem;
             &::after{
                 left: 1rem;
                 font-size: 1.8rem;
@@ -125,7 +127,7 @@ padding: 1rem 0;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 position: absolute;
-top: .3rem;
+top: 2rem;
 right: 1.4rem;
 font-size: 2.5rem;
 color: #aecfd9;
@@ -133,9 +135,6 @@ cursor: pointer;
 transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
-    };
-    @media ${device.tabletM}{
-        top: 2rem;
     };
     @media ${device.desktop}{
         top: 2.2rem;
@@ -146,3 +145,4 @@ export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #333333;
 `;
+

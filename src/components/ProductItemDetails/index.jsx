@@ -40,12 +40,12 @@ export const ProductItemDetails = (props) => {
     description = 'Ищите нестандартные решения для домашнего интерьера? Полубарный стул NATA от итальянского бренда Bontempi удовлетворит запросы даже самых взыскательных покупателей. В нем совмещено изумительное качество, эффектный дизайн, детальная продуманность. Предмет может быть поставлен на заказ. Вы можете самостоятельно выбрать оптимальные цвета и материалы.',
     code = 3435,
     height = 95,
-    widthNew = 52,
+    width = 52,
     length = 47,
-    brand = 'NATA'
+    brand = 'NATA',
   } = props;
 
-  const { width } = useWindowDimensions();
+  const { screenWidth } = useWindowDimensions();
   const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
@@ -73,13 +73,6 @@ export const ProductItemDetails = (props) => {
     );
   };
 
-  // const productList = [];
-  // for (let i = 0; i <= 3; i++) {
-  //     productList.push(
-  //         <ProductItem key={`product-${i}`}/>
-  //     );
-  // };
-
   return (
     <>
       <Title text={name} />
@@ -92,22 +85,23 @@ export const ProductItemDetails = (props) => {
           <Subtitle>Бренд: {brand}</Subtitle>
           <AvailabilityArticleWrap>
             <Availability>&#10004; в наличии</Availability>
+            {/* <Availability>&#10006; нет в наличии</Availability> */}
             <Article>Артикул: {code}</Article>
           </AvailabilityArticleWrap>
           <Subtitle>Описание товара</Subtitle>
           <Description>{description}</Description>
-          {width >= 768
+          {screenWidth >= 768
             ? <>
               <Subtitle>Габариты</Subtitle>
               <Description>Высота - {height} cм, </Description>
-              <Description>Ширина - {widthNew} cм, </Description>
+              <Description>Ширина - {width} cм, </Description>
               <Description>Глубина - {length} cм </Description>
             </>
             : <>
               <Subtitle>Габариты{toggleDimensionsBtn()}</Subtitle>
               {isDimensions && <DimensionsContainer>
                 <Description>Высота - {height} cм, </Description>
-                <Description>Ширина - {widthNew} cм, </Description>
+                <Description>Ширина - {width} cм, </Description>
                 <Description>Глубина - {length} cм </Description>
               </DimensionsContainer>}
             </>
@@ -119,12 +113,9 @@ export const ProductItemDetails = (props) => {
             <Actions>
             <Button text={'Купить'} />
             </Actions>
-            
           </ActionsContainer>
-
-          
         </ContainerProduct>
-        {width >= 768
+        {screenWidth >= 768
           ? <Subtitle>Характеристики
             <SpecificationContainer>
               <DescriptionKey>Покрытие</DescriptionKey>

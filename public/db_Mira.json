@@ -2,6 +2,7 @@
     "chairs": [
 
         {
+            "route": "stul_obedennyy",
             "category": "kitchen",
             "code": "9001603-08",
             "name": "Стул обеденный",

@@ -12,7 +12,7 @@ import {NewItem, IconContainer, ItemText} from '../StyledCatalog';
 export const CatalogItem = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hover, setHover] = useState(false);
-  const {width} = useWindowDimensions();
+  const {screenWidth} = useWindowDimensions();
   return (
     <>
       <NewItem>
@@ -45,7 +45,7 @@ export const CatalogItem = () => {
         </IconContainer>
         <ItemText>Accessories</ItemText>
       </NewItem>
-      {width < 1200 && (
+      {screenWidth < 1200 && (
         <NewItem onClick={() => {
           setIsOpen(!isOpen);
         }}>
@@ -58,7 +58,7 @@ export const CatalogItem = () => {
           )}
         </NewItem>
       )}
-      {width >= 1200 && (
+      {screenWidth >= 1200 && (
         <NewItem onMouseEnter={() => {
           setHover(true)
         }}

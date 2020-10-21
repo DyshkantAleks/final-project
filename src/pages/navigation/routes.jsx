@@ -8,4 +8,5 @@ export const ROUTES = Object.freeze({
   FAVORITES: '/favorites',
   ACCOUNT: '/account',
   PRODUCT: '/product',
+  PRODUCTS: '/products'
 });
