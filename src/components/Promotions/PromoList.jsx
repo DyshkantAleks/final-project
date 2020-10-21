@@ -1,9 +1,9 @@
 import React from "react";
-import {List, StyledLink} from "./StyledPromotions";
-import {PromoItem} from "./PromotionsComponents/PromoPageItem";
-import {ContentContairer} from "../Content/Content";
-import {useSelector} from "react-redux";
-import {selectPromotions} from "../../store/promotions/selectors";
+import {List, StyledLink} from './StyledPromotions';
+import {PromoItem} from './PromotionsComponents/PromoPageItem';
+import {ContentContairer} from '../Content/Content';
+import {useSelector} from 'react-redux';
+import {selectPromotions} from '../../store/promotions/selectors';
 
 
 

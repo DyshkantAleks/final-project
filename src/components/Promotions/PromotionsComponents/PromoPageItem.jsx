@@ -3,7 +3,7 @@ import React from "react";
 import {ItemContainer, ImageContainer, Image, TextContainer, Title, Subtitle} from "../StyledPromotions";
 
 export const PromoItem = (props) => {
-  const {image, title, subtitle, text} = props;
+  const {image, title, subtitle} = props;
 
   return (
     <>
