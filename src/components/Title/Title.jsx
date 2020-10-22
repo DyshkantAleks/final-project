@@ -1,14 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-
-import {device} from "../../styles/breakpoints/breakpoints";
+import {device} from '../../styles/breakpoints/breakpoints';
 
 export const Title = (props) => {
-    const {text} = props;
-    return (
-        <MainTitle>{text}</MainTitle>
-    )
+  const {text} = props;
+  return (
+    <MainTitle>{text}</MainTitle>
+  )
 }
 
 const MainTitle = styled.h2`
