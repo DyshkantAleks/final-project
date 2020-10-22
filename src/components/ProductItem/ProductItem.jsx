@@ -25,34 +25,23 @@ import {
 export const ProductItem = (props) => {
   const {
     price = 4899,
-<<<<<<< HEAD
     name = 'Стул полубарный NATA',
     // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
     // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
     image = './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
-=======
-    name = 'Стул обеденный',
-    // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
-    image = './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
-    // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
->>>>>>> alex
     // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
     // image = './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
     // image = './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
     // image = './img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg',
     // image = './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
-<<<<<<< HEAD
     isDiscount = false,
     isNew = false,
     isTopRated = false
-=======
->>>>>>> alex
   } = props;
 
   const [inFavorite, toggleInFavorite] = useToggle();
 
   return (
-<<<<<<< HEAD
 
     <ConteinerItem>
       <PhotoBox>
@@ -90,18 +79,6 @@ export const ProductItem = (props) => {
         {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
         <Price>{price.toLocaleString()}</Price>
         <Button text={'Купить'} />
-=======
-    <ConteinerItem>
-      <PhotoBox>
-        <Photo alt='our product' src={image}/>
-      </PhotoBox>
-      <TitleBox>
-        <Name>{name}</Name>
-        { !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} /> }
-        { inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} /> }
-        <Price>{price}</Price>
-        <Button text={'Купить'}/>
->>>>>>> alex
       </TitleBox>
     </ConteinerItem>
   )

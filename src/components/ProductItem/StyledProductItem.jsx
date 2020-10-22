@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-<<<<<<< HEAD
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Link } from 'react-router-dom';
-=======
-import {device} from '../../styles/breakpoints/breakpoints';
->>>>>>> alex
 
 export const ConteinerItem = styled.li`
 width: 29rem;
@@ -15,17 +11,10 @@ transition: all .3s linear;
 margin-bottom: 2rem;
     &:hover{
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-<<<<<<< HEAD
     };
     @media ${device.tabletS}{
         width: 33rem;
     };
-=======
-    }
-    @media ${device.tabletS}{
-        width: 33rem;
-    }
->>>>>>> alex
     @media ${device.tabletM}{
         width: 25.2rem;
     };
@@ -47,11 +36,7 @@ overflow: hidden;
 padding: .5rem;
     @media ${device.tabletS}{
         height: 33rem;
-<<<<<<< HEAD
     };
-=======
-    }
->>>>>>> alex
     @media ${device.tabletM}{
         height: 25.2rem;
         padding: 1rem;
@@ -148,7 +133,6 @@ cursor: pointer;
 transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
-<<<<<<< HEAD
     };
     @media ${device.tabletM}{
         top: 2rem;
@@ -161,7 +145,4 @@ transition: all .3s linear;
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #333333;
-=======
-    }
->>>>>>> alex
 `;

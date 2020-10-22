@@ -2,10 +2,6 @@ import React, { useState } from 'react'
 
 import { Title } from '../Title/Title';
 import { ProductCarousel } from '../ProductCarousel/ProductCarousel';
-<<<<<<< HEAD
-=======
-import { ContainerDetails, ContainerProduct, Price, StyledFontAwesomeIcon, Article, Description, Subtitle, Actions, SpecificationContainer, DescriptionKey, ProductItemList } from './StyledProductItemDetails';
->>>>>>> alex
 import { Button } from '../Button';
 import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
@@ -42,7 +38,6 @@ export const ProductItemDetails = (props) => {
     description = 'Ищите нестандартные решения для домашнего интерьера? Полубарный стул NATA от итальянского бренда Bontempi удовлетворит запросы даже самых взыскательных покупателей. В нем совмещено изумительное качество, эффектный дизайн, детальная продуманность. Предмет может быть поставлен на заказ. Вы можете самостоятельно выбрать оптимальные цвета и материалы.',
     code = 3435,
     height = 95,
-<<<<<<< HEAD
     widthNew = 52,
     length = 47,
     brand = 'NATA'
@@ -84,21 +79,10 @@ export const ProductItemDetails = (props) => {
   // };
 
   return (
-=======
-    width = 52,
-    length = 47
-  } = props;
-
-  const [inFavorite, toggleInFavorite] = useToggle();
-
-  return (
-  // <ContentContairer>
->>>>>>> alex
     <>
       <Title text={name} />
       <ContainerDetails>
         <ProductCarousel />
-<<<<<<< HEAD
         <ContainerProduct>
           <Price>{price.toLocaleString()}</Price>
           {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
@@ -175,42 +159,5 @@ export const ProductItemDetails = (props) => {
         />
       </ProductItemList>
     </>
-=======
-        {/* <h1>Hello</h1> */}
-        <ContainerProduct>
-          <Price>{price}</Price>
-          { !inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} /> }
-          { inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} /> }
-          <Article>Код: {code}</Article>
-          <Description>{description}</Description>
-          <Subtitle>Габариты
-            <Description>Высота - {height} cм, </Description>
-            <Description>Ширина - {width} cм, </Description>
-            <Description>Глубина - {length} cм </Description>
-          </Subtitle>
-          <Actions>
-            <h2>Counter</h2>
-            <Button text={'Купить'} />
-          </Actions>
-        </ContainerProduct>
-        <Subtitle>Характеристики
-          <SpecificationContainer>
-            <DescriptionKey>Покрытие</DescriptionKey>
-            <Description>{specifications.covering}</Description>
-            <DescriptionKey>Обивка</DescriptionKey>
-            <Description>{specifications.casing}</Description>
-          </SpecificationContainer>
-        </Subtitle>
-      </ContainerDetails>
-      <Title text={'Вас так же могут заинтересовать'} />
-      <ProductItemList>
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-      </ProductItemList>
-    </>
-  // </ContentContairer>
->>>>>>> alex
   )
 }
