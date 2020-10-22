@@ -18,7 +18,11 @@ margin-bottom: 5rem;
         gap: 1rem 3rem;
         padding-bottom: 4.2rem;
         margin-bottom: 10rem;
+<<<<<<< HEAD
     };
+=======
+    }
+>>>>>>> alex
 `;
 
 export const ContainerProduct = styled.div`
@@ -31,8 +35,13 @@ flex-direction: column;
 `;
 
 export const Price = styled.span`
+<<<<<<< HEAD
 font-size: 3rem;
 font-weight: 700;
+=======
+font-size: 4rem;
+font-weight: 800;
+>>>>>>> alex
 color: #6F909A;
 padding-bottom: 2rem;
     &::after{
@@ -63,9 +72,15 @@ padding-bottom: 2rem;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 position: absolute;
+<<<<<<< HEAD
 top: .5rem;
 right: 0;
 font-size: 2.5rem;
+=======
+top: 1rem;
+right: 1.2rem;
+font-size: 2rem;
+>>>>>>> alex
 color: #aecfd9;
 cursor: pointer;
 transition: all .3s linear;
@@ -180,6 +195,7 @@ justify-content: center;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
+<<<<<<< HEAD
     };
 `;
 export const ShowMore = styled.button`
@@ -195,3 +211,7 @@ transition: all .3s linear;
         color: #aecfd9;
     };
 `;
+=======
+    }
+`;
+>>>>>>> alex
