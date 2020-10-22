@@ -11,12 +11,25 @@ import { reducer as promotionsReducer } from './promotions/reducer';
 import { MODULE_NAME as productsModuleName} from './products_draft/selectors';
 import { reducer as productReducer} from './products_draft/reducer'
 
+import { MODULE_NAME as authModuleName } from './auth/selectors';
+import { reducer as authReducer } from './auth/reducer';
+
+import { MODULE_NAME as newCustomerModuleName } from './registration/slectors';
+import { reducer as newCustomerReducer } from './registration/reducer';
+
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
   [cartModuleName]: cartReducer,
-  [productsModuleName]: productReducer,
-  [promotionsModuleName]: promotionsReducer
-});
+  [authModuleName]: authReducer,
+  [newCustomerModuleName]: newCustomerReducer,
+  [productsModuleName]: productReducer
+})
+
+// export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+//
+//   [productsModuleName]: productReducer,
+//   [promotionsModuleName]: promotionsReducer
+// });
 
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

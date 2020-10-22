@@ -2,7 +2,7 @@ import { SET_PRODUCTS, SET_LOADER } from './actions';
 
 const InitialState = {
   products: [],
-  isDataLoaded: false
+  isDataLoaded: false,
 };
 // console.log(InitialState)
 
@@ -11,15 +11,15 @@ export function reducer (state = InitialState, { type, payload }) {
     case SET_LOADER:
       return {
         ...state,
-        isDataLoaded: true
-      }
+        isDataLoaded: true,
+      };
     case SET_PRODUCTS:
       return {
         ...state,
         products: payload,
-        isDataLoaded: false
-      }
+        isDataLoaded: false,
+      };
     default:
-      return state
+      return state;
   }
 }
