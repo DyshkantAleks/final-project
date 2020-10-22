@@ -38,24 +38,24 @@ export const LoginForm = ({handleSubmit}) => {
         {(props) => (
           <StyledForm>
             <Field
-              name="login"
+              name='login'
               autoComplete='off'
-              type="text"
-              placeholder="введите логин"
+              type='text'
+              placeholder='введите логин'
               onBlur={handleBlur}
 
             />
             <Field
-              name="password"
-              type="text"
+              name='password'
+              type='text'
               autoComplete='off'
-              placeholder="введите пароль"
+              placeholder='введите пароль'
               onBlur={handleBlur}
             />
-            <Button text="Войти" type="submit"/>
+            <Button text='Войти' type='submit'/>
             <div>
-              <FaceBookButton text="Войти с помощью FaceBook"/>
-              <GoogleButton text="Войти с помощью Google"/>
+              <FaceBookButton text='Войти с помощью FaceBook'/>
+              <GoogleButton text='Войти с помощью Google'/>
             </div>
           </StyledForm>
         )}
