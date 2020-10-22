@@ -3,6 +3,7 @@ import { selectProducts, selectLoader, getProductList } from '../../store/produc
 import { addToCart } from '../../store/cart/selectors'
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
+import { Loader } from '../../components/Loader';
 
 // !!! DRAFT PRODUCTS PAGE
 
@@ -13,7 +14,7 @@ const Products = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getProductList()(dispatch)
+    dispatch(getProductList())
   }, [dispatch])
 
   const addToCartHandler = (id) => {
@@ -23,7 +24,7 @@ const Products = () => {
   return (
     <>
       {
-        isReady ? <Preloader/>
+        isReady ? <Loader/>
           : <Container>
             {products.map(({ code, image, name }) =>
               <Item key={code}>
@@ -74,16 +75,4 @@ const CardBtn = styled.button`
     border: none;
     color: #FFF;
     padding: 10px;
-`
-
-const Preloader = styled.div`
-    margin: 100px auto 0;
-    width: 30px;
-    height: 30px;
-    border: 7px solid #000;
-    border-left-color: #333;
-    border-right-color: transparent;
-    border-bottom-color: #555;
-    border-radius: 100%;
-    animation: spin 600ms infinite linear;
 `

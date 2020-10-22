@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Counter } from '../../components/Counter'
+import { Counter } from '../../components/Counter';
+import { device } from '../../styles/breakpoints/breakpoints';
 
-export const CartItem = ({ image, price, name, color, code, quantity, value }) => {
+export const CartItem = ({ image, price, name, color, code, quantity, value, cart, fav }) => {
+  console.log(typeof cart)
   return (
     <CartItemContainer>
       <CloseBtn icon={faTimes} />
@@ -16,8 +18,9 @@ export const CartItem = ({ image, price, name, color, code, quantity, value }) =
       <CartColor>
         {color}
       </CartColor>
-      <Counter value={value} id={code}/>
-      <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
+      {cart && <Counter value={value} id={code} />}
+       <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
+      {fav && <AddToCartBtn>Купить</AddToCartBtn>}
     </CartItemContainer>
   );
 }
@@ -25,8 +28,6 @@ export const CartItem = ({ image, price, name, color, code, quantity, value }) =
 const CartItemContainer = styled.div`
         align-items: center;
         display: grid;
-        grid-template-columns: 5% 10% 20% 1fr 1fr 10%;
-        grid-gap: 1.9rem;
         padding: 1.7rem;
         border-bottom: 1px solid #D3D7DA;
         font-size: 14px;
@@ -34,17 +35,30 @@ const CartItemContainer = styled.div`
         :last-child {
                 border-bottom: 2px solid #007042;
         }
-        `
 
-// const CloseBtn = styled.span`
-// color: #A0A9AF;
-// font-size: 2rem;
-// font-weight: bold;
-// `
+        @media ${device.mobile}{
+        grid-template-columns: 6rem 1fr 8rem;
+        padding: 0.7rem 1rem;
+        position: relative;
+        grid-gap: 1rem;
+        }
+
+        @media ${device.tabletS}{
+          grid-template-columns: 2rem 6rem 1fr 1fr 10rem 15%;
+          position: static;
+          grid-gap: inherit;
+          }
+        `;
 
 const CartImage = styled.img`
 height: auto;
 width: 5rem;
+padding-left: 0.5rem;
+
+@media ${device.mobile}{
+grid-row-end: span 3;
+grid-row-end: span 3;
+}
 `
 
 const CartNameCode = styled.div`
@@ -57,6 +71,14 @@ h4 {
     margin: 0;
 }
 
+@media ${device.tabletS}{
+  font-size: 13px;
+}
+
+@media ${device.tabletM}{
+  font-size: 14px;
+}
+
 p {
 color: #57646E;
 display: block;
@@ -67,14 +89,44 @@ margin: 0;
 
 const CartColor = styled.p`
 font-family: Open Sans;
-font-size: 14px;
-color: #000000;`
+color: #000000;
+
+@media ${device.mobile}{
+  grid-column-start: 2;
+  grid-column-end: 4;
+  text-align: left;
+  margin: 0;
+  font-size: 12px;
+  }
+
+  @media ${device.tabletS}{
+    grid-area: auto;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  @media ${device.tabletM}{
+    font-size: 14px;
+  }
+`
 
 const CartPrice = styled.p`
 font-weight: bold;
-font-size: 1em;
 font-family: inherit;
 color: #000000;
+
+@media ${device.mobile}{
+  text-align: left;
+}
+
+@media ${device.tabletS}{
+  font-size: 13px;
+  text-align: inherit;
+}
+
+@media ${device.tabletM}{
+  font-size: 14px;
+}
 `
 
 const CloseBtn = styled(FontAwesomeIcon)`
@@ -84,4 +136,25 @@ color: #A0A9AF;
     cursor: pointer;
     color: #007042;
 }
+
+@media ${device.mobile}{
+position: absolute;
+top: 0.5rem;
+right: 1.7rem;
+}
+
+@media ${device.tabletS}{
+  position: inherit;
+}
 `
+
+const AddToCartBtn = styled.button`
+margin: 0 auto;
+border: 1px solid #e2e6ea;
+border-radius: 0.5rem;
+padding: 0.7rem;
+width: 100%;
+display: flex;
+justify-content: center;
+`
+

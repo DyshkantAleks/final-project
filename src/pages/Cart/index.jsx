@@ -3,12 +3,15 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCart } from '../../store/cart/selectors';
-import { CartItem } from './CartItem';
+import { CartItem } from './CartItem.jsx';
 import { Button } from '../../components/Button'
 import { Header } from '../../commons/Header/Header';
+import { Title } from '../../components/Title/Title';
 import { getProductList } from '../../store/products_draft/actions';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { getCartList } from '../../utils/filters';
+import { device } from '../../styles/breakpoints/breakpoints';
+
 
 export const CartPage = () => {
   const dispatch = useDispatch()
@@ -21,17 +24,18 @@ export const CartPage = () => {
 
   const cartItems = useSelector(selectCart);
   const products = useSelector(selectProducts);
-  
+
   const cartList = getCartList(products, cartItems, 'code');
   const sumCart = cartList.reduce(function (sum, current) {
     return sum + current.price * current.quantity
   }, 0)
 
-  const menuArray = [null, null, 'Назва товару', 'Колір', 'Кількість', 'Ціна'];
+
+  const menuArray = ['Назва товару', 'Колір', 'Кількість', 'Ціна'];
   return (
     <>
-      <Header/>
-      <h1>Кошик</h1>
+      <Header />
+      <Title text='Кошик' />
 
       <CartContainer>
         <CartMenu>
@@ -43,29 +47,39 @@ export const CartPage = () => {
               {...item}
               value={item.quantity}
               key={item.code}
+              cart='true'
             />
           )}
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всього у кошику {cartList.length} товари на суму {sumCart.toLocaleString()}</CartTotalText>
+        <CartTotalText>Всього у кошику {cartList.length} товари на суму {sumCart.toLocaleString()} грн</CartTotalText>
         <Button text="Оформити замовлення" color="green" />
       </CartTotalContainer>
     </>
   )
 }
 
-const CartContainer = styled.div`
+export const CartContainer = styled.div`
  max-width: 120rem;
  margin: 0 auto;
-`
+ text-align: center;
+ `
+
+
 
 const CartMenu = styled.div`
     background-color: #F5F5F5;
-    display: grid;
-    grid-template-columns: 5% 10% 20% 1fr 1fr 10%;
-    grid-gap: 1.9rem;
-    padding: 0.7rem 1.7rem;
+    grid-template-columns: 1fr 1fr 10rem 15%;
+    padding: 0.7rem 1.1rem 0.8rem 8rem;
+
+    @media ${device.mobile}{
+    display: none;
+    }
+    
+    @media ${device.tabletS}{
+      display: grid;
+    }
 
     p {
         font-size: 14px;
@@ -78,12 +92,21 @@ const CartMenu = styled.div`
 const CartTotalContainer = styled.div`
 padding-top: 2rem;
 display: flex; 
-justify-content: space-between;
-<<<<<<< HEAD
-=======
 max-width: 120rem;
 margin: 0 auto;
->>>>>>> dev
+padding: 0.7rem 1rem;
+
+@media ${device.mobile}{
+  padding-top: 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+}
+  
+@media ${device.tabletS}{
+  justify-content: space-between;
+}
 `
 
 const CartTotalText = styled.h4`
