@@ -1,21 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import {Title} from "../Title/Title";
+import React from 'react';
+import styled from 'styled-components';
+import {Title} from '../Title/Title';
 
-
-
-import {device} from "../../styles/breakpoints/breakpoints";
-import {ProductItem} from "../ProductItem/ProductItem";
+import {device} from '../../styles/breakpoints/breakpoints';
+// import {ProductItem} from '../ProductItem/ProductItem';
 
 export const PopularProductsList = () => {
-    return (
-        <>
-            <Title text={'Популярные товары'}/>
-            <List>
+  return (
+    <>
+      <Title text={'Популярные товары'}/>
+      <List>
 
-            </List>
-        </>
-    )
+      </List>
+    </>
+  )
 }
 
 export const List = styled.ul`

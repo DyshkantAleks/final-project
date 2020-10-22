@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {device} from "../../../styles/breakpoints/breakpoints";
+import styled from 'styled-components';
+import {device} from '../../../styles/breakpoints/breakpoints';
 
 export const List = styled.div`
      display: grid;
@@ -40,7 +40,6 @@ export const Item = styled.section`
 }
 `;
 
-
 export const StaticImageContainer = styled.div`
     position: absolute;
     top: 0;
@@ -57,7 +56,6 @@ export const StaticImage = styled.img`
 width: 100%;
 height: auto;
 `;
-
 
 export const StaticTitle = styled.h3`
     font-size: 2.4rem;
@@ -92,7 +90,6 @@ export const StaticSubtitle = styled.h4`
 }  
  
 `;
-
 
 export const HoverImageContainer = styled.div`
     position: absolute;

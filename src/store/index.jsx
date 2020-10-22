@@ -6,6 +6,8 @@ import { MODULE_NAME as modalModuleName } from './modal/selectors';
 import { reducer as modalReducer } from './modal/reducer';
 import { MODULE_NAME as cartModuleName} from './cart/selectors';
 import { reducer as cartReducer } from './cart/reducer';
+import { MODULE_NAME as productsModuleName} from './products_draft/selectors';
+import { reducer as productReducer} from './products_draft/reducer'
 
 import { MODULE_NAME as authModuleName } from './auth/selectors';
 import { reducer as authReducer } from './auth/reducer';
@@ -17,7 +19,8 @@ const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
   [cartModuleName]: cartReducer,
   [authModuleName]: authReducer,
-  [newCustomerModuleName]: newCustomerReducer
+  [newCustomerModuleName]: newCustomerReducer,
+  [productsModuleName]: productReducer
 })
  
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
