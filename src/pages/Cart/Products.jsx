@@ -4,40 +4,39 @@ import { addToCart } from '../../store/cart/selectors'
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
-// !!! DRAFT PRODUCTS PAGE 
+// !!! DRAFT PRODUCTS PAGE
 
 const Products = () => {
+  const products = useSelector(selectProducts);
+  const isReady = useSelector(selectLoader);
 
-    const products = useSelector(selectProducts);
-    const isReady = useSelector(selectLoader);
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  useEffect(() => {
+    getProductList()(dispatch)
+  }, [dispatch])
 
-    useEffect(() => {
-        getProductList()(dispatch)
-    }, [])
+  const addToCartHandler = (id) => {
+    dispatch(addToCart(id));
+  }
 
-    const addToCartHandler = (id) => {
-        dispatch(addToCart(id));
-    }
+  return (
+    <>
+      {
+        isReady ? <Preloader/>
+          : <Container>
+            {products.map(({ code, image, name }) =>
+              <Item key={code}>
+                <Image src={image} />
+                <Title>{name}</Title>
+                <CardBtn onClick={() => addToCartHandler(code)}>У кошик</CardBtn>
+              </Item>
 
-    return (
-        <>
-            {
-                isReady ? <Preloader/> :
-                    <Container>
-                        {products.map(({ code, image, name }) =>
-                            <Item key={code}>
-                                <Image src={image} />
-                                <Title>{name}</Title>
-                                <CardBtn onClick={() => addToCartHandler(code)}>У кошик</CardBtn>
-                            </Item>
-
-                        )}
-                    </Container>
-            }
-        </>
-    )
+            )}
+          </Container>
+      }
+    </>
+  )
 }
 
 export default Products;
