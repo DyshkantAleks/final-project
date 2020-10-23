@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { withRouter } from 'react-router-dom';
 
-import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
+// import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
+// import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
+import { RegularItemFavorite } from './ItemsSvg/RegularItemFavorite';
+import { SolidItemFavorite } from './ItemsSvg/SolidItemFavorite';
+
+
 import { useToggle } from '../../utils/useToggle';
 import { Button } from '../Button';
 import { ROUTES } from '../../pages/navigation/routes';
@@ -24,9 +28,10 @@ import {
   NewIcon,
   TopRatedIcon
 } from './StyledProductItem';
-import { getProductList } from '../../store/products_draft/actions';
-import { selectProducts, selectProductItem } from '../../store/products_draft/selectors';
+import { selectProducts} from '../../store/products_draft/selectors';
 import { getProducts } from '../../store/products_draft/middlware';
+
+
 const ProductItem = (props) => {
 
   const products = useSelector(selectProducts);
@@ -36,38 +41,41 @@ const ProductItem = (props) => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  console.log(products)
-  // const productItem = useSelector(selectProductItem);
+  const [inFavorite, setInFavorite] = useState(false)
 
-  // const getProductItemList = (productObj) => {
-  //   const objCopy = JSON.parse(JSON.stringify(productObj));
-  //   let productArray = [];
-  //   for (const key in objCopy) {
-  //     productArray = [...productArray, ...objCopy[key]]
-  //   }
-  //   return productArray
-  // }
+  const addToFavorite = () => {
+    setInFavorite(!inFavorite);
+  }
 
-  // const productList = getProductItemList(products, productItem);
+  const removeFromFavorite = () => {
+    setInFavorite(false);
+  }
 
-  const [inFavorite, toggleInFavorite] = useToggle();
+  // const img = products.map((item, index) => item.imageUrl);
+  // console.log(img);
+
+  // const [inFavorite, toggleInFavorite] = useToggle();
   return (
     <>
       {
         products.map((item, index) =>
           <ConteinerItem key={index}>
             <PhotoBox>
-              <Photo alt={item.name} src={item.image} />
+              <Photo alt={item.name} src={item.imageUrl} />
             </PhotoBox>
             <TitleBox>
-              {/* <StyledLink to={`product/${item.route}`}> */}
+              {/* <StyledLink to={`/product/${item.route}`}> */}
               <NameContainer>
                 {/* <Name onClick={() => props.history.push('/products/' + item.route)}>{item.name}</Name> */}
-                <Name>{item.name}</Name>
+                <Name>{item.name.toUpperCase()}</Name>
               </NameContainer>
               {/* </StyledLink> */}
-              {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
-              {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
+
+              {!inFavorite && <RegularItemFavorite onClick={() => addToFavorite(item._id)} />}
+              {inFavorite && <SolidItemFavorite onClick={() => removeFromFavorite(item._id)} />}
+
+              {/* {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
+              {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />} */}
               <Price>{item.currentPrice.toLocaleString()}</Price>
               {/* <Button text={'Купить'} /> */}
             </TitleBox>
