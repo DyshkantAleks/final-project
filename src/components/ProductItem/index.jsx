@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
@@ -22,69 +24,80 @@ import {
   NewIcon,
   TopRatedIcon
 } from './StyledProductItem';
-// import styled from 'styled-components'
-// import { getProductList, setProduct, setLoader } from '../../store/products_draft/actions';
-// import { selectProducts, selectLoader } from '../../store/products_draft/selectors';
+import { getProductList } from '../../store/products_draft/actions';
+import { selectProducts, selectProductItem } from '../../store/products_draft/selectors';
 
+const ProductItem = (props) => {
 
-export const ProductItem = (props) => {
-  const {
-    price = 4899,
-    name = 'Стул полубарный NATA',
-    // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
-    // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
-    image = './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
-    // image = './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
-    // image = './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
-    // image = './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
-    // image = './img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg',
-    // image = './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
-    isDiscount = false,
-    isNew = false,
-    isTopRated = false
-  } = props;
+  const products = useSelector(selectProducts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProductList());
+  }, [dispatch]);
+
+  const productItem = useSelector(selectProductItem);
+
+  const getProductItemList = (productObj) => {
+    const objCopy = JSON.parse(JSON.stringify(productObj));
+    let productArray = [];
+    for (const key in objCopy) {
+      productArray = [...productArray, ...objCopy[key]]
+    }
+    return productArray
+  }
+
+  const productList = getProductItemList(products, productItem);
 
   const [inFavorite, toggleInFavorite] = useToggle();
   return (
-    <ConteinerItem>
-      <PhotoBox>
-        <StyledLink to={ROUTES.PRODUCT}>
-          <Photo alt='our product' src={image} />
-          {isDiscount &&
-            <ProductActivityContainer>
-              <IconContainer>
-                <SaleIcon>
-                  {ProductActivity.sale}
-                </SaleIcon>
-              </IconContainer>
-            </ProductActivityContainer>}
-          {isNew && <ProductActivityContainer>
-            <IconContainer>
-              <NewIcon>
-                {ProductActivity.new}
-              </NewIcon>
-            </IconContainer>
-          </ProductActivityContainer>}
-          {isTopRated && <ProductActivityContainer>
-            <IconContainer>
-              <TopRatedIcon>
-                {ProductActivity.topMain}
-              </TopRatedIcon>
-            </IconContainer>
-          </ProductActivityContainer>}
-        </StyledLink>
-      </PhotoBox>
-      <TitleBox>
-        <StyledLink to={ROUTES.PRODUCT}>
-          <NameContainer>
-            <Name>{name}</Name>
-          </NameContainer>
-        </StyledLink>
-        {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
-        {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
-        <Price>{price.toLocaleString()}</Price>
-        {/* <Button text={'Купить'} /> */}
-      </TitleBox>
-    </ConteinerItem>
+    <>
+      {
+        productList.map((item, index) =>
+          <ConteinerItem key={index}>
+            <PhotoBox>
+              {/* <StyledLink to={`product/${item.route}`}> */}
+              <Photo alt='our product' src={item.image[0]} onClick={() => props.history.push('/products/' + item.route)} />
+              {/* {isDiscount &&
+                <ProductActivityContainer>
+                  <IconContainer>
+                    <SaleIcon>
+                      {ProductActivity.sale}
+                    </SaleIcon>
+                 </IconContainer>
+                </ProductActivityContainer>}
+              {isNew && <ProductActivityContainer>
+                <IconContainer>
+                 <NewIcon>
+                   {ProductActivity.new}
+                 </NewIcon>
+               </IconContainer>
+             </ProductActivityContainer>}
+             {isTopRated && <ProductActivityContainer>
+                <IconContainer>
+                 <TopRatedIcon>
+                   {ProductActivity.topMain}
+                 </TopRatedIcon>
+               </IconContainer>
+             </ProductActivityContainer>} */}
+              {/* </StyledLink> */}
+            </PhotoBox>
+            <TitleBox>
+              {/* <StyledLink to={`product/${item.route}`}> */}
+              <NameContainer>
+                <Name onClick={() => props.history.push('/products/' + item.route)}>{item.name}</Name>
+              </NameContainer>
+              {/* </StyledLink> */}
+              {!inFavorite && <StyledFontAwesomeIcon icon={farFaHeart} onClick={toggleInFavorite} />}
+              {inFavorite && <StyledFontAwesomeIcon icon={fasFaHeart} onClick={toggleInFavorite} />}
+              <Price>{item.price.toLocaleString()}</Price>
+              {/* <Button text={'Купить'} /> */}
+            </TitleBox>
+          </ConteinerItem>
+        )
+      }
+    </>
   )
 }
+
+export default withRouter(ProductItem);

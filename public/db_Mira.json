@@ -1,8 +1,6 @@
 {
-    "chairs": [
-
-        {
-            "route": "stul_obedennyy",
+    "chairs": [{
+            "route": "stul_obedennuy_Hollywood",
             "category": "kitchen",
             "code": "9001603-08",
             "name": "Стул обеденный",
@@ -24,6 +22,7 @@
             "inCart": false
         },
         {
+            "route": "stul_s_podlokotnikom_Cosmopolitan",
             "category": "kitchen",
             "code": "9029004A-812",
             "name": "Стул с подлокотником, стеганная кожа",
@@ -48,6 +47,7 @@
             "inCart": false
         },
         {
+            "route": "stul_kyhonnuy_Bella_Veneto",
             "category": "kitchen",
             "code": "9051003-202",
             "name": "Стул",
@@ -72,6 +72,7 @@
             "inCart": false
         },
         {
+            "route": "stul_obedennuy_Halsted",
             "category": "kitchen",
             "code": "TR-HLSTD003",
             "name": "Halsted Стул обеденный",
@@ -93,6 +94,7 @@
             "inCart": false
         },
         {
+            "route": "kreslo_obennoe_London_Place",
             "category": "kitchen",
             "code": "9004004A-112",
             "name": "Кресло обеденное, Creamy Pearl",
@@ -115,6 +117,7 @@
             "inCart": false
         },
         {
+            "route": "stul_obedennuy_Valise",
             "category": "kitchen",
             "code": "9026603-110",
             "name": "Стул обеденный",
@@ -138,6 +141,7 @@
             "inCart": false
         },
         {
+            "route": "rreslo_obedennoe_State_Street",
             "category": "kitchen",
             "code": "9016004A-116",
             "name": "Кресло обеденное, прозрачное",
@@ -159,12 +163,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
-
-
         {
+            "route": "kreslo_Spoon_Kartell",
             "category": "office",
             "code": "4819/09",
             "name": "Кресло Spoon",
@@ -187,6 +187,7 @@
             "inCart": false
         },
         {
+            "route": "stul_Beetle",
             "category": "office",
             "code": "2S12263",
             "name": "Рабочий стул Beetle",
@@ -207,6 +208,7 @@
             "inCart": false
         },
         {
+            "route": "stul_Bat",
             "category": "office",
             "code": "2S12256",
             "name": "Рабочий стул Bat",
@@ -225,6 +227,7 @@
             "inCart": false
         },
         {
+            "route": "kreslo_Maui_Soft",
             "category": "office",
             "code": "2897/DD",
             "name": "Кресло Maui Soft",
@@ -245,6 +248,7 @@
             "inCart": false
         },
         {
+            "route": "kreslo_na_kolesah_Maui_Soft",
             "category": "office",
             "code": "2897/CC",
             "name": "Кресло Maui Soft на колесах ",
@@ -266,6 +270,7 @@
             "inCart": false
         },
         {
+            "route": "kreslo_Spoon_Gray",
             "category": "office",
             "code": "4819/07",
             "name": "Кресло Spoon",
@@ -285,11 +290,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
-
         {
+            "route": "ctul_barnuy_Masters",
             "category": "bar",
             "code": "5849/TT",
             "name": "Стул барный Masters",
@@ -309,6 +311,7 @@
             "length": 50
         },
         {
+            "route": "stul_polubarnuy_Nata",
             "category": "bar",
             "code": "3435",
             "name": "Стул полубарный NATA",
@@ -328,6 +331,7 @@
             "length": 47
         },
         {
+            "route": "barnuy_taburet_Nagasaki",
             "category": "bar",
             "code": "2S12228",
             "name": "Барный табурет Nagasaki",
@@ -345,6 +349,7 @@
             "length": 39
         },
         {
+            "route": "ctul_barnuy_One_More_Please",
             "category": "bar",
             "code": "5895/B4",
             "name": "Стул барный One More Please",
@@ -363,9 +368,8 @@
             "length": 39
         }
     ],
-    "tables": [
-
-        {
+    "tables": [{
+            "route": "stol_obedennuy_Exclusive",
             "category": "kitchen",
             "code": "PSET180",
             "name": "Стол обеденный Exclusive",
@@ -387,6 +391,7 @@
             "inCart": false
         },
         {
+            "route": "stol_Glamour",
             "category": "kitchen",
             "code": "5225",
             "name": "Стол GLAMOUR",
@@ -408,6 +413,7 @@
             "inCart": false
         },
         {
+            "route": "stol_Sir_Gio",
             "category": "kitchen",
             "code": "3276/16",
             "name": "Стол Sir Gio",
@@ -429,6 +435,7 @@
             "inCart": false
         },
         {
+            "route": "stoobedennuy_Gubi",
             "category": "kitchen",
             "code": "2S12347",
             "name": "Обеденный стол GUBI 2.0",
@@ -448,6 +455,7 @@
             "inCart": false
         },
         {
+            "route": "stol_obedennuy_Elica",
             "category": "kitchen",
             "code": "2576",
             "name": "Обеденный стол Elica",
@@ -473,6 +481,7 @@
             "inCart": false
         },
         {
+            "route": "stol_Multiplo_xl",
             "category": "kitchen",
             "code": "4160/MB",
             "name": "Стол MULTIPLO XL",
@@ -491,6 +500,7 @@
             "inCart": false
         },
         {
+            "route": "stol_obedennuy_Chef",
             "category": "kitchen",
             "code": "CHEF",
             "name": "Обеденный стол Chef",
@@ -518,10 +528,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
         {
+            "route": "stol_pismennuy_Taylor",
             "category": "office",
             "code": "0781",
             "name": "Стол письменный TAYLOR",
@@ -542,6 +550,7 @@
             "inCart": false
         },
         {
+            "route": "stol_rabochiy_Kobe",
             "category": "office",
             "code": "KOB04D",
             "name": "Рабочий стол KOBE",
@@ -566,6 +575,7 @@
             "inCart": false
         },
         {
+            "route": "stol_pismennuy_Mestre",
             "category": "office",
             "code": "FBWDMES375",
             "name": "Письменный стол MESTRE",
@@ -587,6 +597,7 @@
             "inCart": false
         },
         {
+            "route": "stol_pismennuy_Inkiostro",
             "category": "office",
             "code": "INKIOSTRO",
             "name": "Стол письменный Inkiostro",
@@ -612,11 +623,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
-
         {
+            "route": "stolik_pristavnoy_Lith",
             "category": "side table",
             "code": "LITH",
             "name": "Столик приставной Lith",
@@ -644,6 +652,7 @@
             "inCart": false
         },
         {
+            "route": "stol_pristavnoy_Smoked",
             "category": "side table",
             "code": "ps272B",
             "name": "Приставной стол Smoked",
@@ -662,6 +671,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_pristavnoyu_Moon_Invaders",
             "category": "side table",
             "code": "MOONINVADERS",
             "name": "Столик приставной Moon Invaders",
@@ -685,6 +695,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_pristavnoy_Berlin",
             "category": "side table",
             "code": "8089",
             "name": "Приставной столик Berlin",
@@ -703,6 +714,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_pristavnoy_Volterra_Accent",
             "category": "side table",
             "code": "88231089",
             "name": "Приставной столик Volterra Accent",
@@ -721,6 +733,7 @@
             "inCart": false
         },
         {
+            "route": "stol_pristavnoy_Toi",
             "category": "side table",
             "code": "632",
             "name": "Приставной стол Toi",
@@ -746,10 +759,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
         {
+            "route": "stolik_zhurnalnuy_Expert",
             "category": "coffee table",
             "code": "PS22",
             "name": "Журнальный столик Expert",
@@ -769,6 +780,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_zhurnalnuy_Exlusive",
             "category": "coffee table",
             "code": "PS23",
             "name": "Журнальный столик Exclusive",
@@ -790,6 +802,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_zhurnalnuy_Techno",
             "category": "coffee table",
             "code": "PS15",
             "name": "Журнальный столик Techno",
@@ -808,6 +821,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_zhurnalnuy_Spotty",
             "category": "coffee table",
             "code": "661",
             "name": "Журнальный стол Spotty",
@@ -830,6 +844,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_zhurnalnuy_Sparkle",
             "category": "coffee table",
             "code": "8805/B4",
             "name": "Столик журнальный Sparkle",
@@ -850,6 +865,7 @@
             "inCart": false
         },
         {
+            "route": "stolik_zhurnalnuy_Vision",
             "category": "coffee table",
             "code": "PS8",
             "name": "Журнальный столик Vision",
@@ -868,9 +884,8 @@
             "inCart": false
         }
     ],
-    "sofas": [
-
-        {
+    "sofas": [{
+            "route": "kushetka_Gaby",
             "category": "couch",
             "code": "109838",
             "name": "Кушетка Gaby",
@@ -889,6 +904,7 @@
             "inCart": false
         },
         {
+            "route": "kushetka_Figi",
             "category": "couch",
             "code": "ORFIGI100",
             "name": "Кушетка Figi",
@@ -910,6 +926,7 @@
             "inCart": false
         },
         {
+            "route": "kushetka_Manta",
             "category": "couch",
             "code": "MANTA",
             "name": "Кушетка Manta",
@@ -933,11 +950,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
-
         {
+            "route": "divan_Betty_Boop",
             "category": "simple",
             "code": "7016/BE",
             "name": "Диван Betty Boop",
@@ -957,6 +971,7 @@
             "inCart": false
         },
         {
+            "route": "divan_Winnie",
             "category": "simple",
             "code": "WINNIE260FT3",
             "name": "Диван Winnie",
@@ -977,9 +992,10 @@
             "inCart": false
         },
         {
+            "route": "divan_Betty_Starman",
             "category": "simple",
             "code": "STARMAN",
-            "name": "Диван Starman ",
+            "name": "Диван Starman",
             "brand": "Arketipo",
             "image": [
                 "./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg",
@@ -1002,6 +1018,7 @@
             "inCart": false
         },
         {
+            "route": "divan_krovat_Nixon",
             "category": "simple",
             "code": "NIXON",
             "name": "Диван-кровать Nixon",
@@ -1024,6 +1041,7 @@
             "inCart": false
         },
         {
+            "route": "divan_Auto_reverse",
             "category": "simple",
             "code": "AUTO-REVERSE",
             "name": "Диван Auto-reverse",
@@ -1047,11 +1065,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
-
         {
+            "route": "divan_Brown_Sugar",
             "category": "corner",
             "code": "BROWNSUGAR",
             "name": "Диван Brown Sugar",
@@ -1075,6 +1090,7 @@
             "inCart": false
         },
         {
+            "route": "divan_Plat",
             "category": "corner",
             "code": "PLAT",
             "name": "Диван Plat",
@@ -1098,7 +1114,7 @@
             "inCart": false
         },
         {
-            "category": "corner",
+            "route": "divan_Sinfonia",
             "code": "SINFONIA",
             "name": "Диван Sinfonia",
             "brand": "Mussi",
@@ -1123,6 +1139,7 @@
             "inCart": false
         },
         {
+            "route": "divan_Moss",
             "category": "corner",
             "code": "MOSS",
             "name": "Диван Moss",
@@ -1145,13 +1162,12 @@
             "inCart": false
         }
     ],
-    "beds": [
-
-        {
+    "beds": [{
+            "route": "krovat_Erica",
             "category": "soft",
             "code": "33902",
-            "name": "Erica с ПМ ",
-            "brand": "Askona",
+            "name": "Кровать Erica с ПМ ",
+            "brand": " Askona",
             "image": "https://askona.ua/krovati/erica.html",
             "quantity": 10,
             "color": "Коричневый",
@@ -1164,9 +1180,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Marta_New",
             "category": "soft",
             "code": "46478",
-            "name": "Marta New",
+            "name": " Кровать Marta New",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/marta-new.html",
             "quantity": 10,
@@ -1180,9 +1197,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Emma",
             "category": "soft",
             "code": "52024",
-            "name": "Emma",
+            "name": "Кровать Emma",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/emma.html",
             "quantity": 10,
@@ -1196,9 +1214,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Silvana",
             "category": "soft",
             "code": "33911",
-            "name": "Silvana",
+            "name": "Кровать Silvana",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/silvana.html",
             "quantity": 10,
@@ -1212,9 +1231,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Elisa_Grand",
             "category": "soft",
             "code": "33914",
-            "name": "Elisa Grand",
+            "name": "Кровать Elisa Grand",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/elisa-grand.html",
             "quantity": 10,
@@ -1228,9 +1248,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Cassandra",
             "category": "soft",
             "code": "33918",
-            "name": "Cassandra",
+            "name": "Кровать Cassandra",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/cassandra.html",
             "quantity": 10,
@@ -1244,9 +1265,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Ivona",
             "category": "soft",
             "code": "52294",
-            "name": "Ivona",
+            "name": "Кровать Ivona",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/ivona.html",
             "quantity": 10,
@@ -1259,12 +1281,11 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
         {
+            "route": "krovat_Titan",
             "category": "wood",
             "code": "33903",
-            "name": "Титан",
+            "name": "Кровать Титан",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/titan.html",
             "quantity": 10,
@@ -1278,9 +1299,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Veneciya",
             "category": "wood",
             "code": "33907",
-            "name": "Венеция",
+            "name": "Кровать Венеция",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/venetsiya.html",
             "quantity": 10,
@@ -1294,9 +1316,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Renata",
             "category": "wood",
             "code": "33917",
-            "name": "Рената",
+            "name": "Кровать Рената",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/renata.html",
             "quantity": 10,
@@ -1310,9 +1333,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Selena",
             "category": "wood",
             "code": "46446",
-            "name": "Селена",
+            "name": "Кровать Селена",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/selena.html",
             "quantity": 10,
@@ -1325,11 +1349,11 @@
             "inFavorites": false,
             "inCart": false
         },
-
         {
+            "route": "krovat_Lauro",
             "category": "wood",
             "code": "52515",
-            "name": "Лауро",
+            "name": "Кровать Лауро",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/lauro-lauro-olkha.html",
             "quantity": 10,
@@ -1343,9 +1367,10 @@
             "inCart": false
         },
         {
+            "route": "krovat_Fadjio",
             "category": "wood",
             "code": "52480",
-            "name": "Фаджио",
+            "name": "Кровать Фаджио",
             "brand": "Askona",
             "image": "https://askona.ua/krovati/fadzhio-faggio-dub.html",
             "quantity": 10,
@@ -1358,12 +1383,9 @@
             "inFavorites": false,
             "inCart": false
         }
-
-
     ],
-    "accessories": [
-
-        {
+    "accessories": [{
+            "route": "zerkalo_Vanity_Fair",
             "category": "mirrors",
             "code": "VANITYFAIR",
             "name": "Зеркало настенное Vanity Fair",
@@ -1388,6 +1410,7 @@
             "inCart": false
         },
         {
+            "route": "zerkalo_Exclusive",
             "category": "mirrors",
             "code": "M1",
             "name": "Зеркало напольное Exclusive",
@@ -1407,6 +1430,7 @@
             "inCart": false
         },
         {
+            "route": "zerkalo_Le_Mans",
             "category": "mirrors",
             "code": "ps181G",
             "name": "Зеркало Le Mans",
@@ -1425,6 +1449,7 @@
             "inCart": false
         },
         {
+            "route": "zerkalo_Aledo",
             "category": "mirrors",
             "code": "7039",
             "name": "Настенное зеркало Aledo",
@@ -1443,9 +1468,10 @@
             "inCart": false
         },
         {
+            "route": "zerkalo_Roud_Swirl",
             "category": "mirrors",
             "code": "SP157-3",
-            "name": "Настенное зеркало Round Swirl ",
+            "name": "Настенное зеркало Round Swirl",
             "brand": "Fratelli Barri",
             "image": [
                 "./img/accessories/mirrors/mirror_Fratelli_Barri/mirror_Fratelli_Barri_main.jpeg",
@@ -1462,6 +1488,7 @@
             "inCart": false
         },
         {
+            "route": "zerkalo_Chelini_Legno",
             "category": "mirrors",
             "code": "116",
             "name": "Зеркало Chelini Legno",
@@ -1481,10 +1508,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
         {
+            "route": "watch_Cadance",
             "category": "watch",
             "code": "107036",
             "name": "Часы Cadance",
@@ -1504,6 +1529,7 @@
             "inCart": false
         },
         {
+            "route": "watch_Tic&Tac",
             "category": "watch",
             "code": "1070036",
             "name": "Часы Tic&Tac",
@@ -1525,6 +1551,7 @@
             "inCart": false
         },
         {
+            "route": "watch_Air_Air_du_Temps",
             "category": "watch",
             "code": "1931/GG",
             "name": "Часы Air du Temps",
@@ -1544,6 +1571,7 @@
             "inCart": false
         },
         {
+            "route": "watch_Kartell",
             "category": "watch",
             "code": "1910/M3",
             "name": "Часы Tic&Tac",
@@ -1565,6 +1593,7 @@
             "inCart": false
         },
         {
+            "route": "watch_Kartell_Air",
             "category": "watch",
             "code": "1930/09",
             "name": "Часы Air du Temps",
@@ -1583,11 +1612,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
-
-
         {
+            "route": "vase_Trame_in_Bianko",
             "category": "vase",
             "code": "1036460",
             "name": "Ваза для цветов / декорация",
@@ -1606,6 +1632,7 @@
             "inCart": false
         },
         {
+            "route": "vase_Hurricane",
             "category": "vase",
             "code": "28450",
             "name": "Ваза Hurricane Venice Green",
@@ -1625,6 +1652,7 @@
             "inCart": false
         },
         {
+            "route": "vase_Trame",
             "category": "vase",
             "code": "1036473",
             "name": "Ваза для конфет",
@@ -1643,9 +1671,8 @@
             "inCart": false
         }
     ],
-    "storage": [
-
-        {
+    "storage": [{
+            "route": "shkaf_Dexter",
             "category": "wardrobe",
             "code": "Dxsp",
             "name": "Шкаф DEXTER",
@@ -1667,6 +1694,7 @@
             "inCart": false
         },
         {
+            "route": "shkaf_Colonial_Club",
             "category": "wardrobe",
             "code": "ABU0003 ROS0065",
             "name": "Шкаф",
@@ -1685,6 +1713,7 @@
             "inCart": false
         },
         {
+            "route": "knizhnuy_shkaf_Venezia",
             "category": "wardrobe",
             "code": "56ROS0065",
             "name": "Книжный шкаф VENEZIA",
@@ -1707,6 +1736,7 @@
             "inCart": false
         },
         {
+            "route": "shkaf_Dialma_Brown",
             "category": "wardrobe",
             "code": "DB004944",
             "name": "Шкаф с лестницей",
@@ -1726,9 +1756,8 @@
             "inFavorites": false,
             "inCart": false
         },
-
-
         {
+            "route": "komod_Pusha",
             "category": "dresser",
             "code": "PSEM",
             "name": "Комод",
@@ -1749,6 +1778,7 @@
             "inCart": false
         },
         {
+            "route": "komod_Techno",
             "category": "dresser",
             "code": "PSTM",
             "name": "Комод Techno",
@@ -1770,6 +1800,7 @@
             "inCart": false
         },
         {
+            "route": "komod_Componibili",
             "category": "dresser",
             "code": "4967/03",
             "name": "Контейнер Componibili",
@@ -1790,6 +1821,7 @@
             "inCart": false
         },
         {
+            "route": "komod_Ghost_Buster",
             "category": "dresser",
             "code": "3210/E5",
             "name": "Комод Ghost Buster",

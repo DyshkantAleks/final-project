@@ -53,6 +53,7 @@ padding: .5rem;
 export const Photo = styled.img`
 max-width: 100%;
 max-height: 100%;
+cursor: pointer;
 `;
 
 export const ProductActivityContainer = styled.div`
@@ -98,6 +99,7 @@ height: 4rem;
 export const Name = styled.span`
 font-size: 1.4rem;
 font-weight: 700;
+cursor: pointer;
     @media ${device.tabletS}{
         font-size: 1.6rem;
     };

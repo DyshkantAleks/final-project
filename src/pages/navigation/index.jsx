@@ -6,28 +6,30 @@ import {
 } from 'react-router-dom';
 
 import { ROUTES } from './routes';
-import {AboutPage} from '../About';
-import {DeliveryPage} from '../Delivery';
-import {Homepage} from '../Homepage';
-import {PromotionsPage} from '../Promotions';
-import {StoresPage} from '../Stores';
-import {CartPage} from '../Cart';
-import {FavoritesPage} from '../Favorites';
-import {AccountPage} from '../Account';
-import {ProductPage} from '../Product';
-import {AllProducts} from '../Product/Products';
+import { AboutPage } from '../About';
+import { DeliveryPage } from '../Delivery';
+import { Homepage } from '../Homepage';
+import { PromotionsPage } from '../Promotions';
+import { StoresPage } from '../Stores';
+import { CartPage } from '../Cart';
+import { FavoritesPage } from '../Favorites';
+import { AccountPage } from '../Account';
+import { ProductPage } from '../Product';
+import { AllProducts } from '../Product/Products';
 
 export const Navigation = () => (
   <Router>
     <Switch>
-      <Route path={ROUTES.PRODUCT}>
+      {/* <Route path={ROUTES.PRODUCT}>
         <ProductPage/>
-      </Route>
-      <Route path={ROUTES.PRODUCTS}>
+      </Route> */}
+      <Route path='/products/:route' component={ProductPage} />
+      <Route path='/products' component={AllProducts} />
+      {/* <Route path={ROUTES.PRODUCTS}>
         <AllProducts/>
-      </Route>
+      </Route> */}
       <Route path={ROUTES.ABOUT}>
-        <AboutPage/>
+        <AboutPage />
       </Route>
       <Route path={ROUTES.DELIVERY}>
         <DeliveryPage />
