@@ -1,16 +1,8 @@
 {
-<<<<<<< HEAD
     "chairs": [{
             "route": "stul_obedennuy_Hollywood",
             "category": "kitchen",
             "code": "9001603-08",
-=======
-    "chairs": [
-
-        {
-            "category": "chairs",
-            "subCategory": "kitchen",            
->>>>>>> dev
             "name": "Стул обеденный",
             "brand": "Hollywood Loft",
             "imageUrl": [
@@ -27,18 +19,13 @@
                 "height": 79,
                 "width": 45,
                 "length": 40
-            }          
-          
+            }
+
         },
         {
-<<<<<<< HEAD
             "route": "stul_s_podlokotnikom_Cosmopolitan",
             "category": "kitchen",
             "code": "9029004A-812",
-=======
-            "category": "chairs",
-            "subCategory": "kitchen",
->>>>>>> dev
             "name": "Стул с подлокотником, стеганная кожа",
             "brand": "Cosmopolitan Orange",
             "image": [
@@ -53,15 +40,15 @@
             "quantity": 10,
             "color": "Оранжевый",
             "description": "Взрыв эмоций на почве любви к Lamborghini. Смелость и простота позднего модерна 70-х годов прошлого века. И инновации 20-х годов века нынешнего",
-           "sizes":{
-            
-            "height": 86,
-            "length": 55,
-            "width": 60
-           },
-           "currentPrice": 23399
-          
-            
+            "sizes": {
+
+                "height": 86,
+                "length": 55,
+                "width": 60
+            },
+            "currentPrice": 23399
+
+
         },
         {
             "route": "stul_kyhonnuy_Bella_Veneto",
