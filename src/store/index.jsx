@@ -22,14 +22,10 @@ const rootReducer = combineReducers({
   [cartModuleName]: cartReducer,
   [authModuleName]: authReducer,
   [newCustomerModuleName]: newCustomerReducer,
-  [productsModuleName]: productReducer
-})
-
-// export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
-//
-//   [productsModuleName]: productReducer,
-//   [promotionsModuleName]: promotionsReducer
-// });
+  [productsModuleName]: productReducer,
+  [productsModuleName]: productReducer,
+[promotionsModuleName]: promotionsReducer
+});
 
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

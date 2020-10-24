@@ -5,7 +5,7 @@ import {ContentContairer} from "../../components/Content/Content";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {selectById, selectPromotions} from "../../store/promotions/selectors";
-import {getPromotionsList} from "../../store/promotions/actions";
+import {getPromotions} from "../../store/promotions/middlware";
 import {device} from "../../styles/breakpoints/breakpoints";
 
 export const PromotionsSinglePage = ({match, location}) => {
@@ -13,7 +13,7 @@ export const PromotionsSinglePage = ({match, location}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPromotionsList())
+    dispatch(getPromotions())
   }, []);
 
   const single = useSelector(selectById(match.params.route));
@@ -26,13 +26,13 @@ export const PromotionsSinglePage = ({match, location}) => {
           <Header/>
           <Container>
             <ImageContainer>
-              <Image src={single["desctop-image"]}/>
+              <Image src={single["desctopSliderImageUrl"]}/>
             </ImageContainer>
           </Container>
           <ContentContairer>
             <ContentContainer>
               <Title>{single.title}</Title>
-              <Description>{single["full-description"]}</Description>
+              <Description>{single["fullDescription"]}</Description>
             </ContentContainer>
           </ContentContairer>
         </>

@@ -1,16 +1,16 @@
-import {SET_PROMOTIONS} from "./actions";
+import {SET_CATEGORIES} from "./actions";
 
 const InitialState = {
-    promotions: []
+    categories: []
 };
 
 
 export function reducer(state = InitialState, { type, payload }) {
     switch (type) {
-        case SET_PROMOTIONS:
+        case SET_CATEGORIES:
             return {
                 ...state,
-                promotions: payload
+                categories: payload
             }
             default:
                 return state

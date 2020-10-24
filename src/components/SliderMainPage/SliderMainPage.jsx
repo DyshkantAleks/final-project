@@ -6,8 +6,8 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useDispatch, useSelector} from "react-redux";
-import {getPromotionsList} from "../../store/categories/actions";
-import {selectPromotions} from "../../store/categories/selectors";
+import {getPromotions} from "../../store/promotions/middlware";
+import {selectPromotions} from "../../store/promotions/selectors";
 import {Link} from "react-router-dom";
 import {Container, SlideContainer, Image} from "./StyledSliderMainPage";
 
@@ -17,7 +17,7 @@ export const SliderMainPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPromotionsList());
+    dispatch(getPromotions());
 
   }, []);
 
@@ -35,7 +35,7 @@ export const SliderMainPage = () => {
           <SlideContainer>
             <Link
               to={`/promo/${e.route}`}>
-                <Image src={e['slider-image']}/>
+                <Image src={e['sliderImageUrl']}/>
             </Link>
           </SlideContainer>
         ))}
