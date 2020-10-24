@@ -23,7 +23,7 @@ export const Navigation = () => (
       {/* <Route path={ROUTES.PRODUCT}>
         <ProductPage/>
       </Route> */}
-      <Route path='/products/:route' component={ProductPage} />
+      <Route path='/products/:name' component={ProductPage} />
       <Route path='/products' component={AllProducts} />
       {/* <Route path={ROUTES.PRODUCTS}>
         <AllProducts/>

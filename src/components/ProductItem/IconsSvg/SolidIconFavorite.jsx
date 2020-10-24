@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ItemFavoriteContainer } from '../StyledProductItem'
 
-export const SolidItemFavorite = (props) => {
+export const SolidIconFavorite = (props) => {
     const { onClick } = props;
     return (
         <ItemFavoriteContainer>
