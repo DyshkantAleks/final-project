@@ -29,6 +29,8 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ProductCounter } from '../Counter/ProductCounter';
 import { selectById } from '../../store/products_draft/selectors';
 import { getProducts } from '../../store/products_draft/middlware';
+import {ProductSlider} from '../ProductSlider';
+
 
 const specifications = {
   covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
@@ -80,7 +82,8 @@ const ProductItemDetails = (props) => {
         <>
           <Title text={product.name.toUpperCase()} />
           <ContainerDetails>
-            <ProductCarousel />
+            {/* <ProductCarousel /> */}
+           <ProductSlider/>
             <ContainerProduct>
               <Price>{product.currentPrice.toLocaleString()}</Price>
               {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}

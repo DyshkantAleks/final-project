@@ -11,6 +11,7 @@ import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer } from './StyledProductItem';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { getProducts } from '../../store/products_draft/middlware';
+import { ProductSlider } from '../ProductSlider';
 
 const ProductItem = (props) => {
   const products = useSelector(selectProducts);
@@ -24,6 +25,7 @@ const ProductItem = (props) => {
 
   return (
     <>
+    {/* <ProductSlider/> */}
       {
         products.map((item, index) =>
           <ConteinerItem key={index}>
