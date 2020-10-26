@@ -1,81 +1,74 @@
 import React, {useState} from 'react';
 
-import {CatalogSublist} from './CatalogSublist';
-// import {Item} from "../StyledCatalog";
-// import {CatalogList} from '../CatalogList';
-import useWindowDimensions from '../../../../utils/useWindowDimensions';
-import {CatalogIcons} from '../CatalogIcons';
-// import styled from 'styled-components';
-// import {device} from '../../../../styles/breakpoints/breakpoints';
-import {NewItem, IconContainer, ItemText} from '../StyledCatalog';
 
-export const CatalogItem = () => {
+import useWindowDimensions from "../../../../utils/useWindowDimensions";
+import {NewItem, IconContainer, ItemText, SubList, SubItem, ImageIcon, StyledLink, TextContainer} from "../StyledCatalog";
+import {useSelector} from "react-redux";
+import {selectByParentCategory} from "../../../../store/categories/selectors";
+
+
+
+
+export const CatalogItem = (props) => {
+  const {category, icon} = props;
   const [isOpen, setIsOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const {screenWidth} = useWindowDimensions();
+  const subCategory = useSelector(selectByParentCategory(category));
+
+
   return (
     <>
-      <NewItem>
-        <IconContainer>
-          {CatalogIcons.chair}
-        </IconContainer>
-        <ItemText>Chair</ItemText>
-      </NewItem>
-      <NewItem>
-        <IconContainer>
-          {CatalogIcons.table}
-        </IconContainer>
-        <ItemText>Tables</ItemText>
-      </NewItem>
-      <NewItem>
-        <IconContainer>
-          {CatalogIcons.sofa}
-        </IconContainer>
-        <ItemText>Sofas</ItemText>
-      </NewItem>
-      <NewItem>
-        <IconContainer>
-          {CatalogIcons.storage}
-        </IconContainer>
-        <ItemText>Storage</ItemText>
-      </NewItem>
-      <NewItem>
-        <IconContainer>
-          {CatalogIcons.accessories}
-        </IconContainer>
-        <ItemText>Accessories</ItemText>
-      </NewItem>
-      {screenWidth < 1200 && (
-        <NewItem onClick={() => {
-          setIsOpen(!isOpen);
-        }}>
-          <IconContainer>
-            {CatalogIcons.accessories}
-          </IconContainer>
-          <ItemText>Accessories</ItemText>
-          {isOpen && (
-            <CatalogSublist/>
-          )}
+
+      { screenWidth < 1200 && (
+        <NewItem>
+          <TextContainer onClick={() => {
+            setIsOpen(!isOpen);
+          }}>
+            <IconContainer>
+              <ImageIcon src={icon}/>
+            </IconContainer>
+            <ItemText>{category}</ItemText>
+          </TextContainer>
+          {isOpen &&
+          <SubList>
+            {subCategory.map((e) => (
+              <StyledLink to={`/catalog/${e.route}`}>
+                <SubItem>{e.category}</SubItem>
+              </StyledLink>
+            ))}
+          </SubList>
+          }
+
         </NewItem>
       )}
       {screenWidth >= 1200 && (
-        <NewItem onMouseEnter={() => {
-          setHover(true)
-        }}
-        onMouseLeave={() => {
-          setHover(false)
-        }}
-        >
-          <IconContainer>
-            {CatalogIcons.accessories}
-          </IconContainer>
-          <ItemText>Accessories</ItemText>
-          {hover && (
-            <CatalogSublist/>
+        <NewItem onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
+          <TextContainer>
+            <IconContainer>
+              <ImageIcon src={icon}/>
+            </IconContainer>
+            <ItemText>{category}</ItemText>
+          </TextContainer>
+          {hover &&
 
-          )}
+            <SubList>
+              {subCategory.map((e) => (
+                <StyledLink to={`/catalog/${e.route}`}>
+                  <SubItem>{e.category}</SubItem>
+                </StyledLink>
+                ))}
+            </SubList>
+
+          }
         </NewItem>
       )}
     </>
   )
 };
+
+
+
+
+
+

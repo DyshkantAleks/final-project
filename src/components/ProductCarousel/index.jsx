@@ -93,7 +93,10 @@ export const ProductCarousel = () => {
       gallerySwiper.controller.control = thumbsSwiper;
       thumbsSwiper.controller.control = gallerySwiper;
     }
+
   }, [screenWidth]);
+
+
 
   return (
     <>

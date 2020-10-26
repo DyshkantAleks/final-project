@@ -13,12 +13,14 @@ import { selectProducts } from '../../store/products_draft/selectors';
 import { getProducts } from '../../store/products_draft/middlware';
 
 const ProductItem = (props) => {
-  const products = useSelector(selectProducts);
-  const dispatch = useDispatch();
+  const {name, price, image, route, id} =props
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+  // const products = useSelector(selectProducts);
+  // const dispatch = useDispatch();
+  //
+  // useEffect(() => {
+  //   dispatch(getProducts());
+  // }, [dispatch]);
 
   const [inFavorite, toggleInFavorite] = useToggle();
 
@@ -26,12 +28,21 @@ const ProductItem = (props) => {
 
   return (
     <>
+<<<<<<< HEAD
       {
         products.map((item, index) =>
           <ConteinerItem key={index}>
             <PhotoBox>
               <StyledLink to={`/products/${item.name}`}>
                 <Photo alt={item.name} src={item.imageUrl[0]} />
+=======
+    {/* <ProductSlider/> */}
+
+          <ConteinerItem key={id}>
+            <PhotoBox>
+              <StyledLink to={`/products/${route}`}>
+                <Photo alt={name} src={image}/>
+>>>>>>> Vika
               </StyledLink>
               <ProductActivityContainer>
                 <IconSale />
@@ -40,18 +51,22 @@ const ProductItem = (props) => {
               </ProductActivityContainer>
             </PhotoBox>
             <TitleBox>
-              <StyledLink to={`/products/${item.name}`}>
+              <StyledLink to={`/products/${route}`}>
                 <NameContainer>
+<<<<<<< HEAD
                   <Name>{item.name}</Name>
+=======
+                  <Name>{name.toUpperCase()}</Name>
+>>>>>>> Vika
                 </NameContainer>
               </StyledLink>
-              {!inFavorite && <RegularIconFavorite onClick={() => toggleInFavorite(item._id)} />}
-              {inFavorite && <SolidIconFavorite onClick={() => toggleInFavorite(item._id)} />}
-              <Price>{item.currentPrice.toLocaleString()}</Price>
+              {!inFavorite && <RegularIconFavorite onClick={() => toggleInFavorite(id)} />}
+              {inFavorite && <SolidIconFavorite onClick={() => toggleInFavorite(id)} />}
+              <Price>{price.toLocaleString()}</Price>
             </TitleBox>
           </ConteinerItem>
-        )
-      }
+
+
     </>
   )
 }
