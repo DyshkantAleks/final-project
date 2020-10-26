@@ -5,8 +5,10 @@ import {getProductsByCategory, getProductsBySubCategory} from "../../store/produ
 import {selectProducts, selectProductsForFilter} from "../../store/products_draft/selectors";
 import {selectCategoryFromRoute} from "../../store/categories/selectors";
 
-import {ProductItem} from "../../components/ProductItem/ProductItem";
+import ProductItem from '../../components/ProductItem'
 import {Link} from "react-router-dom";
+import {ContentContairer} from "../../components/Content/Content";
+import {ProductItemList} from "../../components/ProductItemDetails/StyledProductItemDetails";
 
 export const ProductListPage = ({match, location}) => {
   const {params: {route}} = match;
@@ -31,16 +33,23 @@ export const ProductListPage = ({match, location}) => {
     }
   }, [currentItemByRoute]);
 
-  console.log(productsByCategory.products);
+  console.log(productsByCategory);
 
 
   return (
     <>
       <Header/>
+      <ContentContairer>
       <h1>Title of page</h1>
+        <ProductItemList>
       {productsByCategory.products.map((e) => (
-          <ProductItem name={e.name} price={e.currentPrice} image={e.imageUrl[0]} key={e.id}/>
+
+          <ProductItem name={e.name} price={e.currentPrice} image={e.imageUrl[0]} key={e.id} route={e.route} id={e._id}/>
+
+
       ))}
+        </ProductItemList>
+      </ContentContairer>
     </>
   )
 }

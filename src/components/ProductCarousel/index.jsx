@@ -93,11 +93,10 @@ export const ProductCarousel = () => {
       gallerySwiper.controller.control = thumbsSwiper;
       thumbsSwiper.controller.control = gallerySwiper;
     }
-<<<<<<< HEAD:src/components/ProductCarousel/ProductCarousel.jsx
-  }, []);
-=======
+
   }, [screenWidth]);
->>>>>>> Mira:src/components/ProductCarousel/index.jsx
+
+
 
   return (
     <>

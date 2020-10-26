@@ -25,7 +25,7 @@ export const CatalogList = () => {
     <Container>
       <List>
         {categories.map((e) => (
-          <StyledLink to={`/${e.route}`} key={e.id}>
+          <StyledLink to={`/catalog/${e.route}`} key={e.id}>
 
             <CatalogItem category={e.category}  icon={e.icon}/>
           </StyledLink>

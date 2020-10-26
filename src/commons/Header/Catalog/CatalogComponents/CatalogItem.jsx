@@ -13,14 +13,14 @@ export const CatalogItem = (props) => {
   const {category, icon} = props;
   const [isOpen, setIsOpen] = useState(false);
   const [hover, setHover] = useState(false);
-  const {width} = useWindowDimensions();
+  const {screenWidth} = useWindowDimensions();
   const subCategory = useSelector(selectByParentCategory(category));
 
 
   return (
     <>
 
-      {width < 1200 && (
+      { screenWidth < 1200 && (
         <NewItem>
           <TextContainer onClick={() => {
             setIsOpen(!isOpen);
@@ -33,7 +33,7 @@ export const CatalogItem = (props) => {
           {isOpen &&
           <SubList>
             {subCategory.map((e) => (
-              <StyledLink to={`/${e.route}`}>
+              <StyledLink to={`/catalog/${e.route}`}>
                 <SubItem>{e.category}</SubItem>
               </StyledLink>
             ))}
@@ -42,7 +42,7 @@ export const CatalogItem = (props) => {
 
         </NewItem>
       )}
-      {width >= 1200 && (
+      {screenWidth >= 1200 && (
         <NewItem onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
           <TextContainer>
             <IconContainer>
@@ -54,7 +54,7 @@ export const CatalogItem = (props) => {
 
             <SubList>
               {subCategory.map((e) => (
-                <StyledLink to={`/${e.route}`}>
+                <StyledLink to={`/catalog/${e.route}`}>
                   <SubItem>{e.category}</SubItem>
                 </StyledLink>
                 ))}

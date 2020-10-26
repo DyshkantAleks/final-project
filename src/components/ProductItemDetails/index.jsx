@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
 
 
 import { Title } from '../Title/Title';
-import { ProductCarousel } from '../ProductCarousel';
+
 import { Button } from '../Button';
-import { useToggle } from '../../utils/useToggle';
+
 import {
   ContainerDetails,
   ContainerProduct,
@@ -21,7 +21,6 @@ import {
   Actions,
   SpecificationContainer,
   DescriptionKey,
-  ShowMore
 } from './StyledProductItemDetails';
 import { RegularIconFavorite } from '../ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../ProductItem/IconsSvg/SolidIconFavorite';
@@ -32,53 +31,45 @@ import { getProducts } from '../../store/products_draft/middlware';
 import {ProductSlider} from '../ProductSlider';
 
 
-const specifications = {
-  covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
-  casing: 'Обивка монолитного сидения может быть разной: эко-кожа, дизайнерская ткань, водонепроницаемый нубук, натуральная шерсть, бархат, кожа премиум-класса.',
-};
+// export const specifications = {
+//   covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
+//   casing: 'Обивка монолитного сидения может быть разной: эко-кожа, дизайнерская ткань, водонепроницаемый нубук, натуральная шерсть, бархат, кожа премиум-класса.',
+// };
 
-const ProductItemDetails = (props) => {
-  const { match } = props;
-  // const { params: { name } } = match;
-  const dispatch = useDispatch();
+export  const ProductItemDetails = (props) => {
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
 
-  const product = useSelector(selectById(match.params.name));
-
-  const { screenWidth } = useWindowDimensions();
-  const [inFavorite, toggleInFavorite] = useToggle();
-  const [isSpecification, setIsSpecification] = useState(false);
-  const [isDimensions, setIsDimensions] = useState(false);
-  const [value, setValue] = useState(1) // myronets
-
-  const toggleSpecificationBtn = () => {
-    if (isSpecification) {
-      return (
-        <ShowMore onClick={() => setIsSpecification(false)}>&#9650;</ShowMore>
-      );
-    }
-    return (
-      <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
-    );
-  };
-
-  const toggleDimensionsBtn = () => {
-    if (isDimensions) {
-      return (
-        <ShowMore onClick={() => setIsDimensions(false)}>&#9650;</ShowMore>
-      );
-    }
-    return (
-      <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
-    );
-  };
+  // const { screenWidth } = useWindowDimensions();
+  // const [inFavorite, toggleInFavorite] = useToggle();
+  // const [isSpecification, setIsSpecification] = useState(false);
+  // const [isDimensions, setIsDimensions] = useState(false);
+  // const [value, setValue] = useState(1) // myronets
+  //
+  // const toggleSpecificationBtn = () => {
+  //   if (isSpecification) {
+  //     return (
+  //       <ShowMore onClick={() => setIsSpecification(false)}>&#9650;</ShowMore>
+  //     );
+  //   }
+  //   return (
+  //     <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
+  //   );
+  // };
+  //
+  // const toggleDimensionsBtn = () => {
+  //   if (isDimensions) {
+  //     return (
+  //       <ShowMore onClick={() => setIsDimensions(false)}>&#9650;</ShowMore>
+  //     );
+  //   }
+  //   return (
+  //     <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
+  //   );
+  // };
 
   return (
-    <>
-      {product && (
+
+
         <>
           <Title text={product.name.toUpperCase()} />
           <ContainerDetails>
@@ -140,12 +131,12 @@ const ProductItemDetails = (props) => {
               </Subtitle>
             }
           </ContainerDetails>
-        </>
-      )}
+
+
     </>
   )
 };
 
-export default withRouter(ProductItemDetails);
+// export default withRouter(ProductItemDetails);
 
 

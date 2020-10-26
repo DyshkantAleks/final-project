@@ -14,7 +14,7 @@ import { StoresPage } from '../Stores';
 import { CartPage } from '../Cart';
 import { FavoritesPage } from '../Favorites';
 import { AccountPage } from '../Account';
-import { ProductPage } from '../Product';
+import {ProductPage} from '../Product';
 import { AllProducts } from '../Product/Products';
 import {PromotionsSinglePage} from "../PromotionsSingle";
 import {ProductListPage} from "../ProductList/ProductListPage";
@@ -25,11 +25,7 @@ export const Navigation = () => (
       {/* <Route path={ROUTES.PRODUCT}>
         <ProductPage/>
       </Route> */}
-      <Route path='/products/:name' component={ProductPage} />
-      <Route path='/products' component={AllProducts} />
-
-      <Route path="/:route" component={ProductListPage}/>
-      <Route exact path={ROUTES.PRODUCT} component={ProductPage}/>
+      {/*<Route exact path={ROUTES.PRODUCTS} component={ProductPage}/>*/}
       <Route exact path={ROUTES.ABOUT} component={AboutPage}/>
       <Route exact path={ROUTES.DELIVERY} component={DeliveryPage}/>
       <Route exact path={ROUTES.PROMOTIONS} component={PromotionsPage}/>
@@ -38,9 +34,11 @@ export const Navigation = () => (
       <Route exact path={ROUTES.FAVORITES} component={FavoritesPage}/>
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage}/>
       <Route path="/promo/:route" component={PromotionsSinglePage}/>
-      <Route path="/:route" component={ProductListPage}/>
+      <Route path="/catalog/:route" component={ProductListPage}/>
+      <Route path='/products/:route' component={ProductPage} />
+      {/*<Route path='/products' component={AllProducts} />*/}
       {/*<Route path="/products/:route" render={(props) => <ProductListPage {...props} title={`props from Link`}/>} />*/}
-      <Route exact path={ROUTES.HOMEPAGE} component={Homepage}/>
+      <Route path={ROUTES.HOMEPAGE} component={Homepage}/>
     </Switch>
   </Router>
 )

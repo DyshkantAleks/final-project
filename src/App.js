@@ -8,12 +8,14 @@ import './styles/style.scss';
 // import { closeModal, openModal } from './store/modal/actions';
 // import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
 import { Navigation } from './pages/navigation';
+import {ProductPage} from "./pages/Product";
 
 function App () {
   return (
-
+    <>
     <Navigation />
-
+    {/*<ProductPage/>*/}
+    </>
   );
 }
 
