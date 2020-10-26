@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import Slider from "react-slick";
-import styled from "styled-components";
+
 
 
 import "slick-carousel/slick/slick.css";
@@ -32,7 +32,7 @@ export const SliderMainPage = () => {
     <Container id={'main-slider-container'}>
       <Slider {...settings}>
         {promotions.map((e) => (
-          <SlideContainer>
+          <SlideContainer key={e.id}>
             <Link
               to={`/promo/${e.route}`}>
                 <Image src={e['sliderImageUrl']}/>

@@ -1,13 +1,17 @@
 import React from 'react';
 
 import {CatalogSubitem} from './CatalogSubitem';
-import {SubList} from '../StyledCatalog';
+import {SubItem, SubList} from '../StyledCatalog';
+import {useSelector} from "react-redux";
+import {selectByParentCategory} from "../../../../store/categories/selectors";
 
-export const CatalogSublist = () => {
+export const CatalogSublist = ({props}) => {
+
   return (
 
     <SubList>
-      <CatalogSubitem/>
+      {/*<CatalogSubitem/>*/}
+      <SubItem></SubItem>
     </SubList>
 
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Provider, useDispatch, useSelector} from 'react-redux';
+//import {Provider, useDispatch, useSelector} from 'react-redux';
 import './App.css';
 import './styles/style.scss';
 // import { Button } from './components/Button';

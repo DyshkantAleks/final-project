@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {device} from '../../../styles/breakpoints/breakpoints';
+import {Link} from "react-router-dom";
 
 export const List = styled.div`
      display: grid;
@@ -137,4 +138,9 @@ export const HoverSubtitle = styled.h4`
       max-width: 60%;
 }  
  
+`;
+
+export const StyledLink = styled(Link)`
+text-decoration: none;
+color: initial;
 `;

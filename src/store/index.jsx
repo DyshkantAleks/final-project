@@ -17,6 +17,9 @@ import { reducer as authReducer } from './auth/reducer';
 import { MODULE_NAME as newCustomerModuleName } from './registration/slectors';
 import { reducer as newCustomerReducer } from './registration/reducer';
 
+import {MODULE_NAME as categoriesModuleName} from "./categories/selectors";
+import { reducer as categoriesReducer } from "./categories/reducer";
+
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
   [cartModuleName]: cartReducer,
@@ -24,7 +27,8 @@ const rootReducer = combineReducers({
   [newCustomerModuleName]: newCustomerReducer,
   [productsModuleName]: productReducer,
   [productsModuleName]: productReducer,
-[promotionsModuleName]: promotionsReducer
+[promotionsModuleName]: promotionsReducer,
+  [categoriesModuleName]: categoriesReducer
 });
 
 

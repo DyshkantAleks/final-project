@@ -17,6 +17,7 @@ import {FavoritesPage} from '../Favorites';
 import {AccountPage} from '../Account';
 import {ProductPage} from '../Product';
 import {PromotionsSinglePage} from "../PromotionsSingle";
+import {ProductListPage} from "../ProductList/ProductListPage";
 
 export const Navigation = () => (
   <Router>
@@ -26,10 +27,12 @@ export const Navigation = () => (
       <Route exact path={ROUTES.DELIVERY} component={DeliveryPage}/>
       <Route exact path={ROUTES.PROMOTIONS} component={PromotionsPage}/>
       <Route exact path={ROUTES.STORES} component={StoresPage}/>
-      <Route exact path={ROUTES.CART} component={FavoritesPage}/>
+      <Route exact path={ROUTES.CART} component={CartPage}/>
       <Route exact path={ROUTES.FAVORITES} component={FavoritesPage}/>
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage}/>
       <Route path="/promo/:route" component={PromotionsSinglePage}/>
+      <Route path="/:route" component={ProductListPage}/>
+      {/*<Route path="/products/:route" render={(props) => <ProductListPage {...props} title={`props from Link`}/>} />*/}
       <Route exact path={ROUTES.HOMEPAGE} component={Homepage}/>
     </Switch>
   </Router>

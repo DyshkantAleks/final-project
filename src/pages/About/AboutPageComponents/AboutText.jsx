@@ -1,5 +1,5 @@
 import React from "react";
-import {qwerty} from "./db";
+
 
 
 export const AboutText = () => {

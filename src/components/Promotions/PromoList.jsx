@@ -17,8 +17,8 @@ export const PromoList = () => {
         {promotions && promotions.map((e) => (
           <StyledLink
             to={`/promo/${e.route}`}>
-            <PromoItem image={e["slider-image"]} title={e.title}
-                       subtitle={e.subtitle} route={e.route} text={e["full-description"]}/>
+            <PromoItem image={e.sliderImageUrl} title={e.title}
+                       subtitle={e.subtitle} route={e.route} text={e.fullDescription}/>
           </StyledLink>
         ))}
       </List>
