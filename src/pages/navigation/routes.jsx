@@ -7,5 +7,6 @@ export const ROUTES = Object.freeze({
   CART: '/cart',
   FAVORITES: '/favorites',
   ACCOUNT: '/account',
-  PRODUCT: '/product',
+  // PRODUCT: '/product',
+  // PRODUCTS: '/products'
 });
