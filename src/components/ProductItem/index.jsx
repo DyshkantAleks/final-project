@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
@@ -11,7 +11,6 @@ import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer } from './StyledProductItem';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { getProducts } from '../../store/products_draft/middlware';
-import { ProductSlider } from '../ProductSlider';
 
 const ProductItem = (props) => {
   const products = useSelector(selectProducts);
@@ -23,15 +22,16 @@ const ProductItem = (props) => {
 
   const [inFavorite, toggleInFavorite] = useToggle();
 
+  console.log(products)
+
   return (
     <>
-    {/* <ProductSlider/> */}
       {
         products.map((item, index) =>
           <ConteinerItem key={index}>
             <PhotoBox>
               <StyledLink to={`/products/${item.name}`}>
-                <Photo alt={item.name} src={item.imageUrl} />
+                <Photo alt={item.name} src={item.imageUrl[0]} />
               </StyledLink>
               <ProductActivityContainer>
                 <IconSale />
@@ -42,7 +42,7 @@ const ProductItem = (props) => {
             <TitleBox>
               <StyledLink to={`/products/${item.name}`}>
                 <NameContainer>
-                  <Name>{item.name.toUpperCase()}</Name>
+                  <Name>{item.name}</Name>
                 </NameContainer>
               </StyledLink>
               {!inFavorite && <RegularIconFavorite onClick={() => toggleInFavorite(item._id)} />}
@@ -56,4 +56,4 @@ const ProductItem = (props) => {
   )
 }
 
-export default withRouter(ProductItem);
+export default ProductItem;

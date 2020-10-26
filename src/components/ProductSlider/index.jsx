@@ -22,13 +22,13 @@ export const ProductSlider = (props) => {
             nav1: controll.slider1,
             nav2: controll.slider2
         })
-    }, [screenWidth]);
+    }, [screenWidth, controll.slider1, controll.slider2]);
 
     useEffect(() => {
         dispatch(getProducts());
     }, [dispatch]);
 
-    console.log(products);
+    // console.log(products);
 
     const img = [
         './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
@@ -86,7 +86,7 @@ export const ProductSlider = (props) => {
         <>
             {screenWidth <= 768 ?
                 <ContainerHorizontal>
-                    <SliderGalleryHorizontal id='product-slider'>
+                    <SliderGalleryHorizontal>
                         <Slider
                             asNavFor={controll.nav2}
                             ref={(slider => controll.slider1 = slider)}
@@ -115,7 +115,7 @@ export const ProductSlider = (props) => {
                             {thumbs}
                         </Slider>
                     </SliderThumbsVertical>
-                    <SliderGalleryVertical id='product-slider'>
+                    <SliderGalleryVertical>
                         <Slider
                             asNavFor={controll.nav2}
                             ref={(slider => controll.slider1 = slider)}
