@@ -12,14 +12,14 @@ import { reducer as productReducer} from './products_draft/reducer'
 import { MODULE_NAME as authModuleName } from './auth/selectors';
 import { reducer as authReducer } from './auth/reducer';
 
-import { MODULE_NAME as newCustomerModuleName } from './registration/slectors';
-import { reducer as newCustomerReducer } from './registration/reducer';
+import { MODULE_NAME as customerModuleName } from './customer/slectors';
+import { reducer as customerReducer } from './customer/reducer';
 
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
   [cartModuleName]: cartReducer,
   [authModuleName]: authReducer,
-  [newCustomerModuleName]: newCustomerReducer,
+  [customerModuleName]: customerReducer,
   [productsModuleName]: productReducer
 })
  
