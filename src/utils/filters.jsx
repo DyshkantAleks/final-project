@@ -1,5 +1,5 @@
 export const getCartList = (productObj, cartArray, cartId) => {
-  const objCopy = JSON.parse(JSON.stringify(productObj)) // показать Саше
+  const objCopy = JSON.parse(JSON.stringify(productObj));
   let productArray = [];
   for (const key in objCopy) {
     productArray = [...productArray, ...objCopy[key]]

@@ -2,6 +2,29 @@
     width: 100%;
 }
 
+#item>.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+    margin: .5rem;
+    background-color: #6F909A;
+    transition: all .3s linear;
+}
+
+#item>.swiper-pagination-bullets .swiper-pagination-bullet:hover {
+    transform: scale(1.5);
+}
+
+#item .swiper-button-prev,
+#item .swiper-button-next {
+    color: #6F909A;
+    transition: all .3s linear;
+}
+
+#item .swiper-button-prev:hover,
+#item .swiper-button-next:hover {
+    transform: scale(1.2);
+}
+
 #thumbs {
     width: 8.5rem;
     height: 48.5rem;
