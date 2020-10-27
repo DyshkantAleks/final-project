@@ -9,8 +9,7 @@ export const StaticCategoryItem = (props) => {
   return (
     <>
       <StaticImageContainer>
-        <StaticImage src={backGround}
-        />
+        <StaticImage src={backGround}/>
       </StaticImageContainer>
       <StaticTitle>{textForTitle}</StaticTitle>
       <StaticSubtitle>{textForSubtitle}</StaticSubtitle>

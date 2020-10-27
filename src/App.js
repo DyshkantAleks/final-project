@@ -1,28 +1,21 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+//import {Provider, useDispatch, useSelector} from 'react-redux';
 import './App.css';
-
-import { ProductCarousel } from './components/ProductCarousel/ProductCarousel';
-import { ProductItem } from './components/ProductItem/ProductItem';
-
-import { Navigation } from './pages/navigation';
-import { getProducts } from './store/products_draft/middlware';
-
 import './styles/style.scss';
+// import { Button } from './components/Button';
+// import { Modal } from './components/Modal';
+// import { ModalThanks } from './components/Modal/ModalThanks';
+// import { closeModal, openModal } from './store/modal/actions';
+// import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
+import { Navigation } from './pages/navigation';
+import {ProductPage} from "./pages/Product";
 
-function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProducts());
-    return () => {};
-  }, []);
-  // const modalIsOpen = useSelector(selectModalIsOpen);
-  // const modalContent = useSelector(selectModalContent);
-
+function App () {
   return (
-    <div className='App'>
-      <Navigation />
-    </div>
+    <>
+    <Navigation />
+    {/*<ProductPage/>*/}
+    </>
   );
 }
 

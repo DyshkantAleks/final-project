@@ -10,12 +10,12 @@ import {MobileMenu} from './MobileMenu/MobileMenu';
 import {CatalogList} from './Catalog/CatalogList';
 
 export const Header = () => {
-  const {width} = useWindowDimensions();
+  const {screenWidth} = useWindowDimensions();
   return (
     <>
       <StyledHeader>
         <HeaderContainer>
-          {width >= 1200 && (
+          {screenWidth >= 1200 && (
             <InfoLinks/>
           )}
           <Logo/>
@@ -24,7 +24,7 @@ export const Header = () => {
         </HeaderContainer>
       </StyledHeader>
 
-      {width >= 1200 && (
+      {screenWidth >= 1200 && (
         <CatalogList/>
       )}
     </>
