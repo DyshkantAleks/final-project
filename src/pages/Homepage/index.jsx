@@ -4,6 +4,7 @@ import {ContentContairer} from '../../components/Content/Content';
 import {PopularProductsList} from '../../components/PopularProdusts/PopularProductsList';
 import {PopularCategoryList} from '../../components/PopularCategory/PopularCategoryList';
 import {SliderMainPage} from "../../components/SliderMainPage/SliderMainPage";
+import { Footer } from '../../commons/Footer';
 
 export const Homepage = () => {
   return (
@@ -15,6 +16,7 @@ export const Homepage = () => {
         <PopularProductsList/>
         <PopularCategoryList/>
       </ContentContairer>
+      <Footer/>
     </>
   )
 }
