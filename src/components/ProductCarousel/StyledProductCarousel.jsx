@@ -5,6 +5,7 @@ export const SwiperContainer = styled.div`
 display: flex;
 flex-flow: row;
 `;
+
 export const SwiperContainerHorizontal = styled.div`
 display: flex;
 flex-direction: column;
@@ -21,6 +22,7 @@ width: 100%;
 export const SwiperGallery = styled.div`
 width: 80%;
 `;
+
 export const SwiperGalleryHorizontal = styled.div`
 width: 100%;
 `;

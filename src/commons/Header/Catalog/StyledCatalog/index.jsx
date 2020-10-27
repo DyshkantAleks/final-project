@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {device} from '../../../../styles/breakpoints/breakpoints';
+import {Link} from "react-router-dom";
 
 export const Container = styled.div`
 width: 100%;
@@ -26,13 +27,14 @@ export const NewItem = styled.li`
 //display: flex;
 //align-items: center;
 cursor: pointer;
-border-bottom: .1rem solid #aecfd9;
-padding: 1rem 0;
+//border-bottom: .1rem solid #aecfd9;
+//padding: 1rem 0;
 text-align: left;
+
 @media ${device.desktop}{
 position: relative;
 //margin: 0 40px;
-padding: 1rem 4rem;
+//padding: 1rem 4rem;
 border-bottom: none;
 border:1px solid transparent;
 &:hover {
@@ -44,10 +46,18 @@ transition: all .5s;
 `;
 
 export const IconContainer = styled.div`
-width: 20px;
+width: 25px;
+height: 25px;
 margin-right: 10px;
-display: inline-block;
-vertical-align: middle;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+@media ${device.desktop}{
+width: 30px;
+height: 30px;
+}
+
 `;
 export const ItemText = styled.span`
 font-size: 16px;
@@ -74,9 +84,9 @@ font-size: 1.6rem;
 line-height: 3.5rem;
 font-weight: normal;
 padding-left: 4.5rem;
+border-bottom: .1rem solid #aecfd9;
 &:not(:last-child) {
 
-border-bottom: .1rem solid #aecfd9;
 }
 //background-color: #e6e9ef;
 @media ${device.desktop}{
@@ -90,12 +100,12 @@ background-color: #aecfd9;
 `;
 export const SubList = styled.ul`
 list-style: none;
-    padding: 1rem 0 0 0;
+    padding: 0;
     margin: 0;
     width: 100%;
     @media ${device.desktop}{
     position: absolute;
-    top:4.4rem;
+    top:5rem;
     left: -.1rem;
     width: 25rem;
     padding: 0;
@@ -105,4 +115,25 @@ list-style: none;
     background-color: white;
     
     }
+`;
+
+export const TextContainer = styled.div`
+padding: 1rem 0;
+border-bottom: .1rem solid #aecfd9;
+display: flex;
+align-items: center;
+@media ${device.desktop}{
+padding: 1rem 4rem;
+//position: relative;
+border-bottom: none;
+}
+`
+export const ImageIcon = styled.img`
+width: 100%;
+height: auto;
+
+`
+export const StyledLink = styled(Link)`
+text-decoration: none;
+color: initial;
 `;

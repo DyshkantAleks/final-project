@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Link } from 'react-router-dom';
 
@@ -53,6 +52,7 @@ padding: .5rem;
 export const Photo = styled.img`
 max-width: 100%;
 max-height: 100%;
+cursor: pointer;
 `;
 
 export const ProductActivityContainer = styled.div`
@@ -91,9 +91,14 @@ position: relative;
 padding: .5rem 1.4rem 1.4rem 1.4rem;
 `;
 
+export const NameContainer = styled.div`
+height: 4rem;
+`;
+
 export const Name = styled.span`
 font-size: 1.4rem;
 font-weight: 700;
+cursor: pointer;
     @media ${device.tabletS}{
         font-size: 1.6rem;
     };
@@ -103,7 +108,6 @@ export const Price = styled.span`
 font-size: 2.5rem;
 font-weight: 800;
 color: #6F909A;
-padding: 1rem 0;
     &::after{
         content: 'грн';
         position: relative;
@@ -114,7 +118,6 @@ padding: 1rem 0;
     @media ${device.tabletM}{
         font-weight: 800;
         font-size: 3rem;
-        padding-top: 1.5rem;
             &::after{
                 left: 1rem;
                 font-size: 1.8rem;
@@ -123,19 +126,17 @@ padding: 1rem 0;
     };
 `;
 
-export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+export const ItemFavoriteContainer = styled.div`
 position: absolute;
-top: .3rem;
+top: 2rem;
 right: 1.4rem;
-font-size: 2.5rem;
-color: #aecfd9;
+width: 2.5rem;
+height: 2.5rem;
 cursor: pointer;
+fill: #aecfd9;
 transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
-    };
-    @media ${device.tabletM}{
-        top: 2rem;
     };
     @media ${device.desktop}{
         top: 2.2rem;
@@ -146,3 +147,4 @@ export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #333333;
 `;
+

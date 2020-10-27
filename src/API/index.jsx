@@ -1,4 +1,4 @@
-import Axios from "axios";
+import Axios from 'axios';
 
 export const BASE_URL = 'https://dg-shop.herokuapp.com/api'
 
