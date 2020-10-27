@@ -6,11 +6,11 @@ import useWindowDimensions from '../../../utils/useWindowDimensions';
 import {CatalogList} from '../Catalog/CatalogList';
 
 export const MobileMenu = () => {
-  const {width} = useWindowDimensions();
+  const {screenWidth} = useWindowDimensions();
 
   return (
     <>
-      {width < 1200 && (
+      {screenWidth < 1200 && (
         <Menu>
           <CatalogList/>
           <InfoLinks/>
