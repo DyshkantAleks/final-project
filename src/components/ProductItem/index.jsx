@@ -16,12 +16,6 @@ import { ProductSlider } from '../ProductSlider';
 const ProductItem = (props) => {
   const {name, price, image, route, id} =props
 
-  // const products = useSelector(selectProducts);
-  // const dispatch = useDispatch();
-  //
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [dispatch]);
 
   const [inFavorite, toggleInFavorite] = useToggle();
 

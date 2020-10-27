@@ -12,10 +12,8 @@ import {ProductItemList} from "../../components/ProductItemDetails/StyledProduct
 
 export const ProductListPage = ({match, location}) => {
   const {params: {route}} = match;
-  //console.log(route)
 
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
-  //console.log(currentItemByRoute);
 
   const productsByCategory = useSelector(selectProductsForFilter);
   const dispatch = useDispatch();
@@ -32,8 +30,6 @@ export const ProductListPage = ({match, location}) => {
       }
     }
   }, [currentItemByRoute]);
-
-  console.log(productsByCategory);
 
 
   return (

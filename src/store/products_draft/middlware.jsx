@@ -40,71 +40,29 @@ export const getProductsBySubCategory = (category) => async (dispatch) => {
     console.log(error)
   }
 };
-//getChairs()();
 
-// export const getAllChairs = () => async (dispatch) => {
-//   try {
-//     const {data} = await server('/products/filter?category=Стулья');
-//     console.log(data)
-//     if (status === 200) {
-//       dispatch(setProducts(data))
-//       console.log(data)
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
-//
-// export const getAllTables = () => async (dispatch) => {
-//   try {
-//     const {data} = await server('/products/filter?category=Столы');
-//     console.log(data)
-//     if (status === 200) {
-//       dispatch(setProducts(data))
-//       console.log(data)
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
-//
-// export const getAllSofas = () => async (dispatch) => {
-//   try {
-//     const {data} = await server('/products/filter?category=Диваны');
-//     console.log(data)
-//     if (status === 200) {
-//       dispatch(setProducts(data))
-//       console.log(data)
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
-//
-// export const getAllStorage = () => async (dispatch) => {
-//   try {
-//     const {data} = await server('/products/filter?category=Хранение');
-//     cconsole.log(data)
-//     if (status === 200) {
-//       dispatch(setProducts(data))
-//       console.log(data)
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
-//
-// export const getAllAccessorise = () => async (dispatch) => {
-//   try {
-//     const {data} = await server('/products/filter?category=Аксессуары');
-//     console.log(data)
-//     if (status === 200) {
-//       dispatch(setProducts(data))
-//       console.log(data)
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
+export const getProductsByIsPopular = () => async (dispatch) => {
+  try {
+    const {status, data} = await server(`/products/filter?isTopRated=true`);
+    //console.log(data)
+    if (status === 200) {
+      dispatch(setProducts(data.products));
+      //console.log(data)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+};
 
-
+export const getProductsByIsNew = () => async (dispatch) => {
+  try {
+    const {status, data} = await server(`/products/filter?isNew=true`);
+    //console.log(data)
+    if (status === 200) {
+      dispatch(setProducts(data.products));
+      //console.log(data)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+};
