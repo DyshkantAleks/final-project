@@ -1,7 +1,7 @@
-import React from 'react'
+// import React from 'react'
 import {BASE_URL, server} from '../../API'
 import {setProducts} from './actions'
-import {setCatigories} from "../categories/actions";
+// import {setCatigories} from "../categories/actions";
 
 export const getProducts = () => async (dispatch) => {
   try {

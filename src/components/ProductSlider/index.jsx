@@ -12,10 +12,15 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 
 
 export const ProductSlider = (props) => {
+    const { id } = props;
     const [controll, setControll] = useState({ nav1: null, nav2: null });
     const dispatch = useDispatch();
     const products = useSelector(selectProducts);
     const { screenWidth } = useWindowDimensions();
+
+    const productById = useSelector(selectById(id));
+    const imagesArr = productById.imageUrl
+    console.log(imagesArr);
 
     useEffect(() => {
         setControll({
@@ -28,36 +33,52 @@ export const ProductSlider = (props) => {
         dispatch(getProducts());
     }, [dispatch]);
 
-    // console.log(products);
-
-    const img = [
-        './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
-        './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
-        './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
-        './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
-        './img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg',
-        './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
-        './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
-        './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
-    ];
-
     const slides = [];
-    for (let i = 0; i < img.length; i++) {
+    for (let i = 0; i < imagesArr.length; i++) {
         slides.push(
             <ImageMainContainer key={`slide-${i}`}>
-                <ImageMain src={img[i]} alt={`Slide ${i}`} />
+                <ImageMain src={imagesArr[i]} alt={`${productById.name}-${i}`} />
             </ImageMainContainer>
         )
     };
 
     const thumbs = [];
-    for (let i = 0; i < img.length; i++) {
+    for (let i = 0; i < imagesArr.length; i++) {
         thumbs.push(
             <ImageThumbsContainer key={`thumb-${i}`}>
-                <ImageThumbs src={img[i]} alt={`Thumbnail ${i}`} />
+                <ImageThumbs src={imagesArr[i]} alt={`${productById.name}-${i}`} />
             </ImageThumbsContainer>
         )
     };
+
+    // const img = [
+    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
+    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
+    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
+    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
+    //     './img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg',
+    //     './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
+    //     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
+    //     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
+    // ];
+
+    // const slides = [];
+    // for (let i = 0; i < img.length; i++) {
+    //     slides.push(
+    //         <ImageMainContainer key={`slide-${i}`}>
+    //             <ImageMain src={img[i]} alt={`Slide ${i}`} />
+    //         </ImageMainContainer>
+    //     )
+    // };
+
+    // const thumbs = [];
+    // for (let i = 0; i < img.length; i++) {
+    //     thumbs.push(
+    //         <ImageThumbsContainer key={`thumb-${i}`}>
+    //             <ImageThumbs src={img[i]} alt={`Thumbnail ${i}`} />
+    //         </ImageThumbsContainer>
+    //     )
+    // };
 
     const gallerySlyderParams = {
         adaptive: true,
@@ -71,20 +92,78 @@ export const ProductSlider = (props) => {
         slidesToShow: 5,
         swipeToSlaide: true,
         focusOnSelect: true,
-        arrows: false
+        arrows: false,
+        infinite: false
     }
     const thumbsVerticalParams = {
-        slidesToShow: 6,
+        slidesToShow: 4,
         swipeToSlaide: true,
         focusOnSelect: true,
         vertical: true,
         verticalSwiping: true,
-        arrows: false
+        arrows: false,
+        infinite: false
     }
 
     return (
         <>
             {screenWidth <= 768 ?
+                <>
+                    {productById && (
+                        <ContainerHorizontal>
+                            <SliderGalleryHorizontal>
+                                <Slider
+                                    asNavFor={controll.nav2}
+                                    ref={(slider => controll.slider1 = slider)}
+                                    {...gallerySlyderParams}
+                                >
+                                    {slides}
+                                </Slider>
+                            </SliderGalleryHorizontal>
+                            <SliderThumbsHorizontal>
+                                <Slider
+                                    asNavFor={controll.nav1}
+                                    ref={slider => (controll.slider2 = slider)}
+                                    {...thumbsHorizontalParams}
+                                >
+                                    {thumbs}
+                                </Slider>
+                            </SliderThumbsHorizontal>
+                        </ContainerHorizontal>)} 
+                        </> :
+                        <>
+                    {productById && (
+                        <ContainerVertical>
+                            <SliderThumbsVertical>
+                                <Slider
+                                    asNavFor={controll.nav1}
+                                    ref={slider => (controll.slider2 = slider)}
+                                    {...thumbsVerticalParams}
+                                >
+                                    {thumbs}
+                                    
+                                </Slider>
+                            </SliderThumbsVertical>
+                            <SliderGalleryVertical>
+                                <Slider
+                                    asNavFor={controll.nav2}
+                                    ref={(slider => controll.slider1 = slider)}
+                                    {...gallerySlyderParams}
+                                >
+                                    {slides}
+                                </Slider>
+                            </SliderGalleryVertical>
+                        </ContainerVertical>
+                    )
+                    }
+                </>
+            }
+        </>
+    )
+}
+
+
+{/* {screenWidth <= 768 ?
                 <ContainerHorizontal>
                     <SliderGalleryHorizontal>
                         <Slider
@@ -125,10 +204,8 @@ export const ProductSlider = (props) => {
                         </Slider>
                     </SliderGalleryVertical>
                 </ContainerVertical>
-            }
-        </>
-    )
-}
+            } */}
+
 
 const ContainerHorizontal = styled.section`
 padding: 2rem;
