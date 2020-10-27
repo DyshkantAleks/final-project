@@ -1,37 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import styled from 'styled-components';
 import { device } from '../../styles/breakpoints/breakpoints';
-import { getProducts } from '../../store/products_draft/middlware';
-import { selectProducts, selectById } from '../../store/products_draft/selectors';
+import { selectById } from '../../store/products_draft/selectors';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 
 
 export const ProductSlider = (props) => {
     const { id } = props;
-    const [controll, setControll] = useState({ nav1: null, nav2: null });
-    const dispatch = useDispatch();
-    const products = useSelector(selectProducts);
     const { screenWidth } = useWindowDimensions();
 
     const productById = useSelector(selectById(id));
     const imagesArr = productById.imageUrl
     console.log(imagesArr);
 
+    const [controll, setControll] = useState({ nav1: null, nav2: null });
     useEffect(() => {
         setControll({
             nav1: controll.slider1,
             nav2: controll.slider2
         })
     }, [screenWidth, controll.slider1, controll.slider2]);
-
-    useEffect(() => {
-        dispatch(getProducts());
-    }, [dispatch]);
 
     const slides = [];
     for (let i = 0; i < imagesArr.length; i++) {
@@ -51,35 +44,6 @@ export const ProductSlider = (props) => {
         )
     };
 
-    // const img = [
-    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
-    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi1.jpg',
-    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi2.jpg',
-    //     './img/chairs/bar/chair_Bontempi/chair_Bontempi3.jpg',
-    //     './img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg',
-    //     './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
-    //     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
-    //     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
-    // ];
-
-    // const slides = [];
-    // for (let i = 0; i < img.length; i++) {
-    //     slides.push(
-    //         <ImageMainContainer key={`slide-${i}`}>
-    //             <ImageMain src={img[i]} alt={`Slide ${i}`} />
-    //         </ImageMainContainer>
-    //     )
-    // };
-
-    // const thumbs = [];
-    // for (let i = 0; i < img.length; i++) {
-    //     thumbs.push(
-    //         <ImageThumbsContainer key={`thumb-${i}`}>
-    //             <ImageThumbs src={img[i]} alt={`Thumbnail ${i}`} />
-    //         </ImageThumbsContainer>
-    //     )
-    // };
-
     const gallerySlyderParams = {
         adaptive: true,
         dots: true,
@@ -97,12 +61,12 @@ export const ProductSlider = (props) => {
     }
     const thumbsVerticalParams = {
         slidesToShow: 4,
-        swipeToSlaide: true,
+        swipeToSlide: true,
         focusOnSelect: true,
         vertical: true,
         verticalSwiping: true,
         arrows: false,
-        infinite: false
+        // infinite: false
     }
 
     return (
@@ -141,7 +105,6 @@ export const ProductSlider = (props) => {
                                     {...thumbsVerticalParams}
                                 >
                                     {thumbs}
-                                    
                                 </Slider>
                             </SliderThumbsVertical>
                             <SliderGalleryVertical>
@@ -234,7 +197,9 @@ const SliderThumbsHorizontal = styled.div`
 width: 100%;`
 
 const SliderThumbsVertical = styled.div`
-width: 15%;`
+width: 15%;
+height: 40rem;
+`;
 
 const ImageMainContainer = styled.div`
 display: flex;
