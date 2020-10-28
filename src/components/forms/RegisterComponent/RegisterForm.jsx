@@ -7,7 +7,8 @@ import { Button } from '../../Button';
 import { StyledForm } from './StyleRegisterForm';
 import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton';
 import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
-import { init, signIn } from '../../../store/auth/middlware';
+import { ErrorsField } from '../Errors/ErrorsField';
+
 
 const validationSchema = yup.object({
   firstName: yup.string().required('Required'),
@@ -32,7 +33,7 @@ const validationSchema = yup.object({
 
 export const RegisterForm = (props) => {
   const dispatch = useDispatch();
-  useEffect(() => init, []);
+ 
   const { handleSubmit } = props;
 
   const initialValues = {
@@ -52,7 +53,7 @@ export const RegisterForm = (props) => {
     const value = input.target.value;
   };
  
-
+  
   return (
     <div>
       <Formik
@@ -71,6 +72,11 @@ export const RegisterForm = (props) => {
               placeholder='введите имя'
               onBlur={handleBlur}
             />
+            <div>
+              {props.errors.firstName && props.touched.firstName ? (
+                <ErrorsField errorText={props.errors.firstName}/>
+              ) : null}
+            </div>
             <Field
               name='lastName'
               autoComplete='off'
@@ -78,6 +84,11 @@ export const RegisterForm = (props) => {
               placeholder='введите фамилию'
               onBlur={handleBlur}
             />
+            <div>
+              {props.errors.lastName && props.touched.lastName ? (
+                <ErrorsField errorText={props.errors.lastName}/>
+              ) : null}
+            </div>
             <Field
               name='email'
               autoComplete='off'
@@ -85,6 +96,11 @@ export const RegisterForm = (props) => {
               placeholder='введите email'
               onBlur={handleBlur}
             />
+            <div>
+              {props.errors.email && props.touched.email ? (
+                <ErrorsField errorText={props.errors.email}/>
+              ) : null}
+            </div>
             <Field
               name='password'
               type='text'
@@ -92,6 +108,11 @@ export const RegisterForm = (props) => {
               placeholder='введите пароль'
               onBlur={handleBlur}
             />
+            <div>
+              {props.errors.password && props.touched.password ? (
+                <ErrorsField errorText={props.errors.password}/>
+              ) : null}
+            </div>
             <Field
               name='confirmPassword'
               type='text'
@@ -99,11 +120,21 @@ export const RegisterForm = (props) => {
               placeholder='подтвердите пароль'
               onBlur={handleBlur}
             />
+            <div>
+              {props.errors.confirmPassword && props.touched.confirmPassword ? (
+                <ErrorsField errorText={props.errors.confirmPassword}/>
+              ) : null}
+            </div>
             <Field as='select' name='gender'>
               <option value='none'>Не выбран</option>
               <option value='male'>Мужской</option>
               <option value='female'>Женский</option>
             </Field>
+            <div>
+              {props.errors.gender && props.touched.gender ? (
+                <ErrorsField errorText={props.errors.gender}/>
+              ) : null}
+            </div>
             <Field
               name='telepfone'
               type='number'
@@ -111,25 +142,16 @@ export const RegisterForm = (props) => {
               placeholder='введите номер телефона'
               onBlur={handleBlur}
             />
-            <Field
-              name='avatar'
-              type='file'
-              autoComplete='off'
-              placeholder=''
-              onBlur={handleBlur}
-            />
+            <div>
+              {props.errors.telepfone && props.touched.telepfone ? (
+                <ErrorsField errorText={props.errors.telepfone}/>
+              ) : null}
+            </div>
+      
             <Button type='submit' text='Регистрация' />
           </StyledForm>
         )}
       </Formik>
-      <div>
-        <FaceBookButton type='button' text='Регистрация с помощью FaceBook' />
-        <GoogleButton
-          type='button'
-          onClick={() => signIn()}
-          text='Регистрация с помощью Google'
-        />
-      </div>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Button = ({text, onClick, color = 'green'}) => {
+export const Button = ({text, onClick, color = 'green', type}) => {
   return (
     <>
-      { color === 'green' ? <GreendBtn onClick={onClick}>{text}</GreendBtn> : <WhitedBtn onClick={onClick}>{text}</WhitedBtn>}
+      { color === 'green' ? <GreendBtn type={type} onClick={onClick}>{text}</GreendBtn> : <WhitedBtn type={type} onClick={onClick}>{text}</WhitedBtn>}
     </>
   )
 }

@@ -1,8 +1,10 @@
-import { SET_LOGIN, SET_PASSWORD } from './action-types';
+import { SET_AUTH_ERROR, SET_LOGIN, SET_PASSWORD, SET_TOKEN } from './action-types';
 
 const initialState = {
-  login: '',
-  password: ''
+  login: 'User',
+  password: null,
+  token: null,
+  error: null
 }
 export function reducer (state = initialState, {type, payload}) {
   switch (type) {
@@ -20,6 +22,21 @@ export function reducer (state = initialState, {type, payload}) {
           password: payload,
         }
       )
+    case SET_TOKEN:
+      return (
+        {
+          ...state,
+          token: payload,
+        }
+      )
+    case SET_AUTH_ERROR:
+      return (
+        {
+          ...state,
+          error: payload,
+        }
+      )
+
     default:
       return state
   }

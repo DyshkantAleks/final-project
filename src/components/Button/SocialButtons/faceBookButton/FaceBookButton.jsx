@@ -5,7 +5,7 @@ export const FaceBookButton = (props) => {
   const { responseFacebook } = props;
   return (
     <ReactFacebookLogin
-      appId='1088597931155576'
+      appId='371851764012809'
       autoLoad={true}
       fields='name,email,picture'
       scope='public_profile,user_friends,user_actions.books'
