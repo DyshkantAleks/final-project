@@ -6,7 +6,6 @@ import { ContentContairer } from '../../components/Content/Content';
 import { getProducts } from '../../store/products_draft/middlware';
 import { selectByRoute, selectProducts } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
 import {
@@ -79,7 +78,7 @@ export const ProductPage = ({ match }) => {
         {
           product && (
             <>
-              <Title text={capitalizeFirstLetter(`${product.name}`)} />
+              <Title text={product.name} />
               <ContainerDetails>
                 <ProductSlider id={product._id}/>
                 <ContainerProduct>

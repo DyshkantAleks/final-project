@@ -50,7 +50,9 @@ export const ProductListPage = ({ match, location }) => {
               route={e.route}
               id={e._id}
               isNewProduct={e.isNewProduct}
-              isTopRated={e.isTopRated} />
+              isTopRated={e.isTopRated}
+              isSale={e.isSale}
+              previousPrice={e.previousPrice}/>
           ))}
         </ProductItemList>
       </ContentContairer>
