@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {device} from '../../../styles/breakpoints/breakpoints';
+import {Link} from "react-router-dom";
 
 export const List = styled.div`
      display: grid;
@@ -13,26 +14,25 @@ export const List = styled.div`
 `;
 
 export const Item = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    min-height: 15rem;
-    padding: 1.5rem 2rem;
-    //background-color: #A291A5;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
+min-height: 15rem;
+padding: 1.5rem 2rem;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+position: relative;
+transition: all 0.5s ease;
+&:hover {
+transform: scale(1.01);
+box-shadow: -1px -1px 18px 0 #6b7280;
+}
 
-   background-repeat: no-repeat;
-   background-position: center;
-   background-size: cover;
-
-   position: relative;
-   box-shadow: 0 20px 30px 0 rgba(36,23,228,.1);
-   
-
-
-    @media ${device.tabletM} {
-     height: 20rem;
-    }
+@media ${device.tabletM} {
+height: 20rem;
+ }
 
 @media ${device.tabletL} {
  height: 25rem;
@@ -138,4 +138,9 @@ export const HoverSubtitle = styled.h4`
       max-width: 60%;
 }  
  
+`;
+
+export const StyledLink = styled(Link)`
+text-decoration: none;
+color: initial;
 `;
