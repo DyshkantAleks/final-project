@@ -12,7 +12,7 @@ export const Counter = ({ id, value }) => {
   const quantity = getQuantity(products, id)
 
   const increaseQty = () => {
-    if (value < quantity) { // quantity
+    if (value < quantity) {
       dispatch(quantityUp(id))
     }
   };

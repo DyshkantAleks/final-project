@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import SwiperCore, {Navigation, Pagination, Scrollbar} from 'swiper';
+import SwiperCore, {Navigation, Pagination, Autoplay, Virtual} from 'swiper';
+
 
 import styled from 'styled-components'
 import 'swiper/swiper.scss';
@@ -9,90 +10,104 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import {device} from '../../styles/breakpoints/breakpoints';
+import {connect, useDispatch, useSelector} from 'react-redux';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar]);
+import {getPromotionsList} from '../../store/promotions/actions';
+import {Link} from 'react-router-dom';
+import {selectPromotions} from "../../store/promotions/selectors";
 
-// const imagesDesctop = ['./img/promoSlider/podarok-desctop.jpg', './img/promoSlider/podushka-promo-desctop.jpg',
-//     './img/promoSlider/primerka-mebeli-desctop.jpg'];
-//
 
-export const SliderTest = () => {
-  const imagesSlider = ['./img/promoSlider/podarok-slider.png', './img/promoSlider/podushka-slider.png',
-    './img/promoSlider/primerka-mebeli-slider.png'];
 
-  // const res = imagesSlider.map(i => i);
 
-  const slides = [];
-  for (let i = 0; i >= imagesSlider.length; i++) {
-    slides.push(
-      <SwiperSlide id={'homepage-slide'} key={`slide-${i}`} tag="li">
-        <ImageContainer>
-          <Image
-            src={imagesSlider[i]}/>
-        </ImageContainer>
-      </SwiperSlide>
-    )
-  }
-  console.log(slides);
+SwiperCore.use([Navigation, Pagination, Autoplay, Virtual]);
+
+const mapStateToProps = state => ({
+  promotions: selectPromotions(state)
+});
+
+export const SliderTest = connect(mapStateToProps, {getPromotionsList})(
+  ({ promotions, getPromotionsList }) => {
+
+
+    //console.log(getPromotionsList);
+
+
+    useEffect(() => {
+      getPromotionsList();
+    }, [getPromotionsList]);
+    //console.log(promotions);
+
+
+
   return (
     <SliderContainer>
-      <Swiper id={'homepage-swiper-container'} tag='div' wrapperTag='ul' navigation={{clickable: true}}
-        pagination={{clickable: true}} scrollbar={{clickable: true}}>
-        <SwiperSlide id={'homepage-slide'} tag="li">
-          <ImageContainer>
-            <Image
-              src={'./img/promoSlider/podarok-slider.png'}/>
-          </ImageContainer>
-        </SwiperSlide>
-        <SwiperSlide id={'homepage-slide'} tag="li">
-          <ImageContainer>
-            <Image
-              src={'./img/promoSlider/podushka-slider.png'}/>
-          </ImageContainer>
-        </SwiperSlide>
-        <SwiperSlide id={'homepage-slide'} tag="li">
-          <ImageContainer>
-            <Image
-              src={'./img/promoSlider/primerka-mebeli-slider.png'}/>
-          </ImageContainer>
-        </SwiperSlide>
-        {/* {slides} */}
-        {/* <SwiperSlide id={'homepage-slide'} tag='li'> */}
-
-        {/* <ImageContainer> */}
-        {/*    <Image */}
-        {/*        src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/> */}
-        {/* </ImageContainer> */}
-
-        {/* </SwiperSlide> */}
-        {/* <SwiperSlide tag='li'> */}
-
-        {/*        <ImageContainer> */}
-        {/*            <Image */}
-        {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/> */}
-        {/*        </ImageContainer> */}
-
-        {/* </SwiperSlide> */}
-        {/* <SwiperSlide tag='li'> */}
-        {/*        <ImageContainer> */}
-        {/*            <Image */}
-        {/*                src={'https://laperla-london.com/wp-content/uploads/2017/09/Select-High-Back-Sofa.jpg'}/> */}
-        {/*        </ImageContainer> */}
-
-        {/* </SwiperSlide> */}
+      <Swiper id={'homepage-swiper-container'}
+              tag='div'
+              wrapperTag='ul'
+              navigation={{clickable: true}}
+              pagination={{clickable: true}}
+              autoplay={true}
+      >
+        {promotions.map((e) => (
+          <SwiperSlide  tag="li"   >
+            {/*<Link*/}
+            {/*  to={`/promo/${e.route}`}>*/}
+              <ImageContainer>
+                <Image src={e["slider-image"]}/>
+              </ImageContainer>
+            {/*</Link>*/}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </SliderContainer>
 
   )
-};
+});
 
-const SliderContainer = styled.div`
-//width: 100%;
 
-@media${device.tabletS}{
-//height: 250px;
-}
-`;
+
+
+
+
+
+// export const SliderTest = () => {
+//
+//   // const promotions = useSelector(selectPromotions);
+//   // const dispatch = useDispatch();
+//   //
+//   // useEffect(() => {
+//   //   dispatch(getPromotionsList());
+//   //
+//   // }, []);
+//   //
+//   // console.log(promotions);
+//
+//   return (
+//     <SliderContainer>
+//       <Swiper id={'homepage-swiper-container'}
+//               tag='div'
+//               wrapperTag='ul'
+//               navigation={{clickable: true}}
+//               pagination={{clickable: true}}
+//               autoplay={true}
+//       >
+//         {promotions.map((e, index) => (
+//           <SwiperSlide  tag="li" key={index}>
+//             <Link
+//               to={`/promo/${e.route}`}>
+//               <ImageContainer>
+//                 <Image src={e['slider-image']}/>
+//               </ImageContainer>
+//             </Link>
+//           </SwiperSlide>
+//         ))}
+//       </Swiper>
+//     </SliderContainer>
+//
+//   )
+// };
+
+const SliderContainer = styled.div``;
 
 const ImageContainer = styled.div`
 position: absolute;
@@ -104,85 +119,5 @@ width: 100%;
 height: auto;
 `;
 
-// import React, { useState } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import SwiperCore, { Navigation, Pagination, Thumbs, Controller} from 'swiper';
-// import 'swiper/swiper-bundle.css';
-//
-// import './productCarousel.scss';
-// import {SwiperContainer, SwiperThumbs, SwiperGallery, ImageMain, Image} from './StyledProductCarousel'
-//
-// SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
-//
-// export const ProductCarousel = () => {
-//
-//     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-//     const [firstSwiper, setFirstSwiper] = useState(null);
-//     const [secondSwiper, setSecondSwiper] = useState(null);
-//
-//     const images = [
-//         { src: '/images/chairs/bar/chair_Bontempi_main.png' },
-//         { src: '/images/chairs/bar/chair_Bontempi1.jpg' },
-//         { src: '/images/chairs/bar/chair_Bontempi2.jpg' },
-//         { src: '/images/chairs/bar/chair_Bontempi3.jpg' }
-//     ]
-//
-//     const res = images.map(i => i.src);
-//
-//     const slides = [];
-//     for (let i = 0; i < 4; i += 1) {
-//         slides.push(
-//             <SwiperSlide key={`slide-${i}`} tag="li">
-//                 <ImageMain src={res[i]} alt={`Slide ${i}`} />
-//             </SwiperSlide>
-//         )
-//     }
-//     const thumbs = [];
-//     for (let i = 0; i < 4; i += 1) {
-//         thumbs.push(
-//             <SwiperSlide key={`thumb-${i}`} tag="li">
-//                 <Image src={res[i]} alt={`Thumbnail ${i}`} width={78} />
-//             </SwiperSlide>
-//         )
-//     }
-//
-//     return (
-//         <SwiperContainer>
-//             <SwiperThumbs>
-//                 <Swiper
-//                     id="thumbs"
-//                     wrapperTag="ul"
-//                     spaceBetween={6}
-//                     slidesPerView={5}
-//                     // onSwiper={setThumbsSwiper}
-//                     onClick={setThumbsSwiper}
-//                     onSwiper={setFirstSwiper} controller={{ control: secondSwiper }}
-//                     watchSlidesVisibility={true}
-//                     watchSlidesProgress={true}
-//                     slideToClickedSlide={true}
-//                     loop={true}
-//                     simulateTouch={true}
-//                     direction='vertical'
-//                 >
-//                     {thumbs}
-//                 </Swiper>
-//             </SwiperThumbs>
-//
-//             <SwiperGallery>
-//                 <Swiper
-//                     id="main"
-//                     thumbs={{ swiper: thumbsSwiper }}
-//                     onSwiper={setSecondSwiper} controller={{ control: firstSwiper }}
-//                     wrapperTag="ul"
-//                     loop={true}
-//                     navigation={{ clickable: true }}
-//                     pagination={{ clickable: true }}
-//                     spaceBetween={5}
-//                     slidesPerView={1}
-//                 >
-//                     {slides}
-//                 </Swiper>
-//             </SwiperGallery>
-//         </SwiperContainer>
-//     )
-// }
+
+
