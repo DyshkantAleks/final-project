@@ -5,7 +5,7 @@ export const AccountPage = () => {
   return (
     <>
       <Header/>
-      <h1>Account page</h1>
+    
     </>
   )
 }
