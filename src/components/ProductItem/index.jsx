@@ -22,9 +22,9 @@ export const ProductItem = (props) => {
             <Photo alt={name} src={image} />
           </StyledLink>
           {isSale && (
-           <ProductActivityContainer>
-           <IconSale />
-         </ProductActivityContainer>
+            <ProductActivityContainer>
+              <IconSale />
+            </ProductActivityContainer>
           )}
           {isNewProduct && (
             <ProductActivityContainer>
@@ -45,17 +45,15 @@ export const ProductItem = (props) => {
           </StyledLink>
           {!inFavorite && <RegularIconFavorite onClick={() => toggleInFavorite(id)} />}
           {inFavorite && <SolidIconFavorite onClick={() => toggleInFavorite(id)} />}
-          {isSale && (
+          {isSale &&
             <PriceContainer>
               <CurrentPrice>{price.toLocaleString()}</CurrentPrice>
               <PreviousPrice>{previousPrice.toLocaleString()}</PreviousPrice>
-            </PriceContainer>
-          )}
-          {!isSale && <PriceContainer>
-            <Price>{price.toLocaleString()}</Price>
-          </PriceContainer>
-          }
-          {/* <Price>{price.toLocaleString()}</Price> */}
+            </PriceContainer>}
+          {!isSale &&
+            <PriceContainer>
+              <Price>{price.toLocaleString()}</Price>
+            </PriceContainer>}
         </TitleBox>
       </ConteinerItem>
     </>

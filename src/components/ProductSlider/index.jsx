@@ -60,13 +60,12 @@ export const ProductSlider = (props) => {
         infinite: false
     }
     const thumbsVerticalParams = {
-        slidesToShow: 4,
+        slidesToShow: 5,
         swipeToSlide: true,
         focusOnSelect: true,
         vertical: true,
         verticalSwiping: true,
         arrows: false,
-        // infinite: false
     }
 
     return (
@@ -125,61 +124,14 @@ export const ProductSlider = (props) => {
     )
 }
 
-
-{/* {screenWidth <= 768 ?
-                <ContainerHorizontal>
-                    <SliderGalleryHorizontal>
-                        <Slider
-                            asNavFor={controll.nav2}
-                            ref={(slider => controll.slider1 = slider)}
-                            {...gallerySlyderParams}
-                        >
-                            {slides}
-                        </Slider>
-                    </SliderGalleryHorizontal>
-                    <SliderThumbsHorizontal>
-                        <Slider
-                            asNavFor={controll.nav1}
-                            ref={slider => (controll.slider2 = slider)}
-                            {...thumbsHorizontalParams}
-                        >
-                            {thumbs}
-                        </Slider>
-                    </SliderThumbsHorizontal>
-                </ContainerHorizontal> :
-                <ContainerVertical>
-                    <SliderThumbsVertical>
-                        <Slider
-                            asNavFor={controll.nav1}
-                            ref={slider => (controll.slider2 = slider)}
-                            {...thumbsVerticalParams}
-                        >
-                            {thumbs}
-                        </Slider>
-                    </SliderThumbsVertical>
-                    <SliderGalleryVertical>
-                        <Slider
-                            asNavFor={controll.nav2}
-                            ref={(slider => controll.slider1 = slider)}
-                            {...gallerySlyderParams}
-                        >
-                            {slides}
-                        </Slider>
-                    </SliderGalleryVertical>
-                </ContainerVertical>
-            } */}
-
-
 const ContainerHorizontal = styled.section`
 padding: 2rem;
-/* background: coral; */
 min-height: 40rem;
 `;
 
 const ContainerVertical = styled.section`
 padding: 2rem;
-background: #e6e9ef;
-min-height: 40rem;
+height: 51rem;
 display: flex;
 flex-flow: row;
 justify-content: space-between;
@@ -191,14 +143,16 @@ margin-bottom: 3rem;
 `;
 
 const SliderGalleryVertical = styled.div`
-width: 80%`;
+width: 80%;
+border: .1rem solid #e6e9ef;
+
+`;
 
 const SliderThumbsHorizontal = styled.div`
 width: 100%;`
 
 const SliderThumbsVertical = styled.div`
 width: 15%;
-height: 40rem;
 `;
 
 const ImageMainContainer = styled.div`
@@ -208,7 +162,6 @@ align-items: center;
 width: 100%;
 height: 28rem;
 overflow: hidden;
-/* border: .1rem solid #e6e9ef; */
     @media ${device.tabletS}{
         height: 52rem;
     };
@@ -221,23 +174,21 @@ overflow: hidden;
 `;
 
 export const ImageMain = styled.img`
-display: block;
 max-width: 100%;
 height: unset;
 overflow: hidden;
 margin: 0 auto;
-padding: .5rem;
-background: #d0dcf3;
+
 `;
 
 const ImageThumbsContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 100%;
+width: 97%;
 height: 7rem;
 overflow: hidden;
-/* border: .1rem solid #e6e9ef; */
+border: .1rem solid #e6e9ef;
     @media ${device.tabletS}{
         height: 9rem;
     };
@@ -250,13 +201,10 @@ overflow: hidden;
 `;
 
 export const ImageThumbs = styled.img`
-display: block;
-max-width: 100%;
+width: 100%;
 height: unset;
 margin: 0 auto;
-padding: .5rem;
 transition: all .3s linear;
-background: #d0dcf3;
     &:hover{
         transform: scale(1.2);
     }

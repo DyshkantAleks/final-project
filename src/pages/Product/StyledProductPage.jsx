@@ -29,6 +29,75 @@ flex-direction: column;
     };
 `;
 
+export const PriceContainer = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+width: 85%;
+    @media ${device.tabletS}{
+        width: 75%;
+    };
+    @media ${device.tabletM}{
+        flex-direction: column;
+    };
+    @media ${device.desktop}{
+        flex-direction: row;
+        width: 60%;
+    };
+`;
+
+export const PreviousPrice = styled.span`
+font-size: 2rem;
+font-weight: 800;
+color:#6F909A;
+text-decoration: line-through;
+    &::after{
+        content: 'грн';
+        position: relative;
+        left: .5rem;
+        font-size: 1rem;
+        font-weight: 700;
+    };
+    @media ${device.tabletM}{
+        font-weight: 800;
+        font-size: 2.5rem;
+            &::after{
+                left: 0.5;
+                font-size: 1.5rem;
+                font-weight: 700;
+        };
+    };
+`;
+
+export const CurrentPrice = styled.span`
+font-size: 3rem;
+font-weight: 700;
+color: #8D145E;
+    &::after{
+        content: 'грн';
+        position: relative;
+        left: .5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    };
+    @media ${device.tabletS}{
+        font-size: 3.5rem;
+        font-weight: 800;
+            &::after{
+            font-weight: 700;
+        };
+    };
+    @media ${device.tabletM}{
+        font-size: 4rem;
+        font-weight: 800;
+            &::after{
+                left: 1rem;
+                font-size: 1.8rem;
+                font-weight: 700;
+        };
+    };
+`;
+
 export const Price = styled.span`
 font-size: 3rem;
 font-weight: 700;
@@ -186,3 +255,4 @@ transition: all .3s linear;
         color: #aecfd9;
     };
 `;
+
