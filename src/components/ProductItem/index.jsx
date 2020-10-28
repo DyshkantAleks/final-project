@@ -6,8 +6,8 @@ import { IconSale } from './IconsSvg/IconSale';
 import { IconNew } from './IconsSvg/IconNew';
 import { IconTopRated } from './IconsSvg/IconTopRated';
 import { useToggle } from '../../utils/useToggle';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
-import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice } from './StyledProductItem';
+import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
+import { Button } from '../Button';
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice } = props
@@ -54,6 +54,9 @@ export const ProductItem = (props) => {
             <PriceContainer>
               <Price>{price.toLocaleString()}</Price>
             </PriceContainer>}
+            <ButtonContainer>
+              <Button text={'Купить'} />
+            </ButtonContainer>
         </TitleBox>
       </ConteinerItem>
     </>

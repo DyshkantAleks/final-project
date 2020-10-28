@@ -104,6 +104,7 @@ cursor: pointer;
         font-size: 1.6rem;
     };
 `;
+
 export const PriceContainer = styled.div`
 display: flex;
 justify-content: space-between;
@@ -112,7 +113,6 @@ width: 85%;
 height: 3rem;
     @media ${device.tabletS}{
         width: 75%;
-        /* height: */
     };
     @media ${device.tabletM}{
         flex-direction: column;
@@ -211,3 +211,10 @@ text-decoration: none;
 color: #333333;
 `;
 
+export const ButtonContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin-top: 1.5rem;
+`;
