@@ -1,30 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { selectCart } from '../../store/cart/selectors';
 import {CartItem} from './CartItem';
 import { Button } from '../../components/Button'
 import { Header } from '../../commons/Header/Header';
-import { getProductList } from '../../store/products_draft/actions';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { getCartList } from '../../utils/filters';
 
 export const CartPage = () => {
-  const dispatch = useDispatch()
-
-  // -- tempurary --
-  useEffect(() => {
-    dispatch(getProductList())
-  }, [dispatch]);
-  // -- ----- --
 
   const cartItems = useSelector(selectCart);
-  const products = useSelector(selectProducts);
   
-  const cartList = getCartList(products, cartItems, 'code');
-  const sumCart = cartList.reduce(function (sum, current) {
-    return sum + current.price * current.quantity
+  const sumCart = cartItems.reduce(function (sum, current) {
+    return sum + current.product.currentPrice * current.cartQuantity
   }, 0)
 
   const menuArray = [null, null, 'Назва товару', 'Колір', 'Кількість', 'Ціна'];
@@ -38,17 +26,17 @@ export const CartPage = () => {
           {menuArray.map((item, index) => <p key={index}>{item}</p>)}
         </CartMenu>
         {
-          cartList.map(item =>
+          cartItems.map(item =>
             <CartItem
-              {...item}
-              value={item.quantity}
-              key={item.code}
+              {...item.product}
+              cartQuantity={item.cartQuantity}
+              key={item.id}
             />
           )}
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всього у кошику {cartList.length} товари на суму {sumCart.toLocaleString()}</CartTotalText>
+        <CartTotalText>Всього у кошику {cartItems.length} товари на суму {sumCart.toLocaleString()}</CartTotalText>
         <Button text="Оформити замовлення" color="green" />
       </CartTotalContainer>
     </>
