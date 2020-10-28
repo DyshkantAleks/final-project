@@ -14,7 +14,8 @@ const InitialState = {
       code: '9051003-202',
       quantity: 10,
     }
-  ]
+  ],
+  isDataLoad: false
 };
 
 export function reducer (state = InitialState, { type, payload }) {

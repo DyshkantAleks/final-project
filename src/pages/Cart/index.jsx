@@ -31,11 +31,11 @@ export const CartPage = () => {
   }, 0)
 
 
-  const menuArray = ['Назва товару', 'Колір', 'Кількість', 'Ціна'];
+  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
     <>
       <Header />
-      <Title text='Кошик' />
+      <Title text='Корзина' />
 
       <CartContainer>
         <CartMenu>
@@ -70,8 +70,8 @@ export const CartContainer = styled.div`
 
 const CartMenu = styled.div`
     background-color: #F5F5F5;
-    grid-template-columns: 1fr 1fr 10rem 15%;
-    padding: 0.7rem 1.1rem 0.8rem 8rem;
+    grid-template-columns: 1fr 1fr 1fr 18%;
+    padding: 0.7rem 1.1rem 0.8rem 7rem;
 
     @media ${device.mobile}{
     display: none;
@@ -79,6 +79,7 @@ const CartMenu = styled.div`
     
     @media ${device.tabletS}{
       display: grid;
+      align-items: center;
     }
 
     p {

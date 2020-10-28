@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {icon} from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
+import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
 
 export const CartItem = ({ image, price, name, color, code, quantity, value, cart, fav }) => {
   console.log(typeof cart)
   return (
     <CartItemContainer>
-      <CloseBtn icon={faTimes} />
+      {/* <CloseBtn icon={faTimes} /> */}
+      <CloseBtnContainer>{icon.close}</CloseBtnContainer>
       <CartImage src={image[0]} />
       <CartNameCode>
         <h4>{name}</h4>
@@ -19,8 +22,8 @@ export const CartItem = ({ image, price, name, color, code, quantity, value, car
         {color}
       </CartColor>
       {cart && <Counter value={value} id={code} />}
-       <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
-      {fav && <AddToCartBtn>Купить</AddToCartBtn>}
+      <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
+      {fav &&  <Button text="Купить" color="green" />}
     </CartItemContainer>
   );
 }
@@ -37,14 +40,14 @@ const CartItemContainer = styled.div`
         }
 
         @media ${device.mobile}{
-        grid-template-columns: 6rem 1fr 8rem;
+        grid-template-columns: 6rem 1fr 9rem;
         padding: 0.7rem 1rem;
         position: relative;
         grid-gap: 1rem;
         }
 
         @media ${device.tabletS}{
-          grid-template-columns: 2rem 6rem 1fr 1fr 10rem 15%;
+          grid-template-columns: 2rem 6rem 1fr 1fr 1fr 18%;
           position: static;
           grid-gap: inherit;
           }
@@ -146,6 +149,24 @@ right: 1.7rem;
 @media ${device.tabletS}{
   position: inherit;
 }
+`
+
+const CloseBtnContainer = styled.div`
+width: 2rem;
+height: 2rem;
+fill: #A0A9AF;
+
+@media ${device.mobile}{
+  position: absolute;
+  top: 1rem;
+  right: 1.7rem;
+  width: 2rem;
+  }
+  
+  @media ${device.tabletS}{
+    position: inherit;
+    width: 2rem;
+  }
 `
 
 const AddToCartBtn = styled.button`

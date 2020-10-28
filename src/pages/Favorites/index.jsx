@@ -28,7 +28,7 @@ export const FavoritesPage = () => {
   return (
     <>
       <Header />
-      <Title text='Обране' />
+      <Title text='Избранное' />
       <CartContainer>
         {favorites.map(item =>
           <CartItem
@@ -38,7 +38,7 @@ export const FavoritesPage = () => {
           />
         )}
       </CartContainer>
-      
+
     </>
   )
 }
