@@ -4,20 +4,20 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Counter } from '../../components/Counter'
 
-export const CartItem = ({ image, price, name, color, code, quantity, value }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity }) => {
   return (
     <CartItemContainer>
       <CloseBtn icon={faTimes} />
-      <CartImage src={image[0]} />
+      <CartImage src={imageUrl[0]} />
       <CartNameCode>
         <h4>{name}</h4>
-        <p>Код: {code}</p>
+        <p>Код: {itemNo}</p>
       </CartNameCode>
       <CartColor>
         {color}
       </CartColor>
-      <Counter value={value} id={code}/>
-      <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
+      <Counter cartQuantity={cartQuantity} quantity={quantity}/>
+      <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
     </CartItemContainer>
   );
 }
