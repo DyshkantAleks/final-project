@@ -15,7 +15,7 @@ export const GoogleButton = props =>{
       buttonText={buttonText}
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
-      theme='dark'      
+      theme='dark'
       cookiePolicy={'single_host_origin'}
     />
    
