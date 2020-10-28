@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Link } from 'react-router-dom';
 
@@ -126,23 +125,6 @@ color: #6F909A;
         };
     };
 `;
-
-// export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-// position: absolute;
-// top: 2rem;
-// right: 1.4rem;
-// font-size: 2.5rem;
-// color: #aecfd9;
-// cursor: pointer;
-// transition: all .3s linear;
-//     &:hover{
-//         transform:scale(1.2);
-//     };
-//     @media ${device.desktop}{
-//         top: 2.2rem;
-//     };
-// `;
-
 
 export const ItemFavoriteContainer = styled.div`
 position: absolute;

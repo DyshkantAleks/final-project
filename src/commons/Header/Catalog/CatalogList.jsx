@@ -17,10 +17,6 @@ export const CatalogList = () => {
   }, []);
 
 
-  // categories.map((e) => {
-  //   console.log(e.category)
-  // });
-
   return (
     <Container>
       <List>

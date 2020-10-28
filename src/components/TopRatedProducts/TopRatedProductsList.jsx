@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import {Title} from '../Title/Title';
 
 import {device} from '../../styles/breakpoints/breakpoints';
-import {ProductItemList} from "../ProductItemDetails/StyledProductItemDetails";
+//import {ProductItemList} from "../ProductItemDetails/StyledProductItemDetails";
 import {useDispatch, useSelector} from "react-redux";
 import {selectProductsForFilter} from "../../store/products_draft/selectors";
 
 import {getProductsByIsPopular} from "../../store/products_draft/middlware";
 
-import ProductItem from "../ProductItem";
+import {ProductItem} from "../ProductItem";
+import {ProductItemList} from "../../pages/Product/StyledProductPage";
 
 
 export const TopRatedProductsList = () => {
@@ -36,15 +37,3 @@ export const TopRatedProductsList = () => {
   )
 }
 
-export const List = styled.ul`
-display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 2rem;
-    list-style: none;
-    padding-left: 0;
-    
-    @media ${device.tabletM} {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-`
