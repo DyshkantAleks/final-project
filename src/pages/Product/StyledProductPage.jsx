@@ -31,24 +31,27 @@ flex-direction: column;
 
 export const PriceContainer = styled.div`
 display: flex;
+flex-wrap: wrap;
 justify-content: space-between;
 align-items: baseline;
 width: 85%;
     @media ${device.tabletS}{
-        width: 75%;
+        width: 70%;
     };
     @media ${device.tabletM}{
-        flex-direction: column;
+        width: 50%;
+    };
+    @media ${device.tabletL}{
+        width: 85%;
     };
     @media ${device.desktop}{
-        flex-direction: row;
         width: 60%;
     };
 `;
 
 export const PreviousPrice = styled.span`
 font-size: 2rem;
-font-weight: 800;
+font-weight: 700;
 color:#6F909A;
 text-decoration: line-through;
     &::after{
@@ -58,9 +61,18 @@ text-decoration: line-through;
         font-size: 1rem;
         font-weight: 700;
     };
-    @media ${device.tabletM}{
+    @media ${device.tabletS}{
         font-weight: 800;
         font-size: 2.5rem;
+            &::after{
+                left: 0.5;
+                font-size: 1.5rem;
+                font-weight: 700;
+        };
+    };
+    @media ${device.tabletM}{
+        font-weight: 800;
+        font-size: 2.8rem;
             &::after{
                 left: 0.5;
                 font-size: 1.5rem;
@@ -139,13 +151,14 @@ color:#9fa1a5;
 export const AvailabilityArticleWrap = styled.div`
 display: flex;
 justify-content: space-between;
+align-items: center;
 padding-top: .5rem;
-    @media ${device.tabletM}{
+    @media ${device.tabletS}{
         display: grid;
-        grid-template-columns: 18% 60%;
+        grid-template-columns: 25% 40%;
         padding-top: .5rem;
         justify-content:start;
-    }
+    };
     @media ${device.tabletL}{
         grid-template-columns: 25% 60%;
     };

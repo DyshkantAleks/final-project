@@ -4,10 +4,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import styled from 'styled-components';
-import { device } from '../../styles/breakpoints/breakpoints';
 import { selectById } from '../../store/products_draft/selectors';
 import useWindowDimensions from '../../utils/useWindowDimensions';
+import {ContainerHorizontal, ContainerVertical, SliderGalleryHorizontal, SliderGalleryVertical, SliderThumbsHorizontal, SliderThumbsVertical, ImageMainContainer, ImageMain, ImageThumbsContainer, ImageThumbs} from './StyledProductSlider';
+import './style.scss';
 
 
 export const ProductSlider = (props) => {
@@ -48,7 +48,9 @@ export const ProductSlider = (props) => {
         dots: true,
         fade: true,
         swipe: true,
-        touchMove: true
+        touchMove: true,
+        className: "product-slider"
+        
     };
 
     const thumbsHorizontalParams = {
@@ -56,8 +58,9 @@ export const ProductSlider = (props) => {
         swipeToSlaide: true,
         focusOnSelect: true,
         arrows: false,
-        infinite: false
-    }
+        infinite: false,
+    };
+
     const thumbsVerticalParams = {
         slidesToShow: 5,
         swipeToSlide: true,
@@ -65,8 +68,8 @@ export const ProductSlider = (props) => {
         vertical: true,
         verticalSwiping: true,
         arrows: false,
-        infinite: false
-    }
+        infinite: false,
+    };
 
     return (
         <>
@@ -122,89 +125,4 @@ export const ProductSlider = (props) => {
             }
         </>
     )
-}
-
-const ContainerHorizontal = styled.section`
-padding: 2rem;
-min-height: 40rem;
-`;
-
-const ContainerVertical = styled.section`
-padding: 2rem;
-height: 51rem;
-display: flex;
-flex-flow: row;
-justify-content: space-between;
-`;
-
-const SliderGalleryHorizontal = styled.div`
-width: 100%;
-margin-bottom: 3rem;
-`;
-
-const SliderGalleryVertical = styled.div`
-width: 80%;
-border: .1rem solid #e6e9ef;
-`;
-
-const SliderThumbsHorizontal = styled.div`
-width: 100%;`
-
-const SliderThumbsVertical = styled.div`
-width: 15%;
-`;
-
-const ImageMainContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-height: 28rem;
-overflow: hidden;
-    @media ${device.tabletS}{
-        height: 52rem;
-    };
-    @media ${device.tabletM}{
-        height: 57.6rem;
-    };
-    @media ${device.tabletL}{
-        height: 51rem;
-    };
-`;
-
-export const ImageMain = styled.img`
-max-width: 100%;
-height: unset;
-overflow: hidden;
-margin: 0 auto;
-
-`;
-
-const ImageThumbsContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-width: 97%;
-height: 7rem;
-overflow: hidden;
-border: .1rem solid #e6e9ef;
-    @media ${device.tabletS}{
-        height: 9rem;
-    };
-    @media ${device.tabletM}{
-        height: 8rem;
-    };
-    @media ${device.tabletL}{
-        height: 8rem;
-    };
-`;
-
-export const ImageThumbs = styled.img`
-width: 100%;
-height: unset;
-margin: 0 auto;
-transition: all .3s linear;
-    &:hover{
-        transform: scale(1.2);
-    }
-`;
+};
