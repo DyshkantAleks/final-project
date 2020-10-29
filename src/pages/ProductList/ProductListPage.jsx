@@ -11,7 +11,6 @@ import { ProductItemList } from '../Product/StyledProductPage';
 
 import { selectCart } from '../../store/cart/selectors';
 
-
 export const ProductListPage = ({ match }) => {
   const { params: { route } } = match;
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
@@ -29,18 +28,20 @@ export const ProductListPage = ({ match }) => {
     }
   }, [currentItemByRoute]);
 
-
   const productInCart = useSelector(selectCart);
-  const cartItemsId = productInCart.map(item => item.product);
+  const cartItems = productInCart.map(item => item.product);
+  console.log(cartItems);
 
   const products = useSelector(selectProducts)
-  const productId = products.map(item => item)
+  const productItem = products.map(item => item)
+  console.log(productItem)
 
-  const result = cartItemsId.filter(function(itemInCart) {
-    return productId.some(function(itemInProduct) {
-      return itemInCart._id === itemInProduct._id
+  const itemInCart = cartItems.filter(function (elementOfCartArr) {
+    return productItem.some(function (elementOfProductArr) {
+      return elementOfCartArr._id === elementOfProductArr._id
     });
   });
+  console.log(itemInCart)
 
   return (
     <>
@@ -60,7 +61,7 @@ export const ProductListPage = ({ match }) => {
               isTopRated={item.isTopRated}
               isSale={item.isSale}
               previousPrice={item.previousPrice}
-              item={result}
+              itemInCart={itemInCart}
             />
           ))}
         </ProductItemList>
