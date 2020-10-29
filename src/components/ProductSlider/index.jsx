@@ -16,7 +16,6 @@ export const ProductSlider = (props) => {
 
     const productById = useSelector(selectById(id));
     const imagesArr = productById.imageUrl
-    console.log(imagesArr);
 
     const [controll, setControll] = useState({ nav1: null, nav2: null });
     useEffect(() => {
@@ -66,6 +65,7 @@ export const ProductSlider = (props) => {
         vertical: true,
         verticalSwiping: true,
         arrows: false,
+        infinite: false
     }
 
     return (
@@ -145,7 +145,6 @@ margin-bottom: 3rem;
 const SliderGalleryVertical = styled.div`
 width: 80%;
 border: .1rem solid #e6e9ef;
-
 `;
 
 const SliderThumbsHorizontal = styled.div`

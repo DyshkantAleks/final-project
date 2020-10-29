@@ -9,20 +9,17 @@ import { ProductItem } from '../../components/ProductItem'
 import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
 
-export const ProductListPage = ({ match, location }) => {
+import { selectCart } from '../../store/cart/selectors';
+
+
+export const ProductListPage = ({ match }) => {
   const { params: { route } } = match;
-  //console.log(route)
-
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
-  //console.log(currentItemByRoute);
-
   const productsByCategory = useSelector(selectProductsForFilter);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     if (!!currentItemByRoute) {
-      console.log(currentItemByRoute.category);
       if (currentItemByRoute.parentId === 'null') {
 
         dispatch(getProductsByCategory(currentItemByRoute.category));
@@ -32,8 +29,18 @@ export const ProductListPage = ({ match, location }) => {
     }
   }, [currentItemByRoute]);
 
-  console.log(productsByCategory);
 
+  const productInCart = useSelector(selectCart);
+  const cartItemsId = productInCart.map(item => item.product);
+
+  const products = useSelector(selectProducts)
+  const productId = products.map(item => item)
+
+  const result = cartItemsId.filter(function(itemInCart) {
+    return productId.some(function(itemInProduct) {
+      return itemInCart._id === itemInProduct._id
+    });
+  });
 
   return (
     <>
@@ -41,18 +48,20 @@ export const ProductListPage = ({ match, location }) => {
       <ContentContairer>
         <h1>Title of page</h1>
         <ProductItemList>
-          {productsByCategory.products.map((e) => (
+          {productsByCategory.products.map((item) => (
             <ProductItem
-              name={e.name}
-              price={e.currentPrice}
-              image={e.imageUrl[0]}
-              key={e.id}
-              route={e.route}
-              id={e._id}
-              isNewProduct={e.isNewProduct}
-              isTopRated={e.isTopRated}
-              isSale={e.isSale}
-              previousPrice={e.previousPrice}/>
+              key={item._id}
+              name={item.name}
+              price={item.currentPrice}
+              image={item.imageUrl[0]}
+              route={item.route}
+              id={item._id}
+              isNewProduct={item.isNewProduct}
+              isTopRated={item.isTopRated}
+              isSale={item.isSale}
+              previousPrice={item.previousPrice}
+              item={result}
+            />
           ))}
         </ProductItemList>
       </ContentContairer>

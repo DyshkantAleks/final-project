@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
 import { getProducts } from '../../store/products_draft/middlware';
-import { selectByRoute, selectProducts } from '../../store/products_draft/selectors';
+import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
@@ -45,9 +45,6 @@ export const ProductPage = ({ match }) => {
 
   const dispatch = useDispatch();
   const product = useSelector(selectByRoute(match.params.route));
-
-  const products = useSelector(selectProducts);
-  console.log(products);
 
   useEffect(() => {
     dispatch(getProducts());
