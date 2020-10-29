@@ -55,11 +55,11 @@ export const ProductItem = (props) => {
               <Price>{price.toLocaleString()}</Price>
             </PriceContainer>}
           <ButtonContainer>
-            {/* {itemInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />
-            } */}
-            {itemInCart.map(item => (
-              item._id === id ? <Button text={'В корзине'} /> : <Button text={'Купить'} />
-            ))}
+            {
+              itemInCart.map(item => (
+                item._id === id ? <Button text={'В корзине'} /> : <Button text={'Купить'} />
+              ))
+            }
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>

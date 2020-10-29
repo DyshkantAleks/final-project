@@ -41,7 +41,12 @@ export const ProductListPage = ({ match }) => {
       return elementOfCartArr._id === elementOfProductArr._id
     });
   });
-  console.log(itemInCart)
+
+  console.log(itemInCart.length);
+
+  if (itemInCart.length <= 0) {
+    itemInCart.push(productItem)
+  }
 
   return (
     <>
