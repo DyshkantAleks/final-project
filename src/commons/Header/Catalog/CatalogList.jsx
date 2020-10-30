@@ -23,7 +23,7 @@ export const CatalogList = () => {
         {categories.map((e) => (
           <StyledLink to={`/catalog/${e.route}`} key={e.id}>
 
-            <CatalogItem category={e.category}  icon={e.icon}/>
+            <CatalogItem category={e.category}  icon={e.icon} key={e.id}/>
           </StyledLink>
         ))
         }

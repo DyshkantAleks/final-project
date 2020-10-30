@@ -13,7 +13,7 @@ export const Homepage = () => {
       <ContentContairer>
         <h1>Home page</h1>
         <SliderMainPage/>
-        <TopRatedProductsList/>
+        {/*<TopRatedProductsList/>*/}
         <PopularCategoryList/>
       </ContentContairer>
       <Footer/>

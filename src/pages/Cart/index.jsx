@@ -10,6 +10,7 @@ import { Header } from '../../commons/Header/Header';
 import { getProductList } from '../../store/products_draft/actions';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { getCartList } from '../../utils/filters';
+import {Footer} from "../../commons/Footer";
 
 export const CartPage = () => {
   const dispatch = useDispatch()
@@ -52,6 +53,7 @@ export const CartPage = () => {
         <CartTotalText>Всього у кошику {cartList.length} товари на суму {sumCart.toLocaleString()}</CartTotalText>
         <Button text="Оформити замовлення" color="green" />
       </CartTotalContainer>
+      <Footer/>
     </>
   )
 }

@@ -12,7 +12,7 @@ export const getProducts = () => async (dispatch) => {
   } catch (error) {
     console.log(error)
   }
-}
+};
 //getProducts()();
 
 export const getProductsByCategory = (category) => async (dispatch) => {

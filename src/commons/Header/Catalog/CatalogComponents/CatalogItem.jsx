@@ -18,8 +18,7 @@ export const CatalogItem = (props) => {
 
 
   return (
-    <>
-
+    <div key={category}>
       { screenWidth < 1200 && (
         <NewItem>
           <TextContainer onClick={() => {
@@ -63,7 +62,7 @@ export const CatalogItem = (props) => {
           }
         </NewItem>
       )}
-    </>
+    </div>
   )
 };
 

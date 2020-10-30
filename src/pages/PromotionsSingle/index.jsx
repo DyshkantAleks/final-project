@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectById, selectPromotions} from "../../store/promotions/selectors";
 import {getPromotions} from "../../store/promotions/middlware";
 import {device} from "../../styles/breakpoints/breakpoints";
+import {Footer} from "../../commons/Footer";
 
 export const PromotionsSinglePage = ({match, location}) => {
   const {params: {route}} = match;
@@ -35,6 +36,7 @@ export const PromotionsSinglePage = ({match, location}) => {
               <Description>{single["fullDescription"]}</Description>
             </ContentContainer>
           </ContentContairer>
+          <Footer/>
         </>
       )}
     </>

@@ -15,7 +15,7 @@ export const ProductItem = (props) => {
   const [inFavorite, toggleInFavorite] = useToggle();
 
   return (
-    <>
+    <div>
       <ConteinerItem key={id}>
         <PhotoBox>
           <StyledLink to={`/products/${route}`}>
@@ -43,6 +43,6 @@ export const ProductItem = (props) => {
           <Price>{price.toLocaleString()}</Price>
         </TitleBox>
       </ConteinerItem>
-    </>
+    </div>
   )
 };

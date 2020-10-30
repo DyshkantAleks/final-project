@@ -54,20 +54,20 @@ justify-content: flex-start;
 `
 
 const FooterContainer = styled.div`
-padding: 0 1.6rem;
+padding: 2rem 1.6rem 0;
 display: flex;
 flex-wrap: wrap;
 
 @media${device.tabletM}{
-padding: 0 2.4rem;
+padding: 3rem 2.4rem 0;
 }
  @media ${device.tabletL}{
-        padding: 0 5rem;
+        padding: 4rem 5rem 0;
     }
     
     @media ${device.desktop}{
     margin: 0 auto;
-        padding: 0;
+        padding: 5rem 0 0 0;
         width: 120rem;
     }
 `

@@ -6,7 +6,7 @@ export const FooterLogo = () => {
   return (
     <Container>
       <ContainerFooterLogo>
-        <FooterLogoImg src='./img/dg-home-logo.png' alt='logo'/>
+        <FooterLogoImg src='/img/dg-home-logo.png' alt='logo'/>
       </ContainerFooterLogo>
       <FooterText>Интернет-магазин итальянской мебели от лучших производителей</FooterText>
     </Container>
