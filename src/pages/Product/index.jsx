@@ -8,35 +8,18 @@ import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
-import {
-  ContainerDetails,
-  ContainerProduct,
-  Price,
-  Article,
-  AvailabilityArticleWrap,
-  Availability,
-  DimensionsContainer,
-  Description,
-  Subtitle,
-  ActionsContainer,
-  Actions,
-  SpecificationContainer,
-  DescriptionKey,
-  ShowMore,
-  PriceContainer,
-  CurrentPrice,
-  PreviousPrice
-} from './StyledProductPage';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, IconContainer } from './StyledProductPage';
 import { RegularIconFavorite } from '../../components/ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../../components/ProductItem/IconsSvg/SolidIconFavorite';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ProductCounter } from '../../components/Counter/ProductCounter';
 import { ProductSlider } from '../../components/ProductSlider';
 import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
+import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
+import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
 
-export const ProductPage = ({ match }) => {
-  const { params: { route } } = match;
-
+export const ProductPage = (props) => {
+  const { match } = props;
   const { screenWidth } = useWindowDimensions();
   const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
@@ -92,6 +75,18 @@ export const ProductPage = ({ match }) => {
                     <PriceContainer>
                       <Price>{product.currentPrice.toLocaleString()}</Price>
                     </PriceContainer>}
+                  {product.isSale &&
+                    <IconContainer>
+                      <IconSale />
+                    </IconContainer>}
+                  {product.isNewProduct &&
+                    <IconContainer>
+                      <IconNew />
+                    </IconContainer>}
+                  {product.isTopRated &&
+                    <IconContainer>
+                      <IconTopRated />
+                    </IconContainer>}
                   {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}
                   {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
@@ -102,22 +97,20 @@ export const ProductPage = ({ match }) => {
                   </AvailabilityArticleWrap>
                   <Subtitle>Описание товара</Subtitle>
                   <Description>{product.description}</Description>
-                  {screenWidth >= 768
-                    ? <>
+                  {screenWidth >= 768 ?
+                    <>
                       <Subtitle>Габариты</Subtitle>
                       <Description>Высота - {product.sizes.height} cм, </Description>
                       <Description>Ширина - {product.sizes.width} cм, </Description>
                       <Description>Глубина - {product.sizes.length} cм </Description>
-                    </>
-                    : <>
+                    </> : <>
                       <Subtitle>Габариты{toggleDimensionsBtn()}</Subtitle>
                       {isDimensions && <DimensionsContainer>
                         <Description>Высота - {product.sizes.height} cм, </Description>
                         <Description>Ширина - {product.sizes.width} cм, </Description>
                         <Description>Глубина - {product.sizes.length} cм </Description>
                       </DimensionsContainer>}
-                    </>
-                  }
+                    </>}
                   <ActionsContainer>
                     <Actions>
                       <ProductCounter value={value} setValue={setValue} />

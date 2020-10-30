@@ -8,7 +8,6 @@ import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem'
 import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
-
 import { selectCart } from '../../store/cart/selectors';
 
 export const ProductListPage = ({ match }) => {
@@ -26,7 +25,7 @@ export const ProductListPage = ({ match }) => {
         dispatch(getProductsBySubCategory(currentItemByRoute.category));
       }
     }
-  }, [currentItemByRoute]);
+  }, [dispatch, currentItemByRoute]);
 
   const productInCart = useSelector(selectCart);
   const cartItems = productInCart.map(item => item.product);
