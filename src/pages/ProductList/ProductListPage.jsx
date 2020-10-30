@@ -1,50 +1,49 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
-import { getProductsByCategory, getProductsBySubCategory } from '../../store/products_draft/middlware';
-import { selectProducts, selectProductsForFilter } from '../../store/products_draft/selectors';
+import { selectProducts } from '../../store/products_draft/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem'
 import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
+import { Footer } from "../../commons/Footer";
 import { selectCart } from '../../store/cart/selectors';
 
-export const ProductListPage = ({ match }) => {
+
+export const ProductListPage = ({ match, location }) => {
   const { params: { route } } = match;
+
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
-  const productsByCategory = useSelector(selectProductsForFilter);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!!currentItemByRoute) {
-      if (currentItemByRoute.parentId === 'null') {
+  const allProducts = useSelector(selectProducts);
 
-        dispatch(getProductsByCategory(currentItemByRoute.category));
-      } else {
-        dispatch(getProductsBySubCategory(currentItemByRoute.category));
-      }
-    }
-  }, [dispatch, currentItemByRoute]);
+  let array = [];
+  if (currentItemByRoute) {
+    const isRootCategory = currentItemByRoute.parentId === "null";
+    array = allProducts.filter(e => isRootCategory ?
+      e.category === currentItemByRoute.category :
+      e.subCategory === currentItemByRoute.category
+    );
+  };
 
   const productInCart = useSelector(selectCart);
   const cartItems = productInCart.map(item => item.product);
-  console.log(cartItems);
+  // console.log(cartItems);
 
-  const products = useSelector(selectProducts)
-  const productItem = products.map(item => item)
-  console.log(productItem)
+  const allProductsItem = allProducts.map(item => item)
+  // console.log(allProductsItem)
 
   const itemInCart = cartItems.filter(function (elementOfCartArr) {
-    return productItem.some(function (elementOfProductArr) {
+    return allProductsItem.some(function (elementOfProductArr) {
       return elementOfCartArr._id === elementOfProductArr._id
     });
   });
 
-  console.log(itemInCart.length);
+  // console.log(itemInCart.length);
 
   if (itemInCart.length <= 0) {
-    itemInCart.push(productItem)
+    itemInCart.push(allProducts)
   }
 
   return (
@@ -53,23 +52,23 @@ export const ProductListPage = ({ match }) => {
       <ContentContairer>
         <h1>Title of page</h1>
         <ProductItemList>
-          {productsByCategory.products.map((item) => (
+          {array.map((e, index) => (
             <ProductItem
-              key={item._id}
-              name={item.name}
-              price={item.currentPrice}
-              image={item.imageUrl[0]}
-              route={item.route}
-              id={item._id}
-              isNewProduct={item.isNewProduct}
-              isTopRated={item.isTopRated}
-              isSale={item.isSale}
-              previousPrice={item.previousPrice}
-              itemInCart={itemInCart}
-            />
+              key={index}
+              name={e.name}
+              price={e.currentPrice}
+              image={e.imageUrl[0]}
+              route={e.route}
+              id={e._id}
+              isNewProduct={e.isNewProduct}
+              isTopRated={e.isTopRated}
+              isSale={e.isSale}
+              previousPrice={e.previousPrice}
+              itemInCart={itemInCart} />
           ))}
         </ProductItemList>
       </ContentContairer>
+      <Footer />
     </>
   )
 }

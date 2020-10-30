@@ -17,6 +17,7 @@ import { ProductSlider } from '../../components/ProductSlider';
 import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
+import {Footer} from "../../commons/Footer";
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -143,6 +144,7 @@ export const ProductPage = (props) => {
           )
         }
       </ContentContairer>
+      <Footer/>
     </>
   )
 }

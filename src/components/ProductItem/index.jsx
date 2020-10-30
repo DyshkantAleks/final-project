@@ -15,7 +15,7 @@ export const ProductItem = (props) => {
   const [inFavorite, toggleInFavorite] = useToggle();
 
   return (
-    <>
+    <div>
       <ConteinerItem key={id}>
         <PhotoBox>
           <StyledLink to={`/products/${route}`}>
@@ -56,13 +56,13 @@ export const ProductItem = (props) => {
             </PriceContainer>}
           <ButtonContainer>
             {
-              itemInCart.map(item => (
-                item._id === id ? <Button text={'В корзине'} /> : <Button text={'Купить'} />
+              itemInCart.map((item, index) => (
+                item._id === id ? <Button key={index} text={'В корзине'} /> : <Button key={index} text={'Купить'} />
               ))
             }
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>
-    </>
+    </div>
   )
 };
