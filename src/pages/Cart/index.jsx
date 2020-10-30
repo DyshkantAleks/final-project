@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCart } from '../../store/cart/selectors';
-import {CartItem} from "./CartItem";
-
 import { Button } from '../../components/Button'
 import { Header } from '../../commons/Header/Header';
+import { Title } from '../../components/Title/Title';
 import { getProductList } from '../../store/products_draft/actions';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { getCartList } from '../../utils/filters';
-import {Footer} from "../../commons/Footer";
+import { device } from '../../styles/breakpoints/breakpoints';
+import { CartItem } from '../Cart/CartItem';
+import { ContentContairer } from '../../components/Content/Content';
 
 export const CartPage = () => {
   const dispatch = useDispatch()
@@ -23,17 +24,18 @@ export const CartPage = () => {
 
   const cartItems = useSelector(selectCart);
   const products = useSelector(selectProducts);
-  
+
   const cartList = getCartList(products, cartItems, 'code');
   const sumCart = cartList.reduce(function (sum, current) {
     return sum + current.price * current.quantity
   }, 0)
 
-  const menuArray = [null, null, 'Назва товару', 'Колір', 'Кількість', 'Ціна'];
+
+  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
-    <>
-      <Header/>
-      <h1>Кошик</h1>
+    <ContentContairer>
+      <Header />
+      <Title text='Корзина' />
 
       <CartContainer>
         <CartMenu>
@@ -45,30 +47,39 @@ export const CartPage = () => {
               {...item}
               value={item.quantity}
               key={item.code}
+              cart='true'
             />
           )}
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всього у кошику {cartList.length} товари на суму {sumCart.toLocaleString()}</CartTotalText>
-        <Button text="Оформити замовлення" color="green" />
+        <CartTotalText>Всего в корзине {cartList.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+        <Button text="Оформить покупку" color="green" />
       </CartTotalContainer>
-      <Footer/>
-    </>
+    </ContentContairer>
   )
 }
 
-const CartContainer = styled.div`
+export const CartContainer = styled.div`
  max-width: 120rem;
  margin: 0 auto;
-`
+ text-align: center;
+ `
+
 
 const CartMenu = styled.div`
     background-color: #F5F5F5;
-    display: grid;
-    grid-template-columns: 5% 10% 20% 1fr 1fr 10%;
-    grid-gap: 1.9rem;
-    padding: 0.7rem 1.7rem;
+    grid-template-columns: 1fr 1fr 1fr 18%;
+    padding: 0.7rem 1.1rem 0.8rem 7rem;
+
+    @media ${device.mobile}{
+    display: none;
+    }
+    
+    @media ${device.tabletS}{
+      display: grid;
+      align-items: center;
+    }
 
     p {
         font-size: 14px;
@@ -81,12 +92,39 @@ const CartMenu = styled.div`
 const CartTotalContainer = styled.div`
 padding-top: 2rem;
 display: flex; 
-justify-content: space-between;
 max-width: 120rem;
 margin: 0 auto;
+
+
+@media ${device.mobile}{
+  padding-top: 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  
+}
+  
+@media ${device.tabletS}{
+  flex-wrap: wrap;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+@media ${device.tabletM}{
+  justify-content: space-between;
+}
+
 `
 
 const CartTotalText = styled.h4`
 font-size: 1.5rem;
 color: #000000;
+
+@media ${device.tabletS}{
+width: 100%;
+}
+
+@media ${device.tabletM}{
+  width: inherit;
+  }
 `
