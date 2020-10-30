@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-//import { faTimes } from '@fortawesome/free-solid-svg-icons';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
 import { Button } from '../../components/Button';
@@ -19,8 +18,7 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      <Counter cartQuantity={cartQuantity} quantity={quantity} />
-      {/* {cart && <Counter cartQuantity={cartQuantity} quantity={quantity}/>} */}
+      {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} />}
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {fav && <Button text="Купить" color="green" />}
     </CartItemContainer>

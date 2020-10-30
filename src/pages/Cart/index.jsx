@@ -16,7 +16,7 @@ import { ContentContairer } from '../../components/Content/Content';
 export const CartPage = () => {
 
   const cartItems = useSelector(selectCart);
-  
+
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
   }, 0)
@@ -38,6 +38,7 @@ export const CartPage = () => {
               {...item.product}
               cartQuantity={item.cartQuantity}
               key={item.id}
+              cart='true'
             />
           )}
       </CartContainer>
