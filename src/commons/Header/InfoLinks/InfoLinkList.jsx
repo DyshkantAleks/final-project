@@ -8,7 +8,7 @@ export const InfoLinks = () => {
   return (
     <List>
       <Item>
-        <Link to={ROUTES.STORES}>Наши магазины</Link>
+        <Link to={ROUTES.STORES}>Наш шоу-рум</Link>
       </Item>
       <Item>
         <Link to={ROUTES.PROMOTIONS}>Акции</Link>

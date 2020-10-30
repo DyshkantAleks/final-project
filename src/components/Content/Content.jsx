@@ -23,7 +23,7 @@ export const ContentContairer = styled.div`
     }
     
     @media ${device.desktop}{
-        padding: 0;
+        padding: 4rem 0;
         width: 120rem;
     }
 `;

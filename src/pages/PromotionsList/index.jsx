@@ -16,7 +16,6 @@ export const PromotionsPage = () => {
   return (
     <>
       <Header/>
-      <h1>Promotions page</h1>
       <PromoList/>
       <Footer/>
     </>

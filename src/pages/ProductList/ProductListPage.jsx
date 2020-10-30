@@ -34,7 +34,6 @@ export const ProductListPage = ({match, location}) => {
     <>
       <Header/>
       <ContentContairer>
-        <h1>Title of page</h1>
         <ProductItemList>
           {array.map((e, index) => (
             <ProductItem

@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import {CopyrightContainer, CopyrightText} from "../StyledFooter";
+
 export const FooterCopyright = () => {
   return(
     <CopyrightContainer>
@@ -7,14 +8,3 @@ export const FooterCopyright = () => {
     </CopyrightContainer>
   )
 }
-const CopyrightContainer = styled.div`
-border-top: .1rem solid black;
-order: 4;
-flex-basis: 100%;
-margin-top: 2rem;
-
-
-`
-const CopyrightText = styled.p`
-text-align: center;
-`
