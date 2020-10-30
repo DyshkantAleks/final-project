@@ -2,17 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectCart } from '../../store/cart/selectors';
-import { CartImage } from './CartItem';
-import { CartNameCode } from './CartItem';
-import { CartPrice } from './CartItem';
+import { CartImage } from '../Delivery/CartItem';
+import { CartNameCode } from '../Delivery/CartItem';
+import { CartPrice } from '../Delivery/CartItem';
 
+// FOR ORDERING - DELETE IN CASE OF UNUSE
 export const CartForOrder = (params) => {
 
   const cartItems = useSelector(selectCart);
-  console.log(cartItems)
+  
   return (
     <Container>
-      <h3>Товари у кошику</h3>
+      <h3>Товары в корзине</h3>
       {
         cartItems.map(({ ...item }) =>
           <Item>
@@ -20,7 +21,7 @@ export const CartForOrder = (params) => {
             <CartNameCode>
               <h4>{item.name}</h4>
               <p>{item.code}</p>
-              <p>Колір: {item.color}</p>
+              <p>Цвет: {item.color}</p>
             </CartNameCode>
             <CartPrice>{item.price} грн</CartPrice>
           </Item>

@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {icon} from '../../commons/Header/AccountInfo/icons.jsx';
+//import { faTimes } from '@fortawesome/free-solid-svg-icons';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
 import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
 
 export const CartItem = ({ image, price, name, color, code, quantity, value, cart, fav }) => {
-  console.log(typeof cart)
+
   return (
     <CartItemContainer>
       {/* <CloseBtn icon={faTimes} /> */}
       <CloseBtnContainer>{icon.close}</CloseBtnContainer>
-      <CartImage src={image[0]} />
+      <CartImage src={image} />
       <CartNameCode>
         <h4>{name}</h4>
         <p>Код: {code}</p>
@@ -21,9 +21,9 @@ export const CartItem = ({ image, price, name, color, code, quantity, value, car
       <CartColor>
         {color}
       </CartColor>
-      {cart && <Counter value={value} id={code} />}
+      {cart && <Counter margin value={value} id={code} />}
       <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
-      {fav &&  <Button text="Купить" color="green" />}
+      {fav && <Button text="Купить" color="green" />}
     </CartItemContainer>
   );
 }
@@ -132,24 +132,6 @@ color: #000000;
 }
 `
 
-const CloseBtn = styled(FontAwesomeIcon)`
-font-size: 2em;
-color: #A0A9AF;
-&:hover{
-    cursor: pointer;
-    color: #007042;
-}
-
-@media ${device.mobile}{
-position: absolute;
-top: 0.5rem;
-right: 1.7rem;
-}
-
-@media ${device.tabletS}{
-  position: inherit;
-}
-`
 
 const CloseBtnContainer = styled.div`
 width: 2rem;
@@ -169,13 +151,31 @@ fill: #A0A9AF;
   }
 `
 
-const AddToCartBtn = styled.button`
-margin: 0 auto;
-border: 1px solid #e2e6ea;
-border-radius: 0.5rem;
-padding: 0.7rem;
-width: 100%;
-display: flex;
-justify-content: center;
-`
+// const AddToCartBtn = styled.button`
+// margin: 0 auto;
+// border: 1px solid #e2e6ea;
+// border-radius: 0.5rem;
+// padding: 0.7rem;
+// width: 100%;
+// display: flex;
+// justify-content: center;
+// `
 
+// const CloseBtn = styled(FontAwesomeIcon)`
+// font-size: 2em;
+// color: #A0A9AF;
+// &:hover{
+//     cursor: pointer;
+//     color: #007042;
+// }
+
+// @media ${device.mobile}{
+// position: absolute;
+// top: 0.5rem;
+// right: 1.7rem;
+// }
+
+// @media ${device.tabletS}{
+//   position: inherit;
+// }
+// `

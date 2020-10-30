@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCart } from '../../store/cart/selectors';
-import { CartItem } from './CartItem.jsx';
 import { Button } from '../../components/Button'
 import { Header } from '../../commons/Header/Header';
 import { Title } from '../../components/Title/Title';
@@ -11,7 +10,8 @@ import { getProductList } from '../../store/products_draft/actions';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { getCartList } from '../../utils/filters';
 import { device } from '../../styles/breakpoints/breakpoints';
-
+import { CartItem } from '../Cart/CartItem';
+import { ContentContairer } from '../../components/Content/Content';
 
 export const CartPage = () => {
   const dispatch = useDispatch()
@@ -33,7 +33,7 @@ export const CartPage = () => {
 
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
-    <>
+    <ContentContairer>
       <Header />
       <Title text='Корзина' />
 
@@ -53,10 +53,10 @@ export const CartPage = () => {
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всього у кошику {cartList.length} товари на суму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Button text="Оформити замовлення" color="green" />
+        <CartTotalText>Всего в корзине {cartList.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+        <Button text="Оформить покупку" color="green" />
       </CartTotalContainer>
-    </>
+    </ContentContairer>
   )
 }
 
@@ -65,7 +65,6 @@ export const CartContainer = styled.div`
  margin: 0 auto;
  text-align: center;
  `
-
 
 
 const CartMenu = styled.div`
@@ -95,22 +94,37 @@ padding-top: 2rem;
 display: flex; 
 max-width: 120rem;
 margin: 0 auto;
-padding: 0.7rem 1rem;
+
 
 @media ${device.mobile}{
   padding-top: 1rem;
   flex-wrap: wrap;
   text-align: center;
-  flex-direction: row;
   justify-content: center;
+  
 }
   
 @media ${device.tabletS}{
+  flex-wrap: wrap;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+@media ${device.tabletM}{
   justify-content: space-between;
 }
+
 `
 
 const CartTotalText = styled.h4`
 font-size: 1.5rem;
 color: #000000;
+
+@media ${device.tabletS}{
+width: 100%;
+}
+
+@media ${device.tabletM}{
+  width: inherit;
+  }
 `

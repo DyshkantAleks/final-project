@@ -20,7 +20,6 @@ const InitialState = {
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
-
     case ADD_TO_CART:
       return {
         ...state,
