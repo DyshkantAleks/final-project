@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React from 'react';
+import {useSelector} from 'react-redux';
 
 import {Header} from '../../commons/Header/Header';
 import {selectProducts} from '../../store/products_draft/selectors';
@@ -8,7 +8,7 @@ import {ProductItem} from '../../components/ProductItem'
 import {ContentContairer} from '../../components/Content/Content';
 import {ProductItemList} from '../Product/StyledProductPage';
 import {Footer} from "../../commons/Footer";
-import {getProducts} from "../../store/products_draft/middlware";
+
 
 
 export const ProductListPage = ({match, location}) => {
@@ -36,9 +36,9 @@ export const ProductListPage = ({match, location}) => {
       <ContentContairer>
         <h1>Title of page</h1>
         <ProductItemList>
-          {array.map((e) => (
+          {array.map((e, index) => (
             <ProductItem
-              key={e.id}
+              key={index}
               name={e.name}
               price={e.currentPrice}
               image={e.imageUrl[0]}

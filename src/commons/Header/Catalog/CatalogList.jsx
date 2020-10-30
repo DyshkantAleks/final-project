@@ -20,10 +20,10 @@ export const CatalogList = () => {
   return (
     <Container>
       <List>
-        {categories.map((e) => (
+        {categories.map((e, index) => (
           <StyledLink to={`/catalog/${e.route}`} key={e.id}>
 
-            <CatalogItem category={e.category}  icon={e.icon} key={e.id}/>
+            <CatalogItem category={e.category}  icon={e.icon} key={e.id} id={e.id}/>
           </StyledLink>
         ))
         }

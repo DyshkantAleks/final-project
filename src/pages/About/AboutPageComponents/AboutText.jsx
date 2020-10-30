@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-import styled from "styled-components";
 import {ContentContairer} from "../../../components/Content/Content";
 
 

@@ -31,8 +31,8 @@ export const SliderMainPage = () => {
   return (
     <Container id={'main-slider-container'}>
       <Slider {...settings}>
-        {promotions.map((e) => (
-          <SlideContainer key={e.id}>
+        {promotions.map((e, index) => (
+          <SlideContainer key={index}>
             <Link
               to={`/promo/${e.route}`}>
                 <Image src={e['sliderImageUrl']}/>
