@@ -16,3 +16,13 @@ export const getCartList = (productObj, cartArray, cartId) => {
    
   return result
 }
+
+// export const getFavList = (productObj, favArray) => {
+//   const objCopy = JSON.parse(JSON.stringify(productObj)) // показать Саше
+//   let productArray = [];
+//   for (const key in objCopy) {
+//     productArray = [...productArray, ...objCopy[key]]
+//   }
+//   const result = productArray.filter(productItem => favArray.some(favItem => favItem[id] === productItem[id]))
+//   return result;
+// }

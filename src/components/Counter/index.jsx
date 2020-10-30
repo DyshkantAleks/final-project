@@ -31,7 +31,8 @@ export const Counter = ({ id, value }) => {
 }
 
 const CouterContainer = styled.div`
-  margin: 0 auto;
+  //margin: 0 auto;
+  margin: ${props => (props.margin ? 0 : '0 auto')};
   border: 1px solid #e2e6ea;
   border-radius: 0.5rem;
   width: 90px;
