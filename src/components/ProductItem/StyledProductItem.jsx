@@ -92,6 +92,7 @@ padding: .5rem 1.4rem 1.4rem 1.4rem;
 `;
 
 export const NameContainer = styled.div`
+width: 85%;
 height: 4rem;
 `;
 
@@ -101,6 +102,71 @@ font-weight: 700;
 cursor: pointer;
     @media ${device.tabletS}{
         font-size: 1.6rem;
+    };
+`;
+
+export const PriceContainer = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+width: 85%;
+height: 3rem;
+    @media ${device.tabletS}{
+        width: 75%;
+    };
+    @media ${device.tabletM}{
+        flex-direction: column;
+        height: 6rem;
+    };
+    @media ${device.desktop}{
+        flex-direction: row;
+        width: 95%;
+        height: 3rem;
+    };
+`;
+
+export const PreviousPrice = styled.span`
+font-size: 2rem;
+font-weight: 800;
+color:#6F909A;
+text-decoration: line-through;
+    &::after{
+        content: 'грн';
+        position: relative;
+        left: .5rem;
+        font-size: 1rem;
+        font-weight: 700;
+    };
+    @media ${device.tabletM}{
+        font-weight: 800;
+        font-size: 2rem;
+            &::after{
+                left: 0.5;
+                font-size: 1.5rem;
+                font-weight: 700;
+        };
+    };
+`;
+
+export const CurrentPrice = styled.span`
+font-size: 2.5rem;
+font-weight: 800;
+color: #8D145E;
+    &::after{
+        content: 'грн';
+        position: relative;
+        left: .5rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+    };
+    @media ${device.tabletM}{
+        font-weight: 800;
+        font-size: 3rem;
+            &::after{
+                left: 0.5;
+                font-size: 1.5rem;
+                font-weight: 700;
+        };
     };
 `;
 
@@ -114,7 +180,7 @@ color: #6F909A;
         left: .5rem;
         font-size: 1.3rem;
         font-weight: 700;
-    }
+    };
     @media ${device.tabletM}{
         font-weight: 800;
         font-size: 3rem;
@@ -128,7 +194,7 @@ color: #6F909A;
 
 export const ItemFavoriteContainer = styled.div`
 position: absolute;
-top: 2rem;
+top: .5rem;
 right: 1.4rem;
 width: 2.5rem;
 height: 2.5rem;
@@ -138,9 +204,6 @@ transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
     };
-    @media ${device.desktop}{
-        top: 2.2rem;
-    };
 `;
 
 export const StyledLink = styled(Link)`
@@ -148,3 +211,10 @@ text-decoration: none;
 color: #333333;
 `;
 
+export const ButtonContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin-top: 1.5rem;
+`;

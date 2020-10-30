@@ -9,20 +9,16 @@ import { ProductItem } from '../../components/ProductItem'
 import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
 
-export const ProductListPage = ({ match, location }) => {
+import { selectCart } from '../../store/cart/selectors';
+
+export const ProductListPage = ({ match }) => {
   const { params: { route } } = match;
-  //console.log(route)
-
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
-  //console.log(currentItemByRoute);
-
   const productsByCategory = useSelector(selectProductsForFilter);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     if (!!currentItemByRoute) {
-      console.log(currentItemByRoute.category);
       if (currentItemByRoute.parentId === 'null') {
 
         dispatch(getProductsByCategory(currentItemByRoute.category));
@@ -32,8 +28,25 @@ export const ProductListPage = ({ match, location }) => {
     }
   }, [currentItemByRoute]);
 
-  console.log(productsByCategory);
+  const productInCart = useSelector(selectCart);
+  const cartItems = productInCart.map(item => item.product);
+  console.log(cartItems);
 
+  const products = useSelector(selectProducts)
+  const productItem = products.map(item => item)
+  console.log(productItem)
+
+  const itemInCart = cartItems.filter(function (elementOfCartArr) {
+    return productItem.some(function (elementOfProductArr) {
+      return elementOfCartArr._id === elementOfProductArr._id
+    });
+  });
+
+  console.log(itemInCart.length);
+
+  if (itemInCart.length <= 0) {
+    itemInCart.push(productItem)
+  }
 
   return (
     <>
@@ -41,16 +54,20 @@ export const ProductListPage = ({ match, location }) => {
       <ContentContairer>
         <h1>Title of page</h1>
         <ProductItemList>
-          {productsByCategory.products.map((e) => (
+          {productsByCategory.products.map((item) => (
             <ProductItem
-              name={e.name}
-              price={e.currentPrice}
-              image={e.imageUrl[0]}
-              key={e.id}
-              route={e.route}
-              id={e._id}
-              isNewProduct={e.isNewProduct}
-              isTopRated={e.isTopRated} />
+              key={item._id}
+              name={item.name}
+              price={item.currentPrice}
+              image={item.imageUrl[0]}
+              route={item.route}
+              id={item._id}
+              isNewProduct={item.isNewProduct}
+              isTopRated={item.isTopRated}
+              isSale={item.isSale}
+              previousPrice={item.previousPrice}
+              itemInCart={itemInCart}
+            />
           ))}
         </ProductItemList>
       </ContentContairer>

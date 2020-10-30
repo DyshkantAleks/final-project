@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
 import { getProducts } from '../../store/products_draft/middlware';
-import { selectByRoute, selectProducts } from '../../store/products_draft/selectors';
+import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
 import {
@@ -23,13 +22,17 @@ import {
   Actions,
   SpecificationContainer,
   DescriptionKey,
-  ShowMore
+  ShowMore,
+  PriceContainer,
+  CurrentPrice,
+  PreviousPrice
 } from './StyledProductPage';
 import { RegularIconFavorite } from '../../components/ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../../components/ProductItem/IconsSvg/SolidIconFavorite';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ProductCounter } from '../../components/Counter/ProductCounter';
 import { ProductSlider } from '../../components/ProductSlider';
+import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 
 export const ProductPage = ({ match }) => {
   const { params: { route } } = match;
@@ -42,9 +45,6 @@ export const ProductPage = ({ match }) => {
 
   const dispatch = useDispatch();
   const product = useSelector(selectByRoute(match.params.route));
-
-  const products = useSelector(selectProducts);
-  console.log(products);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -79,11 +79,19 @@ export const ProductPage = ({ match }) => {
         {
           product && (
             <>
-              <Title text={capitalizeFirstLetter(`${product.name}`)} />
+              <Title text={product.name} />
               <ContainerDetails>
-                <ProductSlider id={product._id}/>
+                <ProductSlider id={product._id} />
                 <ContainerProduct>
-                  <Price>{product.currentPrice.toLocaleString()}</Price>
+                  {product.isSale &&
+                    <PriceContainer>
+                      <CurrentPrice>{product.currentPrice.toLocaleString()}</CurrentPrice>
+                      <PreviousPrice>{product.previousPrice.toLocaleString()}</PreviousPrice>
+                    </PriceContainer>}
+                  {!product.isSale &&
+                    <PriceContainer>
+                      <Price>{product.currentPrice.toLocaleString()}</Price>
+                    </PriceContainer>}
                   {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}
                   {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
