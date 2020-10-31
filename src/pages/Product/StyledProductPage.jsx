@@ -269,3 +269,8 @@ transition: all .3s linear;
     };
 `;
 
+export const IconContainer = styled.div`
+position: absolute;
+top: 4rem;
+right: 1.2rem;
+`;

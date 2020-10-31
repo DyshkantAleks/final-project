@@ -1,54 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
-import { getProducts } from '../../store/products_draft/middlware';
 import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
-import {
-  ContainerDetails,
-  ContainerProduct,
-  Price,
-  Article,
-  AvailabilityArticleWrap,
-  Availability,
-  DimensionsContainer,
-  Description,
-  Subtitle,
-  ActionsContainer,
-  Actions,
-  SpecificationContainer,
-  DescriptionKey,
-  ShowMore,
-  PriceContainer,
-  CurrentPrice,
-  PreviousPrice
-} from './StyledProductPage';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, IconContainer } from './StyledProductPage';
 import { RegularIconFavorite } from '../../components/ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../../components/ProductItem/IconsSvg/SolidIconFavorite';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ProductCounter } from '../../components/Counter/ProductCounter';
 import { ProductSlider } from '../../components/ProductSlider';
-import {Footer} from "../../commons/Footer";
+import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
+import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
+import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
+import { Footer } from '../../commons/Footer';
+import { selectCart } from '../../store/cart/selectors';
 
-export const ProductPage = ({ match }) => {
-  const { params: { route } } = match;
-
+export const ProductPage = (props) => {
+  const { match } = props;
   const { screenWidth } = useWindowDimensions();
   const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1) // myronets
-
-  const dispatch = useDispatch();
   const product = useSelector(selectByRoute(match.params.route));
+  const productInCart = useSelector(selectCart);
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
 
   const toggleSpecificationBtn = () => {
     if (isSpecification) {
@@ -95,6 +76,18 @@ export const ProductPage = ({ match }) => {
                     <PriceContainer>
                       <Price>{product.currentPrice.toLocaleString()}</Price>
                     </PriceContainer>}
+                  {product.isSale &&
+                    <IconContainer>
+                      <IconSale />
+                    </IconContainer>}
+                  {product.isNewProduct &&
+                    <IconContainer>
+                      <IconNew />
+                    </IconContainer>}
+                  {product.isTopRated &&
+                    <IconContainer>
+                      <IconTopRated />
+                    </IconContainer>}
                   {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}
                   {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
@@ -111,22 +104,20 @@ export const ProductPage = ({ match }) => {
                       <Description>Высота - {product.sizes.height} cм, </Description>
                       <Description>Ширина - {product.sizes.width} cм, </Description>
                       <Description>Глубина - {product.sizes.length} cм </Description>
-                    </>
-                    : <>
+                    </> : <>
                       <Subtitle>Габариты{toggleDimensionsBtn()}</Subtitle>
                       {isDimensions && <DimensionsContainer>
                         <Description>Высота - {product.sizes.height} cм, </Description>
                         <Description>Ширина - {product.sizes.width} cм, </Description>
                         <Description>Глубина - {product.sizes.length} cм </Description>
                       </DimensionsContainer>}
-                    </>
-                  }
+                    </>}
                   <ActionsContainer>
                     <Actions>
                       <ProductCounter value={value} setValue={setValue} />
                     </Actions>
                     <Actions>
-                      <Button text={'Купить'} onClick={() => btnHeandler(product, value)}/>
+                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>
@@ -153,8 +144,7 @@ export const ProductPage = ({ match }) => {
           )
         }
       </ContentContairer>
-      <Footer/>
+      <Footer />
     </>
   )
 }
-

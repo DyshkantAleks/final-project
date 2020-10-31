@@ -94,6 +94,12 @@ padding: .5rem 1.4rem 1.4rem 1.4rem;
 export const NameContainer = styled.div`
 width: 85%;
 height: 4rem;
+    @media ${device.tabletL}{
+        height: 6rem;
+    };
+    @media ${device.desktop}{
+        height: 4rem;
+    }
 `;
 
 export const Name = styled.span`
@@ -128,7 +134,8 @@ height: 3rem;
 export const PreviousPrice = styled.span`
 font-size: 2rem;
 font-weight: 800;
-color:#6F909A;
+/* color:#6F909A; */
+color:#6F7281;
 text-decoration: line-through;
     &::after{
         content: 'грн';
@@ -173,7 +180,8 @@ color: #8D145E;
 export const Price = styled.span`
 font-size: 2.5rem;
 font-weight: 800;
-color: #6F909A;
+/* color: #6F909A; */
+color: #6F7281;
     &::after{
         content: 'грн';
         position: relative;
@@ -213,7 +221,7 @@ color: #333333;
 
 export const ButtonContainer = styled.div`
 display: flex;
-justify-content: center;
+justify-content: start;
 align-items: center;
 width: 100%;
 margin-top: 1.5rem;

@@ -27,7 +27,7 @@ export function reducer (state = InitialState, { type, payload }) {
           }
           return item;
         })
-      }
+      };
 
     case QTY_DOWN:
       return {
@@ -38,7 +38,7 @@ export function reducer (state = InitialState, { type, payload }) {
           }
           return item;
         })
-      }
+      };
 
     default:
       return state
