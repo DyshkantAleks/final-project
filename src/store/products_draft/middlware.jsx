@@ -1,6 +1,7 @@
 // import React from 'react'
 import {BASE_URL, server} from '../../API'
-import {setProducts} from './actions'
+import {setProducts} from './actions';
+
 // import {setCatigories} from "../categories/actions";
 
 export const getProducts = () => async (dispatch) => {
@@ -13,15 +14,15 @@ export const getProducts = () => async (dispatch) => {
     console.log(error)
   }
 }
-//getProducts()();
+// getProducts()();
 
 export const getProductsByCategory = (category) => async (dispatch) => {
   try {
     const {status, data} = await server(`/products/filter?category=${category}`);
-    //console.log(data)
+    // console.log(data)
     if (status === 200) {
       dispatch(setProducts(data.products));
-      //console.log(data)
+      // console.log(data)
     }
   } catch (error) {
     console.log(error)
@@ -31,16 +32,16 @@ export const getProductsByCategory = (category) => async (dispatch) => {
 export const getProductsBySubCategory = (category) => async (dispatch) => {
   try {
     const {status, data} = await server(`/products/filter?subCategory=${category}`);
-    //console.log(data)
+    // console.log(data)
     if (status === 200) {
       dispatch(setProducts(data.products));
-      //console.log(data)
+      // console.log(data)
     }
   } catch (error) {
     console.log(error)
   }
 };
-//getChairs()();
+// getChairs()();
 
 // export const getAllChairs = () => async (dispatch) => {
 //   try {
@@ -106,5 +107,3 @@ export const getProductsBySubCategory = (category) => async (dispatch) => {
 //     console.log(error)
 //   }
 // };
-
-

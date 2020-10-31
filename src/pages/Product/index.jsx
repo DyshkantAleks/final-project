@@ -33,6 +33,7 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ProductCounter } from '../../components/Counter/ProductCounter';
 import { ProductSlider } from '../../components/ProductSlider';
 import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
+import { addToCart } from '../../store/cart/actions-creators';
 
 export const ProductPage = ({ match }) => {
   const { params: { route } } = match;
@@ -72,6 +73,9 @@ export const ProductPage = ({ match }) => {
     );
   };
 
+  const btnHeandler = (item, quantity) => {
+    dispatch(addToCart({product: item, cartQuantity: quantity}))
+  }
   return (
     <>
       <Header />
@@ -123,7 +127,7 @@ export const ProductPage = ({ match }) => {
                       <ProductCounter value={value} setValue={setValue} />
                     </Actions>
                     <Actions>
-                      <Button text={'Купить'} />
+                      <Button text={'Купить'} onClick={() => btnHeandler(product, value)}/>
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>

@@ -10,7 +10,7 @@ import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, S
 import { Button } from '../Button';
 
 export const ProductItem = (props) => {
-  const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, itemInCart } = props
+  const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, itemInCart, onClick } = props
 
   const [inFavorite, toggleInFavorite] = useToggle();
 
@@ -57,7 +57,7 @@ export const ProductItem = (props) => {
           <ButtonContainer>
             {
               itemInCart.map(item => (
-                item._id === id ? <Button text={'В корзине'} /> : <Button text={'Купить'} />
+                item._id === id ? <Button text={'В корзине'}/> : <Button text={'Купить'} onClick={onClick}/>
               ))
             }
           </ButtonContainer>

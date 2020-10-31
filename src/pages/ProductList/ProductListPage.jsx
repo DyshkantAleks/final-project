@@ -10,6 +10,7 @@ import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
 
 import { selectCart } from '../../store/cart/selectors';
+import { addToCart } from '../../store/cart/actions-creators'; // myronets
 
 export const ProductListPage = ({ match }) => {
   const { params: { route } } = match;
@@ -42,12 +43,17 @@ export const ProductListPage = ({ match }) => {
     });
   });
 
-  console.log(itemInCart.length);
+  console.log(itemInCart);
 
   if (itemInCart.length <= 0) {
     itemInCart.push(productItem)
   }
+  console.log(itemInCart);
 
+  // myronets
+  const btnHeandler = (item, quantity) => {
+    dispatch(addToCart({product: item, cartQuantity: quantity}))
+  }
   return (
     <>
       <Header />
@@ -67,6 +73,7 @@ export const ProductListPage = ({ match }) => {
               isSale={item.isSale}
               previousPrice={item.previousPrice}
               itemInCart={itemInCart}
+              onClick={() => btnHeandler(item, 1)} // myronets
             />
           ))}
         </ProductItemList>

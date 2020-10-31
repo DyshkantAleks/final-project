@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { quantityDown, quantityUp } from '../../store/cart/actions-creators';
 
 export const Counter = ({ cartQuantity, quantity, id }) => {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   const increaseQty = () => {
     if (cartQuantity < quantity) {

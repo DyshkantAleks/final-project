@@ -2,12 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Counter } from '../../components/Counter'
+import { Counter } from '../../components/Counter';
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../../store/cart/actions-creators';
 
-export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, _id }) => {
+
+  const dispatch = useDispatch();
+  const removeBtnHeandler = (id) => dispatch(removeFromCart(id));
+  
   return (
     <CartItemContainer>
-      <CloseBtn icon={faTimes} />
+      <CloseBtn icon={faTimes} onClick={() => removeBtnHeandler(_id)}/>
       <CartImage src={imageUrl[0]} />
       <CartNameCode>
         <h4>{name}</h4>
@@ -16,7 +22,7 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      <Counter cartQuantity={cartQuantity} quantity={quantity}/>
+      <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
     </CartItemContainer>
   );
