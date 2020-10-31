@@ -5,26 +5,33 @@ import {List} from './StyledPopularCategory';
 import {PopularCategoryItem} from './PopularCategoryComponents/PopularCategoryItem';
 
 import {Title} from '../Title/Title';
+import {useSelector} from "react-redux";
+import {selectPopularCategories} from "../../store/categories/selectors";
 
-export const PopularCategoryList = ({props}) => {
+
+import {StyledLink} from "./StyledPopularCategory";
+
+export const PopularCategoryList = () => {
+  const popularCategories = useSelector(selectPopularCategories);
+  //console.log(popularCategories)
+
   return (
     <>
       <Title text={'Популярные категории'}/>
       <List>
-        <PopularCategoryItem backGround={'./img/table.png'}
-          textForTitle={'Tables'}
-          textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
-        <PopularCategoryItem textForTitle={'Tables'}
-          backGround={'./img/table.png'}
-          textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
-        <PopularCategoryItem textForTitle={'Tables'}
-          backGround={'./img/table.png'}
-          textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
-        <PopularCategoryItem textForTitle={'Tables'}
-          backGround={'./img/table.png'}
-          textForSubtitle={'Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle Subtitle'}/>
+        {
+          popularCategories.map((e) => (
+            <StyledLink to={`/catalog/${e.route}`} key={e.id}>
+
+              < PopularCategoryItem backGround={e.image}
+                                    textForTitle={e.category}
+                                    textForSubtitle={e.description}/>
+            </StyledLink>
+          ))
+        }
       </List>
     </>
 
   )
-}
+};
+

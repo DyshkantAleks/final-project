@@ -1,11 +1,15 @@
 import React from 'react';
 import {Header} from '../../commons/Header/Header';
+import {AboutText} from "./AboutPageComponents/AboutText";
+import {Footer} from "../../commons/Footer";
+
 
 export const AboutPage = () => {
   return (
     <>
       <Header/>
-      <h1>About page</h1>
+      <AboutText/>
+      <Footer/>
     </>
   )
 }

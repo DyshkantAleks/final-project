@@ -15,14 +15,13 @@ import {
   SwiperContainerHorizontal,
   SwiperGalleryHorizontal,
   SwiperThumbsHorizontal
-
 } from './StyledProductCarousel';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
 
 export const ProductCarousel = () => {
-  const { width } = useWindowDimensions();
+  const { screenWidth } = useWindowDimensions();
 
   const img = [
     './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
@@ -33,7 +32,7 @@ export const ProductCarousel = () => {
     './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
-  ]
+  ];
 
   const slides = [];
   for (let i = 0; i < img.length; i++) {
@@ -75,7 +74,6 @@ export const ProductCarousel = () => {
     slideToClickedSlide: true,
     centeredSlides: true,
     direction: 'vertical',
-
   };
 
   const thumbsSwiperParamsHorizontal = {
@@ -95,11 +93,14 @@ export const ProductCarousel = () => {
       gallerySwiper.controller.control = thumbsSwiper;
       thumbsSwiper.controller.control = gallerySwiper;
     }
-  }, []);
+
+  }, [screenWidth]);
+
+
 
   return (
     <>
-      {width >= 768 ? (<SwiperContainer>
+      {screenWidth >= 768 ? (<SwiperContainer>
         <SwiperThumbs>
           <Swiper id="thumbs" {...thumbsSwiperParams} ref={thumbsSwiperRef}>
             {thumbs}
@@ -125,4 +126,4 @@ export const ProductCarousel = () => {
       }
     </>
   )
-}
+};
