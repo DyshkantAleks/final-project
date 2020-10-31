@@ -72,9 +72,9 @@ export const ProductPage = ({ match }) => {
     );
   };
 
-  const btnHeandler = (item, quantity) => {
-    dispatch(addToCart({product: item, cartQuantity: quantity}))
-  }
+  // const btnHeandler = (item, quantity) => {
+  //   dispatch(addToCart({product: item, cartQuantity: quantity}))
+  // }
   return (
     <>
       <Header />

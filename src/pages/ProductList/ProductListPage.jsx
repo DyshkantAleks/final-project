@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {Header} from '../../commons/Header/Header';
 import {selectProducts} from '../../store/products_draft/selectors';
@@ -8,8 +8,7 @@ import {ProductItem} from '../../components/ProductItem'
 import {ContentContairer} from '../../components/Content/Content';
 import {ProductItemList} from '../Product/StyledProductPage';
 import {Footer} from "../../commons/Footer";
-
-
+import { addToCart } from '../../store/cart/actions-creators';
 
 export const ProductListPage = ({match, location}) => {
   const {params: {route}} = match;
@@ -17,8 +16,8 @@ export const ProductListPage = ({match, location}) => {
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
 
   const allProducts = useSelector(selectProducts);
-
-
+  const dispatch = useDispatch()
+  
   let array = [];
   if (currentItemByRoute) {
     const isRootCategory = currentItemByRoute.parentId === "null";
@@ -28,15 +27,10 @@ export const ProductListPage = ({match, location}) => {
     );
   }
 
-  if (itemInCart.length <= 0) {
-    itemInCart.push(productItem)
-  }
-  console.log(itemInCart);
-
   // myronets
-  const btnHeandler = (item, quantity) => {
-    dispatch(addToCart({product: item, cartQuantity: quantity}))
-  }
+  // const btnHeandler = (item, quantity) => {
+  //   dispatch(addToCart({product: item, cartQuantity: quantity}))
+  // }
   return (
 
     <>
@@ -54,7 +48,8 @@ export const ProductListPage = ({match, location}) => {
               route={e.route}
               id={e._id}
               isNewProduct={e.isNewProduct}
-              isTopRated={e.isTopRated}/>
+              isTopRated={e.isTopRated}
+              />
           ))}
         </ProductItemList>
       </ContentContairer>

@@ -7,7 +7,7 @@ import { Counter } from '../../components/Counter';
 import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
 
-export const CartItem = ({ image, price, name, color, code, quantity, value, cart, fav }) => {
+export const CartItem = ({ image, price, name, color, code, quantity, value, cart, fav, itemNo }) => {
 
   return (
     <CartItemContainer>

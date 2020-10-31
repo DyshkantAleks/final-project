@@ -6,20 +6,14 @@ import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button'
 import { Header } from '../../commons/Header/Header';
 import { Title } from '../../components/Title/Title';
-import { getProductList } from '../../store/products_draft/actions';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { getCartList } from '../../utils/filters';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
 
 export const CartPage = () => {
-
   const cartItems = useSelector(selectCart);
-  const products = useSelector(selectProducts);
-
-  const cartList = getCartList(products, cartItems, 'code');
-  const sumCart = cartList.reduce(function (sum, current) {
+ 
+  const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.price * current.quantity
   }, 0)
 
@@ -39,14 +33,14 @@ export const CartPage = () => {
             <CartItem
               {...item}
               value={item.quantity}
-              key={item.code}
+              key={item._id}
               cart='true'
             />
           )}
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всего в корзине {cartList.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+        <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
         <Button text="Оформить покупку" color="green" />
       </CartTotalContainer>
     </ContentContairer>
