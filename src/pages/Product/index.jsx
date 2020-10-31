@@ -32,8 +32,7 @@ import { SolidIconFavorite } from '../../components/ProductItem/IconsSvg/SolidIc
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ProductCounter } from '../../components/Counter/ProductCounter';
 import { ProductSlider } from '../../components/ProductSlider';
-import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
-import { addToCart } from '../../store/cart/actions-creators';
+import {Footer} from "../../commons/Footer";
 
 export const ProductPage = ({ match }) => {
   const { params: { route } } = match;
@@ -154,6 +153,7 @@ export const ProductPage = ({ match }) => {
           )
         }
       </ContentContairer>
+      <Footer/>
     </>
   )
 }

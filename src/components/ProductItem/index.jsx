@@ -15,7 +15,7 @@ export const ProductItem = (props) => {
   const [inFavorite, toggleInFavorite] = useToggle();
 
   return (
-    <>
+    <div>
       <ConteinerItem key={id}>
         <PhotoBox>
           <StyledLink to={`/products/${route}`}>
@@ -63,6 +63,6 @@ export const ProductItem = (props) => {
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>
-    </>
+    </div>
   )
 };
