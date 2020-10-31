@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../Button';
 import { StyledForm } from './StyledLoginComponent';
-import { ErrorsField } from '../Errors/ErrorsField';
+
 
 
 export const LoginForm = props => {
@@ -18,7 +18,7 @@ export const LoginForm = props => {
     login: '',
     password: ''
   }
-
+ 
   const handleBlur = (input)=> {
     const key = input.target.name
     const value = input.target.value
@@ -40,25 +40,17 @@ export const LoginForm = props => {
             <Field
               name="login"
               type="text"
-              placeholder="login"
+              placeholder={(props.errors.login) || 'login'}
               onBlur={handleBlur}
             />
-            <div>
-              {props.errors.login && props.touched.login ? (
-                <ErrorsField errorText={props.errors.login}/>
-              ) : null}
-            </div>
+           
             <Field
               name="password"
               type="password"
-              placeholder="password"
+              placeholder={props.errors.password || 'password'}
               onBlur={handleBlur}
             />
-            {props.errors.password && props.touched.password ? (
-              <ErrorsField errorText={props.errors.password}/>
-            ) : null}
-        
-            <Button text='Войти' type="submit"></Button>
+            <Button text='Войти' onClick={console.log(props)} type="submit"></Button>
           </StyledForm>
         )}
       </Formik>

@@ -1,18 +1,24 @@
+<<<<<<< HEAD
 import {server} from '../../API'
 import {setProducts} from './actions'
 
+=======
+// import React from 'react'
+import {BASE_URL, server} from '../../API'
+import {setProducts} from './actions'
+// import {setCatigories} from "../categories/actions";
+>>>>>>> alex
 
 export const getProducts = () => async (dispatch) => {
   try {
-    const {status, data} = await server('/products')
-  
+    const {status, data} = await server('/products');
     if (status === 200) {
       dispatch(setProducts(data))
-      
     }
   } catch (error) {
     console.log(error)
   }
+<<<<<<< HEAD
 };
 
 
@@ -20,6 +26,14 @@ export const getProducts = () => async (dispatch) => {
 export const getProductsByIsPopular = () => async (dispatch) => {
   try {
     const {status, data} = await server(`/products/filter?isTopRated=true`);
+=======
+}
+//getProducts()();
+
+export const getProductsByCategory = (category) => async (dispatch) => {
+  try {
+    const {status, data} = await server(`/products/filter?category=${category}`);
+>>>>>>> alex
     //console.log(data)
     if (status === 200) {
       dispatch(setProducts(data.products));
@@ -30,9 +44,15 @@ export const getProductsByIsPopular = () => async (dispatch) => {
   }
 };
 
+<<<<<<< HEAD
 export const getProductsByIsNew = () => async (dispatch) => {
   try {
     const {status, data} = await server(`/products/filter?isNew=true`);
+=======
+export const getProductsBySubCategory = (category) => async (dispatch) => {
+  try {
+    const {status, data} = await server(`/products/filter?subCategory=${category}`);
+>>>>>>> alex
     //console.log(data)
     if (status === 200) {
       dispatch(setProducts(data.products));
@@ -42,3 +62,74 @@ export const getProductsByIsNew = () => async (dispatch) => {
     console.log(error)
   }
 };
+<<<<<<< HEAD
+=======
+//getChairs()();
+
+// export const getAllChairs = () => async (dispatch) => {
+//   try {
+//     const {data} = await server('/products/filter?category=Стулья');
+//     console.log(data)
+//     if (status === 200) {
+//       dispatch(setProducts(data))
+//       console.log(data)
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// };
+//
+// export const getAllTables = () => async (dispatch) => {
+//   try {
+//     const {data} = await server('/products/filter?category=Столы');
+//     console.log(data)
+//     if (status === 200) {
+//       dispatch(setProducts(data))
+//       console.log(data)
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// };
+//
+// export const getAllSofas = () => async (dispatch) => {
+//   try {
+//     const {data} = await server('/products/filter?category=Диваны');
+//     console.log(data)
+//     if (status === 200) {
+//       dispatch(setProducts(data))
+//       console.log(data)
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// };
+//
+// export const getAllStorage = () => async (dispatch) => {
+//   try {
+//     const {data} = await server('/products/filter?category=Хранение');
+//     cconsole.log(data)
+//     if (status === 200) {
+//       dispatch(setProducts(data))
+//       console.log(data)
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// };
+//
+// export const getAllAccessorise = () => async (dispatch) => {
+//   try {
+//     const {data} = await server('/products/filter?category=Аксессуары');
+//     console.log(data)
+//     if (status === 200) {
+//       dispatch(setProducts(data))
+//       console.log(data)
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// };
+
+
+>>>>>>> alex
