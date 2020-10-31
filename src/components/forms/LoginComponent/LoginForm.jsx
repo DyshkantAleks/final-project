@@ -11,7 +11,7 @@ import { StyledForm } from './StyledLoginComponent';
 
 export const LoginForm = props => {
   const {handleSubmit} = props
-  console.log(props, handleSubmit)
+  
   const dispatch = useDispatch()
 
   const initialValues = {
@@ -36,7 +36,7 @@ export const LoginForm = props => {
           handleSubmit(values)
         }} >
         {(props) => (
-          <StyledForm>
+          <StyledForm >
             <Field
               name="login"
               type="text"

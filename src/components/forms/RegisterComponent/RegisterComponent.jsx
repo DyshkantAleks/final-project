@@ -4,6 +4,6 @@ import { RegisterForm } from './RegisterForm'
 export const RegisterComponent = props =>{
 
   return (
-    <RegisterForm/>
+    <RegisterForm handleSubmit={val => console.log(val)}/>
   )
 }

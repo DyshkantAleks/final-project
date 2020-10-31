@@ -9,7 +9,7 @@ export const CenteredTitle = styled(Title)`
 export const StyledForm = styled(Form)`
 display: flex;
 flex-direction: column;
-height: 180px;
+
 align-items: center;
 justify-content: space-around;
 margin: 0 auto;
@@ -19,9 +19,11 @@ font-family: inherit;
    color: red;
  }
 
-input {
+input, select {
    font-size: 14px;
    padding:10px;
+   margin: 10px;
+  
     :focus{
      border-color: #afada7;
      outline: none;
@@ -35,9 +37,10 @@ input {
   ::-webkit-input-placeholder, ::-moz-placeholder {
     font-size: 12px;
     padding: 1rem;
-    color: #afada7; 
+    color: C; 
     font-family: inherit;
   }
+ 
   
 
 }

@@ -4,9 +4,8 @@ import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from '../../Button';
-import { StyledForm } from './StyleRegisterForm';
-import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton';
-import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
+import { StyledForm } from '../LoginComponent/StyledLoginComponent';
+
 import { ErrorsField } from '../Errors/ErrorsField';
 
 
@@ -42,7 +41,7 @@ export const RegisterForm = (props) => {
     email: '',
     password: '',
     confirmPassword: '',
-    telepfone: '',
+    telephone: '',
     gender: '',
     avatar: '',
     registered: true,
@@ -52,7 +51,6 @@ export const RegisterForm = (props) => {
     const key = input.target.name;
     const value = input.target.value;
   };
- 
   
   return (
     <div>
@@ -60,23 +58,17 @@ export const RegisterForm = (props) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          handleSubmit(values);
-        }}
-      >
+          handleSubmit(values)
+        }}>
         {(props) => (
           <StyledForm>
             <Field
               name='firstName'
               autoComplete='off'
               type='text'
-              placeholder='введите имя'
+              placeholder={(props.errors.firstName) || 'введите имя'}
               onBlur={handleBlur}
             />
-            <div>
-              {props.errors.firstName && props.touched.firstName ? (
-                <ErrorsField errorText={props.errors.firstName}/>
-              ) : null}
-            </div>
             <Field
               name='lastName'
               autoComplete='off'
@@ -85,69 +77,42 @@ export const RegisterForm = (props) => {
               onBlur={handleBlur}
             />
             <div>
-              {props.errors.lastName && props.touched.lastName ? (
-                <ErrorsField errorText={props.errors.lastName}/>
-              ) : null}
             </div>
             <Field
               name='email'
               autoComplete='off'
               type='email'
-              placeholder='введите email'
+              placeholder={(props.errors.email) || 'введите email'}
               onBlur={handleBlur}
             />
             <div>
-              {props.errors.email && props.touched.email ? (
-                <ErrorsField errorText={props.errors.email}/>
-              ) : null}
             </div>
             <Field
               name='password'
-              type='text'
+              type='password'
               autoComplete='off'
-              placeholder='введите пароль'
+              placeholder={(props.errors.password) || 'введите пароль'}
               onBlur={handleBlur}
             />
-            <div>
-              {props.errors.password && props.touched.password ? (
-                <ErrorsField errorText={props.errors.password}/>
-              ) : null}
-            </div>
             <Field
               name='confirmPassword'
-              type='text'
+              type='password'
               autoComplete='off'
-              placeholder='подтвердите пароль'
+              placeholder={(props.errors.confirmPassword) || 'подтвердите пароль'}
               onBlur={handleBlur}
             />
-            <div>
-              {props.errors.confirmPassword && props.touched.confirmPassword ? (
-                <ErrorsField errorText={props.errors.confirmPassword}/>
-              ) : null}
-            </div>
+            <Field
+              name='telephone'
+              type='number'
+              autoComplete='off'
+              placeholder={(props.errors.telephone) || 'введите номер телефона'}
+              onBlur={handleBlur}
+            />
             <Field as='select' name='gender'>
               <option value='none'>Не выбран</option>
               <option value='male'>Мужской</option>
               <option value='female'>Женский</option>
             </Field>
-            <div>
-              {props.errors.gender && props.touched.gender ? (
-                <ErrorsField errorText={props.errors.gender}/>
-              ) : null}
-            </div>
-            <Field
-              name='telepfone'
-              type='number'
-              autoComplete='off'
-              placeholder='введите номер телефона'
-              onBlur={handleBlur}
-            />
-            <div>
-              {props.errors.telepfone && props.touched.telepfone ? (
-                <ErrorsField errorText={props.errors.telepfone}/>
-              ) : null}
-            </div>
-      
             <Button type='submit' text='Регистрация' />
           </StyledForm>
         )}
