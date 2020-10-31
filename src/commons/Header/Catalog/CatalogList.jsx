@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {CatalogItem} from './CatalogComponents/CatalogItem';
-import {Container, StyledLink, List} from './StyledCatalog';
-import {useDispatch, useSelector} from "react-redux";
-import {selectMainCategory} from "../../../store/categories/selectors";
-import {getCategories} from "../../../store/categories/middlware";
+import { CatalogItem } from './CatalogComponents/CatalogItem';
+import { Container, StyledLink, List } from './StyledCatalog';
+import { selectMainCategory } from '../../../store/categories/selectors';
+import { getCategories } from '../../../store/categories/middlware';
 
 
 
@@ -14,7 +14,7 @@ export const CatalogList = () => {
 
   useEffect(() => {
     dispatch(getCategories());
-  }, []);
+  }, [dispatch]);
 
 
   return (
@@ -22,13 +22,10 @@ export const CatalogList = () => {
       <List>
         {categories.map((e, index) => (
           <StyledLink to={`/catalog/${e.route}`} key={e.id}>
-
-            <CatalogItem category={e.category}  icon={e.icon} key={e.id} id={e.id}/>
+            <CatalogItem category={e.category} icon={e.icon} key={e.id} id={e.id} />
           </StyledLink>
-        ))
-        }
+        ))}
       </List>
     </Container>
-
   )
 };
