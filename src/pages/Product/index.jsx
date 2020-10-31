@@ -17,6 +17,8 @@ import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
 import { Footer } from "../../commons/Footer";
+import { selectCart } from '../../store/cart/selectors';
+
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -26,6 +28,9 @@ export const ProductPage = (props) => {
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1) // myronets
   const product = useSelector(selectByRoute(match.params.route));
+  const productInCart = useSelector(selectCart);
+
+  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
 
   const toggleSpecificationBtn = () => {
     if (isSpecification) {
@@ -110,7 +115,7 @@ export const ProductPage = (props) => {
                       <ProductCounter value={value} setValue={setValue} />
                     </Actions>
                     <Actions>
-                      <Button text={'Купить'} />
+                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>

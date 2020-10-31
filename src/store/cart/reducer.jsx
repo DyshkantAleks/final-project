@@ -31,6 +31,36 @@ const InitialState = {
         __v: 0
       },
       cartQuantity: 1
+    },
+    {
+      _id:'5f970586a8da4b001769720c',
+      product: {
+        _id:'5f970586a8da4b001769720c',
+        quantity: 10,
+
+        brand: 'Kartell',
+        category: 'Стулья',
+        color: 'Черный',
+        currentPrice: 19999,
+        date: '2020-10-21T19:46:17.247Z',
+        description: 'Изготовленное из единой панели, облегченное офисное кресло на колесиках Spoon Chair, безусловно, является авангардным изделием. Инновационная технология штамповки с использованием литья под давлением двухкомпонентного состава, посредством которой было создано изделие, позволила достигнуть «многослойности», когда выполняется штамповка двух различных Термопластиковых материалов: одного, определяющего эстетические качества (наружного), и другого – отличающегося высокой механической прочностью (внутреннего), благодаря чему Spoon Chair отличается высочайшими технологическими характеристиками и максимальной гибкостью, обусловленными легко персонализируемой толщиной, приспосабливающейся к весу пользователя. Простая в эксплуатации регулирующая ручка соединена с нижним корпусом и полностью спрятана в стержень, не нарушая изгибы линии изделия.',
+        enabled: true,
+        imageUrl: [
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon_main.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon1.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon2.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon3.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon4.jpeg"
+        ],
+        itemNo: '4819/09',
+        name: 'Кресло Spoon',
+        route: 'ofisnyi-stul-spoon-kartell',
+        subCategory: 'Офисные стулья',
+        isNewProduct: true,
+        isTopRated: true
+    },
+    cartQuantity: 2
+
     }
   ]
 };

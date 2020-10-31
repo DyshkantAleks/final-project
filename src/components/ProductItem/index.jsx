@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
@@ -10,52 +10,16 @@ import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
-import { selectProducts } from '../../store/products_draft/selectors';
 
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice } = props
 
   const [inFavorite, toggleInFavorite] = useToggle();
-  const [btnInCart, setBtnInCart] = useState(false)
-
-  const allProducts = useSelector(selectProducts);
 
   const productInCart = useSelector(selectCart);
-  const cartItems = productInCart.map(item => item.product._id);
 
-  const allProductsItem = allProducts.map(item => item._id)
-
-  const itemInCart = cartItems.filter(function (elementOfCartArr) {
-    return allProductsItem.some(function (elementOfProductArr) {
-      return elementOfCartArr === elementOfProductArr;
-    });
-  });
-
-  const convArrToObj = function (array) {
-    let newObj = {};
-    if (typeof array === 'object') {
-      for (const i in array) {
-        const newObjInArr = convArrToObj(array[i]);
-        newObj[i] = newObjInArr;
-      }
-    } else {
-      newObj = array;
-    }
-    return newObj;
-  }
-
-  useEffect(() => {
-    const objectInCart = convArrToObj(itemInCart);
-    for (const key in objectInCart) {
-      let objId = objectInCart[key]
-      if (objId === id) {
-        setBtnInCart(true)
-      } else {
-        setBtnInCart(false)
-      }
-    }
-  }, [id, itemInCart])
+  const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id);
 
   return (
     <>
@@ -67,18 +31,15 @@ export const ProductItem = (props) => {
           {isSale && (
             <ProductActivityContainer>
               <IconSale />
-            </ProductActivityContainer>
-          )}
+            </ProductActivityContainer>)}
           {isNewProduct && (
             <ProductActivityContainer>
               <IconNew />
-            </ProductActivityContainer>
-          )}
+            </ProductActivityContainer>)}
           {isTopRated && (
             <ProductActivityContainer>
               <IconTopRated />
-            </ProductActivityContainer>
-          )}
+            </ProductActivityContainer>)}
         </PhotoBox>
         <TitleBox>
           <StyledLink to={`/products/${route}`}>
