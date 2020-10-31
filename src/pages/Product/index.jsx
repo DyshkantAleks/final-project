@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
@@ -18,6 +18,7 @@ import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
 import { Footer } from '../../commons/Footer';
 import { selectCart } from '../../store/cart/selectors';
+import { addToCart } from '../../store/cart/actions-creators';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -25,9 +26,10 @@ export const ProductPage = (props) => {
   const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
-  const [value, setValue] = useState(1) // myronets
+  const [value, setValue] = useState(1);
   const product = useSelector(selectByRoute(match.params.route));
   const productInCart = useSelector(selectCart);
+  const dispatch = useDispatch();
 
   const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
 
@@ -53,9 +55,9 @@ export const ProductPage = (props) => {
     );
   };
 
-  // const btnHeandler = (item, quantity) => {
-  //   dispatch(addToCart({product: item, cartQuantity: quantity}))
-  // }
+  const btnHeandler = (product, quantity) => {
+    dispatch(addToCart({product: product, cartQuantity: quantity}))
+  }
   return (
     <>
       <Header />
@@ -117,7 +119,7 @@ export const ProductPage = (props) => {
                       <ProductCounter value={value} setValue={setValue} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />}
+                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} onClick={() => btnHeandler(product, value)}/>}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>

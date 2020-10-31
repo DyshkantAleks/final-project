@@ -42,6 +42,7 @@ export const ProductListPage = ({ match, location }) => {
               isTopRated={e.isTopRated}
               isSale={e.isSale}
               previousPrice={e.previousPrice}
+              product={e}
             />
           ))}
         </ProductItemList>

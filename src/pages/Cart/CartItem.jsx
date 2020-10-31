@@ -5,11 +5,17 @@ import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
 import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../../store/cart/actions-creators.jsx';
 
-export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav, _id }) => {
+  const dispatch = useDispatch();
+  const btnCloseheandler = (id) => {
+    dispatch(removeFromCart(id))
+  };
   return (
     <CartItemContainer>
-      <CloseBtnContainer>{icon.close}</CloseBtnContainer>
+      <CloseBtnContainer onClick={() => btnCloseheandler(_id)}>{icon.close}</CloseBtnContainer>
       <CartImage src={imageUrl[0]} />
       <CartNameCode>
         <h4>{name}</h4>
@@ -18,7 +24,7 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} />}
+      {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>}
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {fav && <Button text="Купить" color="green" />}
     </CartItemContainer>

@@ -11,11 +11,13 @@ import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
 
 export const CartPage = () => {
-
   const cartItems = useSelector(selectCart);
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
+  }, 0)
+  const sumQuantity = cartItems.reduce(function (sum, current) {
+    return sum + current.cartQuantity
   }, 0)
 
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
@@ -33,14 +35,14 @@ export const CartPage = () => {
             <CartItem
               {...item.product}
               cartQuantity={item.cartQuantity}
-              key={item.id}
+              key={item.product._id}
               cart='true'
             />
           )}
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+        <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
         <Button text="Оформить покупку" color="green" />
       </CartTotalContainer>
     </ContentContairer>

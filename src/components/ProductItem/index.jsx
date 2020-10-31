@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
@@ -10,17 +10,21 @@ import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
-
+import { addToCart } from '../../store/cart/actions-creators';
 
 export const ProductItem = (props) => {
-  const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice } = props
-
+  const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
+  
+  const dispatch = useDispatch();
   const [inFavorite, toggleInFavorite] = useToggle();
 
   const productInCart = useSelector(selectCart);
 
   const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id);
 
+  const btnHeandler = (product, quantity) => {
+    dispatch(addToCart({product: product, cartQuantity: quantity}))
+  }
   return (
     <>
       <ConteinerItem key={id}>
@@ -59,7 +63,7 @@ export const ProductItem = (props) => {
               <Price>{price.toLocaleString()}</Price>
             </PriceContainer>}
           <ButtonContainer>
-            {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />}
+            {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} onClick={() => btnHeandler(product, 1)}/>}
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>
