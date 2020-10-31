@@ -56,7 +56,6 @@ max-width: 100%;
 height: auto;
 overflow: hidden;
 margin: 0 auto;
-
 `;
 
 export const ImageThumbsContainer = styled.div`

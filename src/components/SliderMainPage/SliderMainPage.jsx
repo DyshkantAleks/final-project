@@ -1,17 +1,18 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 
-import {getPromotions} from '../../store/promotions/middlware';
-import {selectPromotions} from '../../store/promotions/selectors';
-import {Container, SlideContainer, Image} from './StyledSliderMainPage';
+import { getPromotions } from '../../store/promotions/middlware';
+import { selectPromotions } from '../../store/promotions/selectors';
+import { Container, SlideContainer, Image } from './StyledSliderMainPage';
+import './style.scss';
 
 export const SliderMainPage = () => {
-  
+
   const promotions = useSelector(selectPromotions);
   const dispatch = useDispatch();
 
@@ -24,6 +25,7 @@ export const SliderMainPage = () => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    className: "main-slider"
   };
 
   return (
@@ -33,7 +35,7 @@ export const SliderMainPage = () => {
           <SlideContainer key={index}>
             <Link
               to={`/promo/${e.route}`}>
-                <Image src={e['sliderImageUrl']}/>
+              <Image src={e['sliderImageUrl']} />
             </Link>
           </SlideContainer>
         ))}

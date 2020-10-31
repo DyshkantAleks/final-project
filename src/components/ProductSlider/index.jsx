@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { selectById } from '../../store/products_draft/selectors';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-import {ContainerHorizontal, ContainerVertical, SliderGalleryHorizontal, SliderGalleryVertical, SliderThumbsHorizontal, SliderThumbsVertical, ImageMainContainer, ImageMain, ImageThumbsContainer, ImageThumbs} from './StyledProductSlider';
+import { ContainerHorizontal, ContainerVertical, SliderGalleryHorizontal, SliderGalleryVertical, SliderThumbsHorizontal, SliderThumbsVertical, ImageMainContainer, ImageMain, ImageThumbsContainer, ImageThumbs } from './StyledProductSlider';
 import './style.scss';
 
 
@@ -50,7 +50,7 @@ export const ProductSlider = (props) => {
         swipe: true,
         touchMove: true,
         className: "product-slider"
-        
+
     };
 
     const thumbsHorizontalParams = {
@@ -69,58 +69,56 @@ export const ProductSlider = (props) => {
         verticalSwiping: true,
         arrows: false,
         infinite: false,
+        className: "vertical-thumbs"
     };
 
     return (
         <>
-            {screenWidth <= 768 ?
-                <>
-                    {productById && (
-                        <ContainerHorizontal>
-                            <SliderGalleryHorizontal>
-                                <Slider
-                                    asNavFor={controll.nav2}
-                                    ref={(slider => controll.slider1 = slider)}
-                                    {...gallerySlyderParams}
-                                >
-                                    {slides}
-                                </Slider>
-                            </SliderGalleryHorizontal>
-                            <SliderThumbsHorizontal>
-                                <Slider
-                                    asNavFor={controll.nav1}
-                                    ref={slider => (controll.slider2 = slider)}
-                                    {...thumbsHorizontalParams}
-                                >
-                                    {thumbs}
-                                </Slider>
-                            </SliderThumbsHorizontal>
-                        </ContainerHorizontal>)} 
-                        </> :
-                        <>
-                    {productById && (
-                        <ContainerVertical>
-                            <SliderThumbsVertical>
-                                <Slider
-                                    asNavFor={controll.nav1}
-                                    ref={slider => (controll.slider2 = slider)}
-                                    {...thumbsVerticalParams}
-                                >
-                                    {thumbs}
-                                </Slider>
-                            </SliderThumbsVertical>
-                            <SliderGalleryVertical>
-                                <Slider
-                                    asNavFor={controll.nav2}
-                                    ref={(slider => controll.slider1 = slider)}
-                                    {...gallerySlyderParams}
-                                >
-                                    {slides}
-                                </Slider>
-                            </SliderGalleryVertical>
-                        </ContainerVertical>
-                    )
-                    }
+            {screenWidth <= 768 ? <>
+                {productById && (
+                    <ContainerHorizontal>
+                        <SliderGalleryHorizontal>
+                            <Slider
+                                asNavFor={controll.nav2}
+                                ref={(slider => controll.slider1 = slider)}
+                                {...gallerySlyderParams}
+                            >
+                                {slides}
+                            </Slider>
+                        </SliderGalleryHorizontal>
+                        <SliderThumbsHorizontal>
+                            <Slider
+                                asNavFor={controll.nav1}
+                                ref={slider => (controll.slider2 = slider)}
+                                {...thumbsHorizontalParams}
+                            >
+                                {thumbs}
+                            </Slider>
+                        </SliderThumbsHorizontal>
+                    </ContainerHorizontal>)}
+            </> : <>
+                    {productById &&
+                        (
+                            <ContainerVertical>
+                                <SliderThumbsVertical>
+                                    <Slider
+                                        asNavFor={controll.nav1}
+                                        ref={slider => (controll.slider2 = slider)}
+                                        {...thumbsVerticalParams}
+                                    >
+                                        {thumbs}
+                                    </Slider>
+                                </SliderThumbsVertical>
+                                <SliderGalleryVertical>
+                                    <Slider
+                                        asNavFor={controll.nav2}
+                                        ref={(slider => controll.slider1 = slider)}
+                                        {...gallerySlyderParams}
+                                    >
+                                        {slides}
+                                    </Slider>
+                                </SliderGalleryVertical>
+                            </ContainerVertical>)}
                 </>
             }
         </>

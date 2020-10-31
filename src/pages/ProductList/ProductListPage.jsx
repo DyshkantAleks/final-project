@@ -8,7 +8,7 @@ import { ProductItem } from '../../components/ProductItem'
 import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
 import { Footer } from "../../commons/Footer";
-import { selectCart } from '../../store/cart/selectors';
+// import { selectCart } from '../../store/cart/selectors';
 
 
 export const ProductListPage = ({ match, location }) => {
@@ -27,24 +27,24 @@ export const ProductListPage = ({ match, location }) => {
     );
   };
 
-  const productInCart = useSelector(selectCart);
-  const cartItems = productInCart.map(item => item.product);
-  // console.log(cartItems);
+  // const productInCart = useSelector(selectCart);
+  // const cartItems = productInCart.map(item => item.product);
+  // // console.log(cartItems);
 
-  const allProductsItem = allProducts.map(item => item)
-  // console.log(allProductsItem)
+  // const allProductsItem = allProducts.map(item => item)
+  // // console.log(allProductsItem)
 
-  const itemInCart = cartItems.filter(function (elementOfCartArr) {
-    return allProductsItem.some(function (elementOfProductArr) {
-      return elementOfCartArr._id === elementOfProductArr._id
-    });
-  });
+  // const itemInCart = cartItems.filter(function (elementOfCartArr) {
+  //   return allProductsItem.some(function (elementOfProductArr) {
+  //     return elementOfCartArr._id === elementOfProductArr._id
+  //   });
+  // });
 
-  // console.log(itemInCart.length);
+  // // console.log(itemInCart.length);
 
-  if (itemInCart.length <= 0) {
-    itemInCart.push(allProducts)
-  }
+  // if (itemInCart.length <= 0) {
+  //   itemInCart.push(allProducts)
+  // }
 
   return (
     <>
@@ -64,7 +64,8 @@ export const ProductListPage = ({ match, location }) => {
               isTopRated={e.isTopRated}
               isSale={e.isSale}
               previousPrice={e.previousPrice}
-              itemInCart={itemInCart} />
+              // itemInCart={itemInCart} 
+              />
           ))}
         </ProductItemList>
       </ContentContairer>

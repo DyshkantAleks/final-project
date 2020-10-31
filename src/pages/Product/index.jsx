@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
-import { getProducts } from '../../store/products_draft/middlware';
 import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
@@ -17,7 +16,7 @@ import { ProductSlider } from '../../components/ProductSlider';
 import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
-import {Footer} from "../../commons/Footer";
+import { Footer } from "../../commons/Footer";
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -26,13 +25,7 @@ export const ProductPage = (props) => {
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1) // myronets
-
-  const dispatch = useDispatch();
   const product = useSelector(selectByRoute(match.params.route));
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
 
   const toggleSpecificationBtn = () => {
     if (isSpecification) {
@@ -144,7 +137,7 @@ export const ProductPage = (props) => {
           )
         }
       </ContentContairer>
-      <Footer/>
+      <Footer />
     </>
   )
 }
