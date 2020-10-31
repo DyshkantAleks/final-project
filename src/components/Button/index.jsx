@@ -10,7 +10,7 @@ export const Button = ({text, onClick, color = 'green'}) => {
 }
 
 const GreendBtn = styled.button`
-  border: none;
+  border: 1px solid #007042;
   color: #fff;
   background-color: #007042;
   padding: 10px 20px;

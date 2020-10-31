@@ -14,12 +14,12 @@ const InitialState = {
       code: '9051003-202',
       quantity: 10,
     }
-  ]
+  ],
+  isDataLoad: false
 };
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
-
     case ADD_TO_CART:
       return {
         ...state,
