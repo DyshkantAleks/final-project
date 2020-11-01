@@ -1,15 +1,13 @@
-import React from 'react';
-import {device} from '../../styles/breakpoints/breakpoints';
+import React from 'react'
+import { device } from '../../styles/breakpoints/breakpoints'
 import styled from 'styled-components'
 
 export const Content = () => {
   return (
-    <ContentContairer>
-
-    </ContentContairer>
+    <ContentContairer />
 
   )
-};
+}
 
 export const ContentContairer = styled.div`
     padding: 0 1.6rem;
@@ -26,4 +24,4 @@ export const ContentContairer = styled.div`
         padding: 4rem 0;
         width: 120rem;
     }
-`;
+`

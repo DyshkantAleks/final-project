@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
-import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
-import { IconSale } from './IconsSvg/IconSale';
-import { IconNew } from './IconsSvg/IconNew';
-import { IconTopRated } from './IconsSvg/IconTopRated';
-import { useToggle } from '../../utils/useToggle';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
-import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer } from './StyledProductItem';
+import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite'
+import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite'
+import { IconSale } from './IconsSvg/IconSale'
+import { IconNew } from './IconsSvg/IconNew'
+import { IconTopRated } from './IconsSvg/IconTopRated'
+import { useToggle } from '../../utils/useToggle'
+import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter'
+import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer } from './StyledProductItem'
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated } = props
 
-  const [inFavorite, toggleInFavorite] = useToggle();
+  const [inFavorite, toggleInFavorite] = useToggle()
 
   return (
     <div>
@@ -45,4 +45,4 @@ export const ProductItem = (props) => {
       </ConteinerItem>
     </div>
   )
-};
+}

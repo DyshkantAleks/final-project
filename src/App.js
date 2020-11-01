@@ -1,22 +1,21 @@
-import React, {useEffect} from 'react';
-import './App.css';
-import './styles/style.scss';
-import { Navigation } from './pages/navigation';
-import {useDispatch} from "react-redux";
-import {getProducts} from "./store/products_draft/middlware";
-
+import React, { useEffect } from 'react'
+import './App.css'
+import './styles/style.scss'
+import { Navigation } from './pages/navigation'
+import { useDispatch } from 'react-redux'
+import { getProducts } from './store/products_draft/middlware'
 
 function App () {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getProducts());
-  }, []);
+    dispatch(getProducts())
+  }, [])
 
   return (
     <>
-    <Navigation />
+      <Navigation />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

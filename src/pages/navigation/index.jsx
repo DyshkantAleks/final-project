@@ -1,22 +1,22 @@
-import React from 'react';
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route
-} from 'react-router-dom';
+} from 'react-router-dom'
 
-import { ROUTES } from './routes';
-import { AboutPage } from '../About';
-import { DeliveryPage } from '../Delivery';
-import { Homepage } from '../Homepage';
-import { PromotionsPage } from '../PromotionsList';
-import { StoresPage } from '../Stores';
-import { CartPage } from '../Cart';
-import { FavoritesPage } from '../Favorites';
-import { AccountPage } from '../Account';
-import { ProductPage } from '../Product';
-import { PromotionsSinglePage } from '../PromotionsSingle';
-import { ProductListPage } from '../ProductList/ProductListPage';
+import { ROUTES } from './routes'
+import { AboutPage } from '../About'
+import { DeliveryPage } from '../Delivery'
+import { Homepage } from '../Homepage'
+import { PromotionsPage } from '../PromotionsList'
+import { StoresPage } from '../Stores'
+import { CartPage } from '../Cart'
+import { FavoritesPage } from '../Favorites'
+import { AccountPage } from '../Account'
+import { ProductPage } from '../Product'
+import { PromotionsSinglePage } from '../PromotionsSingle'
+import { ProductListPage } from '../ProductList/ProductListPage'
 
 export const Navigation = () => (
   <Router>
@@ -28,8 +28,8 @@ export const Navigation = () => (
       <Route exact path={ROUTES.CART} component={CartPage} />
       <Route exact path={ROUTES.FAVORITES} component={FavoritesPage} />
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-      <Route path="/promo/:route" component={PromotionsSinglePage} />
-      <Route path="/catalog/:route" component={ProductListPage} />
+      <Route path='/promo/:route' component={PromotionsSinglePage} />
+      <Route path='/catalog/:route' component={ProductListPage} />
       <Route path='/products/:route' component={ProductPage} />
       <Route path={ROUTES.HOMEPAGE} component={Homepage} />
     </Switch>

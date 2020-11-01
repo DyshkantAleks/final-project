@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { selectCart } from '../../store/cart/selectors';
+import { selectCart } from '../../store/cart/selectors'
 import { Button } from '../../components/Button'
-import { Header } from '../../commons/Header/Header';
-import { Title } from '../../components/Title/Title';
-import { getProductList } from '../../store/products_draft/actions';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { getCartList } from '../../utils/filters';
-import { device } from '../../styles/breakpoints/breakpoints';
-import { CartItem } from '../Cart/CartItem';
-import { ContentContairer } from '../../components/Content/Content';
+import { Header } from '../../commons/Header/Header'
+import { Title } from '../../components/Title/Title'
+import { getProductList } from '../../store/products_draft/actions'
+import { selectProducts } from '../../store/products_draft/selectors'
+import { getCartList } from '../../utils/filters'
+import { device } from '../../styles/breakpoints/breakpoints'
+import { CartItem } from '../Cart/CartItem'
+import { ContentContairer } from '../../components/Content/Content'
 
 export const CartPage = () => {
   const dispatch = useDispatch()
@@ -19,19 +19,18 @@ export const CartPage = () => {
   // -- tempurary --
   useEffect(() => {
     dispatch(getProductList())
-  }, [dispatch]);
+  }, [dispatch])
   // -- ----- --
 
-  const cartItems = useSelector(selectCart);
-  const products = useSelector(selectProducts);
+  const cartItems = useSelector(selectCart)
+  const products = useSelector(selectProducts)
 
-  const cartList = getCartList(products, cartItems, 'code');
+  const cartList = getCartList(products, cartItems, 'code')
   const sumCart = cartList.reduce(function (sum, current) {
     return sum + current.price * current.quantity
   }, 0)
 
-
-  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
+  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена']
   return (
     <ContentContairer>
       <Header />
@@ -49,12 +48,13 @@ export const CartPage = () => {
               key={item.code}
               cart='true'
             />
-          )}
+          )
+        }
       </CartContainer>
 
       <CartTotalContainer>
         <CartTotalText>Всего в корзине {cartList.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Button text="Оформить покупку" color="green" />
+        <Button text='Оформить покупку' color='green' />
       </CartTotalContainer>
     </ContentContairer>
   )
@@ -65,7 +65,6 @@ export const CartContainer = styled.div`
  margin: 0 auto;
  text-align: center;
  `
-
 
 const CartMenu = styled.div`
     background-color: #F5F5F5;

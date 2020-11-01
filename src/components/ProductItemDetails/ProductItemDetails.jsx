@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-import { Title } from '../Title/Title';
-import { ProductCarousel } from '../ProductCarousel/ProductCarousel';
-import { Button } from '../Button';
-import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
-import { useToggle } from '../../utils/useToggle';
-import { ProductItem } from '../ProductItem/ProductItem';
+import { Title } from '../Title/Title'
+import { ProductCarousel } from '../ProductCarousel/ProductCarousel'
+import { Button } from '../Button'
+import { faHeart as fasFaHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons'
+import { useToggle } from '../../utils/useToggle'
+import { ProductItem } from '../ProductItem/ProductItem'
 import {
   ContainerDetails,
   ContainerProduct,
@@ -22,14 +22,14 @@ import {
   DescriptionKey,
   ProductItemList,
   ShowMore
-} from './StyledProductItemDetails';
-import useWindowDimensions from '../../utils/useWindowDimensions';
-import { ProductCounter } from '../Counter/ProductCounter';
+} from './StyledProductItemDetails'
+import useWindowDimensions from '../../utils/useWindowDimensions'
+import { ProductCounter } from '../Counter/ProductCounter'
 
 const specifications = {
   covering: 'Основание изготовлено из прочной стали, покрытой слоем белого лака. В наличии представлена модель, выполненная из лакированной стали цвета глубокий черный.',
-  casing: 'Обивка монолитного сидения может быть разной: эко-кожа, дизайнерская ткань, водонепроницаемый нубук, натуральная шерсть, бархат, кожа премиум-класса.',
-};
+  casing: 'Обивка монолитного сидения может быть разной: эко-кожа, дизайнерская ткань, водонепроницаемый нубук, натуральная шерсть, бархат, кожа премиум-класса.'
+}
 
 export const ProductItemDetails = (props) => {
   const {
@@ -41,35 +41,35 @@ export const ProductItemDetails = (props) => {
     widthNew = 52,
     length = 47,
     brand = 'NATA'
-  } = props;
+  } = props
 
-  const { width } = useWindowDimensions();
-  const [inFavorite, toggleInFavorite] = useToggle();
-  const [isSpecification, setIsSpecification] = useState(false);
-  const [isDimensions, setIsDimensions] = useState(false);
+  const { width } = useWindowDimensions()
+  const [inFavorite, toggleInFavorite] = useToggle()
+  const [isSpecification, setIsSpecification] = useState(false)
+  const [isDimensions, setIsDimensions] = useState(false)
   const [value, setValue] = useState(1) // myronets
 
   const toggleSpecificationBtn = () => {
     if (isSpecification) {
       return (
         <ShowMore onClick={() => setIsSpecification(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
   const toggleDimensionsBtn = () => {
     if (isDimensions) {
       return (
         <ShowMore onClick={() => setIsDimensions(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
   // const productList = [];
   // for (let i = 0; i <= 3; i++) {
@@ -105,11 +105,10 @@ export const ProductItemDetails = (props) => {
                 <Description>Ширина - {widthNew} cм, </Description>
                 <Description>Глубина - {length} cм </Description>
               </DimensionsContainer>}
-            </>
-          }
+            </>}
           <Actions>
-            <ProductCounter value={value} setValue={setValue}/>
-            <Button text={'Купить'} />
+            <ProductCounter value={value} setValue={setValue} />
+            <Button text='Купить' />
           </Actions>
         </ContainerProduct>
         {width >= 768
@@ -121,41 +120,40 @@ export const ProductItemDetails = (props) => {
               <Description>{specifications.casing}</Description>
             </SpecificationContainer>
           </Subtitle> : <Subtitle>Характеристики
-            {toggleSpecificationBtn()}
-            {isSpecification && <SpecificationContainer>
+              {toggleSpecificationBtn()}
+              {isSpecification && <SpecificationContainer>
               <DescriptionKey>Покрытие</DescriptionKey>
               <Description>{specifications.covering}</Description>
               <DescriptionKey>Обивка</DescriptionKey>
               <Description>{specifications.casing}</Description>
             </SpecificationContainer>}
-          </Subtitle>
-        }
+          </Subtitle>}
       </ContainerDetails>
-      <Title text={'Вас так же могут заинтересовать'} />
+      <Title text='Вас так же могут заинтересовать' />
       <ProductItemList>
         {/* {productList} */}
         <ProductItem
-          isDiscount={true}
-          name={'Зеркало Arketipo'}
+          isDiscount
+          name='Зеркало Arketipo'
           price={2599}
-          image={'./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo_main.jpg'}
+          image='./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo_main.jpg'
         />
         <ProductItem
-          isNew={true}
-          name={'Диван Starman'}
+          isNew
+          name='Диван Starman'
           price={15299}
-          image={'./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg'}
+          image='./img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg'
         />
         <ProductItem
-          isTopRated={true}
-          name={'Стол обеденный Exclusive'}
+          isTopRated
+          name='Стол обеденный Exclusive'
           price={5599}
-          image={'./img/tables/kitchen/table_Pusha/table_Pusha_main.jpeg'}
+          image='./img/tables/kitchen/table_Pusha/table_Pusha_main.jpeg'
         />
         <ProductItem
-          name={'Стул обеденный Hollywood'}
+          name='Стул обеденный Hollywood'
           price={12799}
-          image={'./img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft_main.jpg'}
+          image='./img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft_main.jpg'
         />
       </ProductItemList>
     </>

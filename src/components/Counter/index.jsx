@@ -1,21 +1,21 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
 
-import { quantityDown, quantityUp } from '../../store/cart/actions-creators';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { getQuantity } from '../../utils/getQuantity';
+import { quantityDown, quantityUp } from '../../store/cart/actions-creators'
+import { selectProducts } from '../../store/products_draft/selectors'
+import { getQuantity } from '../../utils/getQuantity'
 
 export const Counter = ({ id, value }) => {
-  const dispatch = useDispatch();
-  const products = useSelector(selectProducts);
+  const dispatch = useDispatch()
+  const products = useSelector(selectProducts)
   const quantity = getQuantity(products, id)
 
   const increaseQty = () => {
     if (value < quantity) {
       dispatch(quantityUp(id))
     }
-  };
+  }
   const decreaseQty = () => {
     if (value > 1) {
       dispatch(quantityDown(id))
@@ -23,8 +23,8 @@ export const Counter = ({ id, value }) => {
   }
   return (
     <CouterContainer>
-      <BtnDecr onClick ={() => decreaseQty()}>-</BtnDecr>
-      <CountInput readOnly value={value + ' шт'}/>
+      <BtnDecr onClick={() => decreaseQty()}>-</BtnDecr>
+      <CountInput readOnly value={value + ' шт'} />
       <BtnIncr onClick={() => increaseQty()}>+</BtnIncr>
     </CouterContainer>
   )

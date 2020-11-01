@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {device} from '../../../../styles/breakpoints/breakpoints';
+import styled from 'styled-components'
+import { device } from '../../../../styles/breakpoints/breakpoints'
 
 export const Item = styled.div`
 width: 2rem;
@@ -15,7 +15,7 @@ margin: 0 .5rem;
         //height: 3rem;
         margin: 0 1rem;
 }
-`;
+`
 
 export const List = styled.ul`
     padding: 0;
@@ -27,4 +27,4 @@ export const List = styled.ul`
     @media ${device.desktop}{
     
     }
-`;
+`

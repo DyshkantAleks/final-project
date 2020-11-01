@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import {device} from "../../styles/breakpoints/breakpoints";
-import {Link} from "react-router-dom";
+import styled from 'styled-components'
+import { device } from '../../styles/breakpoints/breakpoints'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 display: flex;
@@ -8,17 +8,17 @@ flex-direction: column;
 @media${device.tabletM}{
 flex-basis: 50%;
 }
-`;
+`
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: initial;
 font-size: 1.4rem;
 line-height: 1.5;
-`;
+`
 export const Title = styled.p`
 font-size: 1.6rem;
 font-weight: 500;
-`;
+`
 export const FooterContactsContainer = styled.div`
 display: flex;
     flex-direction: column;

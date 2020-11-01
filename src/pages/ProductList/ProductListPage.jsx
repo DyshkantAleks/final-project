@@ -1,38 +1,34 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-import {Header} from '../../commons/Header/Header';
-import {selectProducts} from '../../store/products_draft/selectors';
-import {selectCategoryFromRoute} from '../../store/categories/selectors';
-import {ProductItem} from '../../components/ProductItem'
-import {ContentContairer} from '../../components/Content/Content';
-import {ProductItemList} from '../Product/StyledProductPage';
-import {Footer} from "../../commons/Footer";
+import { Header } from '../../commons/Header/Header'
+import { selectProducts } from '../../store/products_draft/selectors'
+import { selectCategoryFromRoute } from '../../store/categories/selectors'
+import { ProductItem } from '../../components/ProductItem'
+import { ContentContairer } from '../../components/Content/Content'
+import { ProductItemList } from '../Product/StyledProductPage'
+import { Footer } from '../../commons/Footer'
 
+export const ProductListPage = ({ match, location }) => {
+  const { params: { route } } = match
 
+  const currentItemByRoute = useSelector(selectCategoryFromRoute(route))
 
-export const ProductListPage = ({match, location}) => {
-  const {params: {route}} = match;
+  const allProducts = useSelector(selectProducts)
 
-  const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
-
-  const allProducts = useSelector(selectProducts);
-
-
-  let array = [];
+  let array = []
   if (currentItemByRoute) {
-    const isRootCategory = currentItemByRoute.parentId === "null";
-    array = allProducts.filter(e => isRootCategory ?
-      e.category === currentItemByRoute.category :
-      e.subCategory === currentItemByRoute.category
-    );
+    const isRootCategory = currentItemByRoute.parentId === 'null'
+    array = allProducts.filter(e => isRootCategory
+      ? e.category === currentItemByRoute.category
+      : e.subCategory === currentItemByRoute.category
+    )
   }
-
 
   return (
 
     <>
-      <Header/>
+      <Header />
       <ContentContairer>
         <ProductItemList>
           {array.map((e, index) => (
@@ -45,11 +41,12 @@ export const ProductListPage = ({match, location}) => {
               route={e.route}
               id={e._id}
               isNewProduct={e.isNewProduct}
-              isTopRated={e.isTopRated}/>
+              isTopRated={e.isTopRated}
+            />
           ))}
         </ProductItemList>
       </ContentContairer>
-      <Footer/>
+      <Footer />
 
     </>
 

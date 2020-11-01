@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {device} from '../../styles/breakpoints/breakpoints';
+import styled from 'styled-components'
+import { device } from '../../styles/breakpoints/breakpoints'
 
 export const ContainerDetails = styled.div`
 display: flex;
@@ -18,7 +18,7 @@ margin-bottom: 5rem;
         padding-bottom: 4.2rem;
         margin-bottom: 10rem;
     };
-`;
+`
 
 export const ContainerProduct = styled.div`
 position: relative;
@@ -27,7 +27,7 @@ flex-direction: column;
     @media ${device.tabletL}{
         padding: 0 1.2rem 1.2rem;
     };
-`;
+`
 
 export const Price = styled.span`
 font-size: 3rem;
@@ -56,7 +56,7 @@ color: #6F909A;
                 font-weight: 700;
         };
     };
-`;
+`
 
 export const Article = styled.span`
 font-size: 1.2rem;
@@ -65,7 +65,7 @@ color:#9fa1a5;
     @media ${device.tabletM}{
         font-size: 1.3rem;
     };
-`;
+`
 
 export const AvailabilityArticleWrap = styled.div`
 display: flex;
@@ -80,7 +80,7 @@ padding-top: .5rem;
     @media ${device.tabletL}{
         grid-template-columns: 25% 60%;
     };
-`;
+`
 
 export const Availability = styled.span`
 font-size: 1.2rem;
@@ -89,7 +89,7 @@ color:#6F909A;
     @media ${device.tabletM}{
         font-size: 1.3rem;
     };
-`;
+`
 
 export const Description = styled.span`
 text-align: justify;
@@ -99,7 +99,7 @@ line-height: 2rem;
     @media ${device.tabletM}{
         line-height: 2.2rem;
     };
-`;
+`
 
 export const Subtitle = styled.span`
 font-size: 1.6rem;
@@ -110,24 +110,24 @@ padding-top: 1rem;
         font-weight: 700;
         padding: 1rem 0;
     };
-`;
+`
 
 export const DimensionsContainer = styled.div`
 display: flex;
 flex-direction: column;
-`;
+`
 
 export const ActionsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 padding-top: 1rem;
-`;
+`
 
 export const Actions = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-`;
+`
 
 export const SpecificationContainer = styled.div`
 display: grid;
@@ -143,14 +143,14 @@ gap: 1rem;
         gap: 2rem;
         padding-top: 1rem;
     };
-`;
+`
 
 export const DescriptionKey = styled.span`
 justify-content: center;
 font-weight: 400;
 font-size: 1.4rem;
 color: #57646E;
-`;
+`
 
 export const ProductItemList = styled.div`
 display: flex;
@@ -171,7 +171,7 @@ justify-content: center;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     };
-`;
+`
 
 export const ShowMore = styled.button`
 font-size: 1.8rem;
@@ -185,4 +185,4 @@ transition: all .3s linear;
         transform: scale(1.2);
         color: #aecfd9;
     };
-`;
+`

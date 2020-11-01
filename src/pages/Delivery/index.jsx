@@ -1,14 +1,14 @@
-import React from 'react';
-import {Header} from '../../commons/Header/Header';
-import {Footer} from "../../commons/Footer";
-import {ContentContairer} from "../../components/Content/Content";
-import {ContainerPage, Text, TextContainer, TextList, TextListItem} from "../About/StyledAboutPage";
-import {ContactsForm} from "../About/AboutPageComponents/ContactForm";
+import React from 'react'
+import { Header } from '../../commons/Header/Header'
+import { Footer } from '../../commons/Footer'
+import { ContentContairer } from '../../components/Content/Content'
+import { ContainerPage, Text, TextContainer, TextList, TextListItem } from '../About/StyledAboutPage'
+import { ContactsForm } from '../About/AboutPageComponents/ContactForm'
 
 export const DeliveryPage = () => {
   return (
     <>
-      <Header/>
+      <Header />
       <ContentContairer>
         <ContainerPage>
           <TextContainer>
@@ -18,19 +18,24 @@ export const DeliveryPage = () => {
             </Text>
             <TextList>
               <TextListItem>Стоимость доставки складывается из курьерской доставки заказа и подъема на
-                этаж.</TextListItem>
+                этаж.
+              </TextListItem>
               <TextListItem>Доставка крупных заказов (несколько позиций мебели) может осуществляться партиями, в
-                зависимости от сроков готовности товара к отгрузке.</TextListItem>
+                зависимости от сроков готовности товара к отгрузке.
+              </TextListItem>
               <TextListItem>Занести мебель в квартиру (офис) можно только, если ширина дверного проема составляет не
                 менее 75 см, а ширина коридора и других помещений - не менее 120 см. Несоответствие ширины дверных
                 проемов, коридоров и других помещений указанным размерам не является основанием для отказа от товара.
-                Съем дверей и перестановка предметов при заносе мебели оплачивается отдельно.</TextListItem>
+                Съем дверей и перестановка предметов при заносе мебели оплачивается отдельно.
+              </TextListItem>
               <TextListItem>Если вы решили отказаться от товара, вы можете вернуть его в течение семи дней, однако вам
                 нужно будет организовать доставку до нашего склада в Москве или оплатить обратную
-                доставку.</TextListItem>
+                доставку.
+              </TextListItem>
             </TextList>
             <Text>Бесплатная доставка собственной курьерской службой для всех заказов стоимостью более 20000 руб. по
-              Киеву в течении 2-5 дней.</Text>
+              Киеву в течении 2-5 дней.
+            </Text>
 
             <Text>Бесплатная доставка собственной курьерской службой для всех заказов стоимостью более 15000 гривен.
               по Киевской области в течение 2-5 дней.
@@ -40,17 +45,18 @@ export const DeliveryPage = () => {
               <TextListItem>В течение 2-5 рабочих дней после подтверждения заказа.
               </TextListItem>
               <TextListItem>Оплата наличными или картой курьеру, безналичная оплата на сайте при
-                заказе.</TextListItem>
+                заказе.
+              </TextListItem>
               <TextListItem>С 10:00 до 21:00 ежедневно (укажите удобное время в комментариях к заказу).
               </TextListItem>
               <TextListItem>Доступные интервалы: с 12:00 до 17:00 или с 17:00 до 21:00.
               </TextListItem>
             </TextList>
           </TextContainer>
-        <ContactsForm/>
+          <ContactsForm />
         </ContainerPage>
       </ContentContairer>
-      <Footer/>
+      <Footer />
     </>
   )
 }

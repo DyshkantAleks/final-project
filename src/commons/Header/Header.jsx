@@ -1,31 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import {InfoLinks} from './InfoLinks/InfoLinkList';
-import useWindowDimensions from '../../utils/useWindowDimensions';
-import {Logo} from './Logo/Logo';
-import {AccountInfoList} from './AccountInfo/AccountInfoList';
-import {device} from '../../styles/breakpoints/breakpoints';
-import {MobileMenu} from './MobileMenu/MobileMenu';
-import {CatalogList} from './Catalog/CatalogList';
+import { InfoLinks } from './InfoLinks/InfoLinkList'
+import useWindowDimensions from '../../utils/useWindowDimensions'
+import { Logo } from './Logo/Logo'
+import { AccountInfoList } from './AccountInfo/AccountInfoList'
+import { device } from '../../styles/breakpoints/breakpoints'
+import { MobileMenu } from './MobileMenu/MobileMenu'
+import { CatalogList } from './Catalog/CatalogList'
 
 export const Header = () => {
-  const {screenWidth} = useWindowDimensions();
+  const { screenWidth } = useWindowDimensions()
   return (
     <>
       <StyledHeader>
         <HeaderContainer>
           {screenWidth >= 1200 && (
-            <InfoLinks/>
+            <InfoLinks />
           )}
-          <Logo/>
-          <MobileMenu/>
-          <AccountInfoList/>
+          <Logo />
+          <MobileMenu />
+          <AccountInfoList />
         </HeaderContainer>
       </StyledHeader>
 
       {screenWidth >= 1200 && (
-        <CatalogList/>
+        <CatalogList />
       )}
     </>
   )
@@ -34,7 +34,7 @@ export const Header = () => {
 const StyledHeader = styled.header`
     //background-color: #848484;
     //border-bottom: 1px solid black;
-`;
+`
 
 const HeaderContainer = styled.div`
     position: relative;

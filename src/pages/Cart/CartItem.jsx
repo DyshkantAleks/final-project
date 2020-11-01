@@ -1,14 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-//import { faTimes } from '@fortawesome/free-solid-svg-icons';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
-import { Counter } from '../../components/Counter';
-import { Button } from '../../components/Button';
-import { device } from '../../styles/breakpoints/breakpoints';
+import React from 'react'
+import styled from 'styled-components'
+// import { faTimes } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '../../commons/Header/AccountInfo/icons.jsx'
+import { Counter } from '../../components/Counter'
+import { Button } from '../../components/Button'
+import { device } from '../../styles/breakpoints/breakpoints'
 
 export const CartItem = ({ image, price, name, color, code, quantity, value, cart, fav }) => {
-
   return (
     <CartItemContainer>
       {/* <CloseBtn icon={faTimes} /> */}
@@ -23,9 +22,9 @@ export const CartItem = ({ image, price, name, color, code, quantity, value, car
       </CartColor>
       {cart && <Counter margin value={value} id={code} />}
       <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
-      {fav && <Button text="Купить" color="green" />}
+      {fav && <Button text='Купить' color='green' />}
     </CartItemContainer>
-  );
+  )
 }
 
 const CartItemContainer = styled.div`
@@ -51,7 +50,7 @@ const CartItemContainer = styled.div`
           position: static;
           grid-gap: inherit;
           }
-        `;
+        `
 
 const CartImage = styled.img`
 height: auto;
@@ -131,7 +130,6 @@ color: #000000;
   font-size: 14px;
 }
 `
-
 
 const CloseBtnContainer = styled.div`
 width: 2rem;

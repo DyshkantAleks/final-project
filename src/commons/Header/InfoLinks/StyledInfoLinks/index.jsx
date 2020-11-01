@@ -35,4 +35,4 @@ export const Item = styled.li`
         text-decoration: none;
         display: block;
           }
-`;
+`
