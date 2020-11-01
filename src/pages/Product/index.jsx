@@ -18,7 +18,7 @@ import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
 import { Footer } from '../../commons/Footer';
 import { selectCart } from '../../store/cart/selectors';
-import { addToCart } from '../../store/cart/actions-creators';
+import { addProductToCart } from '../../store/cart/middlware';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -56,7 +56,7 @@ export const ProductPage = (props) => {
   };
 
   const btnHeandler = (product, quantity) => {
-    dispatch(addToCart({product: product, cartQuantity: quantity}))
+    dispatch(addProductToCart(product, quantity))
   }
   return (
     <>
@@ -116,7 +116,7 @@ export const ProductPage = (props) => {
                     </>}
                   <ActionsContainer>
                     <Actions>
-                      <ProductCounter value={value} setValue={setValue} />
+                      <ProductCounter value={value} setValue={setValue} quantity={product.quantity} />
                     </Actions>
                     <Actions>
                       {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} onClick={() => btnHeandler(product, value)}/>}

@@ -24,21 +24,3 @@ export const FooterCustomers = () => {
     </Container>
   )
 }
-<<<<<<< HEAD
-=======
-
-// export const Container = styled.div`
-// display: flex;
-// flex-direction: column;
-// `
-// export const StyledLink = styled(Link)`
-// text-decoration: none;
-// color: initial;
-// font-size: 1.4rem;
-// line-height: 1.5;
-// `
-// export const Title = styled.p`
-// font-size: 1.6rem;
-// font-weight: 500;
-// `
->>>>>>> alex

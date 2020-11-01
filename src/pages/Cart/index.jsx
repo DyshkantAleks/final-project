@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button'
@@ -9,8 +9,14 @@ import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
+import { getCart } from '../../store/cart/middlware';
 
 export const CartPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCart())
+  }, [dispatch]);
+
   const cartItems = useSelector(selectCart);
 
   const sumCart = cartItems.reduce(function (sum, current) {

@@ -10,7 +10,7 @@ import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
-import { addToCart } from '../../store/cart/actions-creators';
+import { addProductToCart } from '../../store/cart/middlware';
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
@@ -23,7 +23,7 @@ export const ProductItem = (props) => {
   const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id);
 
   const btnHeandler = (product, quantity) => {
-    dispatch(addToCart({product: product, cartQuantity: quantity}))
+    dispatch(addProductToCart(product, quantity))
   }
   return (
     <>

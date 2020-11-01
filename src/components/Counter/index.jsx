@@ -2,19 +2,19 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { quantityDown, quantityUp } from '../../store/cart/actions-creators';
+import { decreaseQuantity, increaseQuantity } from '../../store/cart/middlware';
 
 export const Counter = ({ cartQuantity, quantity, id }) => {
   const dispatch = useDispatch();
 
   const increaseQty = () => {
     if (cartQuantity < quantity) {
-      dispatch(quantityUp(id))
+      dispatch(increaseQuantity(id))
     }
   };
   const decreaseQty = () => {
     if (cartQuantity > 1) {
-      dispatch(quantityDown(id))
+      dispatch(decreaseQuantity(id))
     }
   }
   return (

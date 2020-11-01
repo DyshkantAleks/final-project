@@ -6,12 +6,12 @@ import { Counter } from '../../components/Counter';
 import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../../store/cart/actions-creators.jsx';
+import { removeProductFromCart } from '../../store/cart/middlware.jsx';
 
 export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav, _id }) => {
   const dispatch = useDispatch();
   const btnCloseheandler = (id) => {
-    dispatch(removeFromCart(id))
+    dispatch(removeProductFromCart(id))
   };
   return (
     <CartItemContainer>

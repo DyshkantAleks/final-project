@@ -1,4 +1,4 @@
-import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART } from './action-types';
+import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART, SET_CART } from './action-types';
 
 const InitialState = {
   cart: []
@@ -6,6 +6,12 @@ const InitialState = {
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
+    case SET_CART:
+      return {
+        ...state,
+        cart: payload
+      };
+
     case ADD_TO_CART:
       return {
         ...state,
