@@ -1,9 +1,10 @@
+/* eslint-disable */
 import React from 'react';
 
-import {ROUTES} from '../../../pages/navigation/routes';
+import { ROUTES } from '../../../pages/navigation/routes'
 
-import useWindowDimensions from "../../../utils/useWindowDimensions";
-import {StyledLink, Container, Title} from "../StyledFooter";
+import useWindowDimensions from '../../../utils/useWindowDimensions'
+import { StyledLink, Container, Title } from '../StyledFooter'
 
 export const FooterAbout = () => {
   const {screenWidth} = useWindowDimensions();

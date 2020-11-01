@@ -68,6 +68,9 @@ align-items: flex-end;
 `
 export const SocialsIconContainer = styled.div`
 display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
 width: 2.5rem;
 height: 2.5rem;
 `
@@ -129,4 +132,8 @@ padding: 3rem 2.4rem 0;
         padding: 5rem 0 0 0;
         width: 120rem;
     }
+`
+export const SocialIcon = styled.img`
+width: 100%;
+height: 100%;
 `

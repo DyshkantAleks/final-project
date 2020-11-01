@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {device} from '../../../../styles/breakpoints/breakpoints';
+import styled from 'styled-components'
+import { device } from '../../../../styles/breakpoints/breakpoints'
 
 export const List = styled.ul`
     
@@ -7,13 +7,15 @@ export const List = styled.ul`
     list-style: none;
     display: flex;
     flex-direction: column;
+    padding-left: 3.2rem;
     
     
     @media ${device.desktop}{
     flex-direction: row;
     flex-basis: 40%;
+    padding-left: 0;
     }
-`;
+`
 
 export const Item = styled.li`
     text-align: left;
