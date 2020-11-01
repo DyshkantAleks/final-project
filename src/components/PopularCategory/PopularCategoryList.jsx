@@ -21,7 +21,7 @@ export const PopularCategoryList = () => {
       <List>
         {
           popularCategories.map((e) => (
-            <StyledLink to={`/${e.route}`} key={e.id}>
+            <StyledLink to={`/catalog/${e.route}`} key={e.id}>
 
               < PopularCategoryItem backGround={e.image}
                                     textForTitle={e.category}

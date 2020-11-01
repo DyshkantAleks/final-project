@@ -9,7 +9,9 @@ import { reducer as cartReducer } from './cart/reducer';
 import { MODULE_NAME as promotionsModuleName} from './promotions/selectors';
 import { reducer as promotionsReducer } from './promotions/reducer';
 import { MODULE_NAME as productsModuleName} from './products_draft/selectors';
-import { reducer as productReducer} from './products_draft/reducer'
+import { reducer as productReducer} from './products_draft/reducer';
+import { MODULE_NAME as favoritesModuleNAme} from './favorites/selectors';
+import { reducer as favoritesReducer} from './favorites/reducer'
 
 import { MODULE_NAME as authModuleName } from './auth/selectors';
 import { reducer as authReducer } from './auth/reducer';
@@ -17,7 +19,7 @@ import { reducer as authReducer } from './auth/reducer';
 import { MODULE_NAME as newCustomerModuleName } from './registration/slectors';
 import { reducer as newCustomerReducer } from './registration/reducer';
 
-import {MODULE_NAME as categoriesModuleName} from "./categories/selectors";
+import { MODULE_NAME as categoriesModuleName } from "./categories/selectors";
 import { reducer as categoriesReducer } from "./categories/reducer";
 
 const rootReducer = combineReducers({
@@ -27,8 +29,9 @@ const rootReducer = combineReducers({
   [newCustomerModuleName]: newCustomerReducer,
   [productsModuleName]: productReducer,
   [productsModuleName]: productReducer,
-[promotionsModuleName]: promotionsReducer,
-  [categoriesModuleName]: categoriesReducer
+  [promotionsModuleName]: promotionsReducer,
+  [categoriesModuleName]: categoriesReducer,
+  [favoritesModuleNAme]: favoritesReducer
 });
 
 
