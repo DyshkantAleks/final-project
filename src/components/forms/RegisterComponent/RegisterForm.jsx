@@ -4,10 +4,10 @@ import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from '../../Button';
-import { StyledForm } from './StyleRegisterForm';
-import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton';
-import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
-import { init, signIn } from '../../../store/auth/middlware';
+import { StyledForm } from '../LoginComponent/StyledLoginComponent';
+
+import { ErrorsField } from '../Errors/ErrorsField';
+
 
 const validationSchema = yup.object({
   firstName: yup.string().required('Required'),
@@ -32,7 +32,7 @@ const validationSchema = yup.object({
 
 export const RegisterForm = (props) => {
   const dispatch = useDispatch();
-  useEffect(() => init, []);
+ 
   const { handleSubmit } = props;
 
   const initialValues = {
@@ -41,7 +41,7 @@ export const RegisterForm = (props) => {
     email: '',
     password: '',
     confirmPassword: '',
-    telepfone: '',
+    telephone: '',
     gender: '',
     avatar: '',
     registered: true,
@@ -51,24 +51,22 @@ export const RegisterForm = (props) => {
     const key = input.target.name;
     const value = input.target.value;
   };
- 
-
+  
   return (
     <div>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          handleSubmit(values);
-        }}
-      >
+          handleSubmit(values)
+        }}>
         {(props) => (
           <StyledForm>
             <Field
               name='firstName'
               autoComplete='off'
               type='text'
-              placeholder='введите имя'
+              placeholder={(props.errors.firstName) || 'введите имя'}
               onBlur={handleBlur}
             />
             <Field
@@ -78,25 +76,36 @@ export const RegisterForm = (props) => {
               placeholder='введите фамилию'
               onBlur={handleBlur}
             />
+            <div>
+            </div>
             <Field
               name='email'
               autoComplete='off'
               type='email'
-              placeholder='введите email'
+              placeholder={(props.errors.email) || 'введите email'}
               onBlur={handleBlur}
             />
+            <div>
+            </div>
             <Field
               name='password'
-              type='text'
+              type='password'
               autoComplete='off'
-              placeholder='введите пароль'
+              placeholder={(props.errors.password) || 'введите пароль'}
               onBlur={handleBlur}
             />
             <Field
               name='confirmPassword'
-              type='text'
+              type='password'
               autoComplete='off'
-              placeholder='подтвердите пароль'
+              placeholder={(props.errors.confirmPassword) || 'подтвердите пароль'}
+              onBlur={handleBlur}
+            />
+            <Field
+              name='telephone'
+              type='number'
+              autoComplete='off'
+              placeholder={(props.errors.telephone) || 'введите номер телефона'}
               onBlur={handleBlur}
             />
             <Field as='select' name='gender'>
@@ -104,32 +113,10 @@ export const RegisterForm = (props) => {
               <option value='male'>Мужской</option>
               <option value='female'>Женский</option>
             </Field>
-            <Field
-              name='telepfone'
-              type='number'
-              autoComplete='off'
-              placeholder='введите номер телефона'
-              onBlur={handleBlur}
-            />
-            <Field
-              name='avatar'
-              type='file'
-              autoComplete='off'
-              placeholder=''
-              onBlur={handleBlur}
-            />
             <Button type='submit' text='Регистрация' />
           </StyledForm>
         )}
       </Formik>
-      <div>
-        <FaceBookButton type='button' text='Регистрация с помощью FaceBook' />
-        <GoogleButton
-          type='button'
-          onClick={() => signIn()}
-          text='Регистрация с помощью Google'
-        />
-      </div>
     </div>
   );
 };

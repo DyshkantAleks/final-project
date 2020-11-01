@@ -7,7 +7,7 @@ import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem'
 import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
-import { Footer } from "../../commons/Footer";
+import { Footer } from '../../commons/Footer';
 
 export const ProductListPage = ({ match, location }) => {
   const { params: { route } } = match;
@@ -15,13 +15,12 @@ export const ProductListPage = ({ match, location }) => {
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
 
   const allProducts = useSelector(selectProducts);
-
   let array = [];
   if (currentItemByRoute) {
-    const isRootCategory = currentItemByRoute.parentId === "null";
-    array = allProducts.filter(e => isRootCategory ?
-      e.category === currentItemByRoute.category :
-      e.subCategory === currentItemByRoute.category
+    const isRootCategory = currentItemByRoute.parentId === 'null';
+    array = allProducts.filter(e => isRootCategory
+      ? e.category === currentItemByRoute.category
+      : e.subCategory === currentItemByRoute.category
     );
   };
 
@@ -43,6 +42,7 @@ export const ProductListPage = ({ match, location }) => {
               isTopRated={e.isTopRated}
               isSale={e.isSale}
               previousPrice={e.previousPrice}
+              product={e}
             />
           ))}
         </ProductItemList>
