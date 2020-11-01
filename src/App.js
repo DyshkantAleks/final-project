@@ -1,20 +1,20 @@
-import React from 'react';
-//import {Provider, useDispatch, useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from "react-redux";
+
 import './App.css';
 import './styles/style.scss';
-// import { Button } from './components/Button';
-// import { Modal } from './components/Modal';
-// import { ModalThanks } from './components/Modal/ModalThanks';
-// import { closeModal, openModal } from './store/modal/actions';
-// import { selectModalContent, selectModalIsOpen } from './store/modal/selectors';
 import { Navigation } from './pages/navigation';
-import {ProductPage} from "./pages/Product";
+import { getProducts } from "./store/products_draft/middlware";
 
-function App () {
+function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <>
-    <Navigation />
-    {/*<ProductPage/>*/}
+      <Navigation />
     </>
   );
 }

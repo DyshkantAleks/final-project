@@ -1,13 +1,26 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import { ROUTES } from '../../../pages/navigation/routes';
 
+import { Container, StyledLink, Title } from '../FooterAbout';
+import useWindowDimensions from '../../../utils/useWindowDimensions';
+
 export const FooterCustomers = () => {
+  const { screenWidth } = useWindowDimensions();
   return (
-    <div>
-      <p>Покупателям</p>
-      <Link to={ROUTES.DELIVERY}>Доставка</Link>
-      <Link to={ROUTES.STORES}>Наши магазины</Link>
-    </div>
+    <Container>
+      {screenWidth < 768 && (
+        <>
+          <StyledLink to={ROUTES.DELIVERY}>Доставка</StyledLink>
+          <StyledLink to={ROUTES.STORES}>Наши магазины</StyledLink>
+        </>
+      )}
+      {screenWidth >= 768 && (
+        <>
+          <Title>Покупателям</Title>
+          <StyledLink to={ROUTES.DELIVERY}>Доставка</StyledLink>
+          <StyledLink to={ROUTES.STORES}>Наши магазины</StyledLink>
+        </>
+      )}
+    </Container>
   )
 }

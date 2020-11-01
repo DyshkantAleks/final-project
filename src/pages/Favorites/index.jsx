@@ -21,7 +21,6 @@ export const FavoritesPage = () => {
 
   const favorites = useSelector(selectFavorites);
   const products = useSelector(selectProducts);
-  
 
   return (
     <ContentContairer>
@@ -30,8 +29,9 @@ export const FavoritesPage = () => {
       <CartContainer>
         {favorites.map(item =>
           <CartItem
-            {...item}
-            key={item.code}
+            {...item.product}
+            cartQuantity={item.cartQuantity}
+            key={item.id}
             fav='true'
           />
         )}
