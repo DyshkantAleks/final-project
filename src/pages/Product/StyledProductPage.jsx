@@ -52,7 +52,7 @@ width: 85%;
 export const PreviousPrice = styled.span`
 font-size: 2rem;
 font-weight: 700;
-color:#6F909A;
+color:#6F7281;
 text-decoration: line-through;
     &::after{
         content: 'грн';
@@ -113,7 +113,7 @@ color: #8D145E;
 export const Price = styled.span`
 font-size: 3rem;
 font-weight: 700;
-color: #6F909A;
+color: #6F7281;
     &::after{
         content: 'грн';
         position: relative;

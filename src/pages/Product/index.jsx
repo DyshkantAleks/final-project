@@ -115,7 +115,8 @@ export const ProductPage = (props) => {
                       <ProductCounter value={value} setValue={setValue} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />}
+                      {btnInCart ? <Button disabled width text={'В корзине'} /> : <Button width color text={'Купить'}
+                      />}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>
