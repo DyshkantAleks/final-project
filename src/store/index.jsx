@@ -16,8 +16,8 @@ import { reducer as favoritesReducer } from './favorites/reducer'
 import { MODULE_NAME as authModuleName } from './auth/selectors'
 import { reducer as authReducer } from './auth/reducer'
 
-import { MODULE_NAME as newCustomerModuleName } from './registration/slectors'
-import { reducer as newCustomerReducer } from './registration/reducer'
+import { MODULE_NAME as customerModuleName } from './customer/slectors'
+import { reducer as customerReducer } from './customer/reducer'
 
 import { MODULE_NAME as categoriesModuleName } from './categories/selectors'
 import { reducer as categoriesReducer } from './categories/reducer'
@@ -29,7 +29,8 @@ const rootReducer = combineReducers({
   [productsModuleName]: productReducer,
   [promotionsModuleName]: promotionsReducer,
   [categoriesModuleName]: categoriesReducer,
-  [favoritesModuleNAme]: favoritesReducer
-})
+  [favoritesModuleNAme]: favoritesReducer,
+  [customerModuleName]: customerReducer
+});
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
