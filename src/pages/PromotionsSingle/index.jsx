@@ -1,50 +1,49 @@
-import React, {useEffect} from "react";
-import {Header} from "../../commons/Header/Header";
+import React, { useEffect } from 'react'
+import { Header } from '../../commons/Header/Header'
 
-import {ContentContairer} from "../../components/Content/Content";
-import styled from "styled-components";
-import {useDispatch, useSelector} from "react-redux";
-import {selectById, selectPromotions} from "../../store/promotions/selectors";
-import {getPromotions} from "../../store/promotions/middlware";
-import {device} from "../../styles/breakpoints/breakpoints";
-import {Footer} from "../../commons/Footer";
+import { ContentContairer } from '../../components/Content/Content'
+import styled from 'styled-components'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectById, selectPromotions } from '../../store/promotions/selectors'
+import { getPromotions } from '../../store/promotions/middlware'
+import { device } from '../../styles/breakpoints/breakpoints'
+import { Footer } from '../../commons/Footer'
 
-export const PromotionsSinglePage = ({match, location}) => {
-  const {params: {route}} = match;
-  const dispatch = useDispatch();
+export const PromotionsSinglePage = ({ match, location }) => {
+  const { params: { route } } = match
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getPromotions())
-  }, []);
+  }, [])
 
-  const single = useSelector(selectById(match.params.route));
-
+  const single = useSelector(selectById(match.params.route))
 
   return (
     <>
       {single && (
         <>
-          <Header/>
+          <Header />
           <Container>
             <ImageContainer>
-              <Image src={single["desctopSliderImageUrl"]}/>
+              <Image src={single.desctopSliderImageUrl} />
             </ImageContainer>
           </Container>
           <ContentContairer>
             <ContentContainer>
               <Title>{single.title}</Title>
-              <Description>{single["fullDescription"]}</Description>
+              <Description>{single.fullDescription}</Description>
             </ContentContainer>
           </ContentContairer>
-          <Footer/>
+          <Footer />
         </>
       )}
     </>
   )
-};
+}
 export const Container = styled.div`
 width: 100%;
-`;
+`
 export const ImageContainer = styled.div`
  display: flex;
     justify-content: center;
@@ -53,7 +52,7 @@ export const ImageContainer = styled.div`
 position:relative;
  width:100%;
  padding-bottom:20%;
-`;
+`
 export const Image = styled.img`
 position:absolute;
 top: 0;

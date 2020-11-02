@@ -1,31 +1,31 @@
-import styled from 'styled-components';
-import { device } from '../../styles/breakpoints/breakpoints';
+import styled from 'styled-components'
+import { device } from '../../styles/breakpoints/breakpoints'
 
 export const SwiperContainer = styled.div`
 display: flex;
 flex-flow: row;
-`;
+`
 
 export const SwiperContainerHorizontal = styled.div`
 display: flex;
 flex-direction: column;
-`;
+`
 
 export const SwiperThumbs = styled.div`
 width: 15%;
 padding-right: 3rem;
-`;
+`
 export const SwiperThumbsHorizontal = styled.div`
 width: 100%;
-`;
+`
 
 export const SwiperGallery = styled.div`
 width: 80%;
-`;
+`
 
 export const SwiperGalleryHorizontal = styled.div`
 width: 100%;
-`;
+`
 
 export const ImageMainContainer = styled.div`
 display: flex;
@@ -44,7 +44,7 @@ border: .1rem solid #e6e9ef;
     @media ${device.tabletL}{
         height: 51rem;
     };
-`;
+`
 
 export const ImageMain = styled.img`
 display: block;
@@ -53,7 +53,7 @@ height: unset;
 overflow: hidden;
 margin: 0 auto;
 padding: .5rem;
-`;
+`
 
 export const ImageThumbsContainer = styled.div`
 display: flex;
@@ -72,7 +72,7 @@ border: .1rem solid #e6e9ef;
     @media ${device.tabletL}{
         height: 8rem;
     };
-`;
+`
 
 export const ImageThumbs = styled.img`
 display: block;
@@ -84,4 +84,4 @@ transition: all .3s linear;
     &:hover{
         transform: scale(1.2);
     }
-`;
+`

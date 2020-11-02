@@ -18,6 +18,6 @@ export function reducer (state = initialState, { type, payload }) {
         ...payload,
       };
     default:
-      return state;
+      return state
   }
 }
