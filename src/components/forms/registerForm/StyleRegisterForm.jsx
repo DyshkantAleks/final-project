@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import {Form} from 'formik'
- 
+import styled from 'styled-components'
+import { Form } from 'formik'
+
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -13,4 +13,4 @@ export const StyledForm = styled(Form)`
     margin: 10px;
     font-size: 18px;
   }
-`;
+`

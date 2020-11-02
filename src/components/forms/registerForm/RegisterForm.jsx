@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { Formik, Field } from 'formik';
-import * as yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { Formik, Field } from 'formik'
+import * as yup from 'yup'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { Button } from '../../Button';
-import { StyledForm } from './StyleRegisterForm';
-import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton';
-import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
-import { init, signIn } from '../../../store/auth/middlware';
+import { Button } from '../../Button'
+import { StyledForm } from './StyleRegisterForm'
+import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton'
+import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton'
+import { init, signIn } from '../../../store/auth/middlware'
 
 const validationSchema = yup.object({
   firstName: yup.string().required('Required'),
@@ -27,13 +27,13 @@ const validationSchema = yup.object({
     .required('Required')
     .min(9),
   gender: yup.string(),
-  registered: yup.boolean(),
-});
+  registered: yup.boolean()
+})
 
 export const RegisterForm = (props) => {
-  const dispatch = useDispatch();
-  useEffect(() => init, []);
-  const { handleSubmit } = props;
+  const dispatch = useDispatch()
+  useEffect(() => init, [])
+  const { handleSubmit } = props
 
   const initialValues = {
     firstName: '',
@@ -44,14 +44,13 @@ export const RegisterForm = (props) => {
     telepfone: '',
     gender: '',
     avatar: '',
-    registered: true,
-  };
+    registered: true
+  }
 
   const handleBlur = (input) => {
-    const key = input.target.name;
-    const value = input.target.value;
-  };
- 
+    const key = input.target.name
+    const value = input.target.value
+  }
 
   return (
     <div>
@@ -59,7 +58,7 @@ export const RegisterForm = (props) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          handleSubmit(values);
+          handleSubmit(values)
         }}
       >
         {(props) => (
@@ -131,5 +130,5 @@ export const RegisterForm = (props) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}

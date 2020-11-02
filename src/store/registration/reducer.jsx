@@ -1,4 +1,4 @@
-import { REGISTER_CUSTOMER } from './action-types';
+import { REGISTER_CUSTOMER } from './action-types'
 
 const initialState = {
   firstName: '',
@@ -9,16 +9,16 @@ const initialState = {
   telephone: '',
   gender: '',
   avatarUrl: '',
-  isAdmin: false,
-};
+  isAdmin: false
+}
 export function reducer (state = initialState, { type, payload }) {
   switch (type) {
     case REGISTER_CUSTOMER:
       return {
         ...state,
-        payload,
-      };
+        payload
+      }
     default:
-      return state;
+      return state
   }
 }

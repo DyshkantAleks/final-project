@@ -1,34 +1,23 @@
-import React, {useEffect} from 'react';
-import styled from 'styled-components';
-import {Title} from '../Title/Title';
+import React from 'react'
+import styled from 'styled-components'
+import { Title } from '../Title/Title'
 
-import {device} from '../../styles/breakpoints/breakpoints';
-import {ProductItemList} from "../ProductItemDetails/StyledProductItemDetails";
-import {useDispatch, useSelector} from "react-redux";
-import {selectProductsForFilter} from "../../store/products_draft/selectors";
-
-import {getProductsByIsNew, getProductsByIsPopular} from "../../store/products_draft/middlware";
-
-import ProductItem from "../ProductItem";
-
+import { device } from '../../styles/breakpoints/breakpoints'
+import { ProductItemList } from '../ProductItemDetails/StyledProductItemDetails'
+import { useSelector } from 'react-redux'
+import { selectProducts } from '../../store/products_draft/selectors'
+import ProductItem from '../ProductItem'
 
 export const NewProductsList = () => {
-  const dispatch = useDispatch();
-  const selectByIsNew = useSelector(selectProductsForFilter);
-
-  useEffect(() => {
-    dispatch(getProductsByIsNew());
-  }, []);
-
-  console.log(selectByIsNew.products);
-
+  const allProducts = useSelector(selectProducts)
+  const arrayOfNew = allProducts.filter(e => e.isNew === true)
   return (
     <>
-      <Title text={'Новые товары'}/>
+      <Title text='Новые товары' />
       <ProductItemList>
         {
-          selectByIsNew.products.map((e) => (
-             <ProductItem name={e.name} price={e.currentPrice} image={e.imageUrl[0]} key={e.id} route={e.route} id={e._id}/>
+          arrayOfNew.map((e) => (
+            <ProductItem name={e.name} price={e.currentPrice} image={e.imageUrl[0]} key={e.id} route={e.route} id={e._id} />
           ))
         }
       </ProductItemList>

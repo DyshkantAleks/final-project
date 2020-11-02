@@ -1,15 +1,14 @@
-import React from 'react';
-import { Formik, Field, Form } from 'formik';
-import * as yup from 'yup';
-import styled from 'styled-components';
+import React from 'react'
+import { Formik, Field, Form } from 'formik'
+import * as yup from 'yup'
+import styled from 'styled-components'
 
-import { useDispatch, useSelector } from 'react-redux';
-import { Button } from '../../Button';
-import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton';
-import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
+import { useDispatch, useSelector } from 'react-redux'
+import { Button } from '../../Button'
+import { FaceBookButton } from '../../Button/SocialButtons/faceBookButton/FaceBookButton'
+import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton'
 
-
-export const LoginForm = ({handleSubmit}) => {
+export const LoginForm = ({ handleSubmit }) => {
   const dispatch = useDispatch()
 
   const initialValues = {
@@ -17,16 +16,15 @@ export const LoginForm = ({handleSubmit}) => {
     password: ''
   }
 
-  const handleBlur=(input)=>{
+  const handleBlur = (input) => {
     const key = input.target.name
     const value = input.target.value
-    
-}
+  }
   return (
     <div>
       <Formik
         initialValues={initialValues}
-        validationSchema ={ yup.object().shape({
+        validationSchema={yup.object().shape({
           login: yup.string().required(),
           password: yup.string().required().min(6)
         })}
@@ -52,17 +50,17 @@ export const LoginForm = ({handleSubmit}) => {
               placeholder='введите пароль'
               onBlur={handleBlur}
             />
-            <Button text='Войти' type='submit'/>
+            <Button text='Войти' type='submit' />
             <div>
-              <FaceBookButton text='Войти с помощью FaceBook'/>
-              <GoogleButton text='Войти с помощью Google'/>
+              <FaceBookButton text='Войти с помощью FaceBook' />
+              <GoogleButton text='Войти с помощью Google' />
             </div>
           </StyledForm>
         )}
       </Formik>
     </div>
-  );
-};
+  )
+}
 const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -75,4 +73,4 @@ const StyledForm = styled(Form)`
     margin: 10px;
     font-size: 18px;
   }
-`;
+`
