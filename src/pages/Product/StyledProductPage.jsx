@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {device} from '../../styles/breakpoints/breakpoints';
+import styled from 'styled-components'
+import { device } from '../../styles/breakpoints/breakpoints'
 
 export const ContainerDetails = styled.div`
 display: flex;
@@ -18,7 +18,7 @@ margin-bottom: 5rem;
         padding-bottom: 4.2rem;
         margin-bottom: 10rem;
     };
-`;
+`
 
 export const ContainerProduct = styled.div`
 position: relative;
@@ -27,7 +27,88 @@ flex-direction: column;
     @media ${device.tabletL}{
         padding: 0 1.2rem 1.2rem;
     };
-`;
+`
+
+export const PriceContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: baseline;
+width: 85%;
+    @media ${device.tabletS}{
+        width: 70%;
+    };
+    @media ${device.tabletM}{
+        width: 50%;
+    };
+    @media ${device.tabletL}{
+        width: 85%;
+    };
+    @media ${device.desktop}{
+        width: 60%;
+    };
+`
+
+export const PreviousPrice = styled.span`
+font-size: 2rem;
+font-weight: 700;
+color:#6F909A;
+text-decoration: line-through;
+    &::after{
+        content: 'грн';
+        position: relative;
+        left: .5rem;
+        font-size: 1rem;
+        font-weight: 700;
+    };
+    @media ${device.tabletS}{
+        font-weight: 800;
+        font-size: 2.5rem;
+            &::after{
+                left: 0.5;
+                font-size: 1.5rem;
+                font-weight: 700;
+        };
+    };
+    @media ${device.tabletM}{
+        font-weight: 800;
+        font-size: 2.8rem;
+            &::after{
+                left: 0.5;
+                font-size: 1.5rem;
+                font-weight: 700;
+        };
+    };
+`
+
+export const CurrentPrice = styled.span`
+font-size: 3rem;
+font-weight: 700;
+color: #8D145E;
+    &::after{
+        content: 'грн';
+        position: relative;
+        left: .5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    };
+    @media ${device.tabletS}{
+        font-size: 3.5rem;
+        font-weight: 800;
+            &::after{
+            font-weight: 700;
+        };
+    };
+    @media ${device.tabletM}{
+        font-size: 4rem;
+        font-weight: 800;
+            &::after{
+                left: 1rem;
+                font-size: 1.8rem;
+                font-weight: 700;
+        };
+    };
+`
 
 export const Price = styled.span`
 font-size: 3rem;
@@ -56,7 +137,7 @@ color: #6F909A;
                 font-weight: 700;
         };
     };
-`;
+`
 
 export const Article = styled.span`
 font-size: 1.2rem;
@@ -65,22 +146,23 @@ color:#9fa1a5;
     @media ${device.tabletM}{
         font-size: 1.3rem;
     };
-`;
+`
 
 export const AvailabilityArticleWrap = styled.div`
 display: flex;
 justify-content: space-between;
+align-items: center;
 padding-top: .5rem;
-    @media ${device.tabletM}{
+    @media ${device.tabletS}{
         display: grid;
-        grid-template-columns: 18% 60%;
+        grid-template-columns: 25% 40%;
         padding-top: .5rem;
         justify-content:start;
-    }
+    };
     @media ${device.tabletL}{
         grid-template-columns: 25% 60%;
     };
-`;
+`
 
 export const Availability = styled.span`
 font-size: 1.2rem;
@@ -89,7 +171,7 @@ color:#6F909A;
     @media ${device.tabletM}{
         font-size: 1.3rem;
     };
-`;
+`
 
 export const Description = styled.span`
 text-align: justify;
@@ -99,7 +181,7 @@ line-height: 2rem;
     @media ${device.tabletM}{
         line-height: 2.2rem;
     };
-`;
+`
 
 export const Subtitle = styled.span`
 font-size: 1.6rem;
@@ -110,24 +192,24 @@ padding-top: 1rem;
         font-weight: 700;
         padding: 1rem 0;
     };
-`;
+`
 
 export const DimensionsContainer = styled.div`
 display: flex;
 flex-direction: column;
-`;
+`
 
 export const ActionsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 padding-top: 1rem;
-`;
+`
 
 export const Actions = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-`;
+`
 
 export const SpecificationContainer = styled.div`
 display: grid;
@@ -143,14 +225,14 @@ gap: 1rem;
         gap: 2rem;
         padding-top: 1rem;
     };
-`;
+`
 
 export const DescriptionKey = styled.span`
 justify-content: center;
 font-weight: 400;
 font-size: 1.4rem;
 color: #57646E;
-`;
+`
 
 export const ProductItemList = styled.div`
 display: flex;
@@ -171,7 +253,7 @@ justify-content: center;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     };
-`;
+`
 
 export const ShowMore = styled.button`
 font-size: 1.8rem;
@@ -185,4 +267,10 @@ transition: all .3s linear;
         transform: scale(1.2);
         color: #aecfd9;
     };
-`;
+`
+
+export const IconContainer = styled.div`
+position: absolute;
+top: 4rem;
+right: 1.2rem;
+`

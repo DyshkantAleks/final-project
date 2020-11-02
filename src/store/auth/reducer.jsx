@@ -6,20 +6,20 @@ const initialState = {
   token: null,
   error: null
 }
-export function reducer (state = initialState, {type, payload}) {
+export function reducer (state = initialState, { type, payload }) {
   switch (type) {
     case SET_LOGIN:
       return (
         {
           ...state,
-          login: payload,
+          login: payload
         }
       )
     case SET_PASSWORD:
       return (
         {
           ...state,
-          password: payload,
+          password: payload
         }
       )
     case SET_TOKEN:
