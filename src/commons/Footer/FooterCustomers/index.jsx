@@ -1,17 +1,17 @@
 import React from 'react';
-import { ROUTES } from '../../../pages/navigation/routes';
 
-import { Container, StyledLink, Title } from '../FooterAbout';
+import { ROUTES } from '../../../pages/navigation/routes';
+import { Container, StyledLink, Title } from '../StyledFooter';
 import useWindowDimensions from '../../../utils/useWindowDimensions';
 
 export const FooterCustomers = () => {
-  const { screenWidth } = useWindowDimensions();
+  const { screenWidth } = useWindowDimensions()
   return (
     <Container>
       {screenWidth < 768 && (
         <>
           <StyledLink to={ROUTES.DELIVERY}>Доставка</StyledLink>
-          <StyledLink to={ROUTES.STORES}>Наши магазины</StyledLink>
+          <StyledLink to={ROUTES.STORES}>Наш шоу-рум</StyledLink>
         </>
       )}
       {screenWidth >= 768 && (
@@ -23,4 +23,4 @@ export const FooterCustomers = () => {
       )}
     </Container>
   )
-}
+};

@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import {device} from "../../../styles/breakpoints/breakpoints";
+import React from 'react'
+import styled from 'styled-components'
+import { device } from '../../../styles/breakpoints/breakpoints'
 
 export const FooterLogo = () => {
   return (
     <Container>
       <ContainerFooterLogo>
-        <FooterLogoImg src='/img/dg-home-logo.png' alt='logo'/>
+        <FooterLogoImg src='https://res.cloudinary.com/dg-home/image/upload/v1604312381/General/dg-home-logo_onswjp.png' alt='logo' />
       </ContainerFooterLogo>
       <FooterText>Интернет-магазин итальянской мебели от лучших производителей</FooterText>
     </Container>
@@ -57,4 +57,3 @@ export const ContainerFooterLogo = styled.div`
         }
 
 `
-

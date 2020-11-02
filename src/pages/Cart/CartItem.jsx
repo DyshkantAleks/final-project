@@ -20,9 +20,9 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       </CartColor>
       {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} />}
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
-      {fav && <Button text="Купить" color="green" />}
+      {fav && <Button text='Купить' color='green' />}
     </CartItemContainer>
-  );
+  )
 }
 
 const CartItemContainer = styled.div`
@@ -48,7 +48,7 @@ const CartItemContainer = styled.div`
           position: static;
           grid-gap: inherit;
           }
-        `;
+        `
 
 const CartImage = styled.img`
 height: auto;
@@ -128,7 +128,6 @@ color: #000000;
   font-size: 14px;
 }
 `
-
 
 const CloseBtnContainer = styled.div`
 width: 2rem;

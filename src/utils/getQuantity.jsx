@@ -1,5 +1,5 @@
 export const getQuantity = (productObj, id) => {
-  let productArray = [];
+  let productArray = []
   for (const key in productObj) {
     productArray = [...productArray, ...productObj[key]]
   }

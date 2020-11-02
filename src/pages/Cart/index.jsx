@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
 import { selectCart } from '../../store/cart/selectors';
-import { Button } from '../../components/Button'
+import { Button } from '../../components/Button';
 import { Header } from '../../commons/Header/Header';
 import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
@@ -18,8 +18,7 @@ export const CartPage = () => {
     return sum + current.product.currentPrice * current.cartQuantity
   }, 0)
 
-
-  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
+  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена']
   return (
     <ContentContairer>
       <Header />
@@ -37,12 +36,13 @@ export const CartPage = () => {
               key={item.id}
               cart='true'
             />
-          )}
+          )
+        }
       </CartContainer>
 
       <CartTotalContainer>
         <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Button text="Оформить покупку" color="green" />
+        <Button text='Оформить покупку' color='green' />
       </CartTotalContainer>
     </ContentContairer>
   )

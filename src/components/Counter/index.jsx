@@ -11,7 +11,7 @@ export const Counter = ({ cartQuantity, quantity, id }) => {
     if (cartQuantity < quantity) {
       dispatch(quantityUp(id))
     }
-  };
+  }
   const decreaseQty = () => {
     if (cartQuantity > 1) {
       dispatch(quantityDown(id))

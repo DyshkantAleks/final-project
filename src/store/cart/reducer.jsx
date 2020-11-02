@@ -1,4 +1,4 @@
-import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART } from './action-types';
+import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART } from './action-types'
 
 const InitialState = {
   cart: [
@@ -71,7 +71,7 @@ export function reducer(state = InitialState, { type, payload }) {
       return {
         ...state,
         cart: [...state.cart, payload]
-      };
+      }
 
     case REMOVE_FROM_CART:
       return {
@@ -86,7 +86,7 @@ export function reducer(state = InitialState, { type, payload }) {
           if (item.id === payload) {
             item.cartQuantity += 1;
           }
-          return item;
+          return item
         })
       };
 
@@ -97,7 +97,7 @@ export function reducer(state = InitialState, { type, payload }) {
           if (item.id === payload) {
             item.cartQuantity -= 1;
           }
-          return item;
+          return item
         })
       };
 

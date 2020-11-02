@@ -13,7 +13,7 @@ import { selectCart } from '../../store/cart/selectors';
 
 
 export const ProductItem = (props) => {
-  const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice } = props
+  const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice } = props;
 
   const [inFavorite, toggleInFavorite] = useToggle();
 

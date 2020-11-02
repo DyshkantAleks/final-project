@@ -9,4 +9,4 @@ export const Button = (props) => {
       <StyledButton disabled={disabled} width={width} color={color} onClick={onClick}>{text}</StyledButton>
     </>
   )
-}
+};

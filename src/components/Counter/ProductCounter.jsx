@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 // import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 // import { selectProducts } from '../../store/products_draft/selectors';
 // import { getQuantity } from '../../utils/getQuantity';
@@ -13,7 +13,7 @@ export const ProductCounter = ({ id, value, setValue }) => {
     if (value < 10) { // quantity
       setValue(value + 1)
     }
-  };
+  }
   const decreaseQty = () => {
     if (value > 1) {
       setValue(value - 1)
@@ -21,8 +21,8 @@ export const ProductCounter = ({ id, value, setValue }) => {
   }
   return (
     <CouterContainer>
-      <BtnDecr onClick ={() => decreaseQty()}>-</BtnDecr>
-      <CountInput readOnly value={value + ' шт'}/>
+      <BtnDecr onClick={() => decreaseQty()}>-</BtnDecr>
+      <CountInput readOnly value={value + ' шт'} />
       <BtnIncr onClick={() => increaseQty()}>+</BtnIncr>
     </CouterContainer>
   )

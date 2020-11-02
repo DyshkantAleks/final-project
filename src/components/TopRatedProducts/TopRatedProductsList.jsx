@@ -1,34 +1,30 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { Title } from '../Title/Title';
-import { selectProductsForFilter } from '../../store/products_draft/selectors';
-import { getProductsByIsPopular } from '../../store/products_draft/middlware';
+import { selectProducts } from '../../store/products_draft/selectors';
 import { ProductItem } from '../ProductItem';
 import { ProductItemList } from '../../pages/Product/StyledProductPage';
 
-
 export const TopRatedProductsList = () => {
-  const dispatch = useDispatch()
-  const selectByIsPopular = useSelector(selectProductsForFilter)
-
-  useEffect(() => {
-    dispatch(getProductsByIsPopular());
-  }, [dispatch]);
-
-  console.log(selectByIsPopular.products);
-
+  const allProducts = useSelector(selectProducts)
+  const arrayOfTopRated = allProducts.filter(e => e.isTopRated === true)
   return (
     <>
-      <Title text={'Популярные товары'} />
+      <Title text='Популярные товары' />
       <ProductItemList>
         {
-          selectByIsPopular.products.map((e) => (
-            <ProductItem name={e.name} price={e.currentPrice} image={e.imageUrl[0]} key={e.id} route={e.route} id={e._id} />
+          arrayOfTopRated.map((e, index) => (
+            <ProductItem
+              name={e.name}
+              price={e.currentPrice}
+              image={e.imageUrl[0]}
+              key={index}
+              route={e.route}
+              id={e._id} />
           ))
         }
       </ProductItemList>
     </>
   )
 }
-

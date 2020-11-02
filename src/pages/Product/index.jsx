@@ -36,23 +36,23 @@ export const ProductPage = (props) => {
     if (isSpecification) {
       return (
         <ShowMore onClick={() => setIsSpecification(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
   const toggleDimensionsBtn = () => {
     if (isDimensions) {
       return (
         <ShowMore onClick={() => setIsDimensions(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -129,15 +129,14 @@ export const ProductPage = (props) => {
                       <Description>{product.specifications.casing}</Description>
                     </SpecificationContainer>
                   </Subtitle> : <Subtitle>Характеристики
-                    {toggleSpecificationBtn()}
+                      {toggleSpecificationBtn()}
                     {isSpecification && <SpecificationContainer>
                       <DescriptionKey>Покрытие</DescriptionKey>
                       <Description>{product.specifications.covering}</Description>
                       <DescriptionKey>Обивка</DescriptionKey>
                       <Description>{product.specifications.casing}</Description>
                     </SpecificationContainer>}
-                  </Subtitle>
-                }
+                  </Subtitle>}
               </ContainerDetails>
             </>
           )
@@ -147,4 +146,3 @@ export const ProductPage = (props) => {
     </>
   )
 }
-

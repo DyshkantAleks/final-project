@@ -1,4 +1,4 @@
-import { SET_LOGIN, SET_PASSWORD } from './action-types';
+import { SET_LOGIN, SET_PASSWORD } from './action-types'
 
 export const setLogin = payload => ({
   type: SET_LOGIN,

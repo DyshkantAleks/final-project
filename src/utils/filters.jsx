@@ -1,6 +1,6 @@
 export const getCartList = (productObj, cartArray, cartId) => {
-  const objCopy = JSON.parse(JSON.stringify(productObj));
-  let productArray = [];
+  const objCopy = JSON.parse(JSON.stringify(productObj))
+  let productArray = []
   for (const key in objCopy) {
     productArray = [...productArray, ...objCopy[key]]
   }
@@ -13,7 +13,7 @@ export const getCartList = (productObj, cartArray, cartId) => {
       }
     })
   })
-   
+
   return result
 }
 
