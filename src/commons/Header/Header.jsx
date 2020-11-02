@@ -39,9 +39,6 @@ const StyledHeader = styled.header`
 const HeaderContainer = styled.div`
     position: relative;
     padding: 1.6rem;
-        @media ${device.tablet}{
-        padding: 2.4rem
-        }
         @media ${device.tabletL}{
         padding: 2.4rem 5rem
         }
@@ -49,6 +46,7 @@ const HeaderContainer = styled.div`
         @media ${device.desktop}{
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
         padding: 3rem 0;
         width: 120rem;
         margin: 0 auto;

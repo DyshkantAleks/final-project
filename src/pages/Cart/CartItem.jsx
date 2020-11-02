@@ -1,27 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { faTimes } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx'
 import { Counter } from '../../components/Counter'
 import { Button } from '../../components/Button'
 import { device } from '../../styles/breakpoints/breakpoints'
 
-export const CartItem = ({ image, price, name, color, code, quantity, value, cart, fav }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav }) => {
   return (
     <CartItemContainer>
-      {/* <CloseBtn icon={faTimes} /> */}
       <CloseBtnContainer>{icon.close}</CloseBtnContainer>
-      <CartImage src={image} />
+      <CartImage src={imageUrl[0]} />
       <CartNameCode>
         <h4>{name}</h4>
-        <p>Код: {code}</p>
+        <p>Код: {itemNo}</p>
       </CartNameCode>
       <CartColor>
         {color}
       </CartColor>
-      {cart && <Counter margin value={value} id={code} />}
-      <CartPrice>{(price * quantity).toLocaleString()} грн</CartPrice>
+      {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} />}
+      <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {fav && <Button text='Купить' color='green' />}
     </CartItemContainer>
   )

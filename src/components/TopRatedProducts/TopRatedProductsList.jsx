@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Title } from '../Title/Title'
 import { useSelector } from 'react-redux'
 import { selectProducts } from '../../store/products_draft/selectors'

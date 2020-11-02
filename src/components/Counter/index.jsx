@@ -1,30 +1,26 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { quantityDown, quantityUp } from '../../store/cart/actions-creators'
-import { selectProducts } from '../../store/products_draft/selectors'
-import { getQuantity } from '../../utils/getQuantity'
 
-export const Counter = ({ id, value }) => {
+export const Counter = ({ cartQuantity, quantity, id }) => {
   const dispatch = useDispatch()
-  const products = useSelector(selectProducts)
-  const quantity = getQuantity(products, id)
 
   const increaseQty = () => {
-    if (value < quantity) {
+    if (cartQuantity < quantity) {
       dispatch(quantityUp(id))
     }
   }
   const decreaseQty = () => {
-    if (value > 1) {
+    if (cartQuantity > 1) {
       dispatch(quantityDown(id))
     }
   }
   return (
     <CouterContainer>
       <BtnDecr onClick={() => decreaseQty()}>-</BtnDecr>
-      <CountInput readOnly value={value + ' шт'} />
+      <CountInput readOnly value={cartQuantity + ' шт'} />
       <BtnIncr onClick={() => increaseQty()}>+</BtnIncr>
     </CouterContainer>
   )

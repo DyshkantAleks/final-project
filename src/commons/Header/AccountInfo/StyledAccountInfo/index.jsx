@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 import { device } from '../../../../styles/breakpoints/breakpoints'
 
-export const Item = styled.div`
+export const AccountName = styled.p`
+margin: 0;
+text-decoration: none;
+color: initial;
+`
+
+    export const Item = styled.div`
 width: 2rem;
 //color: #595959;
 margin: 0 .5rem;

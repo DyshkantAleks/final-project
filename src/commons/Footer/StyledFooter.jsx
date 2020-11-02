@@ -43,14 +43,16 @@ color: initial;
 margin-right: 1.5rem;
 }
 `
+export const ContactsItem = styled.a`
+color: initial;
+`
 export const ContactContainer = styled.div`
 display: flex;
     flex-direction: column;
-    
     line-height: 1.5;
     font-size: 1.6rem;
     @media${device.tabletM}{
-
+text-align: end;
 }
 `
 export const TextAdress = styled.p`
@@ -62,6 +64,7 @@ text-align: right;
 `
 export const SocialsContainer = styled.div`
 display: flex;
+margin-top: 2rem;
 @media${device.tabletM}{
 align-items: flex-end;
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { ROUTES } from '../../../../pages/navigation/routes'
-import { Item } from '../StyledAccountInfo'
+import { Item, AccountName } from '../StyledAccountInfo'
 
 import { icon } from '../icons'
 
@@ -12,7 +12,9 @@ export const HeaderAccount = () => {
     <Link to={ROUTES.ACCOUNT}>
       <Item>
         {icon.account}
+        <AccountName>Name</AccountName>
       </Item>
     </Link>
   )
 }
+

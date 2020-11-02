@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-
 import { Header } from '../../commons/Header/Header'
 import { selectProducts } from '../../store/products_draft/selectors'
 import { selectCategoryFromRoute } from '../../store/categories/selectors'
