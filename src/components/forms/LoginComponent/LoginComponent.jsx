@@ -6,7 +6,6 @@ import { auth } from '../../../store/auth/middlware';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorsField } from '../Errors/ErrorsField';
 import { selectError } from '../../../store/auth/selectors';
-import { CenteredTitle } from './StyledLoginComponent';
 import { useHistory } from 'react-router';
 
 
@@ -17,7 +16,6 @@ export const LoginComponent = props =>{
   
   return (
     <div>
-      <CenteredTitle text='Введите  логин и пароль'/>
       <LoginForm handleSubmit={({login, password}) => dispatch(auth(login, password, history))}/>
       {error && <ErrorsField errorText='Ошибка ввода. Повторите ввод данных!'/>}
      

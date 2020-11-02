@@ -1,22 +1,21 @@
-import { REGISTER_CUSTOMER } from './action-types';
+import { SET_CUSTOMER } from './action-types';
 
 const initialState = {
-  firstName: '',
+  firstName: 'Пользователь',
   lastName: '',
   login: '',
   email: '',
   password: '',
   telephone: '',
   gender: '',
-  avatarUrl: '',
-  isAdmin: false,
+  avatarUrl: ''
 };
 export function reducer (state = initialState, { type, payload }) {
   switch (type) {
-    case REGISTER_CUSTOMER:
+    case SET_CUSTOMER:
       return {
         ...state,
-        payload,
+        ...payload,
       };
     default:
       return state;

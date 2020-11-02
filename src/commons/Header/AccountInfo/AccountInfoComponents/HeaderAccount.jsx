@@ -1,18 +1,14 @@
 import React from 'react';
-
-import {Link} from 'react-router-dom';
-
-import {ROUTES} from '../../../../pages/navigation/routes';
-import {Item} from '../StyledAccountInfo';
-
+import {Item, AccountName} from '../StyledAccountInfo';
 import {icon} from '../icons';
 
-export const HeaderAccount = () => {
+export const HeaderAccount = props => {
+  const {clickHandler} = props
   return (
-    <Link to={ROUTES.ACCOUNT}>
-      <Item>
-        {icon.account}
-      </Item>
-    </Link>
-  )
-};
+    <Item onClick={clickHandler}>
+      {icon.account}
+      <AccountName>Name</AccountName>
+    </Item>
+    
+  );
+}
