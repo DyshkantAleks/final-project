@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 import { Button } from '../Button'
 
@@ -23,9 +23,9 @@ const order = '№3265897'
 export const ModalThanks = {
   closeButton: true,
   content:
-        <>
-          <Header>Дякуємо, що вибрали нас!</Header>
-          <Text>Ваше замовлення {order} успішно оформлене. Чекайте на дзвінок від нашого фахівця.</Text>
-        </>,
-  actions: <Button text='ПРОДОВЖИТИ ПОКУПКИ' onClick={() => console.log('ky-ky')}/>
+  <>
+    <Header>Дякуємо, що вибрали нас!</Header>
+    <Text>Ваше замовлення {order} успішно оформлене. Чекайте на дзвінок від нашого фахівця.</Text>
+  </>,
+  actions: <Button text='ПРОДОВЖИТИ ПОКУПКИ' onClick={() => console.log('ky-ky')} />
 }
