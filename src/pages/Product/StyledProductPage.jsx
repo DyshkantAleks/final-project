@@ -52,7 +52,7 @@ width: 85%;
 export const PreviousPrice = styled.span`
 font-size: 2rem;
 font-weight: 700;
-color:#6F909A;
+color:#7191A6;
 text-decoration: line-through;
     &::after{
         content: 'грн';
@@ -113,7 +113,7 @@ color: #8D145E;
 export const Price = styled.span`
 font-size: 3rem;
 font-weight: 700;
-color: #6F909A;
+color: #7191A6;
     &::after{
         content: 'грн';
         position: relative;
@@ -167,7 +167,7 @@ padding-top: .5rem;
 export const Availability = styled.span`
 font-size: 1.2rem;
 font-weight: 700;
-color:#6F909A;
+color:#7191A6;
     @media ${device.tabletM}{
         font-size: 1.3rem;
     };
@@ -180,36 +180,34 @@ font-size: 1.4rem;
 line-height: 2rem;
     @media ${device.tabletM}{
         line-height: 2.2rem;
-    };
+    }
 `
 
 export const Subtitle = styled.span`
 font-size: 1.6rem;
 font-weight: 700;
-padding-top: 1rem;
+padding: 1rem 0;
     @media ${device.tabletM}{
         font-size: 2rem;
-        font-weight: 700;
-        padding: 1rem 0;
-    };
-`
+    }
+`;
 
 export const DimensionsContainer = styled.div`
 display: flex;
 flex-direction: column;
-`
+`;
 
 export const ActionsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 padding-top: 1rem;
-`
+`;
 
 export const Actions = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-`
+`;
 
 export const SpecificationContainer = styled.div`
 display: grid;
@@ -225,14 +223,14 @@ gap: 1rem;
         gap: 2rem;
         padding-top: 1rem;
     };
-`
+`;
 
 export const DescriptionKey = styled.span`
 justify-content: center;
 font-weight: 400;
 font-size: 1.4rem;
 color: #57646E;
-`
+`;
 
 export const ProductItemList = styled.div`
 display: flex;
@@ -253,7 +251,7 @@ justify-content: center;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     };
-`
+`;
 
 export const ShowMore = styled.button`
 font-size: 1.8rem;
@@ -267,10 +265,21 @@ transition: all .3s linear;
         transform: scale(1.2);
         color: #aecfd9;
     };
-`
+`;
+
+export const SubtitleBox = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+`;
 
 export const IconContainer = styled.div`
-position: absolute;
-top: 4rem;
-right: 1.2rem;
-`
+/* display: none; */
+display: block;
+    @media ${device.tabletS}{
+        display: block;
+        /* position: absolute;
+        top: 6rem;
+        right: 14.2rem; */
+    };
+`;

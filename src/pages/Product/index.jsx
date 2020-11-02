@@ -7,7 +7,7 @@ import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, IconContainer } from './StyledProductPage';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, IconContainer, SubtitleBox } from './StyledProductPage';
 import { RegularIconFavorite } from '../../components/ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../../components/ProductItem/IconsSvg/SolidIconFavorite';
 import useWindowDimensions from '../../utils/useWindowDimensions';
@@ -18,6 +18,7 @@ import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
 import { Footer } from "../../commons/Footer";
 import { selectCart } from '../../store/cart/selectors';
+import { NewProductsList } from '../../components/NewProducts/NewProductsList';
 
 
 export const ProductPage = (props) => {
@@ -74,7 +75,7 @@ export const ProductPage = (props) => {
                     <PriceContainer>
                       <Price>{product.currentPrice.toLocaleString()}</Price>
                     </PriceContainer>}
-                  {product.isSale &&
+                  {/* {product.isSale &&
                     <IconContainer>
                       <IconSale />
                     </IconContainer>}
@@ -85,7 +86,7 @@ export const ProductPage = (props) => {
                   {product.isTopRated &&
                     <IconContainer>
                       <IconTopRated />
-                    </IconContainer>}
+                    </IconContainer>} */}
                   {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}
                   {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
@@ -94,7 +95,21 @@ export const ProductPage = (props) => {
                     {/* <Availability>&#10006; нет в наличии</Availability> */}
                     <Article>Артикул: {product.itemNo}</Article>
                   </AvailabilityArticleWrap>
+                  <SubtitleBox>
                   <Subtitle>Описание товара</Subtitle>
+                  {product.isSale &&
+                      <IconContainer>
+                        <IconSale />
+                      </IconContainer>}
+                    {product.isNewProduct &&
+                      <IconContainer>
+                        <IconNew />
+                      </IconContainer>}
+                    {product.isTopRated &&
+                      <IconContainer>
+                        <IconTopRated />
+                      </IconContainer>}
+                  </SubtitleBox>
                   <Description>{product.description}</Description>
                   {screenWidth >= 768 ?
                     <>
@@ -115,7 +130,7 @@ export const ProductPage = (props) => {
                       <ProductCounter value={value} setValue={setValue} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button disabled width text={'В корзине'} /> : <Button width color text={'Купить'}
+                      {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> : <Button width={'12rem'} color={'#7191A6'} text={'Купить'}
                       />}
                     </Actions>
                   </ActionsContainer>
@@ -141,6 +156,7 @@ export const ProductPage = (props) => {
             </>
           )
         }
+        <NewProductsList />
       </ContentContairer>
       <Footer />
     </>

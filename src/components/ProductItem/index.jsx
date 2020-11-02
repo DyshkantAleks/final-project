@@ -59,7 +59,8 @@ export const ProductItem = (props) => {
               <Price>{price.toLocaleString()}</Price>
             </PriceContainer>}
           <ButtonContainer>
-            {btnInCart ? <Button disabled width text={'В корзине'} /> : <Button color width text={'Купить'} />}
+            {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> :
+              <Button color={'#7191A6'} width={'12rem'} text={'Купить'} />}
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>

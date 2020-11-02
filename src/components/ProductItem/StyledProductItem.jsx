@@ -109,73 +109,7 @@ cursor: pointer;
     @media ${device.tabletS}{
         font-size: 1.6rem;
     };
-`
-
-// export const PriceContainer = styled.div`
-// display: flex;
-// justify-content: space-between;
-// align-items: baseline;
-// width: 85%;
-// height: 3rem;
-//     @media ${device.tabletS}{
-//         width: 75%;
-//     };
-//     @media ${device.tabletM}{
-//         flex-direction: column;
-//         height: 6rem;
-//     };
-//     @media ${device.desktop}{
-//         flex-direction: row;
-//         width: 95%;
-//         height: 3rem;
-//     };
-// `
-
-// export const PreviousPrice = styled.span`
-// font-size: 2rem;
-// font-weight: 800;
-// /* color:#6F909A; */
-// color:#6F7281;
-// text-decoration: line-through;
-//     &::after{
-//         content: 'грн';
-//         position: relative;
-//         left: .5rem;
-//         font-size: 1rem;
-//         font-weight: 700;
-//     };
-//     @media ${device.tabletM}{
-//         font-weight: 800;
-//         font-size: 2rem;
-//             &::after{
-//                 left: 0.5;
-//                 font-size: 1.5rem;
-//                 font-weight: 700;
-//         };
-//     };
-// `
-
-// export const CurrentPrice = styled.span`
-// font-size: 2.5rem;
-// font-weight: 800;
-// color: #8D145E;
-//     &::after{
-//         content: 'грн';
-//         position: relative;
-//         left: .5rem;
-//         font-size: 1.3rem;
-//         font-weight: 700;
-//     };
-//     @media ${device.tabletM}{
-//         font-weight: 800;
-//         font-size: 3rem;
-//             &::after{
-//                 left: 0.5;
-//                 font-size: 1.5rem;
-//                 font-weight: 700;
-//         };
-//     };
-// `
+`;
 
 export const PriceContainer = styled.div`
 display: flex;
@@ -264,12 +198,12 @@ color: #6F7281;
                 font-weight: 700;
         };
     };
-`
+`;
 
 export const ItemFavoriteContainer = styled.div`
 position: absolute;
 top: .5rem;
-right: 1.4rem;
+right: 1.2rem;
 width: 2.5rem;
 height: 2.5rem;
 cursor: pointer;
@@ -278,12 +212,15 @@ transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
     };
+    @media ${device.desctop}{
+        right: 2.2rem;
+    };
 `;
 
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #333333;
-`
+`;
 
 export const ButtonContainer = styled.div`
 display: flex;
@@ -291,4 +228,4 @@ justify-content: start;
 align-items: center;
 width: 100%;
 margin-top: 1.5rem;
-`;
+`
