@@ -1,4 +1,6 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectCustomerIslogined, selectCustomer } from '../../../store/customer/slectors'
 import { HeaderAccount } from './AccountInfoComponents/HeaderAccount'
 import { HeaderFavorites } from './AccountInfoComponents/HeaderFavorites'
 import { HeaderCart } from './AccountInfoComponents/HeaderCart'
@@ -28,6 +30,7 @@ export const AccountInfoList = () => {
   }
   const isLogined = useSelector(selectCustomerIslogined)
   const customerName = useSelector(selectCustomer).name
+  // eslint-disable-next-line no-unused-vars
   const isOpenModal = useSelector(selectModalIsOpen)
   const dispatch = useDispatch()
 
@@ -40,12 +43,15 @@ export const AccountInfoList = () => {
   }
   return (
     <List>
+      {isOpenModal && <Modal content={<LoginComponent/>} closeModalHandler={() => dispatch(closeModal())}/>}
+
       {screenWidth >= 1200 && (
         <Search enterbutton='true' onSearch={onSearch} placeholder='Найти товар по названию' />
       )}
       <HeaderAccount
-          clickHandler={handler}
-          customerName={customerName}/>
+        clickHandler={handler}
+        customerName={customerName}
+      />
       <HeaderFavorites />
       <HeaderCart />
     </List>

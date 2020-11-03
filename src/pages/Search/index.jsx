@@ -1,7 +1,6 @@
 import React from 'react'
 import { Header } from '../../commons/Header/Header'
 import { Footer } from '../../commons/Footer'
-import { Title } from '../../components/Title/Title'
 import { useSelector } from 'react-redux'
 import { selectProducts } from '../../store/products_draft/selectors'
 import { ProductItem } from '../../components/ProductItem'
@@ -19,21 +18,28 @@ export const SearchPage = ({ match, location }) => {
   return (
     <>
       <Header />
-      <Title text='Результаты поиска по запросу'>{parsed.query}</Title>
-      <ProductItemList>
-        {searchArray.map((e, index) => (
-          <ProductItem
-            key={index}
-            name={e.name}
-            price={e.currentPrice}
-            image={e.imageUrl[0]}
-            route={e.route}
-            id={e._id}
-            isNewProduct={e.isNewProduct}
-            isTopRated={e.isTopRated}
-          />
-        ))}
-      </ProductItemList>
+      <ContentContairer>
+        {searchArray.length > 0 && (
+          <h2>Результат поиска по запросу "{parsed.query}"</h2>
+        )}
+        {searchArray.length < 1 && (
+          <h1>По запросу "{parsed.query}" ничего не найдено</h1>
+        )}
+        <ProductItemList>
+          {searchArray.map((e, index) => (
+            <ProductItem
+              key={index}
+              name={e.name}
+              price={e.currentPrice}
+              image={e.imageUrl[0]}
+              route={e.route}
+              id={e._id}
+              isNewProduct={e.isNewProduct}
+              isTopRated={e.isTopRated}
+            />
+          ))}
+        </ProductItemList>
+      </ContentContairer>
       <Footer />
     </>
   )
