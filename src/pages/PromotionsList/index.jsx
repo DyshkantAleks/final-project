@@ -11,7 +11,7 @@ export const PromotionsPage = () => {
 
   useEffect(() => {
     dispatch(getPromotions())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
@@ -20,4 +20,4 @@ export const PromotionsPage = () => {
       <Footer />
     </>
   )
-}
+};

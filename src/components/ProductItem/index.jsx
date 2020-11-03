@@ -14,7 +14,7 @@ import { addProductToCart } from '../../store/cart/middlware';
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
-  
+
   const dispatch = useDispatch();
   const [inFavorite, toggleInFavorite] = useToggle();
 
@@ -64,7 +64,7 @@ export const ProductItem = (props) => {
             </PriceContainer>}
           <ButtonContainer>
             {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> :
-            <Button color={'#7191A6'} width={'12rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)}/>}
+              <Button color={'#7191A6'} width={'12rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>

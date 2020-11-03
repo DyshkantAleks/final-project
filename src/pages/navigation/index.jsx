@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
-} from 'react-router-dom'
+} from 'react-router-dom';
 
-import { ROUTES } from './routes'
-import { AboutPage } from '../About'
-import { DeliveryPage } from '../Delivery'
-import { Homepage } from '../Homepage'
-import { PromotionsPage } from '../PromotionsList'
-import { StoresPage } from '../Stores'
-import { CartPage } from '../Cart'
-import { OrderPage } from '../Order'
-import { FavoritesPage } from '../Favorites'
-import { AccountPage } from '../Account'
-import { ProductPage } from '../Product'
-import { PromotionsSinglePage } from '../PromotionsSingle'
-import { ProductListPage } from '../ProductList/ProductListPage'
+import { ROUTES } from './routes';
+import { AboutPage } from '../About';
+import { DeliveryPage } from '../Delivery';
+import { Homepage } from '../Homepage';
+import { PromotionsPage } from '../PromotionsList';
+import { StoresPage } from '../Stores';
+import { CartPage } from '../Cart';
+import { OrderPage } from '../Order';
+import { FavoritesPage } from '../Favorites';
+import { AccountPage } from '../Account';
+import { ProductPage } from '../Product';
+import { PromotionsSinglePage } from '../PromotionsSingle';
+import { ProductListPage } from '../ProductList/ProductListPage';
 
 export const Navigation = () => (
   <Router>

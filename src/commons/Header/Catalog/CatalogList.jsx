@@ -12,7 +12,7 @@ export const CatalogList = () => {
 
   useEffect(() => {
     dispatch(getCategories())
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>

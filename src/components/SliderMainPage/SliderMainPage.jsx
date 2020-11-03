@@ -16,7 +16,7 @@ export const SliderMainPage = () => {
 
   useEffect(() => {
     dispatch(getPromotions())
-  }, [])
+  }, [dispatch])
 
   const settings = {
     dots: true,

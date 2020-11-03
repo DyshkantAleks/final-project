@@ -88,8 +88,8 @@ export const ProductPage = (props) => {
                     <Article>Артикул: {product.itemNo}</Article>
                   </AvailabilityArticleWrap>
                   <SubtitleBox>
-                  <Subtitle>Описание товара</Subtitle>
-                  {product.isSale &&
+                    <Subtitle>Описание товара</Subtitle>
+                    {product.isSale &&
                       <IconContainer>
                         <IconSale />
                       </IconContainer>}
@@ -122,7 +122,7 @@ export const ProductPage = (props) => {
                       <ProductCounter value={value} setValue={setValue} quantity={product.quantity} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> : <Button width={'12rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)}/>}
+                      {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> : <Button width={'12rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>

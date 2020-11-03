@@ -9,7 +9,7 @@ import { ContentContairer } from '../../components/Content/Content';
 import { ProductItemList } from '../Product/StyledProductPage';
 import { Footer } from '../../commons/Footer';
 
-export const ProductListPage = ({ match, location }) => {
+export const ProductListPage = ({ match }) => {
   const { params: { route } } = match
 
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route))
@@ -49,4 +49,4 @@ export const ProductListPage = ({ match, location }) => {
       <Footer />
     </>
   )
-}
+};
