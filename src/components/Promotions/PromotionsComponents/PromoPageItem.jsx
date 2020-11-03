@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
-import {ItemContainer, ImageContainer, Image, TextContainer, Title, Subtitle} from "../StyledPromotions";
+import { ItemContainer, ImageContainer, Image, TextContainer, Title, Subtitle } from '../StyledPromotions'
 
 export const PromoItem = (props) => {
-  const {image, title, subtitle} = props;
+  const { image, title, subtitle } = props
 
   return (
     <>
       <ItemContainer>
         <ImageContainer>
-          <Image src={image}/>
+          <Image src={image} />
         </ImageContainer>
         <TextContainer>
           <Title>{title}</Title>
@@ -18,5 +18,4 @@ export const PromoItem = (props) => {
       </ItemContainer>
     </>
   )
-};
-
+}

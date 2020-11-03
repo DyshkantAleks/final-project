@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
@@ -16,9 +16,9 @@ import { ProductSlider } from '../../components/ProductSlider';
 import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
-import { Footer } from "../../commons/Footer";
+import { Footer } from '../../commons/Footer';
 import { selectCart } from '../../store/cart/selectors';
-
+import { addProductToCart } from '../../store/cart/middlware';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -26,34 +26,38 @@ export const ProductPage = (props) => {
   const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
-  const [value, setValue] = useState(1) // myronets
+  const [value, setValue] = useState(1);
   const product = useSelector(selectByRoute(match.params.route));
   const productInCart = useSelector(selectCart);
+  const dispatch = useDispatch();
 
-  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
+  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route)
 
   const toggleSpecificationBtn = () => {
     if (isSpecification) {
       return (
         <ShowMore onClick={() => setIsSpecification(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
   const toggleDimensionsBtn = () => {
     if (isDimensions) {
       return (
         <ShowMore onClick={() => setIsDimensions(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
+  const btnHeandler = (product, quantity) => {
+    dispatch(addProductToCart(product, quantity))
+  }
   return (
     <>
       <Header />
@@ -96,8 +100,8 @@ export const ProductPage = (props) => {
                   </AvailabilityArticleWrap>
                   <Subtitle>Описание товара</Subtitle>
                   <Description>{product.description}</Description>
-                  {screenWidth >= 768 ?
-                    <>
+                  {screenWidth >= 768
+                    ? <>
                       <Subtitle>Габариты</Subtitle>
                       <Description>Высота - {product.sizes.height} cм, </Description>
                       <Description>Ширина - {product.sizes.width} cм, </Description>
@@ -112,10 +116,10 @@ export const ProductPage = (props) => {
                     </>}
                   <ActionsContainer>
                     <Actions>
-                      <ProductCounter value={value} setValue={setValue} />
+                      <ProductCounter value={value} setValue={setValue} quantity={product.quantity} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />}
+                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} onClick={() => btnHeandler(product, value)}/>}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>
@@ -135,8 +139,7 @@ export const ProductPage = (props) => {
                       <DescriptionKey>Обивка</DescriptionKey>
                       <Description>{product.specifications.casing}</Description>
                     </SpecificationContainer>}
-                  </Subtitle>
-                }
+                  </Subtitle>}
               </ContainerDetails>
             </>
           )
@@ -146,4 +149,3 @@ export const ProductPage = (props) => {
     </>
   )
 }
-

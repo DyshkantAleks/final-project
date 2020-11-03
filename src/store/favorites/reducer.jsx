@@ -1,8 +1,8 @@
-import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from './action-types';
+import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from './action-types'
 
 const InitialState = {
-  favorites: [ '9001603-08', '9029004A-812', '9051003-202']
-};
+  favorites: ['9001603-08', '9029004A-812', '9051003-202']
+}
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
@@ -10,7 +10,7 @@ export function reducer (state = InitialState, { type, payload }) {
       return {
         ...state,
         favorites: [...state.favorites, payload]
-      };
+      }
 
     case REMOVE_FROM_FAVORITES:
       return {

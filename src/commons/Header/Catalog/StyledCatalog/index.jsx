@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import {device} from '../../../../styles/breakpoints/breakpoints';
-import {Link} from "react-router-dom";
+import styled from 'styled-components'
+import { device } from '../../../../styles/breakpoints/breakpoints'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 width: 100%;
 @media ${device.desktop}{
     background-color: #e6e9ef;
     }
-`;
+`
 
 export const List = styled.ul`
 list-style: none;
@@ -21,7 +21,7 @@ list-style: none;
     margin: 0 auto;
     //padding: 1rem 0;
     }
-`;
+`
 
 export const NewItem = styled.li`
 //display: flex;
@@ -43,7 +43,7 @@ background-color: #aecfd9;
 transition: all .5s;
 }
 }
-`;
+`
 
 export const IconContainer = styled.div`
 width: 25px;
@@ -58,12 +58,12 @@ width: 30px;
 height: 30px;
 }
 
-`;
+`
 export const ItemText = styled.span`
 font-size: 16px;
 vertical-align: middle;
 
-`;
+`
 // export const Item = styled.li`
 // font-size: 1.6rem;
 // font-weight: 500;
@@ -97,7 +97,7 @@ background-color: #aecfd9;
 
 }
 
-`;
+`
 export const SubList = styled.ul`
 list-style: none;
     padding: 0;
@@ -115,7 +115,7 @@ list-style: none;
     background-color: white;
     
     }
-`;
+`
 
 export const TextContainer = styled.div`
 padding: 1rem 0;
@@ -136,4 +136,4 @@ height: auto;
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: initial;
-`;
+`

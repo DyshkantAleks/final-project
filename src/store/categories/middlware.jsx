@@ -1,13 +1,13 @@
-import {server} from '../../API'
-import {setCatigories} from "../categories/actions";
+import { server } from '../../API'
+import { setCatigories } from '../categories/actions'
 
 export const getCategories = () => async (dispatch) => {
   try {
-    const {status, data} = await server('/catalog');
-    //console.log(data);
+    const { status, data } = await server('/catalog')
+    // console.log(data);
     if (status === 200) {
-      dispatch(setCatigories(data));
-      //console.log(data)
+      dispatch(setCatigories(data))
+      // console.log(data)
     }
   } catch (error) {
     console.log(error)
@@ -24,9 +24,7 @@ export const getCategories = () => async (dispatch) => {
 //     console.log(error)
 //   }
 // };
-//getChairs()();
-
-
+// getChairs()();
 
 // export const getCategories = () => async dispatch => {
 //   try {
