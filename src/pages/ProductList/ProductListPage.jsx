@@ -36,7 +36,6 @@ export const ProductListPage = ({ match, location }) => {
               name={e.name}
               price={e.currentPrice}
               image={e.imageUrl[0]}
-              key={e.id}
               route={e.route}
               id={e._id}
               isNewProduct={e.isNewProduct}

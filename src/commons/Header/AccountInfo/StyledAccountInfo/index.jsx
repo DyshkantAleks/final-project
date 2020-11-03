@@ -7,7 +7,7 @@ text-decoration: none;
 color: initial;
 `
 
-    export const Item = styled.div`
+export const Item = styled.div`
 width: 2rem;
 //color: #595959;
 margin: 0 .5rem;
