@@ -2,7 +2,10 @@ import React from 'react'
 import { Header } from '../../commons/Header/Header'
 import { Footer } from '../../commons/Footer'
 
-export const AccountPage = () => {
+
+
+export const AccountPage = props => {
+
   return (
     <>
       <Header />
