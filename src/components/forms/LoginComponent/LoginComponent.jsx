@@ -12,7 +12,7 @@ import { closeModal } from '../../../store/modal/actions-creators';
 import { RegisterForm } from '../RegisterComponent/RegisterForm';
 import { registerCustomer } from '../../../store/customer/middlwares';
 
-export const LoginComponent = props =>{
+export const LoginComponent = props => {
   const dispatch = useDispatch()
   const error = useSelector(selectError)
   const history = useHistory()
@@ -20,10 +20,13 @@ export const LoginComponent = props =>{
   
   return (
     <div>
-      {registered && <LoginForm handleSubmit={({login, password}) => {dispatch(auth(login, password, history))
-        dispatch(closeModal()) }
+      {registered && <LoginForm handleSubmit={({login, password}) => {
+        dispatch(auth(login, password, history))
+        dispatch(closeModal())
+      }
       }/>}
-      {!registered && <RegisterForm handleSubmit={(values) => { dispatch(registerCustomer(values))
+      {!registered && <RegisterForm handleSubmit={(values) => {
+        dispatch(registerCustomer(values))
         setRegistered(true)
       }
       }/>}
