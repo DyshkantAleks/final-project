@@ -8,9 +8,9 @@ import { ErrorsField } from '../Errors/ErrorsField';
 import { selectError } from '../../../store/auth/selectors';
 import { CenteredTitle } from './StyledLoginComponent';
 import { useHistory } from 'react-router';
+import { getCart } from '../../../store/cart/middlware';
 
-
-export const LoginComponent = props =>{
+export const LoginComponent = props => {
   const dispatch = useDispatch()
   const error = useSelector(selectError)
   const history = useHistory()
@@ -18,7 +18,7 @@ export const LoginComponent = props =>{
   return (
     <div>
       <CenteredTitle text='Введите  логин и пароль'/>
-      <LoginForm handleSubmit={({login, password}) => dispatch(auth(login, password, history))}/>
+      <LoginForm handleSubmit={({login, password}) => { dispatch(auth(login, password, history)); dispatch(getCart()) }}/>
       {error && <ErrorsField errorText='Ошибка ввода. Повторите ввод данных!'/>}
      
     </div>

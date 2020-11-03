@@ -1,57 +1,100 @@
 import {server} from '../../API';
 import { addToCart, quantityDown, quantityUp, removeFromCart, setCart } from './actions-creators';
 
-export const getCart = () => async dispatch => {
-  try {
-    const {status, data} = await server.get('/cart')
-    if (status === 200) {
-      dispatch(setCart(data.products))
+export const getCart = () => async (dispatch, getState) => {
+  const cartFromLocalStorage = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+  const state = getState();
+  const customer = {...state};
+ 
+  if (customer.isLogined) {
+    if (cartFromLocalStorage.length > 0) {
+      const productsInCart = cartFromLocalStorage.map(item => { return {product: item.product._id, cartQuantity: item.cartQuantity} });
+      const updatedCart = {products: productsInCart}
+      try {
+        await server.put('/cart', updatedCart)
+      } catch (error) {
+        console.log(error)
+      }
     }
-  } catch (error) {
-    console.log(error)
+    try {
+      const {status, data} = await server.get('/cart')
+      if (status === 200) {
+        dispatch(setCart(data.products))
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  } else {
+    dispatch(setCart(cartFromLocalStorage));
   }
 };
 
-export const addProductToCart = (productItam, quantity) => async dispatch => {
-  try {
-    const {status} = await server.put(`/cart/${productItam._id}`)
-    if (status === 200) {
-      dispatch(addToCart({product: productItam, cartQuantity: quantity}));
+export const addProductToCart = (productItem, quantity) => async (dispatch, getState) => {
+  dispatch(addToCart({product: productItem, cartQuantity: quantity}));
+  const state = getState();
+  // localStorage.setItem('cart', JSON.stringify(state.cart.cart));
+
+  const customer = {...state};
+  
+  if (customer.isLogined) {
+    const productsInCart = state.cart.cart.map(item => { return {product: item.product._id, cartQuantity: item.cartQuantity} });
+    const updatedCart = {products: productsInCart}
+    try {
+      await server.put('/cart', updatedCart)
+    } catch (error) {
+      console.log(error)
     }
-  } catch (error) {
-    console.log(error)
   }
 }
 
-export const removeProductFromCart = (productId) => async dispatch => {
-  try {
-    const {status} = await server.delete(`/cart/${productId}`)
-    if (status === 200) {
-      dispatch(removeFromCart(productId));
+export const removeProductFromCart = (productId) => async (dispatch, getState) => {
+  dispatch(removeFromCart(productId));
+  const state = getState();
+  // localStorage.setItem('cart', JSON.stringify(state.cart.cart));
+
+  const customer = {...state};
+  
+  if (customer.isLogined) {
+    const productsInCart = state.cart.cart.map(item => { return {product: item.product._id, cartQuantity: item.cartQuantity} });
+    const updatedCart = {products: productsInCart}
+    try {
+      await server.put('/cart', updatedCart)
+    } catch (error) {
+      console.log(error)
     }
-  } catch (error) {
-    console.log(error)
   }
 }
 
-export const increaseQuantity = (productId) => async dispatch => {
-  try {
-    const {status} = await server.put(`/cart/${productId}`)
-    if (status === 200) {
-      dispatch(quantityUp(productId));
+export const increaseQuantity = (productId) => async (dispatch, getState) => {
+  dispatch(quantityUp(productId));
+  const state = getState();
+  // localStorage.setItem('cart', JSON.stringify(state.cart.cart));
+
+  const customer = {...state};
+  if (customer.isLogined) {
+    const productsInCart = state.cart.cart.map(item => { return {product: item.product._id, cartQuantity: item.cartQuantity} });
+    const updatedCart = {products: productsInCart}
+    try {
+      await server.put('/cart', updatedCart)
+    } catch (error) {
+      console.log(error)
     }
-  } catch (error) {
-    console.log(error)
   }
 }
 
-export const decreaseQuantity = (productId) => async dispatch => {
-  try {
-    const {status} = await server.delete(`/cart/product/${productId}`)
-    if (status === 200) {
-      dispatch(quantityDown(productId));
+export const decreaseQuantity = (productId) => async (dispatch, getState) => {
+  dispatch(quantityDown(productId));
+  const state = getState();
+  // localStorage.setItem('cart', JSON.stringify(state.cart.cart));
+
+  const customer = {...state};
+  if (customer.isLogined) {
+    const productsInCart = state.cart.cart.map(item => { return {product: item.product._id, cartQuantity: item.cartQuantity} });
+    const updatedCart = {products: productsInCart}
+    try {
+      await server.put('/cart', updatedCart)
+    } catch (error) {
+      console.log(error)
     }
-  } catch (error) {
-    console.log(error)
   }
 }

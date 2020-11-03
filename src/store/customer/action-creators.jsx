@@ -1,6 +1,6 @@
-import { REGISTER_CUSTOMER } from './action-types'
+import { SET_CUSTOMER } from './action-types'
 
 export const registerCustomer = payload => ({
-  type: REGISTER_CUSTOMER,
+  type: SET_CUSTOMER,
   payload
 })
