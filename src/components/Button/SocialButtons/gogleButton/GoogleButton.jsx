@@ -1,9 +1,14 @@
 import React from 'react'
 
-import GoogleLogin from 'react-google-login'
+import GoogleLogin, {useGoogleLogin} from 'react-google-login';
 
-export const GoogleButton = props => {
-  const { responseGoogle, buttonText } = props
+export const GoogleButton = props =>{
+  const { buttonText} = props
+  const responseGoogle = response =>{
+    console.log(response)
+  }
+  
+ 
   return (
     <GoogleLogin
       clientId='302164701962-aj8f9msqbu1u58tpg45tn3gtq5gtqi4v.apps.googleusercontent.com'

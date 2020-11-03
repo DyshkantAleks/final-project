@@ -5,9 +5,11 @@ export const AccountName = styled.p`
 margin: 0;
 text-decoration: none;
 color: initial;
+transform: translate(-75%);
+
 `
 
-    export const Item = styled.div`
+export const Item = styled.div`
 width: 2rem;
 //color: #595959;
 margin: 0 .5rem;
@@ -28,6 +30,7 @@ export const List = styled.ul`
     list-style: none;
     display: flex;
     justify-content: flex-end;
+    align-items:flex-start;
     //flex-basis: 40%;
     //order: 0;
     @media ${device.desktop}{
