@@ -1,25 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
-import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
-import { IconSale } from './IconsSvg/IconSale';
-import { IconNew } from './IconsSvg/IconNew';
-import { IconTopRated } from './IconsSvg/IconTopRated';
-import { useToggle } from '../../utils/useToggle';
-import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
-import { Button } from '../Button';
-import { selectCart } from '../../store/cart/selectors';
-
+import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite'
+import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite'
+import { IconSale } from './IconsSvg/IconSale'
+import { IconNew } from './IconsSvg/IconNew'
+import { IconTopRated } from './IconsSvg/IconTopRated'
+import { useToggle } from '../../utils/useToggle'
+import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem'
+import { Button } from '../Button'
+import { selectCart } from '../../store/cart/selectors'
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice } = props
 
-  const [inFavorite, toggleInFavorite] = useToggle();
+  const [inFavorite, toggleInFavorite] = useToggle()
 
-  const productInCart = useSelector(selectCart);
+  const productInCart = useSelector(selectCart)
 
-  const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id);
+  const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id)
 
   return (
     <>
@@ -59,10 +58,10 @@ export const ProductItem = (props) => {
               <Price>{price.toLocaleString()}</Price>
             </PriceContainer>}
           <ButtonContainer>
-            {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} />}
+            {btnInCart ? <Button text='В корзине' /> : <Button text='Купить' />}
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>
     </>
   )
-};
+}

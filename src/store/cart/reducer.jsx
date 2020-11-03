@@ -1,4 +1,4 @@
-import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART } from './action-types';
+import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART } from './action-types'
 
 const InitialState = {
   cart: [
@@ -33,9 +33,9 @@ const InitialState = {
       cartQuantity: 1
     },
     {
-      _id:'5f970586a8da4b001769720c',
+      _id: '5f970586a8da4b001769720c',
       product: {
-        _id:'5f970586a8da4b001769720c',
+        _id: '5f970586a8da4b001769720c',
         quantity: 10,
 
         brand: 'Kartell',
@@ -46,11 +46,11 @@ const InitialState = {
         description: 'Изготовленное из единой панели, облегченное офисное кресло на колесиках Spoon Chair, безусловно, является авангардным изделием. Инновационная технология штамповки с использованием литья под давлением двухкомпонентного состава, посредством которой было создано изделие, позволила достигнуть «многослойности», когда выполняется штамповка двух различных Термопластиковых материалов: одного, определяющего эстетические качества (наружного), и другого – отличающегося высокой механической прочностью (внутреннего), благодаря чему Spoon Chair отличается высочайшими технологическими характеристиками и максимальной гибкостью, обусловленными легко персонализируемой толщиной, приспосабливающейся к весу пользователя. Простая в эксплуатации регулирующая ручка соединена с нижним корпусом и полностью спрятана в стержень, не нарушая изгибы линии изделия.',
         enabled: true,
         imageUrl: [
-            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon_main.jpeg",
-            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon1.jpeg",
-            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon2.jpeg",
-            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon3.jpeg",
-            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon4.jpeg"
+          './img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon_main.jpeg',
+          './img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon1.jpeg',
+          './img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon2.jpeg',
+          './img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon3.jpeg',
+          './img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon4.jpeg'
         ],
         itemNo: '4819/09',
         name: 'Кресло Spoon',
@@ -58,48 +58,48 @@ const InitialState = {
         subCategory: 'Офисные стулья',
         isNewProduct: true,
         isTopRated: true
-    },
-    cartQuantity: 2
+      },
+      cartQuantity: 2
 
     }
   ]
-};
+}
 
-export function reducer(state = InitialState, { type, payload }) {
+export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
     case ADD_TO_CART:
       return {
         ...state,
         cart: [...state.cart, payload]
-      };
+      }
 
     case REMOVE_FROM_CART:
       return {
         ...state,
         cart: state.cart.filter(({ id }) => id !== payload)
-      };
+      }
 
     case QTY_UP:
       return {
         ...state,
         cart: state.cart.map(item => {
           if (item.id === payload) {
-            item.cartQuantity += 1;
+            item.cartQuantity += 1
           }
-          return item;
+          return item
         })
-      };
+      }
 
     case QTY_DOWN:
       return {
         ...state,
         cart: state.cart.map(item => {
           if (item.id === payload) {
-            item.cartQuantity -= 1;
+            item.cartQuantity -= 1
           }
-          return item;
+          return item
         })
-      };
+      }
 
     default:
       return state

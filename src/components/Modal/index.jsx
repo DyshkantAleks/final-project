@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export const Modal = ({ closeButton = true, closeModalHandler, content, actions }) => {
   return ReactDOM.createPortal(
-    <ModalOwerlay onClick={ (e) => e.currentTarget === e.target ? closeModalHandler() : null }>
+    <ModalOwerlay onClick={(e) => e.currentTarget === e.target ? closeModalHandler() : null}>
       <ModalWindow>
         <ModalHeader>
-          {closeButton && <StyledFontAwesomeIcon icon={faTimes} onClick={ closeModalHandler }/>}
+          {closeButton && <StyledFontAwesomeIcon icon={faTimes} onClick={closeModalHandler} />}
         </ModalHeader>
         <ModalText>
           {content}
@@ -20,8 +20,8 @@ export const Modal = ({ closeButton = true, closeModalHandler, content, actions 
       </ModalWindow>
     </ModalOwerlay>,
     document.getElementById('modal-root')
-  );
-};
+  )
+}
 
 const ModalOwerlay = styled.div`
   position: fixed;
@@ -34,7 +34,7 @@ const ModalOwerlay = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-`;
+`
 
 const ModalWindow = styled.div` 
   background-color: #ffffff;
@@ -42,13 +42,13 @@ const ModalWindow = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-width: 30%;
-`;
+`
 
 const ModalHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end; 
-`;
+`
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     font-size: 1.2em;
@@ -66,11 +66,11 @@ const ModalText = styled.div`
   flex-direction: column;
   padding: 15px 20px;
   font-size: 20px;  
-`;
+`
 
 const ModalActions = styled.div`
   display: flex;
   justify-content: space-between;
   align-self: center;
   margin: 25px 0;
-`;
+`
