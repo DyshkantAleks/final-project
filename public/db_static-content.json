@@ -1,0 +1,16 @@
+{
+  "contacts": [
+    {
+      "logo": "/img/logo.png",
+      "phone": "+38 (044) 290 22 44",
+      "email": "office@dan-it.com.ua",
+      "address": "г. Киев, пр-т Павла Тычины, 1в, ТОЦ «Silver Breeze», офис А, 6-й этаж",
+      "instagramLink": "https://www.facebook.com/daniteducation/",
+      "instagramIcon": "/img/icon-instagram.png",
+      "facebookLink": "https://www.instagram.com/daniteducation/",
+      "facebookIcon": "/img/icon-facebook.png",
+      "subtitle": "Интернет-магазин итальянской мебели от лучших производителей",
+
+    }
+  ]
+}

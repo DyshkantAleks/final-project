@@ -1,17 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
-import { selectCart } from '../../store/cart/selectors';
+import { selectCart } from '../../store/cart/selectors'
 import { Button } from '../../components/Button'
-import { Header } from '../../commons/Header/Header';
-import { Title } from '../../components/Title/Title';
-import { device } from '../../styles/breakpoints/breakpoints';
-import { CartItem } from '../Cart/CartItem';
-import { ContentContairer } from '../../components/Content/Content';
+import { Header } from '../../commons/Header/Header'
+import { Title } from '../../components/Title/Title'
+import { device } from '../../styles/breakpoints/breakpoints'
+import { CartItem } from '../Cart/CartItem'
+import { ContentContairer } from '../../components/Content/Content'
+
+// тимчасово
+import {Link} from 'react-router-dom'
+import {ROUTES} from '../navigation/routes';
+// тимчасово
 
 export const CartPage = () => {
-  const cartItems = useSelector(selectCart);
+  const cartItems = useSelector(selectCart)
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
@@ -38,7 +43,8 @@ export const CartPage = () => {
               key={item.product._id}
               cart='true'
             />
-          )}
+          )
+        }
       </CartContainer>
 
       <CartTotalContainer>
@@ -53,7 +59,7 @@ export const CartContainer = styled.div`
 max-width: 120rem;
 margin: 0 auto;
 text-align: center;
-`;
+`
 
 const CartMenu = styled.div`
 background-color: #F5F5F5;
@@ -72,7 +78,7 @@ padding: 0.7rem 1.1rem 0.8rem 7rem;
     color: #007042;
     font-weight: bold;
   };
-`;
+`
 
 const CartTotalContainer = styled.div`
 padding-top: 2rem;
@@ -93,7 +99,7 @@ margin: 0 auto;
   @media ${device.tabletM}{
     justify-content: space-between;
   };
-`;
+`
 
 const CartTotalText = styled.h4`
 font-size: 1.5rem;
@@ -104,4 +110,4 @@ color: #000000;
   @media ${device.tabletM}{
     width: inherit;
   };
-`;
+`

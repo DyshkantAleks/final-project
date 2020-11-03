@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Thumbs, Controller } from 'swiper';
-import 'swiper/swiper-bundle.css';
+import React, { useRef, useEffect } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Navigation, Pagination, Thumbs, Controller } from 'swiper'
+import 'swiper/swiper-bundle.css'
 
-import './productCarousel.scss';
+import './productCarousel.scss'
 import {
   SwiperContainer,
   SwiperThumbs,
@@ -15,13 +15,13 @@ import {
   SwiperContainerHorizontal,
   SwiperGalleryHorizontal,
   SwiperThumbsHorizontal
-} from './StyledProductCarousel';
-import useWindowDimensions from '../../utils/useWindowDimensions';
+} from './StyledProductCarousel'
+import useWindowDimensions from '../../utils/useWindowDimensions'
 
-SwiperCore.use([Navigation, Pagination, Thumbs, Controller]);
+SwiperCore.use([Navigation, Pagination, Thumbs, Controller])
 
 export const ProductCarousel = () => {
-  const { screenWidth } = useWindowDimensions();
+  const { screenWidth } = useWindowDimensions()
 
   const img = [
     './img/chairs/bar/chair_Bontempi/chair_Bontempi_main.png',
@@ -31,13 +31,13 @@ export const ProductCarousel = () => {
     './img/sofas/simple_sofa/sofa_Arketipo_Auto/sofa_Arketipo_Auto4.jpeg',
     './img/chairs/kitchen/chair_Hollywood_Loft/chair1_Hollywood_Loft1.jpg',
     './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo_main.jpg',
-    './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg',
-  ];
+    './img/sofas/simple_sofa/sofa_Arketipo/sofa_Arketipo6.jpg'
+  ]
 
-  const slides = [];
+  const slides = []
   for (let i = 0; i < img.length; i++) {
     slides.push(
-      <SwiperSlide id={'qwer123'} key={`slide-${i}`} tag="li">
+      <SwiperSlide id='qwer123' key={`slide-${i}`} tag='li'>
         <ImageMainContainer>
           <ImageMain src={img[i]} alt={`Slide ${i}`} />
         </ImageMainContainer>
@@ -45,10 +45,10 @@ export const ProductCarousel = () => {
     )
   };
 
-  const thumbs = [];
+  const thumbs = []
   for (let i = 0; i < img.length; i++) {
     thumbs.push(
-      <SwiperSlide id={'qwerty'} key={`thumb-${i}`} tag="li">
+      <SwiperSlide id='qwerty' key={`thumb-${i}`} tag='li'>
         <ImageThumbsContainer>
           <ImageThumbs src={img[i]} alt={`Thumbnail ${i}`} />
         </ImageThumbsContainer>
@@ -56,16 +56,16 @@ export const ProductCarousel = () => {
     )
   };
 
-  const gallerySwiperRef = useRef(null);
-  const thumbsSwiperRef = useRef(null);
+  const gallerySwiperRef = useRef(null)
+  const thumbsSwiperRef = useRef(null)
 
   const gallerySwiperParams = {
     wrapperTag: 'ul',
     navigation: { clickable: true },
     pagination: { clickable: true },
     spaceBetween: 5,
-    grabCursor: true,
-  };
+    grabCursor: true
+  }
 
   const thumbsSwiperParams = {
     wrapperTag: 'ul',
@@ -73,8 +73,8 @@ export const ProductCarousel = () => {
     slidesPerView: 4,
     slideToClickedSlide: true,
     centeredSlides: true,
-    direction: 'vertical',
-  };
+    direction: 'vertical'
+  }
 
   const thumbsSwiperParamsHorizontal = {
     wrapperTag: 'ul',
@@ -82,48 +82,44 @@ export const ProductCarousel = () => {
     slidesPerView: 5,
     slideToClickedSlide: true,
     centeredSlides: true,
-    direction: 'horizontal',
-  };
+    direction: 'horizontal'
+  }
 
   useEffect(() => {
-    const gallerySwiper = gallerySwiperRef.current.swiper;
-    const thumbsSwiper = thumbsSwiperRef.current.swiper;
+    const gallerySwiper = gallerySwiperRef.current.swiper
+    const thumbsSwiper = thumbsSwiperRef.current.swiper
 
     if (gallerySwiper.controller && thumbsSwiper.controller) {
-      gallerySwiper.controller.control = thumbsSwiper;
-      thumbsSwiper.controller.control = gallerySwiper;
+      gallerySwiper.controller.control = thumbsSwiper
+      thumbsSwiper.controller.control = gallerySwiper
     }
-
-  }, [screenWidth]);
-
-
+  }, [screenWidth])
 
   return (
     <>
       {screenWidth >= 768 ? (<SwiperContainer>
         <SwiperThumbs>
-          <Swiper id="thumbs" {...thumbsSwiperParams} ref={thumbsSwiperRef}>
+          <Swiper id='thumbs' {...thumbsSwiperParams} ref={thumbsSwiperRef}>
             {thumbs}
           </Swiper>
         </SwiperThumbs>
         <SwiperGallery>
-          <Swiper id="item" {...gallerySwiperParams} ref={gallerySwiperRef}>
+          <Swiper id='item' {...gallerySwiperParams} ref={gallerySwiperRef}>
             {slides}
           </Swiper>
         </SwiperGallery>
       </SwiperContainer>) : (<SwiperContainerHorizontal>
-        <SwiperGalleryHorizontal>
-          <Swiper id="item" {...gallerySwiperParams} ref={gallerySwiperRef}>
-            {slides}
-          </Swiper>
+                               <SwiperGalleryHorizontal>
+          <Swiper id='item' {...gallerySwiperParams} ref={gallerySwiperRef}>
+                                   {slides}
+                                 </Swiper>
         </SwiperGalleryHorizontal>
-        <SwiperThumbsHorizontal>
-          <Swiper id="thumbs-horizontal" {...thumbsSwiperParamsHorizontal} ref={thumbsSwiperRef}>
-            {thumbs}
-          </Swiper>
+                               <SwiperThumbsHorizontal>
+          <Swiper id='thumbs-horizontal' {...thumbsSwiperParamsHorizontal} ref={thumbsSwiperRef}>
+                                   {thumbs}
+                                 </Swiper>
         </SwiperThumbsHorizontal>
-      </SwiperContainerHorizontal>)
-      }
+      </SwiperContainerHorizontal>)}
     </>
   )
-};
+}

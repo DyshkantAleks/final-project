@@ -1,26 +1,26 @@
-import { CLOSE_MODAL, OPEN_MODAL } from './action-types';
+import { CLOSE_MODAL, OPEN_MODAL } from './action-types'
 
 const initialState = {
-  
+
   isOpenModal: false,
   content: {}
-};
-  
+}
+
 export function reducer (state = initialState, { type, payload }) {
   switch (type) {
     case OPEN_MODAL:
       return {
         ...state,
         content: payload,
-        isOpenModal: true,
-         
-      };
+        isOpenModal: true
+
+      }
     case CLOSE_MODAL:
       return {
         ...state,
-        isOpenModal: false,
-      };
+        isOpenModal: false
+      }
     default:
-      return state;
+      return state
   }
 }

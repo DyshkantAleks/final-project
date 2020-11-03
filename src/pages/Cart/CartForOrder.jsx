@@ -1,16 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { selectCart } from '../../store/cart/selectors';
-import { CartImage } from '../Delivery/CartItem';
-import { CartNameCode } from '../Delivery/CartItem';
-import { CartPrice } from '../Delivery/CartItem';
+import React from 'react'
+import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { selectCart } from '../../store/cart/selectors'
+import { CartImage, CartNameCode, CartPrice } from '../Delivery/CartItem'
 
 // FOR ORDERING - DELETE IN CASE OF UNUSE
 export const CartForOrder = (params) => {
+  const cartItems = useSelector(selectCart)
 
-  const cartItems = useSelector(selectCart);
-  
   return (
     <Container>
       <h3>Товары в корзине</h3>
@@ -25,7 +22,8 @@ export const CartForOrder = (params) => {
             </CartNameCode>
             <CartPrice>{item.price} грн</CartPrice>
           </Item>
-        )}
+        )
+      }
     </Container>
 
   )
@@ -56,4 +54,3 @@ const Item = styled.div`
     width: 100%;
     box-sizing: border-box;
 `
-

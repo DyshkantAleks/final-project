@@ -1,5 +1,13 @@
-import styled from 'styled-components';
-import {device} from '../../../../styles/breakpoints/breakpoints';
+import styled from 'styled-components'
+import { device } from '../../../../styles/breakpoints/breakpoints'
+
+export const AccountName = styled.p`
+margin: 0;
+text-decoration: none;
+color: initial;
+transform: translate(-75%);
+
+`
 
 export const Item = styled.div`
 position:relative;
@@ -16,13 +24,14 @@ margin: 0 .5rem;
         //height: 3rem;
         margin: 0 1rem;
 }
-`;
+`
 
 export const List = styled.ul`
     padding: 0;
     list-style: none;
     display: flex;
     justify-content: flex-end;
+    align-items:flex-start;
     //flex-basis: 40%;
     //order: 0;
     @media ${device.desktop}{

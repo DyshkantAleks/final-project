@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
@@ -26,9 +26,9 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       </CartColor>
       {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>}
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
-      {fav && <Button text="Купить" color="green" />}
+      {fav && <Button text='Купить' color='green' />}
     </CartItemContainer>
-  );
+  )
 }
 
 const CartItemContainer = styled.div`
@@ -54,7 +54,7 @@ const CartItemContainer = styled.div`
           position: static;
           grid-gap: inherit;
           }
-        `;
+        `
 
 const CartImage = styled.img`
 height: auto;
