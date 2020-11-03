@@ -13,7 +13,6 @@ import { closeModal, openModal } from '../../../store/modal/actions-creators'
 import { LoginComponent } from '../../../components/forms/LoginComponent/LoginComponent'
 import { selectModalIsOpen } from '../../../store/modal/selectors'
 
-
 export const AccountInfoList = () => {
   const isLogined = useSelector(selectCustomerIslogined)
   const customerName = useSelector(selectCustomer).name
