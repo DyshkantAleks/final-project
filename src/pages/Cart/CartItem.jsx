@@ -3,16 +3,17 @@ import styled from 'styled-components';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
-import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { useDispatch } from 'react-redux';
 import { removeProductFromCart } from '../../store/cart/middlware.jsx';
 
-export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav, _id }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, _id }) => {
+  
   const dispatch = useDispatch();
   const btnCloseheandler = (id) => {
     dispatch(removeProductFromCart(id))
   };
+  
   return (
     <CartItemContainer>
       <CloseBtnContainer onClick={() => btnCloseheandler(_id)}>{icon.close}</CloseBtnContainer>
@@ -24,14 +25,14 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>}
-      <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
-      {fav && <Button text="Купить" color="green" />}
+      <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>
+       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
+      {/* <CartPrice>{currentPrice} грн</CartPrice> */}
     </CartItemContainer>
   );
 }
 
-const CartItemContainer = styled.div`
+export const CartItemContainer = styled.div`
         align-items: center;
         display: grid;
         padding: 1.7rem;
@@ -50,14 +51,14 @@ const CartItemContainer = styled.div`
         }
 
         @media ${device.tabletS}{
-          grid-template-columns: 2rem 6rem 1fr 1fr 1fr 18%;
+          grid-template-columns: ${props => (props.fav ? '2rem 6rem 1fr 1fr 1fr' : '2rem 6rem 1fr 1fr 1fr 18%')};
           position: static;
           grid-gap: inherit;
           }
         `;
 
-const CartImage = styled.img`
-height: auto;
+export const CartImage = styled.img`
+height: 5rem;
 width: 5rem;
 padding-left: 0.5rem;
 
@@ -67,7 +68,7 @@ grid-row-end: span 3;
 }
 `
 
-const CartNameCode = styled.div`
+export const CartNameCode = styled.div`
 text-align: left;
 
 h4 {
@@ -93,7 +94,7 @@ margin: 0;
 }
 `
 
-const CartColor = styled.p`
+export const CartColor = styled.p`
 font-family: Open Sans;
 color: #000000;
 
@@ -116,7 +117,7 @@ color: #000000;
   }
 `
 
-const CartPrice = styled.p`
+export const CartPrice = styled.p`
 font-weight: bold;
 font-family: inherit;
 color: #000000;
@@ -134,7 +135,7 @@ color: #000000;
   font-size: 14px;
 }
 `
-const CloseBtnContainer = styled.div`
+export const CloseBtnContainer = styled.div`
 width: 2rem;
 height: 2rem;
 fill: #A0A9AF;

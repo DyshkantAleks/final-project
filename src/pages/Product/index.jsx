@@ -19,11 +19,13 @@ import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated
 import { Footer } from '../../commons/Footer';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
+import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
+import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductPage = (props) => {
   const { match } = props;
   const { screenWidth } = useWindowDimensions();
-  const [inFavorite, toggleInFavorite] = useToggle();
+  //const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1);
@@ -58,6 +60,18 @@ export const ProductPage = (props) => {
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }
+
+  const productinFavorite = useSelector(selectFavorites);
+  const inFavorite = productinFavorite.map(itemFav => itemFav.product._id).some(itemId => itemId === match.id)
+
+  const addToFav = (product) => {
+    dispatch(addProductToFav(product))
+  }
+
+  const removeFromFav = (product) => {
+    dispatch(removeProductFromFav(product))
+  }
+
   return (
     <>
       <Header />
@@ -90,8 +104,9 @@ export const ProductPage = (props) => {
                     <IconContainer>
                       <IconTopRated />
                     </IconContainer>}
-                  {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}
-                  {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />}
+                  {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)}/>}
+                  {/* {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />} */}
+                  {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product)}/>}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
                   <AvailabilityArticleWrap>
                     <Availability>&#10004; в наличии</Availability>

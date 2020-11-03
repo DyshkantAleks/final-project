@@ -42,7 +42,6 @@ export const CartPage = () => {
               {...item.product}
               cartQuantity={item.cartQuantity}
               key={item.product._id}
-              cart='true'
             />
           )}
       </CartContainer>
