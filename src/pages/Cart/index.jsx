@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { selectCart } from '../../store/cart/selectors'
 import { Button } from '../../components/Button'
@@ -10,14 +10,29 @@ import { device } from '../../styles/breakpoints/breakpoints'
 import { CartItem } from '../Cart/CartItem'
 import { ContentContairer } from '../../components/Content/Content'
 
+// тимчасово
+import {Link} from 'react-router-dom'
+import {ROUTES} from '../navigation/routes';
+
+import { getCart } from '../../store/cart/middlware'
+// тимчасово
+
 export const CartPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCart());
+  }, [dispatch]);
+  
   const cartItems = useSelector(selectCart)
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
   }, 0)
+  const sumQuantity = cartItems.reduce(function (sum, current) {
+    return sum + current.cartQuantity
+  }, 0)
 
-  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена']
+  const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
     <ContentContairer>
       <Header />
@@ -32,7 +47,7 @@ export const CartPage = () => {
             <CartItem
               {...item.product}
               cartQuantity={item.cartQuantity}
-              key={item.id}
+              key={item.product._id}
               cart='true'
             />
           )
@@ -40,8 +55,8 @@ export const CartPage = () => {
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Button text='Оформить покупку' color='green' />
+        <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+        <Button text="Оформить покупку" color="green" />
       </CartTotalContainer>
     </ContentContairer>
   )

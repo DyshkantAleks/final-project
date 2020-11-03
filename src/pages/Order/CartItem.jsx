@@ -1,21 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Button } from '../../components/Button'
+import { device } from '../../styles/breakpoints/breakpoints'
 
-import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
-import { Counter } from '../../components/Counter';
-import { Button } from '../../components/Button';
-import { device } from '../../styles/breakpoints/breakpoints';
-import { useDispatch } from 'react-redux';
-import { removeProductFromCart } from '../../store/cart/middlware.jsx';
-
-export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav, _id }) => {
-  const dispatch = useDispatch();
-  const btnCloseheandler = (id) => {
-    dispatch(removeProductFromCart(id))
-  };
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav }) => {
   return (
     <CartItemContainer>
-      <CloseBtnContainer onClick={() => btnCloseheandler(_id)}>{icon.close}</CloseBtnContainer>
+      <CloseBtnContainer></CloseBtnContainer>
       <CartImage src={imageUrl[0]} />
       <CartNameCode>
         <h4>{name}</h4>
@@ -24,7 +15,9 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>}
+      <cartQuantity>
+        <h4>{cartQuantity}</h4>
+      </cartQuantity>
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {fav && <Button text='Купить' color='green' />}
     </CartItemContainer>
@@ -134,6 +127,7 @@ color: #000000;
   font-size: 14px;
 }
 `
+
 const CloseBtnContainer = styled.div`
 width: 2rem;
 height: 2rem;

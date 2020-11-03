@@ -9,6 +9,11 @@ import 'antd/dist/antd.css'
 import { List } from './StyledAccountInfo'
 import { useHistory } from 'react-router-dom'
 import useWindowDimensions from '../../../utils/useWindowDimensions'
+import { ROUTES } from '../../../pages/navigation/routes'
+import { Modal } from '../../../components/Modal'
+import { closeModal, openModal } from '../../../store/modal/actions-creators'
+import { LoginComponent } from '../../../components/forms/LoginComponent/LoginComponent'
+import { selectModalIsOpen } from '../../../store/modal/selectors'
 
 export const AccountInfoList = () => {
   const { screenWidth } = useWindowDimensions()
@@ -21,12 +26,26 @@ export const AccountInfoList = () => {
     }
     history.push(`/search?query=${value}`)
   }
+  const isLogined = useSelector(selectCustomerIslogined)
+  const customerName = useSelector(selectCustomer).name
+  const isOpenModal = useSelector(selectModalIsOpen)
+  const dispatch = useDispatch()
+
+  const handler = () => {
+    if (isLogined) {
+      history.push(ROUTES.ACCOUNT)
+    } else {
+      dispatch(openModal())
+    }
+  }
   return (
     <List>
       {screenWidth >= 1200 && (
         <Search enterbutton='true' onSearch={onSearch} placeholder='Найти товар по названию' />
       )}
-      <HeaderAccount />
+      <HeaderAccount
+          clickHandler={handler}
+          customerName={customerName}/>
       <HeaderFavorites />
       <HeaderCart />
     </List>

@@ -18,6 +18,7 @@ import { ProductPage } from '../Product'
 import { PromotionsSinglePage } from '../PromotionsSingle'
 import { ProductListPage } from '../ProductList/ProductListPage'
 import { SearchPage } from '../Search'
+import { OrderPage } from '../Order'
 
 export const Navigation = () => (
   <Router>
@@ -27,6 +28,7 @@ export const Navigation = () => (
       <Route exact path={ROUTES.PROMOTIONS} component={PromotionsPage} />
       <Route exact path={ROUTES.STORES} component={StoresPage} />
       <Route exact path={ROUTES.CART} component={CartPage} />
+      <Route exact path={ROUTES.ORDER} component={OrderPage} />
       <Route exact path={ROUTES.FAVORITES} component={FavoritesPage} />
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path='/promo/:route' component={PromotionsSinglePage} />

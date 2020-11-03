@@ -40,6 +40,9 @@ export const ProductListPage = ({ match, location }) => {
               id={e._id}
               isNewProduct={e.isNewProduct}
               isTopRated={e.isTopRated}
+              isSale={e.isSale}
+              previousPrice={e.previousPrice}
+              product={e}
             />
           ))}
         </ProductItemList>
