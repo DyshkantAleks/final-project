@@ -1,21 +1,19 @@
 import { SET_CUSTOMER } from './action-types';
 
 const initialState = {
-  firstName: 'Пользователь',
-  lastName: '',
-  login: '',
-  email: '',
-  password: '',
-  telephone: '',
-  gender: '',
-  avatarUrl: ''
+  customer:{
+    name: 'Пользователь'
+  },
+  isLogined: false
+ 
 };
 export function reducer (state = initialState, { type, payload }) {
   switch (type) {
     case SET_CUSTOMER:
       return {
         ...state,
-        ...payload,
+        customer: {...state.customer, ...payload},
+        isLogined: true
       };
     default:
       return state

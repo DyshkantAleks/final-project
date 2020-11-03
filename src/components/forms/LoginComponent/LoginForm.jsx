@@ -49,14 +49,7 @@ export const LoginForm = props => {
         />
       </Form.Item>
       <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Запомнить меня</Checkbox>
-        </Form.Item>
-      </Form.Item>
-
-      <Form.Item>
         <Button text='Войти' type="submit"></Button>
-        <span>Или</span> <a href="">register now!</a> 
       </Form.Item>
     </Form>
   );
