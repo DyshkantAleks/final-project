@@ -1,6 +1,8 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import { MODULE_NAME as modalModuleName } from './modal/selectors'
 import { reducer as modalReducer } from './modal/reducer'
@@ -19,12 +21,17 @@ import { reducer as authReducer } from './auth/reducer'
 import { MODULE_NAME as customerModuleName } from './customer/slectors'
 import { reducer as customerReducer } from './customer/reducer'
 
-import { MODULE_NAME as categoriesModuleName } from './categories/selectors'
-import { reducer as categoriesReducer } from './categories/reducer'
+import { MODULE_NAME as categoriesModuleName } from './categories/selectors';
+import { reducer as categoriesReducer } from './categories/reducer';
+
+const persistConfig = {
+  key: 'cart',
+  storage,
+}
 
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
-  [cartModuleName]: cartReducer,
+  [cartModuleName]: persistReducer(persistConfig, cartReducer),
   [authModuleName]: authReducer,
   [productsModuleName]: productReducer,
   [promotionsModuleName]: promotionsReducer,
@@ -33,4 +40,5 @@ const rootReducer = combineReducers({
   [customerModuleName]: customerReducer
 });
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+export const persistor = persistStore(store);
