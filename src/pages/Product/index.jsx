@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
@@ -16,10 +16,10 @@ import { ProductSlider } from '../../components/ProductSlider';
 import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
-import { Footer } from "../../commons/Footer";
-import { selectCart } from '../../store/cart/selectors';
+import { Footer } from '../../commons/Footer';
 import { NewProductsList } from '../../components/NewProducts/NewProductsList';
-
+import { selectCart } from '../../store/cart/selectors';
+import { addProductToCart } from '../../store/cart/middlware';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -27,9 +27,10 @@ export const ProductPage = (props) => {
   const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
-  const [value, setValue] = useState(1) // myronets
+  const [value, setValue] = useState(1);
   const product = useSelector(selectByRoute(match.params.route));
   const productInCart = useSelector(selectCart);
+  const dispatch = useDispatch();
 
   const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
 
@@ -55,6 +56,9 @@ export const ProductPage = (props) => {
     )
   }
 
+  const btnHeandler = (product, quantity) => {
+    dispatch(addProductToCart(product, quantity))
+  }
   return (
     <>
       <Header />
@@ -75,18 +79,6 @@ export const ProductPage = (props) => {
                     <PriceContainer>
                       <Price>{product.currentPrice.toLocaleString()}</Price>
                     </PriceContainer>}
-                  {/* {product.isSale &&
-                    <IconContainer>
-                      <IconSale />
-                    </IconContainer>}
-                  {product.isNewProduct &&
-                    <IconContainer>
-                      <IconNew />
-                    </IconContainer>}
-                  {product.isTopRated &&
-                    <IconContainer>
-                      <IconTopRated />
-                    </IconContainer>} */}
                   {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}
                   {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
@@ -127,11 +119,10 @@ export const ProductPage = (props) => {
                     </>}
                   <ActionsContainer>
                     <Actions>
-                      <ProductCounter value={value} setValue={setValue} />
+                      <ProductCounter value={value} setValue={setValue} quantity={product.quantity} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> : <Button width={'12rem'} color={'#7191A6'} text={'Купить'}
-                      />}
+                      {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> : <Button width={'12rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)}/>}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>
@@ -161,4 +152,4 @@ export const ProductPage = (props) => {
       <Footer />
     </>
   )
-}
+};

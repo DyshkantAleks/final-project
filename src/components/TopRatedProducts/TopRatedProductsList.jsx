@@ -21,7 +21,9 @@ export const TopRatedProductsList = () => {
               image={e.imageUrl[0]}
               key={index}
               route={e.route}
-              id={e._id} />
+              id={e._id}
+              product={e}
+            />
           ))
         }
       </ProductItemList>

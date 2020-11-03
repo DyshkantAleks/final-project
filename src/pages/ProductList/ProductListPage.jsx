@@ -14,16 +14,15 @@ export const ProductListPage = ({ match, location }) => {
 
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route))
 
-  const allProducts = useSelector(selectProducts)
-
-  let array = []
+  const allProducts = useSelector(selectProducts);
+  let array = [];
   if (currentItemByRoute) {
-    const isRootCategory = currentItemByRoute.parentId === 'null'
+    const isRootCategory = currentItemByRoute.parentId === 'null';
     array = allProducts.filter(e => isRootCategory
       ? e.category === currentItemByRoute.category
       : e.subCategory === currentItemByRoute.category
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -42,6 +41,7 @@ export const ProductListPage = ({ match, location }) => {
               isTopRated={e.isTopRated}
               isSale={e.isSale}
               previousPrice={e.previousPrice}
+              product={e}
             />
           ))}
         </ProductItemList>
