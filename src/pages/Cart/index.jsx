@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { selectCart } from '../../store/cart/selectors'
 import { Button } from '../../components/Button'
@@ -13,16 +13,9 @@ import { ContentContairer } from '../../components/Content/Content'
 // тимчасово
 import {Link} from 'react-router-dom'
 import {ROUTES} from '../navigation/routes';
-
-import { getCart } from '../../store/cart/middlware'
 // тимчасово
 
 export const CartPage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCart());
-  }, [dispatch]);
-  
   const cartItems = useSelector(selectCart)
 
   const sumCart = cartItems.reduce(function (sum, current) {

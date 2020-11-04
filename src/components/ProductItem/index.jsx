@@ -19,7 +19,7 @@ export const ProductItem = (props) => {
   const [inFavorite, toggleInFavorite] = useToggle();
 
   const productInCart = useSelector(selectCart)
-
+  console.log(productInCart);
   const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id)
 
   const btnHeandler = (product, quantity) => {

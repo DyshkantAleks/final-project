@@ -6,7 +6,9 @@ const updateCart = async (state) => {
   
   if (customer.isLogined) {
     if (state.cart.cart.length > 0) {
-      const productsInCart = state.cart.cart.map(item => { return {product: item.product._id, cartQuantity: item.cartQuantity} });
+      const productsInCart = state.cart.cart.map(item => {
+        return {product: item.product._id, cartQuantity: item.cartQuantity}
+      });
       const updatedCart = {products: productsInCart}
       try {
         await server.put('/cart', updatedCart)
@@ -19,7 +21,7 @@ const updateCart = async (state) => {
 
 function unique (arr) {
   const res = new Map();
-  return arr.filter((a) => !res.has(a._id) && res.set(a._id, 1))
+  return arr.filter((a) => !res.has(a.product._id) && res.set(a.product._id, 1))
 };
 
 export const getCart = () => async (dispatch, getState) => {
@@ -31,10 +33,11 @@ export const getCart = () => async (dispatch, getState) => {
       const {status, data} = await server.get('/cart')
       if (status === 200) {
         const sumTwoCart = [...state.cart.cart, ...data.products];
+        console.log(sumTwoCart)
         const result = unique(sumTwoCart)
         dispatch(setCart(result));
         const newState = getState();
-        updateCart(newState);
+        await updateCart(newState);
       }
     } catch (error) {
       console.log(error)
@@ -48,10 +51,18 @@ export const addProductToCart = (productItem, quantity) => (dispatch, getState) 
   updateCart(state);
 }
 
-export const removeProductFromCart = (productId) => (dispatch, getState) => {
+export const removeProductFromCart = (productId) => async (dispatch, getState) => {
   dispatch(removeFromCart(productId));
   const state = getState();
-  updateCart(state);
+  const {customer} = state;
+  
+  if (customer.isLogined) {
+    try {
+      await server.delete(`/cart/${productId}`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 };
 
 export const increaseQuantity = (productId) => (dispatch, getState) => {
