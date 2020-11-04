@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectCart } from '../../store/cart/selectors'
-import { Button } from '../../components/Button'
-import { Header } from '../../commons/Header/Header'
-import { Title } from '../../components/Title/Title'
-import { device } from '../../styles/breakpoints/breakpoints'
-import { CartItem } from '../Cart/CartItem'
-import { ContentContairer } from '../../components/Content/Content'
+import { selectCart } from '../../store/cart/selectors';
+import { Button } from '../../components/Button';
+import { Header } from '../../commons/Header/Header';
+import { Title } from '../../components/Title/Title';
+import { device } from '../../styles/breakpoints/breakpoints';
+import { CartItem } from '../Cart/CartItem';
+import { ContentContairer } from '../../components/Content/Content';
 
 // тимчасово
 import {Link} from 'react-router-dom'
@@ -16,6 +16,10 @@ import {ROUTES} from '../navigation/routes';
 
 import { getCart } from '../../store/cart/middlware'
 // тимчасово
+
+import {Link} from 'react-router-dom'
+import {ROUTES} from '../navigation/routes';
+
 
 export const CartPage = () => {
   const dispatch = useDispatch();
@@ -55,8 +59,8 @@ export const CartPage = () => {
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Button text="Оформить покупку" color="green" />
+        <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+        <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
       </CartTotalContainer>
     </ContentContairer>
   )
@@ -66,7 +70,7 @@ export const CartContainer = styled.div`
 max-width: 120rem;
 margin: 0 auto;
 text-align: center;
-`
+`;
 
 const CartMenu = styled.div`
 background-color: #F5F5F5;
@@ -85,7 +89,7 @@ padding: 0.7rem 1.1rem 0.8rem 7rem;
     color: #007042;
     font-weight: bold;
   };
-`
+`;
 
 const CartTotalContainer = styled.div`
 padding-top: 2rem;
@@ -106,7 +110,7 @@ margin: 0 auto;
   @media ${device.tabletM}{
     justify-content: space-between;
   };
-`
+`;
 
 const CartTotalText = styled.h4`
 font-size: 1.5rem;
@@ -117,4 +121,4 @@ color: #000000;
   @media ${device.tabletM}{
     width: inherit;
   };
-`
+`;

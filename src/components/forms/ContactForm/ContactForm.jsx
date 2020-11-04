@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Form, Input, Tooltip, Select, AutoComplete} from 'antd';
 import { Button } from '../../Button';
+import { RadioGroup } from './Radio';
+import styled from 'styled-components'
 
 const { Option } = Select;
-
 
 export const ContactForm = (props) => {
   const {
@@ -25,7 +26,6 @@ export const ContactForm = (props) => {
   );
 
   return (
-
     <Form
       name='order'
       form={form}
@@ -33,9 +33,13 @@ export const ContactForm = (props) => {
       initialValues={{
         prefix: '+380',
       }}
-      style={style}
-    >
-
+      style={{
+        'margin-right': '1em',
+        'margin-bottom': '1em'
+      }}
+      >
+      <Text>Пожалуйста, заполните форму</Text>
+      <Text>Выберите форму доставки и оплаты</Text>
 
       <Form.Item
         name='name'
@@ -47,9 +51,8 @@ export const ContactForm = (props) => {
           }
         ]}>
         <Input/>
-        
-      </Form.Item>
 
+      </Form.Item>
 
       <Form.Item
         name='email'
@@ -68,7 +71,6 @@ export const ContactForm = (props) => {
         <Input/>
       </Form.Item>
 
-
       <Form.Item
         name='phone'
         label='Телефон'
@@ -76,16 +78,14 @@ export const ContactForm = (props) => {
       >
         <Input addonBefore={prefixSelector}/>
       </Form.Item>
-
-     
+      <RadioGroup title ="Способ доставки" b1 = "Курьером домой" b2 = "Самовывоз"/>
+      <RadioGroup title ="Способ оплаты" b1 = "Банковской картой онлайн" b2 = "Наличными или картой при получении"/>
       <Button text='Подтвердить заказ' type='submit'></Button>
     </Form>
-  
   );
 };
 
-let style = {
-  width: '45em',
-  'margin-left': '5em'
-
-};
+const Text = styled.p`
+font-size: 1.4rem;
+line-height: 1.5;
+`
