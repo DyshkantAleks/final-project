@@ -272,14 +272,3 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 `;
-
-export const IconContainer = styled.div`
-/* display: none; */
-display: block;
-    @media ${device.tabletS}{
-        display: block;
-        /* position: absolute;
-        top: 6rem;
-        right: 14.2rem; */
-    };
-`;

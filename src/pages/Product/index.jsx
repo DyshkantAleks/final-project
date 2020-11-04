@@ -7,7 +7,7 @@ import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, IconContainer, SubtitleBox } from './StyledProductPage';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from './StyledProductPage';
 import { RegularIconFavorite } from '../../components/ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../../components/ProductItem/IconsSvg/SolidIconFavorite';
 import useWindowDimensions from '../../utils/useWindowDimensions';
@@ -20,6 +20,7 @@ import { Footer } from '../../commons/Footer';
 import { NewProductsList } from '../../components/NewProducts/NewProductsList';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
+import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -62,6 +63,7 @@ export const ProductPage = (props) => {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <ContentContairer>
         {
           product && (
@@ -89,18 +91,9 @@ export const ProductPage = (props) => {
                   </AvailabilityArticleWrap>
                   <SubtitleBox>
                     <Subtitle>Описание товара</Subtitle>
-                    {product.isSale &&
-                      <IconContainer>
-                        <IconSale />
-                      </IconContainer>}
-                    {product.isNewProduct &&
-                      <IconContainer>
-                        <IconNew />
-                      </IconContainer>}
-                    {product.isTopRated &&
-                      <IconContainer>
-                        <IconTopRated />
-                      </IconContainer>}
+                    {product.isSale && <IconSale />}
+                    {product.isNewProduct && <IconNew />}
+                    {product.isTopRated && <IconTopRated />}
                   </SubtitleBox>
                   <Description>{product.description}</Description>
                   {screenWidth >= 768 ?
