@@ -46,8 +46,8 @@ const HeaderContainer = styled.div`
         @media ${device.desktop}{
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
-        padding: 3rem 0;
+        align-items: center;
+        padding: 4rem 0;
         width: 120rem;
         margin: 0 auto;
         }

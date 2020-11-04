@@ -19,6 +19,11 @@
     right: -3rem;
 }
 
+.product-slider>.slick-dots li button:before {
+    font-size: 1rem;
+    color: #6F7281;
+}
+
 .vertical-thumbs>.slick-list>.slick-track {
     height: 45rem !important;
 }

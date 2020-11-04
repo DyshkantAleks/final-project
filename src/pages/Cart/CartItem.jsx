@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';

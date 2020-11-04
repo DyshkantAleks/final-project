@@ -4,7 +4,7 @@ const InitialState = {
   cart: []
 };
 
-export function reducer (state = InitialState, { type, payload }) {
+export function reducer(state = InitialState, { type, payload }) {
   switch (type) {
     case SET_CART:
       return {
@@ -33,7 +33,7 @@ export function reducer (state = InitialState, { type, payload }) {
           }
           return item
         })
-      }
+      };
 
     case QTY_DOWN:
       return {
@@ -44,7 +44,7 @@ export function reducer (state = InitialState, { type, payload }) {
           }
           return item
         })
-      }
+      };
 
     default:
       return state

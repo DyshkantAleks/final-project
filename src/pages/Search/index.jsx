@@ -2,34 +2,32 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { selectCategoryFromRoute } from '../../store/categories/selectors';
-import { ProductItem } from '../../components/ProductItem';
-import { ContentContairer } from '../../components/Content/Content';
-import { ProductItemList } from '../Product/StyledProductPage';
 import { Footer } from '../../commons/Footer';
+import { selectProducts } from '../../store/products_draft/selectors';
+import { ProductItem } from '../../components/ProductItem';
+import { ProductItemList } from '../Product/StyledProductPage';
+import { ContentContairer } from '../../components/Content/Content';
 
-export const ProductListPage = ({ match }) => {
-  const { params: { route } } = match
-
-  const currentItemByRoute = useSelector(selectCategoryFromRoute(route))
-
-  const allProducts = useSelector(selectProducts);
-  let array = [];
-  if (currentItemByRoute) {
-    const isRootCategory = currentItemByRoute.parentId === 'null';
-    array = allProducts.filter(e => isRootCategory
-      ? e.category === currentItemByRoute.category
-      : e.subCategory === currentItemByRoute.category
-    );
-  };
-
+export const SearchPage = ({ match, location }) => {
+  const allProducts = useSelector(selectProducts)
+  // console.log(allProducts)
+  const queryString = require('query-string')
+  const parsed = queryString.parse(location.search)
+  // console.log(parsed.query)
+  const searchArray = allProducts.filter(e => e.name.toLowerCase().includes(parsed.query.toLowerCase()))
+  // console.log(searchArray)
   return (
     <>
       <Header />
       <ContentContairer>
+        {searchArray.length > 0 && (
+          <h2>Результат поиска по запросу "{parsed.query}"</h2>
+        )}
+        {searchArray.length < 1 && (
+          <h1>По запросу "{parsed.query}" ничего не найдено</h1>
+        )}
         <ProductItemList>
-          {array.map((e, index) => (
+          {searchArray.map((e, index) => (
             <ProductItem
               key={index}
               name={e.name}
@@ -49,4 +47,4 @@ export const ProductListPage = ({ match }) => {
       <Footer />
     </>
   )
-};
+}
