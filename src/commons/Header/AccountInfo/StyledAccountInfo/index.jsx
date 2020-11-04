@@ -58,17 +58,3 @@ export const CartCounter = styled.div`
   align-items: center;
   justify-content: center;
 `
-export const CartCounter = styled.div`
-  position:absolute;  
-  top:-0.5rem;
-  right:-0.5rem;
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  background-color: #7191A6;
-  color: #ffffff;
-  font-weight: bold; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`

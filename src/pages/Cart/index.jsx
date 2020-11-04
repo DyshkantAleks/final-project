@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import {Link} from 'react-router-dom';
 
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
@@ -9,13 +10,9 @@ import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
+import {ROUTES} from '../navigation/routes';
 
 export const CartPage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCart());
-  }, [dispatch]);
-  
   const cartItems = useSelector(selectCart)
 
   const sumCart = cartItems.reduce(function (sum, current) {
@@ -49,7 +46,7 @@ export const CartPage = () => {
 
       <CartTotalContainer>
         <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Button text="Оформить покупку" color="green" />
+        <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
       </CartTotalContainer>
     </ContentContairer>
   )
