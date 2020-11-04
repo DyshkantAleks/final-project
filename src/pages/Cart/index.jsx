@@ -17,6 +17,10 @@ import {ROUTES} from '../navigation/routes';
 import { getCart } from '../../store/cart/middlware'
 // тимчасово
 
+import {Link} from 'react-router-dom'
+import {ROUTES} from '../navigation/routes';
+
+
 export const CartPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -55,8 +59,8 @@ export const CartPage = () => {
       </CartContainer>
 
       <CartTotalContainer>
-        <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Button text="Оформить покупку" color="green" />
+        <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+        <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
       </CartTotalContainer>
     </ContentContairer>
   )
