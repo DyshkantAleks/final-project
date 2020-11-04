@@ -18,11 +18,8 @@ export const OrderPage = () => {
       <OrderCart/>
       </ContainerPage>
     </ContentContairer>
-
-    
   )
 }
-
 
 const ContainerPage = styled.div`
 display: flex;

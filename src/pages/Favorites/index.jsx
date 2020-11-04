@@ -19,8 +19,9 @@ export const FavoritesPage = () => {
     dispatch(getProductList())
   }, [dispatch])
 
-  const favorites = useSelector(selectFavorites)
-  const products = useSelector(selectProducts)
+  const favorites = useSelector(selectFavorites);
+  const products = useSelector(selectProducts);
+
 
   return (
     <ContentContairer>

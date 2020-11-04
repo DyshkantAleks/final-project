@@ -4,8 +4,8 @@ import {Form, Input, Tooltip, Select, AutoComplete} from 'antd';
 import { Button } from '../../Button';
 import { RadioGroup } from './Radio';
 import styled from 'styled-components'
-const { Option } = Select;
 
+const { Option } = Select;
 
 export const ContactForm = (props) => {
   const {
@@ -40,6 +40,7 @@ export const ContactForm = (props) => {
       >
       <Text>Пожалуйста, заполните форму</Text>
       <Text>Выберите форму доставки и оплаты</Text>
+
       <Form.Item
         name='name'
         label='Имя'
@@ -50,7 +51,9 @@ export const ContactForm = (props) => {
           }
         ]}>
         <Input/>
+
       </Form.Item>
+
       <Form.Item
         name='email'
         label='E-mail'
@@ -67,6 +70,7 @@ export const ContactForm = (props) => {
       >
         <Input/>
       </Form.Item>
+
       <Form.Item
         name='phone'
         label='Телефон'

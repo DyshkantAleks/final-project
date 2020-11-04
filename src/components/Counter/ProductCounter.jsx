@@ -1,16 +1,9 @@
-import React from 'react'
-// import { useSelector } from 'react-redux';
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-// import { selectProducts } from '../../store/products_draft/selectors';
-// import { getQuantity } from '../../utils/getQuantity';
-
-export const ProductCounter = ({ id, value, setValue }) => {
-//   const products = useSelector(selectProducts);
-//   const quantity = getQuantity(products, id)
-
+export const ProductCounter = ({ quantity, value, setValue }) => {
   const increaseQty = () => {
-    if (value < 10) { // quantity
+    if (value < quantity) {
       setValue(value + 1)
     }
   }
