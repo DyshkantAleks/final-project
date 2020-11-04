@@ -20,19 +20,19 @@ export const LoginComponent = props => {
   
   return (
     <div>
-      {registered && <LoginForm handleSubmit={({login, password}) => {
+      {!registered && <LoginForm handleSubmit={({login, password}) => {
         dispatch(auth(login, password, history))
         dispatch(closeModal())
       }
       }/>}
-      {!registered && <RegisterForm handleSubmit={(values) => {
+      {registered && <RegisterForm handleSubmit={(values) => {
         dispatch(registerCustomer(values))
         setRegistered(true)
       }
       }/>}
       
       {error && <ErrorsField errorText='Ошибка ввода. Повторите ввод данных!'/>}
-      <Checkbox checked={registered} onClick={() => setRegistered(!registered)}>У меня уже есть аккаунт</Checkbox>
+      <Checkbox checked={registered} onClick={() => setRegistered((val) => !val)}>Я новый пользователь</Checkbox>
     </div>
   )
 }

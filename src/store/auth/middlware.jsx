@@ -22,7 +22,7 @@ export const auth = (login, password, history) => async (dispatch, getState) => 
       if (status === 200) {
         dispatch(setCustomer(customerData))
       }
-      history.push(ROUTES.HOMEPAGE);
+      history.goBack();
     }
     
     console.log(status, data)

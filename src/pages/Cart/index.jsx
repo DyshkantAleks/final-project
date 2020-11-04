@@ -9,17 +9,10 @@ import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
-
 // тимчасово
 import {Link} from 'react-router-dom'
 import {ROUTES} from '../navigation/routes';
-
 import { getCart } from '../../store/cart/middlware'
-// тимчасово
-
-import {Link} from 'react-router-dom'
-import {ROUTES} from '../navigation/routes';
-
 
 export const CartPage = () => {
   const dispatch = useDispatch();

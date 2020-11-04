@@ -6,7 +6,7 @@ import {
   Input,
   Tooltip,
   Select,
-  AutoComplete,
+ 
 } from 'antd';
 import { Button } from '../../Button';
 import { QuestionCircleOutlined } from '@ant-design/icons';
@@ -15,11 +15,13 @@ const { Option } = Select;
 
 
 export const RegisterForm = (props) => {
+
   const {
     handleSubmit
   } = props;
   const dispatch = useDispatch();
   const [form] = Form.useForm();
+ 
  
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
@@ -33,6 +35,8 @@ export const RegisterForm = (props) => {
   );
   return (
     <Form
+     
+      layout="vertical"
       name='register'
       form={form}
       onFinish={handleSubmit}
@@ -41,6 +45,7 @@ export const RegisterForm = (props) => {
       }}
     >
       <Form.Item
+       
         name='name'
         label='Имя'
         rules={[
@@ -159,7 +164,9 @@ export const RegisterForm = (props) => {
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
      
-      <Button text='Зарегистрироваться' type='submit'></Button>
+      <div style={{textAlign:"center"}}>
+        <Button text='Зарегистрироваться' type='submit'></Button>
+      </div>
     </Form>
   );
 };

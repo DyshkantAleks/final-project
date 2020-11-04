@@ -18,7 +18,7 @@ import { AccountPage } from '../Account'
 import { ProductPage } from '../Product'
 import { PromotionsSinglePage } from '../PromotionsSingle'
 import { ProductListPage } from '../ProductList/ProductListPage'
-
+import {SearchPage} from '../Search/index'
 export const Navigation = () => (
   <Router>
     <Switch>
