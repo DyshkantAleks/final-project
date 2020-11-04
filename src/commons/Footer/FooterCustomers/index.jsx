@@ -1,9 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { ROUTES } from '../../../pages/navigation/routes'
-import styled from 'styled-components'
-import { Container, StyledLink, Title } from '../StyledFooter'
-import useWindowDimensions from '../../../utils/useWindowDimensions'
+import React from 'react';
+
+import { ROUTES } from '../../../pages/navigation/routes';
+import { Container, StyledLink, Title } from '../StyledFooter';
+import useWindowDimensions from '../../../utils/useWindowDimensions';
 
 export const FooterCustomers = () => {
   const { screenWidth } = useWindowDimensions()
@@ -24,4 +23,4 @@ export const FooterCustomers = () => {
       )}
     </Container>
   )
-}
+};

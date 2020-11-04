@@ -100,7 +100,7 @@ height: 4rem;
     @media ${device.desktop}{
         height: 4rem;
     }
-`
+`;
 
 export const Name = styled.span`
 font-size: 1.4rem;
@@ -109,7 +109,7 @@ cursor: pointer;
     @media ${device.tabletS}{
         font-size: 1.6rem;
     };
-`
+`;
 
 export const PriceContainer = styled.div`
 display: flex;
@@ -129,7 +129,7 @@ height: 3rem;
         width: 95%;
         height: 3rem;
     };
-`
+`;
 
 export const PreviousPrice = styled.span`
 font-size: 2rem;
@@ -153,7 +153,7 @@ text-decoration: line-through;
                 font-weight: 700;
         };
     };
-`
+`;
 
 export const CurrentPrice = styled.span`
 font-size: 2.5rem;
@@ -175,7 +175,7 @@ color: #8D145E;
                 font-weight: 700;
         };
     };
-`
+`;
 
 export const Price = styled.span`
 font-size: 2.5rem;
@@ -198,12 +198,12 @@ color: #6F7281;
                 font-weight: 700;
         };
     };
-`
+`;
 
 export const ItemFavoriteContainer = styled.div`
 position: absolute;
 top: .5rem;
-right: 1.4rem;
+right: 1.2rem;
 width: 2.5rem;
 height: 2.5rem;
 cursor: pointer;
@@ -212,12 +212,15 @@ transition: all .3s linear;
     &:hover{
         transform:scale(1.2);
     };
-`
+    @media ${device.desctop}{
+        right: 2.2rem;
+    };
+`;
 
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #333333;
-`
+`;
 
 export const ButtonContainer = styled.div`
 display: flex;
