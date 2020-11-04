@@ -17,7 +17,7 @@ export function reducer (state = InitialState, { type, payload }) {
       return {
         ...state,
         favorites: [...state.favorites, payload]
-      };
+      }
 
     case REMOVE_FROM_FAVORITES:
       return {

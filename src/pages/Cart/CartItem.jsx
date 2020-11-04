@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
@@ -13,7 +13,6 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
   const btnCloseheandler = (id) => {
     dispatch(removeProductFromCart(id))
   };
-  
   return (
     <CartItemContainer>
       <CloseBtnContainer onClick={() => btnCloseheandler(_id)}>{icon.close}</CloseBtnContainer>
@@ -29,7 +28,7 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
        <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {/* <CartPrice>{currentPrice} грн</CartPrice> */}
     </CartItemContainer>
-  );
+  )
 }
 
 export const CartItemContainer = styled.div`
@@ -55,7 +54,7 @@ export const CartItemContainer = styled.div`
           position: static;
           grid-gap: inherit;
           }
-        `;
+        `
 
 export const CartImage = styled.img`
 height: 5rem;

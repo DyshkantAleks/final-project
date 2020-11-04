@@ -6,7 +6,7 @@ export const ProductCounter = ({ quantity, value, setValue }) => {
     if (value < quantity) {
       setValue(value + 1)
     }
-  };
+  }
   const decreaseQty = () => {
     if (value > 1) {
       setValue(value - 1)
@@ -14,8 +14,8 @@ export const ProductCounter = ({ quantity, value, setValue }) => {
   }
   return (
     <CouterContainer>
-      <BtnDecr onClick ={() => decreaseQty()}>-</BtnDecr>
-      <CountInput readOnly value={value + ' шт'}/>
+      <BtnDecr onClick={() => decreaseQty()}>-</BtnDecr>
+      <CountInput readOnly value={value + ' шт'} />
       <BtnIncr onClick={() => increaseQty()}>+</BtnIncr>
     </CouterContainer>
   )

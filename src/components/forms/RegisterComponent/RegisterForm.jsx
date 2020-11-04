@@ -1,122 +1,165 @@
-import React, { useEffect } from 'react';
-import { Formik, Field } from 'formik';
-import * as yup from 'yup';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  Form,
+  Input,
+  Tooltip,
+  Select,
+  AutoComplete,
+} from 'antd';
 import { Button } from '../../Button';
-import { StyledForm } from '../LoginComponent/StyledLoginComponent';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
-import { ErrorsField } from '../Errors/ErrorsField';
+const { Option } = Select;
 
-
-const validationSchema = yup.object({
-  firstName: yup.string().required('Required'),
-  lastName: yup.string().required('Required'),
-  email: yup.string().email('Invalid email address').required('Required'),
-  password: yup
-    .string()
-    .required('No password provided')
-    .min(6, 'Password is too short - should be 6 chars minimum')
-    .required('Required'),
-  confirmPassword: yup
-    .string()
-    .required('Confirm your password')
-    .oneOf([yup.ref('password')], 'Password does not match'),
-  telepfone: yup
-    .number()
-    .required('Required')
-    .min(9),
-  gender: yup.string(),
-  registered: yup.boolean(),
-});
 
 export const RegisterForm = (props) => {
+  const {
+    handleSubmit
+  } = props;
   const dispatch = useDispatch();
+  const [form] = Form.useForm();
  
-  const { handleSubmit } = props;
-
-  const initialValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    telephone: '',
-    gender: '',
-    avatar: '',
-    registered: true,
-  };
-
-  const handleBlur = (input) => {
-    const key = input.target.name;
-    const value = input.target.value;
-  };
-  
+  const prefixSelector = (
+    <Form.Item name='prefix' noStyle>
+      <Select
+        showArrow={false}
+        style={{
+          width: 76,
+        }}
+      />
+    </Form.Item>
+  );
   return (
-    <div>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(values) => {
-          handleSubmit(values)
-        }}>
-        {(props) => (
-          <StyledForm>
-            <Field
-              name='firstName'
-              autoComplete='off'
-              type='text'
-              placeholder={(props.errors.firstName) || 'введите имя'}
-              onBlur={handleBlur}
-            />
-            <Field
-              name='lastName'
-              autoComplete='off'
-              type='text'
-              placeholder='введите фамилию'
-              onBlur={handleBlur}
-            />
-            <div>
-            </div>
-            <Field
-              name='email'
-              autoComplete='off'
-              type='email'
-              placeholder={(props.errors.email) || 'введите email'}
-              onBlur={handleBlur}
-            />
-            <div>
-            </div>
-            <Field
-              name='password'
-              type='password'
-              autoComplete='off'
-              placeholder={(props.errors.password) || 'введите пароль'}
-              onBlur={handleBlur}
-            />
-            <Field
-              name='confirmPassword'
-              type='password'
-              autoComplete='off'
-              placeholder={(props.errors.confirmPassword) || 'подтвердите пароль'}
-              onBlur={handleBlur}
-            />
-            <Field
-              name='telephone'
-              type='number'
-              autoComplete='off'
-              placeholder={(props.errors.telephone) || 'введите номер телефона'}
-              onBlur={handleBlur}
-            />
-            <Field as='select' name='gender'>
-              <option value='none'>Не выбран</option>
-              <option value='male'>Мужской</option>
-              <option value='female'>Женский</option>
-            </Field>
-            <Button type='submit' text='Регистрация' />
-          </StyledForm>
-        )}
-      </Formik>
-    </div>
+    <Form
+      name='register'
+      form={form}
+      onFinish={handleSubmit}
+      initialValues={{
+        prefix: '+380',
+      }}
+    >
+      <Form.Item
+        name='name'
+        label='Имя'
+        rules={[
+          {
+            required: true,
+            message: 'Введите имя!',
+          }
+        ]}>
+        <Input/>
+      </Form.Item>
+      <Form.Item
+        name='surname'
+        label='Фамилия'
+        rules={[
+          {
+            required: true,
+            message: 'Введите фамилию!',
+          },
+          
+        ]}>
+        <Input />
+      </Form.Item>
+      <Form.Item
+        name='email'
+        label='E-mail'
+        rules={[
+          {
+            type: 'email',
+            message: 'Некоректный E-mail ',
+          },
+          {
+            required: true,
+            message: 'Введите  E-mail!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        name='password'
+        label='Пароль'
+        rules={[
+          {
+            required: true,
+            message: 'Введите пароль!',
+          },
+          {
+            min: 7,
+            message: 'Минимум 7 символов!',
+          },
+        ]}
+        hasFeedback
+      >
+        <Input.Password />
+      </Form.Item>
+
+      <Form.Item
+        name='confirm'
+        label='Повторите пароль'
+        dependencies={['password']}
+        hasFeedback
+        rules={[
+          {
+            required: true,
+            message: 'Повторите пароль!',
+          },
+         
+          ({ getFieldValue }) => ({
+            validator(rule, value) {
+              if (!value || getFieldValue('password') === value) {
+                return Promise.resolve();
+              }
+              return Promise.reject('Пароли не совпадают!');
+            },
+          }),
+        ]}>
+        <Input.Password />
+      </Form.Item>
+
+      <Form.Item
+        name='login'
+        label={
+          <span>
+            Логин&nbsp;
+            <Tooltip title='Вы можете авторизироваться с попощью логина'>
+              <QuestionCircleOutlined />
+            </Tooltip>
+          </span>
+        }
+        rules={[
+          {
+            required: true,
+            message: 'Введите логин!',
+            whitespace: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item name="gender" label="Ваш пол" >
+        <Select
+          placeholder="Выбирите из списка"
+         
+        >
+          <Option value="male">М.</Option>
+          <Option value="female">Ж.</Option>
+          
+        </Select>
+      </Form.Item>
+      <Form.Item
+        name='phone'
+        label='Телефон'
+        rules={[{ required: true, message: 'Введите номер телефона!' }]}
+      >
+        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+      </Form.Item>
+     
+      <Button text='Зарегистрироваться' type='submit'></Button>
+    </Form>
   );
 };

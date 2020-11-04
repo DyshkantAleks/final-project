@@ -8,7 +8,7 @@ import { CartItemContainer, CloseBtnContainer, CartNameCode, CartImage, CartColo
 import { addProductToCart } from '../../store/cart/middlware.jsx';
 
 export const FavItem = ({ imageUrl, name, color, itemNo, _id, item }) => {
-  
+
   const dispatch = useDispatch();
 
   const btnClsFavorite = (id) => {
@@ -17,7 +17,6 @@ export const FavItem = ({ imageUrl, name, color, itemNo, _id, item }) => {
 
   const productInCart = useSelector(selectCart);
   const btnInCart = productInCart.map(itemCart => itemCart.product._id).includes(_id);
-  //console.log('productInCart', productInCart)
   const btnAddToCart = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }

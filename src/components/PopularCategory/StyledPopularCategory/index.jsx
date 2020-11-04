@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import {device} from '../../../styles/breakpoints/breakpoints';
-import {Link} from "react-router-dom";
+import styled from 'styled-components'
+import { device } from '../../../styles/breakpoints/breakpoints'
+import { Link } from 'react-router-dom'
 
 export const List = styled.div`
      display: grid;
@@ -11,7 +11,7 @@ export const List = styled.div`
  grid-template-columns: 1fr 1fr;
 }
 
-`;
+`
 
 export const Item = styled.section`
 display: flex;
@@ -38,7 +38,7 @@ height: 20rem;
  height: 25rem;
 
 }
-`;
+`
 
 export const StaticImageContainer = styled.div`
     position: absolute;
@@ -51,11 +51,11 @@ export const StaticImageContainer = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-`;
+`
 export const StaticImage = styled.img`
 width: 100%;
 height: auto;
-`;
+`
 
 export const StaticTitle = styled.h3`
     font-size: 2.4rem;
@@ -70,7 +70,7 @@ export const StaticTitle = styled.h3`
   font-size: 3rem;
 }
  
-`;
+`
 
 export const StaticSubtitle = styled.h4`
     font-size: 1.2rem;
@@ -89,7 +89,7 @@ export const StaticSubtitle = styled.h4`
       max-width: 60%;
 }  
  
-`;
+`
 
 export const HoverImageContainer = styled.div`
     position: absolute;
@@ -104,7 +104,7 @@ export const HoverImageContainer = styled.div`
     overflow: hidden;
     opacity: 0.3;
     
-`;
+`
 
 export const HoverTitle = styled.h3`
     font-size: 2.4rem;
@@ -119,7 +119,7 @@ export const HoverTitle = styled.h3`
   font-size: 3rem;
 }
  
-`;
+`
 
 export const HoverSubtitle = styled.h4`
     font-size: 1.2rem;
@@ -138,9 +138,9 @@ export const HoverSubtitle = styled.h4`
       max-width: 60%;
 }  
  
-`;
+`
 
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: initial;
-`;
+`

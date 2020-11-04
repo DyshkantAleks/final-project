@@ -16,7 +16,7 @@ export function reducer (state = InitialState, { type, payload }) {
       return {
         ...state,
         cart: [...state.cart, payload]
-      };
+      }
 
     case REMOVE_FROM_CART:
       return {
@@ -31,9 +31,9 @@ export function reducer (state = InitialState, { type, payload }) {
           if (item.product._id === payload) {
             item.cartQuantity += 1;
           }
-          return item;
+          return item
         })
-      };
+      }
 
     case QTY_DOWN:
       return {
@@ -42,9 +42,9 @@ export function reducer (state = InitialState, { type, payload }) {
           if (item.product._id === payload) {
             item.cartQuantity -= 1;
           }
-          return item;
+          return item
         })
-      };
+      }
 
     default:
       return state

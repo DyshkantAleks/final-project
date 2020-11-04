@@ -1,16 +1,14 @@
-import React from 'react';
-import {Header} from '../../commons/Header/Header';
-import {AboutText} from "./AboutPageComponents/AboutText";
-import {Footer} from "../../commons/Footer";
-import { ContentContairer } from '../../components/Content/Content';
-
+import React from 'react'
+import { Header } from '../../commons/Header/Header'
+import { AboutText } from './AboutPageComponents/AboutText'
+import { Footer } from '../../commons/Footer'
 
 export const AboutPage = () => {
   return (
-    <ContentContairer>
-      <Header/>
-      <AboutText/>
-      <Footer/>
-      </ContentContairer>
+    <>
+      <Header />
+      <AboutText />
+      <Footer />
+    </>
   )
 }

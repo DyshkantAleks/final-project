@@ -20,9 +20,9 @@ export const ProductItem = (props) => {
   const dispatch = useDispatch();
   //const [inFavorite, toggleInFavorite] = useToggle();
 
-  const productInCart = useSelector(selectCart);
+  const productInCart = useSelector(selectCart)
 
-  const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id);
+  const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id)
 
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
@@ -84,4 +84,4 @@ export const ProductItem = (props) => {
       </ConteinerItem>
     </>
   )
-};
+}

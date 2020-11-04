@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import {SubItem} from '../StyledCatalog';
+import { SubItem } from '../StyledCatalog'
 
 export const CatalogSubitem = () => {
   return (
@@ -10,4 +10,4 @@ export const CatalogSubitem = () => {
     </>
 
   )
-};
+}

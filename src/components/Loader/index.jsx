@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 export const Loader = () => {
   return (
     <LoaderContainer>
-    <Preloader />
-    <LoaderText>Загрузка...</LoaderText>
+      <Preloader />
+      <LoaderText>Загрузка...</LoaderText>
     </LoaderContainer>
   )
 }

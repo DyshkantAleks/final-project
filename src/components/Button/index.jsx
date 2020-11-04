@@ -1,11 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 export const Button = ({ text, onClick, color = '#7191A6' }) => {
   return (
     <>
-      { color ? <GreendBtn onClick={onClick}>{text}</GreendBtn> : <WhitedBtn onClick={onClick}>{text}</WhitedBtn>
-      }
+      {color ? <GreendBtn onClick={onClick}>{text}</GreendBtn> : <WhitedBtn onClick={onClick}>{text}</WhitedBtn>}
     </>
   )
 }

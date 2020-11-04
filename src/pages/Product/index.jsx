@@ -31,38 +31,39 @@ export const ProductPage = (props) => {
   const [value, setValue] = useState(1);
   const product = useSelector(selectByRoute(match.params.route));
   const productInCart = useSelector(selectCart);
+  const productInFavorite = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
+  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route)
 
   const toggleSpecificationBtn = () => {
     if (isSpecification) {
       return (
         <ShowMore onClick={() => setIsSpecification(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
   const toggleDimensionsBtn = () => {
     if (isDimensions) {
       return (
         <ShowMore onClick={() => setIsDimensions(false)}>&#9650;</ShowMore>
-      );
+      )
     }
     return (
       <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
-    );
-  };
+    )
+  }
 
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }
 
-  const productinFavorite = useSelector(selectFavorites);
-  const inFavorite = productinFavorite.map(itemFav => itemFav.product._id).some(itemId => itemId === match.id)
+
+  const inFavorite = productInFavorite.map(item => item.route).some(item => item === match.params.route);
 
   const addToFav = (product) => {
     dispatch(addProductToFav(product))
@@ -106,7 +107,7 @@ export const ProductPage = (props) => {
                     </IconContainer>}
                   {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)}/>}
                   {/* {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />} */}
-                  {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product)}/>}
+                  {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product._id)}/>}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
                   <AvailabilityArticleWrap>
                     <Availability>&#10004; в наличии</Availability>
@@ -154,8 +155,7 @@ export const ProductPage = (props) => {
                       <DescriptionKey>Обивка</DescriptionKey>
                       <Description>{product.specifications.casing}</Description>
                     </SpecificationContainer>}
-                  </Subtitle>
-                }
+                  </Subtitle>}
               </ContainerDetails>
             </>
           )
