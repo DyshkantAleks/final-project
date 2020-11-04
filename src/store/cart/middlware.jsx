@@ -37,7 +37,7 @@ export const getCart = () => async (dispatch, getState) => {
         const result = unique(sumTwoCart)
         dispatch(setCart(result));
         const newState = getState();
-        await updateCart(newState);
+        updateCart(newState);
       }
     } catch (error) {
       console.log(error)

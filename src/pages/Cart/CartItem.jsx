@@ -7,8 +7,9 @@ import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { useDispatch } from 'react-redux';
 import { removeProductFromCart } from '../../store/cart/middlware.jsx';
+import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
-export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav, _id }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav, _id, route }) => {
   const dispatch = useDispatch();
   const btnCloseheandler = (id) => {
     dispatch(removeProductFromCart(id))
@@ -16,11 +17,15 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
   return (
     <CartItemContainer>
       <CloseBtnContainer onClick={() => btnCloseheandler(_id)}>{icon.close}</CloseBtnContainer>
-      <CartImage src={imageUrl[0]} />
-      <CartNameCode>
-        <h4>{name}</h4>
-        <p>Код: {itemNo}</p>
-      </CartNameCode>
+      <StyledLink to={`/products/${route}`}>
+        <CartImage src={imageUrl[0]} />
+      </StyledLink>
+      <StyledLink to={`/products/${route}`}>
+        <CartNameCode>
+          <h4>{name}</h4>
+          <p>Код: {itemNo}</p>
+        </CartNameCode>
+      </StyledLink>
       <CartColor>
         {color}
       </CartColor>
@@ -73,7 +78,7 @@ text-align: left;
 h4 {
     font-weight: bold;
     color: #000000;
-    font-family: Open Sans;
+    /* font-family: Open Sans; */
     margin: 0;
 }
 
@@ -135,9 +140,13 @@ color: #000000;
 }
 `
 const CloseBtnContainer = styled.div`
-width: 2rem;
-height: 2rem;
+width: 1.5rem;
+height: 1.5rem;
 fill: #A0A9AF;
+  &:hover{
+    fill: #c91212;
+    cursor: pointer;
+  }
 
 @media ${device.mobile}{
   position: absolute;
