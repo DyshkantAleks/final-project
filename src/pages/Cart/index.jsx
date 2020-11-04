@@ -10,10 +10,9 @@ import { device } from '../../styles/breakpoints/breakpoints'
 import { CartItem } from '../Cart/CartItem'
 import { ContentContairer } from '../../components/Content/Content'
 
-// тимчасово
 import {Link} from 'react-router-dom'
 import {ROUTES} from '../navigation/routes';
-// тимчасово
+
 
 export const CartPage = () => {
   const cartItems = useSelector(selectCart)
