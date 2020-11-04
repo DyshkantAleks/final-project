@@ -115,7 +115,7 @@ export const ProductPage = (props) => {
                       <ProductCounter value={value} setValue={setValue} quantity={product.quantity} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button disabled width={'12rem'} text={'В корзине'} /> : <Button width={'12rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
+                      {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>

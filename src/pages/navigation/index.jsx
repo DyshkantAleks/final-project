@@ -12,12 +12,13 @@ import { Homepage } from '../Homepage';
 import { PromotionsPage } from '../PromotionsList';
 import { StoresPage } from '../Stores';
 import { CartPage } from '../Cart';
-import { OrderPage } from '../Order';
 import { FavoritesPage } from '../Favorites';
 import { AccountPage } from '../Account';
 import { ProductPage } from '../Product';
 import { PromotionsSinglePage } from '../PromotionsSingle';
 import { ProductListPage } from '../ProductList/ProductListPage';
+import { SearchPage } from '../Search';
+import { OrderPage } from '../Order';
 
 export const Navigation = () => (
   <Router>
@@ -33,6 +34,7 @@ export const Navigation = () => (
       <Route path='/promo/:route' component={PromotionsSinglePage} />
       <Route path='/catalog/:route' component={ProductListPage} />
       <Route path='/products/:route' component={ProductPage} />
+      <Route path='/search' component={SearchPage} />
       <Route path={ROUTES.HOMEPAGE} component={Homepage} />
     </Switch>
   </Router>
