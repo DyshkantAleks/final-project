@@ -14,6 +14,7 @@ export const List = styled.ul`
     flex-direction: row;
     flex-basis: 40%;
     padding-left: 0;
+    margin-bottom: 0;
     }
 `
 
