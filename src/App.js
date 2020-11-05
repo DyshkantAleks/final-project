@@ -8,7 +8,7 @@ import { getProducts } from './store/products_draft/middlware';
 import { persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 
-function App() {
+function App () {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());

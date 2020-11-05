@@ -96,8 +96,8 @@ export const ProductPage = (props) => {
                     {product.isTopRated && <IconTopRated />}
                   </SubtitleBox>
                   <Description>{product.description}</Description>
-                  {screenWidth >= 768 ?
-                    <>
+                  {screenWidth >= 768
+                    ? <>
                       <Subtitle>Габариты</Subtitle>
                       <Description>Высота - {product.sizes.height} cм, </Description>
                       <Description>Ширина - {product.sizes.width} cм, </Description>
@@ -128,7 +128,7 @@ export const ProductPage = (props) => {
                       <Description>{product.specifications.casing}</Description>
                     </SpecificationContainer>
                   </Subtitle> : <Subtitle>Характеристики
-                      {toggleSpecificationBtn()}
+                    {toggleSpecificationBtn()}
                     {isSpecification && <SpecificationContainer>
                       <DescriptionKey>Покрытие</DescriptionKey>
                       <Description>{product.specifications.covering}</Description>
