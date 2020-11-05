@@ -1,6 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
+
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
 import { Header } from '../../commons/Header/Header';
@@ -8,8 +10,7 @@ import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
-import {ROUTES} from '../navigation/routes';
-import {Link} from 'react-router-dom';
+import { ROUTES } from '../navigation/routes';
 
 export const CartPage = () => {
   const cartItems = useSelector(selectCart)
@@ -58,20 +59,20 @@ text-align: center;
 
 export const CartMenu = styled.div`
 background-color: #F5F5F5;//
-grid-template-columns: 20% 15% 18% 1fr;
-padding: 0.7rem 1.1rem 0.8rem 5rem;
+
   @media ${device.mobile}{
     display: none;
   };
   @media ${device.tabletS}{
-    grid-template-columns: 25% 24% 28% 20%;
+    grid-template-columns: 35% 21% 28% 18%;
     padding: 0.7rem 1.1rem 0.8rem 8rem;
-    display: grid;
+    display: ${props => (props.fav ? 'none' : 'grid')};
     align-items: center;
   };
   @media ${device.tabletM}{
-  grid-template-columns: 25% 23% 23% 1fr;
-  padding: 0.7rem 1.1rem 0.8rem 14rem;
+  grid-template-columns: 31% 27% 18% 25%;
+  padding: 0.7rem 1.1rem 0.8rem 14%;
+  display: grid;
   }
 
   p {
@@ -102,6 +103,7 @@ margin: 0 auto;
   @media ${device.tabletM}{
     justify-content: space-between;
     align-items: center;
+    padding-top: 3rem;
   };
 `;
 

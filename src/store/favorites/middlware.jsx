@@ -4,7 +4,6 @@ import { addToFavorites, removeFromFavorites, setFavorites } from './actions-cre
 const updatedFavorites = async (state) => {
   const {customer} = state;
 
-
   if (customer.isLogined) {
     if (state.favorites.favorites.length > 0) {
       const productsInFav = state.favorites.favorites.map(item => { return {product: item._id} });
@@ -26,7 +25,7 @@ export const getFavorites = () => async (dispatch, getState) => {
     try {
       const {status, data} = await server.get('/wishlist')
       if (status === 200) {
-        const itemsToFav = [...state.favorites.favorites, ...data.products];
+        const itemsToFav = [...state.favorites.favorites, ...data];
         const result = new Set(itemsToFav);
         dispatch(setFavorites(result));
         const newState = getState();
@@ -37,18 +36,6 @@ export const getFavorites = () => async (dispatch, getState) => {
     }
   }
 };
-
-// export const getFavorites = () => async dispatch => {
-//   try {
-//     const {status, data} = await server.get('/wishlist')
-//     console.log('Fav data', data)
-//     if (status === 200) {
-//       dispatch(setFavorites(data.products))
-//     }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
 
 export const addProductToFav = (productItem) => (dispatch, getState) => {
   dispatch(addToFavorites(productItem));
@@ -61,6 +48,18 @@ export const removeProductFromFav = (productItem) => (dispatch, getState) => {
   const state = getState();
   updatedFavorites(state);
 }
+
+// export const getFavorites = () => async dispatch => {
+//   try {
+//     const {status, data} = await server.get('/wishlist')
+//     console.log('Fav data', data)
+//     if (status === 200) {
+//       dispatch(setFavorites(data.products))
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// };
 
 // export const addProductToFav = (productItem) => async dispatch => {
 //   try {

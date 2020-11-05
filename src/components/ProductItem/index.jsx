@@ -29,7 +29,6 @@ export const ProductItem = (props) => {
   }
 
   const productInFavorite = useSelector(selectFavorites);
-  console.log('productInFavorite', productInFavorite)
   const inFavorite = productInFavorite.map(item => item._id).includes(id);
 
   const addToFav = (product) => {

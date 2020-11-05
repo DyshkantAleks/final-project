@@ -39,6 +39,9 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
 export const CartItemContainer = styled.div`
         align-items: center;
         display: grid;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
         padding: 1.7rem;
         border-bottom: 1px solid #D3D7DA;
         font-size: 14px;
@@ -48,21 +51,21 @@ export const CartItemContainer = styled.div`
         }
 
         @media ${device.mobile}{
-        grid-template-columns: 6rem 1fr 15rem;
+        grid-template-columns: 7rem 1fr 15rem;
         padding: 1.7rem 0.5rem;
         position: relative;
         grid-gap: 1rem;
         }
 
         @media ${device.tabletS}{
-          // grid-template-columns: ${props => (props.fav ? '2rem 6rem 1fr 1fr 1fr' : '2rem 6rem 1fr 1fr 1fr 18%')};
-          grid-template-columns: 2rem 5rem 25% 20% 21% 20%;
+          grid-template-columns: ${props => (props.fav ? '5% 15% 32% 20% 24%' : '3% 13% 26% 21% 21% 20%')};
+          //grid-template-columns: 3% 13% 26% 21% 21% 20%;
           position: static;
           grid-gap: inherit;
           }
 
           @media ${device.tabletM}{
-          grid-template-columns: 2rem 6rem 1fr 7rem 1fr 18%;
+          grid-template-columns: 5% 7% 30% 20% 20% 1fr;
         }
         `
 
@@ -72,7 +75,8 @@ width: 7rem;
 padding-left: 0.5rem;
 
 @media ${device.mobile}{
-grid-row-end: span 3;
+grid-row-end: 4;
+grid-column-end: 4;
 }
 
 @media ${device.tabletS}{
@@ -86,7 +90,6 @@ text-align: left;
 h4 {
     font-weight: bold;
     color: #000000;
-    /* font-family: Open Sans; */
     margin: 0;
 }
 
@@ -138,12 +141,15 @@ color: #000000;
 margin: 0;
 
 @media ${device.mobile}{
-  text-align: left;
+  //text-align: left;
+  //grid-row-start: 3;
+  grid-column-end: 4;
 }
 
 @media ${device.tabletS}{
   font-size: 13px;
   text-align: inherit;
+  grid-column-end: auto;
 }
 
 @media ${device.tabletM}{
@@ -170,33 +176,4 @@ fill: #A0A9AF;
     position: inherit;
     width: 2rem;
   }
-`
-
-// const AddToCartBtn = styled.button`
-// margin: 0 auto;
-// border: 1px solid #e2e6ea;
-// border-radius: 0.5rem;
-// padding: 0.7rem;
-// width: 100%;
-// display: flex;
-// justify-content: center;
-// `
-
-// const CloseBtn = styled(FontAwesomeIcon)`
-// font-size: 2em;
-// color: #A0A9AF;
-// &:hover{
-//     cursor: pointer;
-//     color: #007042;
-// }
-
-// @media ${device.mobile}{
-// position: absolute;
-// top: 0.5rem;
-// right: 1.7rem;
-// }
-
-// @media ${device.tabletS}{
-//   position: inherit;
-// }
-// `
+`;

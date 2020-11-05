@@ -24,7 +24,7 @@ import { reducer as customerReducer } from './customer/reducer'
 import { MODULE_NAME as categoriesModuleName } from './categories/selectors';
 import { reducer as categoriesReducer } from './categories/reducer';
 
-const persistConfig = {
+const persistCart = {
   key: 'cart',
   storage,
 }
@@ -36,7 +36,7 @@ const persistFavorite = {
 
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
-  [cartModuleName]: persistReducer(persistConfig, cartReducer),
+  [cartModuleName]: persistReducer(persistCart, cartReducer),
   [authModuleName]: authReducer,
   [productsModuleName]: productReducer,
   [promotionsModuleName]: promotionsReducer,

@@ -8,8 +8,9 @@ import { removeProductFromFav } from '../../store/favorites/middlware.jsx';
 import { selectCart } from '../../store/cart/selectors.jsx';
 import { CartItemContainer, CloseBtnContainer, CartNameCode, CartImage, CartColor} from '../Cart/CartItem';
 import { addProductToCart } from '../../store/cart/middlware.jsx';
+import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
-export const FavItem = ({ imageUrl, name, color, itemNo, _id, item, sizes }) => {
+export const FavItem = ({ imageUrl, name, color, itemNo, _id, item, sizes, route }) => {
 
   const dispatch = useDispatch();
 
@@ -26,29 +27,38 @@ export const FavItem = ({ imageUrl, name, color, itemNo, _id, item, sizes }) => 
   return (
     <CartItemContainer fav>
       <CloseBtnContainer onClick={() => btnClsFavorite(_id)}>{icon.close}</CloseBtnContainer>
-      <CartImage src={imageUrl[0]} />
+      <StyledLink to={`/products/${route}`}>
+        <CartImage src={imageUrl[0]} />
+      </StyledLink>
+      <StyledLink to={`/products/${route}`}>
       <CartNameCode>
         <h4>{name}</h4>
         <p>Код: {itemNo}</p>
       </CartNameCode>
+      </StyledLink>
       <CartColor>
         {color}
       </CartColor>
       <FavDimensions>
         {sizes.height}cм x {sizes.width}см x {sizes.length}см
       </FavDimensions>
-      {btnInCart ? <Button width={'100%'} text={'В корзине'}/> : <Button color width={'100%'} text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
+      {btnInCart ? <Button disabled width={'100%'} text={'В корзине'}/> : <Button width={'100%'} text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
     </CartItemContainer>
   );
 }
 
 const FavDimensions = styled.p`
 margin-bottom: 0;
+
 @media ${device.mobile}{
   text-align: left;
+  display: none;
 }
 @media ${device.tabletS}{
   text-align: center;
-  padding-right: 0.5rem;
+  padding-right: 5%;
+}
+@media ${device.tabletM}{
+  display: inherit;
 }
 `
