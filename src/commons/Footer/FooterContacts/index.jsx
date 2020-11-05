@@ -9,7 +9,7 @@ import {
   ContactContainer,
   SocialIcon
 } from '../StyledFooter'
-import { ContactLink } from '../../../pages/About/StyledAboutPage';
+import { ContactLink } from '../../../pages/About/StyledAboutPage'
 
 export const FooterContacts = () => {
   return (

@@ -16,19 +16,20 @@ import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
-  
+
   const dispatch = useDispatch();
   //const [inFavorite, toggleInFavorite] = useToggle();
 
-  const productInCart = useSelector(selectCart)
+  const productInCart = useSelector(selectCart);
 
-  const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id)
+  const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id);
 
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }
 
   const productInFavorite = useSelector(selectFavorites);
+  console.log('productInFavorite', productInFavorite)
   const inFavorite = productInFavorite.map(item => item._id).includes(id);
 
   const addToFav = (product) => {
@@ -78,10 +79,11 @@ export const ProductItem = (props) => {
               <Price>{price.toLocaleString()}</Price>
             </PriceContainer>}
           <ButtonContainer>
-            {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} onClick={() => btnHeandler(product, 1)}/>}
+            {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} />
+              : <Button color={'#7191A6'} width={'13rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>
     </>
   )
-}
+};

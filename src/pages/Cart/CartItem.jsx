@@ -1,13 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { useDispatch } from 'react-redux';
 import { removeProductFromCart } from '../../store/cart/middlware.jsx';
+import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
-export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, _id }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, _id, route }) => {
   
   const dispatch = useDispatch();
   const btnCloseheandler = (id) => {
@@ -16,11 +17,15 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
   return (
     <CartItemContainer>
       <CloseBtnContainer onClick={() => btnCloseheandler(_id)}>{icon.close}</CloseBtnContainer>
-      <CartImage src={imageUrl[0]} />
-      <CartNameCode>
-        <h4>{name}</h4>
-        <p>Код: {itemNo}</p>
-      </CartNameCode>
+      <StyledLink to={`/products/${route}`}>
+        <CartImage src={imageUrl[0]} />
+      </StyledLink>
+      <StyledLink to={`/products/${route}`}>
+        <CartNameCode>
+          <h4>{name}</h4>
+          <p>Код: {itemNo}</p>
+        </CartNameCode>
+      </StyledLink>
       <CartColor>
         {color}
       </CartColor>
@@ -43,7 +48,7 @@ export const CartItemContainer = styled.div`
         }
 
         @media ${device.mobile}{
-        grid-template-columns: 6rem 1fr 9rem;
+        grid-template-columns: 6rem 1fr 15rem;
         padding: 1.7rem 0.5rem;
         position: relative;
         grid-gap: 1rem;
@@ -81,7 +86,7 @@ text-align: left;
 h4 {
     font-weight: bold;
     color: #000000;
-    font-family: Open Sans;
+    /* font-family: Open Sans; */
     margin: 0;
 }
 
@@ -146,9 +151,13 @@ margin: 0;
 }
 `
 export const CloseBtnContainer = styled.div`
-width: 2rem;
-height: 2rem;
+width: 1.5rem;
+height: 1.5rem;
 fill: #A0A9AF;
+  &:hover{
+    fill: #c91212;
+    cursor: pointer;
+  }
 
 @media ${device.mobile}{
   position: absolute;

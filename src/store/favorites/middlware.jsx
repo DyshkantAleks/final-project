@@ -18,11 +18,6 @@ const updatedFavorites = async (state) => {
   }
 }
 
-function unique (arr) {
-  const res = new Map();
-  return arr.filter((a) => !res.has(a._id) && res.set(a._id, 1))
-};
-
 export const getFavorites = () => async (dispatch, getState) => {
   const state = getState();
   const {customer} = state;
@@ -32,7 +27,7 @@ export const getFavorites = () => async (dispatch, getState) => {
       const {status, data} = await server.get('/wishlist')
       if (status === 200) {
         const itemsToFav = [...state.favorites.favorites, ...data.products];
-        const result = unique(itemsToFav)
+        const result = new Set(itemsToFav);
         dispatch(setFavorites(result));
         const newState = getState();
         updatedFavorites(newState);

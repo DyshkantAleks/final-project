@@ -37,7 +37,7 @@ export const FavItem = ({ imageUrl, name, color, itemNo, _id, item, sizes }) => 
       <FavDimensions>
         {sizes.height}cм x {sizes.width}см x {sizes.length}см
       </FavDimensions>
-      {btnInCart ? <Button text={'В корзине'}/> : <Button color text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
+      {btnInCart ? <Button width={'100%'} text={'В корзине'}/> : <Button color width={'100%'} text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
     </CartItemContainer>
   );
 }

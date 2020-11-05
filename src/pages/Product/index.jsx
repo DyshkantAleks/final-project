@@ -7,7 +7,7 @@ import { selectByRoute } from '../../store/products_draft/selectors';
 import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, IconContainer } from './StyledProductPage';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from './StyledProductPage';
 import { RegularIconFavorite } from '../../components/ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../../components/ProductItem/IconsSvg/SolidIconFavorite';
 import useWindowDimensions from '../../utils/useWindowDimensions';
@@ -17,10 +17,12 @@ import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
 import { Footer } from '../../commons/Footer';
+import { NewProductsList } from '../../components/NewProducts/NewProductsList';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
 import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
 import { selectFavorites } from '../../store/favorites/selectors';
+import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -34,7 +36,7 @@ export const ProductPage = (props) => {
   const productInFavorite = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route)
+  const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
 
   const toggleSpecificationBtn = () => {
     if (isSpecification) {
@@ -76,6 +78,7 @@ export const ProductPage = (props) => {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <ContentContairer>
         {
           product && (
@@ -93,20 +96,7 @@ export const ProductPage = (props) => {
                     <PriceContainer>
                       <Price>{product.currentPrice.toLocaleString()}</Price>
                     </PriceContainer>}
-                  {product.isSale &&
-                    <IconContainer>
-                      <IconSale />
-                    </IconContainer>}
-                  {product.isNewProduct &&
-                    <IconContainer>
-                      <IconNew />
-                    </IconContainer>}
-                  {product.isTopRated &&
-                    <IconContainer>
-                      <IconTopRated />
-                    </IconContainer>}
                   {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)}/>}
-                  {/* {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />} */}
                   {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product._id)}/>}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
                   <AvailabilityArticleWrap>
@@ -114,7 +104,12 @@ export const ProductPage = (props) => {
                     {/* <Availability>&#10006; нет в наличии</Availability> */}
                     <Article>Артикул: {product.itemNo}</Article>
                   </AvailabilityArticleWrap>
-                  <Subtitle>Описание товара</Subtitle>
+                  <SubtitleBox>
+                    <Subtitle>Описание товара</Subtitle>
+                    {product.isSale && <IconSale />}
+                    {product.isNewProduct && <IconNew />}
+                    {product.isTopRated && <IconTopRated />}
+                  </SubtitleBox>
                   <Description>{product.description}</Description>
                   {screenWidth >= 768
                     ? <>
@@ -135,7 +130,7 @@ export const ProductPage = (props) => {
                       <ProductCounter value={value} setValue={setValue} quantity={product.quantity} />
                     </Actions>
                     <Actions>
-                      {btnInCart ? <Button text={'В корзине'} /> : <Button text={'Купить'} onClick={() => btnHeandler(product, value)}/>}
+                      {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
                     </Actions>
                   </ActionsContainer>
                 </ContainerProduct>
@@ -160,8 +155,9 @@ export const ProductPage = (props) => {
             </>
           )
         }
+        <NewProductsList />
       </ContentContairer>
       <Footer />
     </>
   )
-}
+};

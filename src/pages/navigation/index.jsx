@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 import { ROUTES } from './routes'
 import { AboutPage } from '../About'
@@ -33,6 +33,7 @@ export const Navigation = () => (
       <Route path='/promo/:route' component={PromotionsSinglePage} />
       <Route path='/catalog/:route' component={ProductListPage} />
       <Route path='/products/:route' component={ProductPage} />
+      {/* <Route path='/search' component={SearchPage} /> */}
       <Route path={ROUTES.HOMEPAGE} component={Homepage} />
     </Switch>
   </Router>

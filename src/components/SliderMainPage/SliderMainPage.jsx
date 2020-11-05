@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import Slider from 'react-slick'
-import './style.scss'
+import React, { useEffect } from 'react';
+import Slider from 'react-slick';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { getPromotions } from '../../store/promotions/middlware'
-import { selectPromotions } from '../../store/promotions/selectors'
-import { Link } from 'react-router-dom'
-import { Container, SlideContainer, Image } from './StyledSliderMainPage'
+import './style.scss';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { getPromotions } from '../../store/promotions/middlware';
+import { selectPromotions } from '../../store/promotions/selectors';
+import { Container, SlideContainer, Image } from './StyledSliderMainPage';
 
 export const SliderMainPage = () => {
   const promotions = useSelector(selectPromotions)
@@ -16,7 +16,7 @@ export const SliderMainPage = () => {
 
   useEffect(() => {
     dispatch(getPromotions())
-  }, [])
+  }, [dispatch])
 
   const settings = {
     dots: true,
