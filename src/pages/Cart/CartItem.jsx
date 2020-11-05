@@ -44,27 +44,35 @@ export const CartItemContainer = styled.div`
 
         @media ${device.mobile}{
         grid-template-columns: 6rem 1fr 9rem;
-        padding: 0.7rem 1rem;
+        padding: 1.7rem 0.5rem;
         position: relative;
         grid-gap: 1rem;
         }
 
         @media ${device.tabletS}{
-          grid-template-columns: ${props => (props.fav ? '2rem 6rem 1fr 1fr 1fr' : '2rem 6rem 1fr 1fr 1fr 18%')};
+          // grid-template-columns: ${props => (props.fav ? '2rem 6rem 1fr 1fr 1fr' : '2rem 6rem 1fr 1fr 1fr 18%')};
+          grid-template-columns: 2rem 5rem 25% 20% 21% 20%;
           position: static;
           grid-gap: inherit;
           }
+
+          @media ${device.tabletM}{
+          grid-template-columns: 2rem 6rem 1fr 7rem 1fr 18%;
+        }
         `
 
 export const CartImage = styled.img`
-height: 5rem;
-width: 5rem;
+height: 7rem;
+width: 7rem;
 padding-left: 0.5rem;
 
 @media ${device.mobile}{
 grid-row-end: span 3;
-grid-row-end: span 3;
 }
+
+@media ${device.tabletS}{
+  grid-row-end: auto;
+  }
 `
 
 export const CartNameCode = styled.div`
@@ -79,10 +87,12 @@ h4 {
 
 @media ${device.tabletS}{
   font-size: 13px;
+  text-align: center;
 }
 
 @media ${device.tabletM}{
   font-size: 14px;
+  text-align: center;
 }
 
 p {
@@ -120,6 +130,7 @@ export const CartPrice = styled.p`
 font-weight: bold;
 font-family: inherit;
 color: #000000;
+margin: 0;
 
 @media ${device.mobile}{
   text-align: left;

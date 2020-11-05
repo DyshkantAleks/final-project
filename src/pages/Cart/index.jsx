@@ -11,8 +11,8 @@ import { CartItem } from '../Cart/CartItem'
 import { ContentContairer } from '../../components/Content/Content'
 
 // тимчасово
-import {Link} from 'react-router-dom'
-import {ROUTES} from '../navigation/routes';
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../navigation/routes';
 
 import { getCart } from '../../store/cart/middlware'
 // тимчасово
@@ -22,7 +22,7 @@ export const CartPage = () => {
   useEffect(() => {
     dispatch(getCart());
   }, [dispatch]);
-  
+
   const cartItems = useSelector(selectCart)
 
   const sumCart = cartItems.reduce(function (sum, current) {
@@ -67,27 +67,34 @@ margin: 0 auto;
 text-align: center;
 `
 
-const CartMenu = styled.div`
-background-color: #F5F5F5;
-grid-template-columns: 1fr 1fr 1fr 18%;
-padding: 0.7rem 1.1rem 0.8rem 7rem;
+export const CartMenu = styled.div`
+background-color: #F5F5F5;//
+grid-template-columns: 20% 15% 18% 1fr;
+padding: 0.7rem 1.1rem 0.8rem 5rem;
   @media ${device.mobile}{
     display: none;
   };
   @media ${device.tabletS}{
+    grid-template-columns: 25% 24% 28% 20%;
+    padding: 0.7rem 1.1rem 0.8rem 8rem;
     display: grid;
     align-items: center;
   };
+  @media ${device.tabletM}{
+  grid-template-columns: 25% 23% 23% 1fr;
+  padding: 0.7rem 1.1rem 0.8rem 14rem;
+  }
+
   p {
     font-size: 14px;
-    // padding: 0.8rem;
+    margin: 0;
+    padding: 2rem;
     color: #007042;
     font-weight: bold;
   };
 `
 
 const CartTotalContainer = styled.div`
-padding-top: 2rem;
 display: flex; 
 max-width: 120rem;
 margin: 0 auto;
@@ -98,18 +105,21 @@ margin: 0 auto;
     justify-content: center;
   };
   @media ${device.tabletS}{
+    padding-top: 3rem;
     flex-wrap: wrap;
     text-align: right;
     justify-content: flex-end;
   };
   @media ${device.tabletM}{
     justify-content: space-between;
+    align-items: center;
   };
 `
 
 const CartTotalText = styled.h4`
 font-size: 1.5rem;
 color: #000000;
+font-weight: bold;
   @media ${device.tabletS}{
     width: 100%;
   };

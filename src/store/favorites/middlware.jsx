@@ -3,7 +3,7 @@ import { addToFavorites, removeFromFavorites, setFavorites } from './actions-cre
 
 const updatedFavorites = async (state) => {
   const {customer} = state;
-  console.log('state', state);
+
 
   if (customer.isLogined) {
     if (state.favorites.favorites.length > 0) {

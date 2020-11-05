@@ -29,6 +29,11 @@ const persistConfig = {
   storage,
 }
 
+const persistFavorite = {
+  key: 'favorite',
+  storage,
+}
+
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
   [cartModuleName]: persistReducer(persistConfig, cartReducer),
@@ -36,7 +41,7 @@ const rootReducer = combineReducers({
   [productsModuleName]: productReducer,
   [promotionsModuleName]: promotionsReducer,
   [categoriesModuleName]: categoriesReducer,
-  [favoritesModuleNAme]: persistReducer(persistConfig, favoritesReducer),
+  [favoritesModuleNAme]: persistReducer(persistFavorite, favoritesReducer),
   [customerModuleName]: customerReducer
 });
 

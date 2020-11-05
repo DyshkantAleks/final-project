@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+import { device } from '../../styles/breakpoints/breakpoints';
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Button } from '../../components/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +9,7 @@ import { selectCart } from '../../store/cart/selectors.jsx';
 import { CartItemContainer, CloseBtnContainer, CartNameCode, CartImage, CartColor} from '../Cart/CartItem';
 import { addProductToCart } from '../../store/cart/middlware.jsx';
 
-export const FavItem = ({ imageUrl, name, color, itemNo, _id, item }) => {
+export const FavItem = ({ imageUrl, name, color, itemNo, _id, item, sizes }) => {
 
   const dispatch = useDispatch();
 
@@ -32,7 +34,21 @@ export const FavItem = ({ imageUrl, name, color, itemNo, _id, item }) => {
       <CartColor>
         {color}
       </CartColor>
-      {btnInCart ? <Button text={'В корзине'}/> : <Button color text={'Добавить в корзину'} onClick={() => btnAddToCart(item, 1)}/>}
+      <FavDimensions>
+        {sizes.height}cм x {sizes.width}см x {sizes.length}см
+      </FavDimensions>
+      {btnInCart ? <Button text={'В корзине'}/> : <Button color text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
     </CartItemContainer>
   );
 }
+
+const FavDimensions = styled.p`
+margin-bottom: 0;
+@media ${device.mobile}{
+  text-align: left;
+}
+@media ${device.tabletS}{
+  text-align: center;
+  padding-right: 0.5rem;
+}
+`
