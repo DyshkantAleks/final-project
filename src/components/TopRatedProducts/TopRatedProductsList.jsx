@@ -8,7 +8,8 @@ import { ProductItemList } from '../../pages/Product/StyledProductPage';
 
 export const TopRatedProductsList = () => {
   const allProducts = useSelector(selectProducts)
-  const arrayOfTopRated = allProducts.filter(e => e.isTopRated === true)
+  const arrayOfTopRated = allProducts.filter(e => e.isTopRated === true);
+  console.log(arrayOfTopRated)
   return (
     <>
       <Title text='Популярные товары' />
