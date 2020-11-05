@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useWindowScroll } from 'react-use';
+import { useWindowScroll } from 'react-use'
 
 import { ScrollIcon } from './ScrollIcon';
 import { ScrollToTopContainer } from './StyledScrollToTop';
