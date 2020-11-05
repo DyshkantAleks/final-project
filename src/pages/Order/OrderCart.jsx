@@ -42,9 +42,8 @@ export const OrderCart = () => {
     }
     
     const ContentContairer = styled.div`
-    float: right;
-    margin-right: 5em;
-    width: 45em;
+    margin-left: 1em;
+    margin-bottom: 1em;
     `
 
     const CartContainer = styled.div`
