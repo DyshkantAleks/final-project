@@ -7,5 +7,5 @@ export const ROUTES = Object.freeze({
   CART: '/cart',
   ORDER: '/order',
   FAVORITES: '/favorites',
-  ACCOUNT: '/account'
+  ACCOUNT: '/account',
 })
