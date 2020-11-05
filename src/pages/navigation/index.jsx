@@ -18,6 +18,8 @@ import { AccountPage } from '../Account'
 import { ProductPage } from '../Product'
 import { PromotionsSinglePage } from '../PromotionsSingle'
 import { ProductListPage } from '../ProductList/ProductListPage'
+import { SearchPage } from '../Search'
+import { NotFoundPage } from '../404'
 
 export const Navigation = () => (
   <Router>
@@ -33,7 +35,9 @@ export const Navigation = () => (
       <Route path='/promo/:route' component={PromotionsSinglePage} />
       <Route path='/catalog/:route' component={ProductListPage} />
       <Route path='/products/:route' component={ProductPage} />
-      <Route path={ROUTES.HOMEPAGE} component={Homepage} />
+      <Route path='/search' component={SearchPage} />
+      <Route exact path={ROUTES.HOMEPAGE} component={Homepage} />
+      <Route component={NotFoundPage} />
     </Switch>
   </Router>
 )
