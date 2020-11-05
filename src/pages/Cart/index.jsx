@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 import { selectCart } from '../../store/cart/selectors';
@@ -11,6 +11,7 @@ import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
 import { ROUTES } from '../navigation/routes';
+import { getCart } from '../../store/cart/middlware';
 
 export const CartPage = () => {
   const dispatch = useDispatch();

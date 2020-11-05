@@ -1,7 +1,7 @@
 import { SET_CUSTOMER } from './action-types';
 
 const initialState = {
-  customer:{
+  customer: {
     name: 'Пользователь'
   },
   isLogined: false
