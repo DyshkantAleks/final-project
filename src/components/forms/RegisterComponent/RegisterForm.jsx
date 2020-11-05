@@ -36,7 +36,7 @@ export const RegisterForm = (props) => {
   return (
     <Form
      
-      layout="vertical"
+      layout='vertical'
       name='register'
       form={form}
       onFinish={handleSubmit}
@@ -52,6 +52,18 @@ export const RegisterForm = (props) => {
           {
             required: true,
             message: 'Введите имя!',
+          },
+          {
+            pattern: /^[a-zA-Zа-яА-Я]+$/,
+            message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
+          },
+          {
+            min: 2,
+            message: 'Имя должно содержать минимум 2 символа!',
+          },
+          {
+            max: 25,
+            message: 'Имя должно содержать максимум 25 символов!',
           }
         ]}>
         <Input/>
@@ -64,6 +76,18 @@ export const RegisterForm = (props) => {
             required: true,
             message: 'Введите фамилию!',
           },
+          {
+            pattern: /^[a-zA-Zа-яА-Я]+$/,
+            message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
+          },
+          {
+            min: 2,
+            message: 'Фамилия должна содержать минимум 2 символа!',
+          },
+          {
+            max: 25,
+            message: 'Фамилия должна содержать максимум 25 символов!',
+          }
           
         ]}>
         <Input />
@@ -96,6 +120,14 @@ export const RegisterForm = (props) => {
           {
             min: 7,
             message: 'Минимум 7 символов!',
+          },
+          {
+            max: 30,
+            message: 'Максимум 30 символов!',
+          },
+          {
+            pattern: /^[a-zA-Zа-яА-Я0-9]+$/,
+            message: 'Пароль должен состоять из букв и цифр!',
           },
         ]}
         hasFeedback
@@ -142,17 +174,25 @@ export const RegisterForm = (props) => {
             message: 'Введите логин!',
             whitespace: true,
           },
+          {
+            min: 2,
+            message: 'Логин должен содержать минимум 2 символа!',
+          },
+          {
+            max: 15,
+            message: 'Логин должен содержать максимум 25 символов!',
+          }
         ]}
       >
         <Input />
       </Form.Item>
-      <Form.Item name="gender" label="Ваш пол" >
+      <Form.Item name='gender' label='Ваш пол' >
         <Select
-          placeholder="Выбирите из списка"
+          placeholder='Выбирите из списка'
          
         >
-          <Option value="male">М.</Option>
-          <Option value="female">Ж.</Option>
+          <Option value='male'>муж.</Option>
+          <Option value='female'>жен.</Option>
           
         </Select>
       </Form.Item>
@@ -164,7 +204,7 @@ export const RegisterForm = (props) => {
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
      
-      <div style={{textAlign:"center"}}>
+      <div style={{textAlign:'center'}}>
         <Button text='Зарегистрироваться' type='submit'></Button>
       </div>
     </Form>

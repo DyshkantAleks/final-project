@@ -38,6 +38,10 @@ export const ContactForm = (props) => {
       text: 'УкрПочта',
       value: 'ukrPoshta',
     },
+    {
+      text: 'Курьероом на дом',
+      value: 'toHome',
+    },
   ];
   const payMethod = [
     {
@@ -73,6 +77,18 @@ export const ContactForm = (props) => {
                 required: true,
                 message: 'Введите имя!',
               },
+              {
+                pattern: /^[a-zA-Zа-яА-Я]+$/,
+                message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
+              },
+              {
+                min: 2,
+                message: 'Имя должно содержать минимум 2 символа!',
+              },
+              {
+                max: 25,
+                message: 'Имя должно содержать максимум 25 символов!',
+              }
             ]}
           >
             <Input />
@@ -87,6 +103,18 @@ export const ContactForm = (props) => {
                 required: true,
                 message: 'Введите фамилию!',
               },
+              {
+                pattern: /^[a-zA-Zа-яА-Я]+$/,
+                message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
+              },
+              {
+                min: 2,
+                message: 'Фамилия должна содержать минимум 2 символа!',
+              },
+              {
+                max: 25,
+                message: 'Фамилия должна содержать максимум 25 символов!',
+              }
             ]}
           >
             <Input />
@@ -133,6 +161,10 @@ export const ContactForm = (props) => {
                 required: true,
                 message: 'Заполните поле!',
               },
+              {
+                pattern: /^[а-яА-Я]+$/,
+                message: 'заполните поле кирилицей',
+              },
             ]}
           >
             <Input />
@@ -146,6 +178,10 @@ export const ContactForm = (props) => {
               {
                 required: true,
                 message: 'Заполните поле!',
+              },
+              {
+                pattern: /^[а-яА-Я]+$/,
+                message: 'Заполните поле кирилицей',
               },
             ]}
           >
@@ -163,6 +199,10 @@ export const ContactForm = (props) => {
                 required: true,
                 message: 'Заполните поле!',
               },
+              {
+                pattern: /^[а-яА-Я0-9]+$/,
+                message: 'Используйте цифры и буквы',
+              },
             ]}
           >
             <Input />
@@ -177,6 +217,10 @@ export const ContactForm = (props) => {
                 
                 message: 'Заполните поле!',
               },
+              {
+                pattern: /^[0-9]+$/,
+                message: 'Используйте цифры',
+              }
             ]}
           >
             <Input />
