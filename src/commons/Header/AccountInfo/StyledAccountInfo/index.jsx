@@ -43,7 +43,7 @@ export const List = styled.ul`
     @media ${device.desktop}{
     margin-bottom: 0;
     }
-`
+`;
 export const CartCounter = styled.div`
   position:absolute;  
   top:-0.5rem;
