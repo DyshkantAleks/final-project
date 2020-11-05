@@ -33,7 +33,6 @@ export const getCart = () => async (dispatch, getState) => {
       const {status, data} = await server.get('/cart')
       if (status === 200) {
         const sumTwoCart = [...state.cart.cart, ...data.products];
-        console.log(sumTwoCart)
         const result = unique(sumTwoCart)
         dispatch(setCart(result));
         const newState = getState();
