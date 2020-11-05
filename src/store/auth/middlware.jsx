@@ -1,11 +1,15 @@
 import React from 'react'
 import { server } from '../../API'
-import { ROUTES } from '../../pages/navigation/routes'
-import { setCustomer } from '../customer/action-creators'
+
+
+import { getCustomer } from '../customer/middlwares'
 import { setAuthError, setLogin, setToken } from './action-creators'
 
-export const auth = (login, password, history) => async (dispatch, getState) => {
- const {} = getState()
+export const setAuthToken = (token) => {
+  server.defaults.headers.common['Authorization'] = token
+}
+export const auth = (login, password, history) => async (dispatch) => {
+    
   try {
     const {status, data} = await server.post('/customers/login',
       {
@@ -14,17 +18,11 @@ export const auth = (login, password, history) => async (dispatch, getState) => 
       }
     )
     if (status === 200) {
-      
       dispatch(setToken(data.token))
       dispatch(setAuthError(null))
-      server.defaults.headers.common['Authorization'] = data.token
-      const {status, data: customerData} = await server.get('/customers/customer')
-      if (status === 200) {
-        dispatch(setCustomer(customerData))
-      }
-      history.goBack();
+      dispatch(getCustomer())
     }
-    
+    history.goBack();
     console.log(status, data)
   } catch (error) {
     dispatch(setAuthError(error))

@@ -28,11 +28,15 @@ const persistConfig = {
   key: 'cart',
   storage,
 }
+const persistConfigAuth = {
+  key: 'auth',
+  storage,
+}
 
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
   [cartModuleName]: persistReducer(persistConfig, cartReducer),
-  [authModuleName]: authReducer,
+  [authModuleName]: persistReducer(persistConfigAuth, authReducer),
   [productsModuleName]: productReducer,
   [promotionsModuleName]: promotionsReducer,
   [categoriesModuleName]: categoriesReducer,
