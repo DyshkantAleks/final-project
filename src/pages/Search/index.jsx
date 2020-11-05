@@ -1,21 +1,20 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-
-import { Header } from '../../commons/Header/Header';
-import { Footer } from '../../commons/Footer';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { ProductItem } from '../../components/ProductItem';
-import { ProductItemList } from '../Product/StyledProductPage';
-import { ContentContairer } from '../../components/Content/Content';
+import React from 'react'
+import { Header } from '../../commons/Header/Header'
+import { Footer } from '../../commons/Footer'
+import { useSelector } from 'react-redux'
+import { selectProducts } from '../../store/products_draft/selectors'
+import { ProductItem } from '../../components/ProductItem'
+import { ProductItemList } from '../Product/StyledProductPage'
+import { ContentContairer } from '../../components/Content/Content'
 
 export const SearchPage = ({ match, location }) => {
   const allProducts = useSelector(selectProducts)
-  // console.log(allProducts)
+  console.log(allProducts)
   const queryString = require('query-string')
   const parsed = queryString.parse(location.search)
-  // console.log(parsed.query)
+  console.log(parsed.query)
   const searchArray = allProducts.filter(e => e.name.toLowerCase().includes(parsed.query.toLowerCase()))
-  // console.log(searchArray)
+  console.log(searchArray)
   return (
     <>
       <Header />
@@ -37,9 +36,6 @@ export const SearchPage = ({ match, location }) => {
               id={e._id}
               isNewProduct={e.isNewProduct}
               isTopRated={e.isTopRated}
-              isSale={e.isSale}
-              previousPrice={e.previousPrice}
-              product={e}
             />
           ))}
         </ProductItemList>

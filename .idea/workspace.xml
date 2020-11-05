@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50908e2f-d0c8-49dc-b8c7-72ee4e59709f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderAccount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderAccount.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderCart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/StyledAccountInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/StyledAccountInfo/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/icons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/icons.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/InfoLinks/StyledInfoLinks/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/InfoLinks/StyledInfoLinks/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Search/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProductSlider/StyledProductSlider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductSlider/StyledProductSlider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/ContactForm/ContactForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/ContactForm/ContactForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/navigation/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/navigation/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604230548325</updated>
       <workItem from="1604230551285" duration="15427000" />
+      <workItem from="1604571333650" duration="624000" />
     </task>
     <servers />
   </component>

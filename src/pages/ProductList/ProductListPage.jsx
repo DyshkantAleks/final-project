@@ -1,15 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Header } from '../../commons/Header/Header'
+import { selectProducts } from '../../store/products_draft/selectors'
+import { selectCategoryFromRoute } from '../../store/categories/selectors'
+import { ProductItem } from '../../components/ProductItem'
+import { ContentContairer } from '../../components/Content/Content'
+import { ProductItemList } from '../Product/StyledProductPage'
+import { Footer } from '../../commons/Footer'
 
-import { Header } from '../../commons/Header/Header';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { selectCategoryFromRoute } from '../../store/categories/selectors';
-import { ProductItem } from '../../components/ProductItem';
-import { ContentContairer } from '../../components/Content/Content';
-import { ProductItemList } from '../Product/StyledProductPage';
-import { Footer } from '../../commons/Footer';
-
-export const ProductListPage = ({ match }) => {
+export const ProductListPage = ({ match, location }) => {
   const { params: { route } } = match
 
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route))
@@ -25,6 +24,7 @@ export const ProductListPage = ({ match }) => {
   };
 
   return (
+
     <>
       <Header />
       <ContentContairer>
@@ -47,6 +47,8 @@ export const ProductListPage = ({ match }) => {
         </ProductItemList>
       </ContentContairer>
       <Footer />
+
     </>
+
   )
-};
+}

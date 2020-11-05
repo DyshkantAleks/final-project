@@ -3,13 +3,12 @@ import styled from 'styled-components';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
-import { Button } from '../../components/Button';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { useDispatch } from 'react-redux';
 import { removeProductFromCart } from '../../store/cart/middlware.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
-export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, cart, fav, _id, route }) => {
+export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, _id, route }) => {
   const dispatch = useDispatch();
   const btnCloseheandler = (id) => {
     dispatch(removeProductFromCart(id))
@@ -29,16 +28,19 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      {cart && <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>}
+      <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
-      {fav && <Button text='Купить' color='green' />}
+      {/* <CartPrice>{currentPrice} грн</CartPrice> */}
     </CartItemContainer>
   )
 }
 
-const CartItemContainer = styled.div`
+export const CartItemContainer = styled.div`
         align-items: center;
         display: grid;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
         padding: 1.7rem;
         border-bottom: 1px solid #D3D7DA;
         font-size: 14px;
@@ -48,46 +50,56 @@ const CartItemContainer = styled.div`
         }
 
         @media ${device.mobile}{
-        grid-template-columns: 6rem 1fr 9rem;
-        padding: 0.7rem 1rem;
+        grid-template-columns: 7rem 1fr 15rem;
+        padding: 1.7rem 0.5rem;
         position: relative;
         grid-gap: 1rem;
         }
 
         @media ${device.tabletS}{
-          grid-template-columns: 2rem 6rem 1fr 1fr 1fr 18%;
+          grid-template-columns: ${props => (props.fav ? '5% 15% 32% 20% 24%' : '3% 13% 26% 21% 21% 20%')};
+          //grid-template-columns: 3% 13% 26% 21% 21% 20%;
           position: static;
           grid-gap: inherit;
           }
+
+          @media ${device.tabletM}{
+          grid-template-columns: 5% 7% 30% 20% 20% 1fr;
+        }
         `
 
-const CartImage = styled.img`
-height: auto;
-width: 5rem;
+export const CartImage = styled.img`
+height: 7rem;
+width: 7rem;
 padding-left: 0.5rem;
 
 @media ${device.mobile}{
-grid-row-end: span 3;
-grid-row-end: span 3;
+grid-row-end: 4;
+grid-column-end: 4;
 }
+
+@media ${device.tabletS}{
+  grid-row-end: auto;
+  }
 `
 
-const CartNameCode = styled.div`
+export const CartNameCode = styled.div`
 text-align: left;
 
 h4 {
     font-weight: bold;
     color: #000000;
-    /* font-family: Open Sans; */
     margin: 0;
 }
 
 @media ${device.tabletS}{
   font-size: 13px;
+  text-align: center;
 }
 
 @media ${device.tabletM}{
   font-size: 14px;
+  text-align: center;
 }
 
 p {
@@ -98,7 +110,7 @@ margin: 0;
 }
 `
 
-const CartColor = styled.p`
+export const CartColor = styled.p`
 font-family: Open Sans;
 color: #000000;
 
@@ -121,25 +133,29 @@ color: #000000;
   }
 `
 
-const CartPrice = styled.p`
+export const CartPrice = styled.p`
 font-weight: bold;
 font-family: inherit;
 color: #000000;
+margin: 0;
 
 @media ${device.mobile}{
-  text-align: left;
+  //text-align: left;
+  //grid-row-start: 3;
+  grid-column-end: 4;
 }
 
 @media ${device.tabletS}{
   font-size: 13px;
   text-align: inherit;
+  grid-column-end: auto;
 }
 
 @media ${device.tabletM}{
   font-size: 14px;
 }
 `
-const CloseBtnContainer = styled.div`
+export const CloseBtnContainer = styled.div`
 width: 1.5rem;
 height: 1.5rem;
 fill: #A0A9AF;
@@ -159,33 +175,4 @@ fill: #A0A9AF;
     position: inherit;
     width: 2rem;
   }
-`
-
-// const AddToCartBtn = styled.button`
-// margin: 0 auto;
-// border: 1px solid #e2e6ea;
-// border-radius: 0.5rem;
-// padding: 0.7rem;
-// width: 100%;
-// display: flex;
-// justify-content: center;
-// `
-
-// const CloseBtn = styled(FontAwesomeIcon)`
-// font-size: 2em;
-// color: #A0A9AF;
-// &:hover{
-//     cursor: pointer;
-//     color: #007042;
-// }
-
-// @media ${device.mobile}{
-// position: absolute;
-// top: 0.5rem;
-// right: 1.7rem;
-// }
-
-// @media ${device.tabletS}{
-//   position: inherit;
-// }
-// `
+`;
