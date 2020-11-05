@@ -1,12 +1,20 @@
 import React from 'react'
 import { server } from '../../API'
+import { logOutCustomer } from '../customer/action-creators'
 
 
 import { getCustomer } from '../customer/middlwares'
-import { setAuthError, setLogin, setToken } from './action-creators'
+import { delLogin, delToken, setAuthError, setToken } from './action-creators'
 
 export const setAuthToken = (token) => {
   server.defaults.headers.common['Authorization'] = token
+}
+
+export const logOut = () => dispatch => {
+  server.defaults.headers.common['Authorization'] = ''
+  dispatch(logOutCustomer())
+  dispatch(delLogin())
+  dispatch(delToken())
 }
 export const auth = (login, password, history) => async (dispatch) => {
     
