@@ -43,7 +43,7 @@ export const AccountInfoList = () => {
   }
   return (
     <List>
-      {isOpenModal && <Modal content={<LoginComponent/>} closeModalHandler={() => dispatch(closeModal())}/>}
+      {isOpenModal && <Modal content={<LoginComponent />} closeModalHandler={() => dispatch(closeModal())}/>}
 
       {screenWidth >= 1200 && (
         <Search enterbutton='true' onSearch={onSearch} placeholder='Найти товар по названию' />

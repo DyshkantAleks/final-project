@@ -11,12 +11,14 @@ import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, S
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
+import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
+import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
 
   const dispatch = useDispatch();
-  const [inFavorite, toggleInFavorite] = useToggle();
+  //const [inFavorite, toggleInFavorite] = useToggle();
 
   const productInCart = useSelector(selectCart);
 
@@ -25,6 +27,18 @@ export const ProductItem = (props) => {
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }
+
+  const productInFavorite = useSelector(selectFavorites);
+  const inFavorite = productInFavorite.map(item => item._id).includes(id);
+
+  const addToFav = (product) => {
+    dispatch(addProductToFav(product))
+  }
+
+  const removeFromFav = (product) => {
+    dispatch(removeProductFromFav(product))
+  }
+
   return (
     <>
       <ConteinerItem key={id}>
@@ -51,8 +65,9 @@ export const ProductItem = (props) => {
               <Name>{name}</Name>
             </NameContainer>
           </StyledLink>
-          {!inFavorite && <RegularIconFavorite onClick={() => toggleInFavorite(id)} />}
-          {inFavorite && <SolidIconFavorite onClick={() => toggleInFavorite(id)} />}
+          {/* toggleInFavorite(id) */}
+          {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
+          {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(id)} />}
           {isSale &&
             <PriceContainer>
               <CurrentPrice>{price.toLocaleString()}</CurrentPrice>
@@ -63,8 +78,8 @@ export const ProductItem = (props) => {
               <Price>{price.toLocaleString()}</Price>
             </PriceContainer>}
           <ButtonContainer>
-            {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> :
-              <Button color={'#7191A6'} width={'13rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
+            {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} />
+              : <Button color={'#7191A6'} width={'13rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
           </ButtonContainer>
         </TitleBox>
       </ConteinerItem>
