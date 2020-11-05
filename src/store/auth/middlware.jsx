@@ -2,8 +2,10 @@ import React from 'react'
 import { server } from '../../API'
 import { ROUTES } from '../../pages/navigation/routes'
 import { getCart } from '../cart/middlware'
+import { getFavorites } from '../favorites/middlware'
 import { setCustomer } from '../customer/action-creators'
 import { setAuthError, setLogin, setToken } from './action-creators'
+
 
 export const auth = (login, password, history) => async (dispatch, getState) => {
   const {} = getState()
@@ -22,6 +24,7 @@ export const auth = (login, password, history) => async (dispatch, getState) => 
       if (status === 200) {
         dispatch(setCustomer(customerData));
         dispatch(getCart());
+        dispatch(getFavorites());
       }
       history.push(ROUTES.HOMEPAGE);
     }

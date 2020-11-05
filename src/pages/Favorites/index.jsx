@@ -1,39 +1,31 @@
-import React, { useEffect } from 'react'
-// import styled from 'styled-components';
-
-import { useDispatch, useSelector } from 'react-redux'
-import { selectFavorites } from '../../store/favorites/selectors'
-import { Header } from '../../commons/Header/Header'
-// import { Button } from '../../components/Button';
-import { Title } from '../../components/Title/Title'
-import { CartContainer } from '../Cart/'
-import { CartItem } from '../Cart/CartItem'
-import { selectProducts } from '../../store/products_draft/selectors'
-import { getProductList } from '../../store/products_draft/actions'
-import { ContentContairer } from '../../components/Content/Content'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectFavorites } from '../../store/favorites/selectors';
+import { Header } from '../../commons/Header/Header';
+import { Title } from '../../components/Title/Title';
+import { CartContainer, CartMenu } from '../Cart/'
+import { FavItem } from './FavItem';
+import { ContentContairer } from '../../components/Content/Content';
 
 export const FavoritesPage = () => {
-  const dispatch = useDispatch()
-  // temporary
-  useEffect(() => {
-    dispatch(getProductList())
-  }, [dispatch])
 
   const favorites = useSelector(selectFavorites);
-  const products = useSelector(selectProducts);
 
+  const favMenuArray = ['Название', 'Цвет', 'Размеры', 'Корзина'];
 
   return (
     <ContentContairer>
       <Header />
       <Title text='Избранное' />
       <CartContainer>
-        {favorites.map(item =>
-          <CartItem
-            {...item.product}
-            cartQuantity={item.cartQuantity}
-            key={item.id}
-            fav='true'
+        <CartMenu fav>
+          {favMenuArray.map((item, index) => <p key={index}>{item}</p>)}
+        </CartMenu>
+        {favorites.length == 0 ? "У вас нет избранных товаров" : favorites.map(item =>
+          <FavItem
+            {...item}
+            key={item._id}
+            item={item}
           />
         )}
       </CartContainer>
