@@ -20,17 +20,20 @@ import { Footer } from '../../commons/Footer';
 import { NewProductsList } from '../../components/NewProducts/NewProductsList';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
+import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
+import { selectFavorites } from '../../store/favorites/selectors';
 import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const ProductPage = (props) => {
   const { match } = props;
   const { screenWidth } = useWindowDimensions();
-  const [inFavorite, toggleInFavorite] = useToggle();
+  //const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1);
   const product = useSelector(selectByRoute(match.params.route));
   const productInCart = useSelector(selectCart);
+  const productInFavorite = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
   const btnInCart = productInCart.map(itemCart => itemCart.product.route).some(item => item === match.params.route);
@@ -60,6 +63,18 @@ export const ProductPage = (props) => {
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }
+
+
+  const inFavorite = productInFavorite.map(item => item.route).some(item => item === match.params.route);
+
+  const addToFav = (product) => {
+    dispatch(addProductToFav(product))
+  }
+
+  const removeFromFav = (product) => {
+    dispatch(removeProductFromFav(product))
+  }
+
   return (
     <>
       <Header />
@@ -81,8 +96,8 @@ export const ProductPage = (props) => {
                     <PriceContainer>
                       <Price>{product.currentPrice.toLocaleString()}</Price>
                     </PriceContainer>}
-                  {!inFavorite && <RegularIconFavorite onClick={toggleInFavorite} />}
-                  {inFavorite && <SolidIconFavorite onClick={toggleInFavorite} />}
+                  {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)}/>}
+                  {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product._id)}/>}
                   <Subtitle>Бренд: {product.brand}</Subtitle>
                   <AvailabilityArticleWrap>
                     <Availability>&#10004; в наличии</Availability>

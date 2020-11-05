@@ -1,15 +1,14 @@
 import React from 'react'
 import { server } from '../../API'
-
-
+import { ROUTES } from '../../pages/navigation/routes'
+import { getCart } from '../cart/middlware'
+import { getFavorites } from '../favorites/middlware'
+import { setAuthError, setToken } from './action-creators'
 import { getCustomer } from '../customer/middlwares'
-import { setAuthError, setLogin, setToken } from './action-creators'
 
-export const setAuthToken = (token) => {
-  server.defaults.headers.common['Authorization'] = token
-}
-export const auth = (login, password, history) => async (dispatch) => {
-    
+
+export const auth = (login, password, history) => async (dispatch, getState) => {
+  const {} = getState()
   try {
     const {status, data} = await server.post('/customers/login',
       {
