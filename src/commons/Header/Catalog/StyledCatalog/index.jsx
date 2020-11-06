@@ -117,11 +117,11 @@ list-style: none;
     }
 `
 
-export const TextContainer = styled.div`
-padding: 1rem 0;
+export const ItemContainer = styled.div`
 border-bottom: .1rem solid #aecfd9;
 display: flex;
 align-items: center;
+padding: 1rem;
 @media ${device.desktop}{
 padding: 1rem 4rem;
 //position: relative;
@@ -136,4 +136,22 @@ height: auto;
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: initial;
+`
+export const StyledLinkMainCategory = styled(Link)`
+text-decoration: none;
+color: initial;
+flex-basis: 60%;
+`
+
+export const TextContainer = styled.div`
+display: flex;
+`
+export const ArrowContainer = styled.div`
+display: flex;
+justify-content: flex-end;
+flex-basis: 40%;
+
+`
+export const Arrow = styled.img`
+width: 1.5rem;
 `

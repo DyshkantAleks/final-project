@@ -26,9 +26,22 @@ margin: 0 .5rem;
         margin: 0 1rem;
         }
         @media ${device.tabletL}{
-        //width: 3rem;
-        //height: 3rem;
-        //margin: 0 1rem;
+}
+`
+export const AccountContainer = styled.div`
+position:relative;
+width: 2rem;
+height: 2rem;
+//color: #595959;
+margin: 0 .5rem;
+@media ${device.tabletM}{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0 1rem;
+        }
+        @media ${device.desktop}{
+         width: 4rem;
+        height: 4rem;
 }
 `
 

@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50908e2f-d0c8-49dc-b8c7-72ee4e59709f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/db_Mira.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/db_products_new.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/chairs/office/chair_Gubi_Bat/chair_Gubi_Bat_main.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderAccount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderAccount.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/StyledAccountInfo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/StyledAccountInfo/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/icons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/icons.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogIcons/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogIcons/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/StyledCatalog/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/StyledCatalog/index.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
