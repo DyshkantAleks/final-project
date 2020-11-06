@@ -28,6 +28,10 @@ const persistCart = {
   key: 'cart',
   storage,
 }
+const persistConfigAuth = {
+  key: 'auth',
+  storage,
+}
 
 const persistFavorite = {
   key: 'favorite',
@@ -37,7 +41,7 @@ const persistFavorite = {
 const rootReducer = combineReducers({
   [modalModuleName]: modalReducer,
   [cartModuleName]: persistReducer(persistCart, cartReducer),
-  [authModuleName]: authReducer,
+  [authModuleName]: persistReducer(persistConfigAuth, authReducer),
   [productsModuleName]: productReducer,
   [promotionsModuleName]: promotionsReducer,
   [categoriesModuleName]: categoriesReducer,
