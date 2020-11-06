@@ -1,4 +1,4 @@
-import { SET_AUTH_ERROR, SET_LOGIN, SET_PASSWORD, SET_TOKEN } from './action-types';
+import { DEL_LOGIN, DEL_TOKEN, SET_AUTH_ERROR, SET_LOGIN, SET_PASSWORD, SET_TOKEN } from './action-types';
 
 const initialState = {
   login: 'User',
@@ -34,6 +34,20 @@ export function reducer (state = initialState, { type, payload }) {
         {
           ...state,
           error: payload,
+        }
+      )
+    case DEL_LOGIN:
+      return (
+        {
+          ...state,
+          login: 'User',
+        }
+      )
+    case DEL_TOKEN:
+      return (
+        {
+          ...state,
+          token: null,
         }
       )
 
