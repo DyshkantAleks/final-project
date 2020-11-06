@@ -1,7 +1,7 @@
-import { SET_CUSTOMER } from './action-types';
+import { LOGOUT_CUSTOMER, SET_CUSTOMER } from './action-types';
 
 const initialState = {
-  customer:{
+  customer: {
     name: 'Пользователь'
   },
   isLogined: false
@@ -15,6 +15,13 @@ export function reducer (state = initialState, { type, payload }) {
         customer: {...state.customer, ...payload},
         isLogined: true
       };
+    case LOGOUT_CUSTOMER:
+      return {
+        ...state,
+        customer: {name: 'Пользователь'},
+        isLogined: false
+      };
+
     default:
       return state
   }

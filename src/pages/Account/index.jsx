@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { Header } from '../../commons/Header/Header';
@@ -9,10 +9,12 @@ import { ContentContairer } from '../../components/Content/Content';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import {ScrollToTop} from '../../components/ScrollToTop';
+import { logOut } from '../../store/auth/middlware';
 
 
 export const AccountPage = (props) => {
   const user = useSelector(selectCustomer);
+  const dispatch = useDispatch()
   console.log(user);
 
   return (
@@ -29,7 +31,7 @@ export const AccountPage = (props) => {
                   {icon.account}
                 </Icon>
                 Личные данные
-                </PersonalSectionHeading>
+              </PersonalSectionHeading>
               <Button text={'Редактировать'} />
             </PersonalSectionHeader>
             <PersonalDataContainer>
@@ -57,7 +59,7 @@ export const AccountPage = (props) => {
                   {icon.contact}
                 </Icon>
                 Контакты
-                </PersonalSectionHeading>
+              </PersonalSectionHeading>
               <Button text={'Редактировать'} />
             </PersonalSectionHeader>
             <PersonalDataContainer>
@@ -81,7 +83,7 @@ export const AccountPage = (props) => {
                   {icon.login}
                 </Icon>
                 Логин
-                </PersonalSectionHeading>
+              </PersonalSectionHeading>
               <Button text={'Редактировать'} />
             </PersonalSectionHeader>
             <PersonalDataContainer>
@@ -96,7 +98,7 @@ export const AccountPage = (props) => {
           <PersonalSectionHeader>
             <Button color={'#7191A6'} text={'Изменить пароль'}/>
             <Button color={'#7191A6'} text={'Удалить аккаунт'}/>
-            <Button color={'#7191A6'} text={'Выйти'}/>
+            <Button onClick={() => dispatch(logOut())} color={'#7191A6'} text={'Выйти'}/>
           </PersonalSectionHeader>
         </>}
       </ContentContairer>
