@@ -59,7 +59,6 @@ export const ProductPage = (props) => {
       <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
     )
   }
-
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }

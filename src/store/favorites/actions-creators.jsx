@@ -1,4 +1,4 @@
-import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, SET_FAVORITES } from './action-types';
+import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, SET_FAVORITES, SET_FAVORITE_LOADER } from './action-types';
 
 export const setFavorites = (payload) => ({
   type: SET_FAVORITES,
@@ -13,4 +13,8 @@ export const addToFavorites = (payload) => ({
 export const removeFromFavorites = (payload) => ({
   type: REMOVE_FROM_FAVORITES,
   payload
+})
+
+export const setFavoriteLoader = () => ({
+  type: SET_FAVORITE_LOADER
 })

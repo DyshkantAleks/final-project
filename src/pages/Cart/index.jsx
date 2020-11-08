@@ -11,6 +11,7 @@ import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
 import { ROUTES } from '../navigation/routes';
+import { Footer } from '../../commons/Footer';
 
 export const CartPage = () => {
   const cartItems = useSelector(selectCart)
@@ -24,15 +25,16 @@ export const CartPage = () => {
 
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
+    <>
     <ContentContairer>
       <Header />
       <Title text='Корзина' />
 
       <CartContainer>
         <CartMenu>
-          {menuArray.map((item, index) => <p key={index}>{item}</p>)}
+          {cartItems.length > 0 && menuArray.map((item, index) => <p key={index}>{item}</p>)}
         </CartMenu>
-        {
+        {cartItems.length === 0 ? "В корзине нет товаров" :
           cartItems.map(item =>
             <CartItem
               {...item.product}
@@ -43,11 +45,14 @@ export const CartPage = () => {
         }
       </CartContainer>
 
-      <CartTotalContainer>
-        <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
-      </CartTotalContainer>
+      {(cartItems > 0) &&
+        <CartTotalContainer>
+          <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+          <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
+        </CartTotalContainer>}
     </ContentContairer>
+     <Footer/>
+     </>
   )
 }
 
@@ -76,7 +81,7 @@ background-color: #F5F5F5;//
   }
 
   p {
-    font-size: 14px;
+    font-size: 1em;
     margin: 0;
     padding: 2rem;
     color: #007042;

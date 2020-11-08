@@ -6,7 +6,7 @@ import { Counter } from '../../components/Counter';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { useDispatch } from 'react-redux';
 import { removeProductFromCart } from '../../store/cart/middlware.jsx';
-import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
+import { Link } from 'react-router-dom';
 
 export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, _id, route }) => {
   
@@ -17,15 +17,15 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
   return (
     <CartItemContainer>
       <CloseBtnContainer onClick={() => btnCloseheandler(_id)}>{icon.close}</CloseBtnContainer>
-      <StyledLink to={`/products/${route}`}>
+      <NewStyledLink to={`/products/${route}`}>
         <CartImage src={imageUrl[0]} />
-      </StyledLink>
-      <StyledLink to={`/products/${route}`}>
+      </NewStyledLink>
+      <NewStyledLink to={`/products/${route}`}>
         <CartNameCode>
           <h4>{name}</h4>
           <p>Код: {itemNo}</p>
         </CartNameCode>
-      </StyledLink>
+      </NewStyledLink>
       <CartColor>
         {color}
       </CartColor>
@@ -58,7 +58,7 @@ export const CartItemContainer = styled.div`
         }
 
         @media ${device.tabletS}{
-          grid-template-columns: ${props => (props.fav ? '5% 15% 32% 20% 24%' : '3% 13% 26% 21% 21% 20%')};
+          grid-template-columns: ${props => (props.fav ? '5% 15% 1fr 1fr 130px' : '3% 13% 26% 21% 21% 20%')};
           //grid-template-columns: 3% 13% 26% 21% 21% 20%;
           position: static;
           grid-gap: inherit;
@@ -70,9 +70,10 @@ export const CartItemContainer = styled.div`
         `
 
 export const CartImage = styled.img`
-height: 7rem;
-width: 7rem;
+width: 100%;
+height: auto;
 padding-left: 0.5rem;
+
 
 @media ${device.mobile}{
 grid-row-end: 4;
@@ -96,11 +97,13 @@ h4 {
 @media ${device.tabletS}{
   font-size: 13px;
   text-align: center;
+  padding-left: 10px;
 }
 
 @media ${device.tabletM}{
   font-size: 14px;
   text-align: center;
+  width: 100%;
 }
 
 p {
@@ -177,3 +180,10 @@ fill: #A0A9AF;
     width: 2rem;
   }
 `;
+
+const NewStyledLink = styled(Link)`
+display: flex;
+align-items: center;
+justify-content: space-between;
+overflow: hidden;
+`
