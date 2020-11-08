@@ -40,7 +40,7 @@ height: 100%;
 `
 export const ContainerImage404 = styled.div`
 width: 100%;
-@media${device.tabletM}{
+@media ${device.tabletM}{
 width: 60rem;
 margin: 0 auto;
 }
