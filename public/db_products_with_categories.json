@@ -1,0 +1,434 @@
+[{
+        "brand": "Hollywood Loft",
+        "category": "Стулья",
+        "color": "Бежевый",
+        "currentPrice": 15999,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Стул стиля Hollywood Loft - простой, лаконичный, с четкой геометрией рисунка; каркас и ноги стула выполнены из 100% массива; мягкая обивка сиденья и спинки обеспечивает комфорт и необычайно эргономична; сиденье и спинка стула обтянуты роскошной мерцающей тканью, заключенной в светлую рамку элементов конструкции; основной акцент обеденного стула - зеркальные вертикальные планки по обеим сторонам спинки",
+        "enabled": true,
+        "imageUrl": [
+            "./img/chairs/kitchen/chair_Hollywood_Loft/chair_Hollywood_Loft_main.jpg",
+            "./img/chairs/kitchen/chair_Hollywood_Loft/chair_Hollywood_Loft1.jpg",
+            "./img/chairs/kitchen/chair_Hollywood_Loft/chair_Hollywood_Loft2.jpg",
+            "./img/chairs/kitchen/chair_Hollywood_Loft/chair_Hollywood_Loft3.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "324283",
+        "name": "Стул обеденный",
+        "route": "kuhonnyi-stul-hollywood-loft",
+        "quantity": 10,
+        "sizes": {
+            "height": 79,
+            "width": 45,
+            "length": 40
+        },
+        "subCategory": "Кухонные стулья",
+        "isPopularProduct": true,
+        "isNewProduct": true,
+        "isTopRated": true
+    },
+    {
+        "brand": "Kartell",
+        "category": "Стулья",
+        "color": "Черный",
+        "currentPrice": 19999,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Изготовленное из единой панели, облегченное офисное кресло на колесиках Spoon Chair, безусловно, является авангардным изделием. Инновационная технология штамповки с использованием литья под давлением двухкомпонентного состава, посредством которой было создано изделие, позволила достигнуть «многослойности», когда выполняется штамповка двух различных Термопластиковых материалов: одного, определяющего эстетические качества (наружного), и другого – отличающегося высокой механической прочностью (внутреннего), благодаря чему Spoon Chair отличается высочайшими технологическими характеристиками и максимальной гибкостью, обусловленными легко персонализируемой толщиной, приспосабливающейся к весу пользователя. Простая в эксплуатации регулирующая ручка соединена с нижним корпусом и полностью спрятана в стержень, не нарушая изгибы линии изделия.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon_main.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon1.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon2.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon3.jpeg",
+            "./img/chairs/office/chair_Kartell_Spoon/chair_Kartell_Spoon4.jpeg"
+        ],
+        "imageUrls": [],
+        "itemNo": "4819/09",
+        "name": "Кресло Spoon",
+        "route": "ofisnyi-stul-spoon-kartell",
+        "quantity": 10,
+        "sizes": {
+            "height": 83,
+            "width": 57,
+            "length": 72
+        },
+        "subCategory": "Офисные стулья",
+        "isPopularProduct": true,
+        "isNewProduct": true,
+        "isTopRated": true
+    },
+    {
+        "brand": "Kartell",
+        "category": "Стулья",
+        "color": "Металлик",
+        "currentPrice": 34899,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "После успеха стула Masters, победителя престижных премий таких как the Good Design Award 2010 и the Gold Dot Award 2013, который уже стал иконой стиля во всем мире, Kartell предлагает версию табурета. Ножки удлинили, а сиденье, сделали меньше, но мы всё ещё можем увидеть ту же структуру графического дизайна с сплетёнными линиями трех знаменитых стульев, которые оставили свой след в истории дизайна. Идеален для дома или в общественном помещении.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/chairs/bar/chair_Kartell_Masters/chair_Kartell_Masters_main.jpg",
+            "./img/chairs/bar/chair_Kartell_Masters/chair_Kartell_Masters1.jpg",
+            "./img/chairs/bar/chair_Kartell_Masters/chair_Kartell_Masters2.jpg",
+            "./img/chairs/bar/chair_Kartell_Masters/chair_Kartell_Masters3.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Стул барный Masters",
+        "route": "barnyi-stul-masters-kartell",
+        "quantity": 10,
+        "sizes": {
+            "height": 99,
+            "width": 50,
+            "length": 50
+        },
+        "subCategory": "Барные стулья",
+        "isPopularProduct": true,
+        "isNewProduct": true,
+        "isTopRated": true
+    },
+    {
+        "brand": "Pusha",
+        "category": "Столы",
+        "color": "Коричневый",
+        "currentPrice": 65999,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Обеденные столы и журнальные столики коллекции Exclusive от Pusha отлично вписываются в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Данная модель выполнена в сочетании из дерева и металла. Основной материал – эбеновое или, как его ещё называют, \"музыкальное\" дерево. Древесина эбена обладает красивым окрасом, устойчива к различным внешним влияниям, после полировки приобретает металлический блеск. Каркас и ножки изготовлены из хромированной стали. Правильно подобранные материалы дополняют друг друга, что заставляет предмет смотреться органично и интересно.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/tables/kitchen/table_Pusha/table_Pusha_main.jpeg",
+            "./img/tables/kitchen/table_Pusha/table_Pusha1.jpg",
+            "./img/tables/kitchen/table_Pusha/table_Pusha2.jpg",
+            "./img/tables/kitchen/table_Pusha/table_Pusha3.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Стол обеденный Exclusive",
+        "route": "kuhonnyi-stol-exclusive-brown",
+        "quantity": 10,
+        "sizes": {
+            "height": 75,
+            "width": 90,
+            "length": 180
+        },
+        "subCategory": "Кухонные столы",
+        "isPopularProduct": true,
+        "isNewProduct": true,
+        "isTopRated": true
+    },
+    {
+        "brand": "Bontempi",
+        "category": "Столы",
+        "color": "Оранжевый",
+        "currentPrice": 150199,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Письменный стол Taylor от итальянского бренда Bontempi – находка для современных минималистичных интерьеров. Благодаря компактным габаритам, он не будет занимать много места. Его можно будет включить в обстановку даже малогабаритных помещений. Столик может применяться как удобная подставка под ноутбук. Ножки и столешница модели изготовлены из лакированной нержавеющей стали. Для удобства столешница покрыта кожей повышенной жесткости. Она не истирается, не царапается, сохраняя свой эффектный внешний вид.\nВ наличии представлена модель, выполненная из кожи цвета красная юфть, цвет ножек – глубокий черный. Стол может быть поставлен на заказ. Вы можете самостоятельно выбрать оптимальные цвета и материалы.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/tables/office/table_Bontempi/table_Bontempi_main.jpg",
+            "./img/tables/office/table_Bontempi/table_Bontempi1.jpg",
+            "./img/tables/office/table_Bontempi/table_Bontempi2.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Стол письменный TAYLOR",
+        "route": "ofisnyi-stol-taylor-bontempi",
+        "quantity": 10,
+        "sizes": {
+            "height": 75,
+            "width": 68,
+            "length": 97
+        },
+        "subCategory": "Офисные столы",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Arketipo",
+        "category": "Столы",
+        "color": "Черный",
+        "currentPrice": 29399,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Знаменитая коллекция LITH обогатилась тремя новыми исполнениями столиков различной формы и высоты, а также утонченной этажеркой.\nОпорные поверхности отличаются геометрическими формами с закругленными краями, а металлические основания образуют фигуры с очень сильным скульптурным эффектом, выражающим космополитические идеи дизайнерского решения.\nУ вас есть возможность создать композицию, исходя из собственных предпочтений. Все варианты представлены в PDF файле.\nМодель в наличии выполнена в следующей отделке:\n\nоснование – металл, покрытие черный никель;\nстолешница – мрамор Moon grey",
+        "enabled": true,
+        "imageUrl": [
+            "./img/tables/side_table/table_Arketipo/table_Arketipo_main.jpg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo1.jpeg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo2.jpeg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo3.jpeg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo4.jpeg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo5.jpeg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo6.jpg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo7.jpg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo8.jpg",
+            "./img/tables/side_table/table_Arketipo/table_Arketipo9.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Столик приставной Lith",
+        "route": "pristavnoy-stol-lith",
+        "quantity": 10,
+        "sizes": {
+            "height": 69,
+            "width": 61,
+            "length": 47
+        },
+        "subCategory": "Приставные столы",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Pusha",
+        "category": "Столы",
+        "color": "Коричневый",
+        "currentPrice": 25199,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Обеденные столы и журнальные столики коллекции Exclusive от Pusha отлично вписываются в концепцию современного дизайна, девиз которого: \"Максимум практичности. Ничего лишнего\". Данная модель выполнена в сочетании из нескольких материалов: дерева, стекла и металла. Основной материал – эбеновое или, как его ещё называют, \"музыкальное\" дерево. Древесина эбена обладает красивым окрасом, устойчива к различным внешним влияниям, после полировки приобретает металлический блеск. Каркас изготовлен из хромированной стали, полка – из закаленного стекла. Закаленное стекло характеризуется повышенной механической прочностью, термостойкостью и безопасностью. Правильно подобранные материалы дополняют друг друга, что заставляет предмет смотреться органично и интересно",
+        "enabled": true,
+        "imageUrl": [
+            "./img/tables/coffee_table/table_Pusha/table_Pusha_main.jpeg",
+            "./img/tables/coffee_table/table_Pusha/table_Pusha1.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Журнальный столик Expert",
+        "route": "zhurnalnyi-stol-expert",
+        "quantity": 10,
+        "sizes": {
+            "height": 80,
+            "width": 80,
+            "length": 42
+        },
+        "subCategory": "Журнальные столы",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Eichholtz",
+        "category": "Диваны",
+        "color": "Черный",
+        "currentPrice": 23199,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Черная мягкая кушетка в классическом стиле",
+        "enabled": true,
+        "imageUrl": [
+            "./img/sofas/couch/couch_Eichhoitz/couch_Eichhoitz_main.jpeg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Кушетка Gaby",
+        "route": "kushetka-gaby",
+        "quantity": 10,
+        "sizes": {
+            "height": 120,
+            "width": 70,
+            "length": 60
+        },
+        "subCategory": "Кушетки",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Kartell",
+        "category": "Диваны",
+        "color": "Бежевый",
+        "currentPrice": 48499,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Уютный мягкий диван. В комплект входят подушки",
+        "enabled": true,
+        "imageUrl": [
+            "./img/sofas/simple_sofa/sofa_Kartell/sofa_Kartell_main.jpg",
+            "./img/sofas/simple_sofa/sofa_Kartell/sofa_Kartell1.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Диван Betty Boop",
+        "route": "pryamoy-divan-betty-boop",
+        "quantity": 10,
+        "sizes": {
+            "height": 245,
+            "width": 82,
+            "length": 75
+        },
+        "subCategory": "Прямые диваны",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Arketipo",
+        "category": "Диваны",
+        "color": "Бежевый",
+        "currentPrice": 88999,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "BROWN SUGAR – это новая система сидений, в современном стиле которой сочетаются обновленный классический стиль и мягкие элементы.\nЯрко выраженная индивидуальность этого изделия в сочетании с создающими ощущение покоя формами воплощаются в простом и графически четком дизайне.\nБлагодаря вниманию к деталям создается ощущение уникальности и сильной притягательности. Двойные строчки определяют дизайн различных элементов, незаметно обогащая их. Другая особенность этой модели представлена расширяющими ее по бокам подлокотниками, одновременно монолитными и мягкими.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/sofas/corner/corner_Arketipo/corner_Arketipo_main.jpg",
+            "./img/sofas/corner/corner_Arketipo/corner_Arketipo1.jpeg",
+            "./img/sofas/corner/corner_Arketipo/corner_Arketipo2.jpeg",
+            "./img/sofas/corner/corner_Arketipo/corner_Arketipo3.jpeg",
+            "./img/sofas/corner/corner_Arketipo/corner_Arketipo4.jpeg",
+            "./img/sofas/corner/corner_Arketipo/corner_Arketipo5.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Диван Brown Sugar",
+        "route": "uglovoy-divan-sugar",
+        "quantity": 10,
+        "sizes": {
+            "height": 285,
+            "width": 275,
+            "length": 80
+        },
+        "subCategory": "Угловые диваны",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Arketipo",
+        "category": "Аксессуары",
+        "color": "Черный",
+        "currentPrice": 9999,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Зеркало Vanity Fair, разработанное Джино Каролло, из зеркального или зеркально-дымчатого хрусталя, покрытое бархатом, для получения эффекта роскоши и не бросающейся в глаза престижности, контрастирующей с линейностью ромбовидной формы, может быть одинарной, двойной или тройной;или даже заполнить всю стену, повторяя модуль вдоль всей поверхности.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo_main.jpg",
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo1.jpeg",
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo2.jpeg",
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo3.jpeg",
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo4.jpeg",
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo5.jpeg",
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo6.jpg",
+            "./img/accessories/mirrors/mirror_Arketipo/mirror_Arketipo7.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Зеркало настенное Vanity Fair",
+        "route": "zerkalo-arketipo-vanity",
+        "quantity": 10,
+        "sizes": {
+            "height": 110,
+            "width": 105
+        },
+        "subCategory": "Зеркала",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Eichholtz",
+        "category": "Аксессуары",
+        "color": "Черный",
+        "currentPrice": 5899,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Черные настольные часы в стиле Арт-Деко",
+        "enabled": true,
+        "imageUrl": [
+            "./img/accessories/watch/watch_Eichholtz/watch_Eichholtz_main.jpeg",
+            "./img/accessories/watch/watch_Eichholtz/watch_Eichholtz1.jpeg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Часы Cadance",
+        "route": "chasy-cadance",
+        "quantity": 10,
+        "sizes": {
+            "height": 17,
+            "width": 12,
+            "length": 7
+        },
+        "subCategory": "Часы",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Trame in bianco",
+        "category": "Аксессуары",
+        "color": "Белый",
+        "currentPrice": 1799,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Роскошная декорация для дома в аристократическом стиле. Традиционная интерьерная и столовая ваза из фарфора, классической формы. ",
+        "enabled": true,
+        "imageUrl": [
+            "./img/accessories/vase/vase_Trame_in_bianco/vase_Trame_in_bianco_main.jpg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Ваза для цветов / декорация",
+        "route": "vaza-trame-simple",
+        "quantity": 10,
+        "sizes": {
+            "height": 27,
+            "width": 10,
+            "length": 0
+        },
+        "subCategory": "Вазы",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "METNER",
+        "category": "Хранение",
+        "color": "Коричневый",
+        "currentPrice": 31799,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Классический шкаф «Dexter» в стиле американской буржуазности займет центральное положение в интерьере. Может быть изготовлена по вашим размерам. Изменение размера на 10-15% бесплатно. Отделка может быть выполнена в разных оттенках от чёрного до натурального, включая покраску по ралу. В дополнение к этому мы предлагаем вам заказать предметы из коллекции с эксклюзивными вариантами отделки с использованием многослойных покрытий и различных текстур.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner_main.jpeg",
+            "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner1.jpeg",
+            "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner2.jpeg",
+            "./img/storage/wardrobe/wardrobe_Metner/wardrobe_Metner3.jpeg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Шкаф DEXTER",
+        "route": "shkaf-dexter",
+        "quantity": 10,
+        "sizes": {
+            "height": 220,
+            "width": 100,
+            "length": 50
+        },
+        "subCategory": "Шкафы",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    },
+    {
+        "brand": "Pusha",
+        "category": "Хранение",
+        "color": "Коричневый",
+        "currentPrice": 35999,
+        "date": "2020-10-21T19:46:17.247Z",
+        "description": "Благодаря линиям дизайна и очарованию предлагаемых цветовых решений, эти изделия могут использоваться в домашнем или офисном интерьере, выполняя различное функциональное назначение. Ящик в комбинации с полками и верхней поверхностью представляет собой основной компонент системы.",
+        "enabled": true,
+        "imageUrl": [
+            "./img/storage/dresser/dresser_Pusha/dresser_Pusha_main.jpeg",
+            "./img/storage/dresser/dresser_Pusha/dresser_Pusha1.jpeg",
+            "./img/storage/dresser/dresser_Pusha/dresser_Pusha2.jpeg"
+        ],
+        "imageUrls": [],
+        "itemNo": "486583",
+        "name": "Комод",
+        "route": "komod-pusha-brown",
+        "quantity": 10,
+        "sizes": {
+            "height": 50,
+            "width": 120,
+            "length": 86
+        },
+        "subCategory": "Комоды",
+        "isPopularProduct": false,
+        "isNewProduct": false,
+        "isTopRated": false
+    }
+]
