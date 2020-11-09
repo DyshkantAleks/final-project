@@ -1,7 +1,20 @@
 import React, { useState } from 'react'
 
 import useWindowDimensions from '../../../../utils/useWindowDimensions'
-import { NewItem, IconContainer, ItemText, SubList, SubItem, ImageIcon, StyledLink, ItemContainer, TextContainer, ArrowContainer, Arrow, StyledLinkMainCategory } from '../StyledCatalog'
+import {
+  NewItem,
+  IconContainer,
+  ItemText,
+  SubList,
+  SubItem,
+  ImageIcon,
+  StyledLink,
+  ItemContainer,
+  TextContainer,
+  ArrowContainer,
+  Arrow,
+  StyledLinkMainCategory
+} from '../StyledCatalog'
 import { useSelector } from 'react-redux'
 import { selectByParentCategory } from '../../../../store/categories/selectors'
 
@@ -46,14 +59,14 @@ export const CatalogItem = (props) => {
       {screenWidth >= 1200 && (
         <NewItem key={id} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }}>
           <ItemContainer>
-          <StyledLinkMainCategory to={`/catalog/${route}`}>
-          <TextContainer>
-            <IconContainer>
-              <ImageIcon src={icon} />
-            </IconContainer>
-            <ItemText>{category}</ItemText>
-          </TextContainer>
-          </StyledLinkMainCategory>
+            <StyledLinkMainCategory to={`/catalog/${route}`}>
+              <TextContainer>
+                <IconContainer>
+                  <ImageIcon src={icon} />
+                </IconContainer>
+                <ItemText>{category}</ItemText>
+              </TextContainer>
+            </StyledLinkMainCategory>
           </ItemContainer>
           {hover &&
 
