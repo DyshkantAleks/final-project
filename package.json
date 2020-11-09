@@ -44,6 +44,8 @@
     },
     "scripts": {
         "start": "npm-run-all -p watch-sass-js start-js",
+        "start:dev": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
+         "start:prod": "npm run build && react-scripts start",
         "build": "npm run eslint && npm run stylelint-build && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
