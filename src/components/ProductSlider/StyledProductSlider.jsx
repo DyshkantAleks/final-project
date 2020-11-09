@@ -40,15 +40,15 @@ width: 90%;
 height: 28rem;
 overflow: hidden;
 box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3) inset;
-    /* @media ${device.tabletS}{
-        height: 52rem;
+    @media ${device.tabletS}{
+        height: 32rem;
     };
     @media ${device.tabletM}{
-        height: 57.6rem;
+        height: 40rem;
     };
     @media ${device.tabletL}{
         height: 45rem;
-    }; */
+    };
 `;
 
 export const ImageMain = styled.img`
@@ -66,11 +66,11 @@ width: 100%;
 height: 7rem;
 overflow: hidden;
 box-shadow: 0px 0px .3rem rgba(0, 0, 0, 0.3) inset;
-    /* @media ${device.tabletS}{
+    @media ${device.tabletS}{
         height: 9rem;
     };
     @media ${device.tabletM}{
-        height: 15rem;
+        height: 10rem;
         box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.3) inset;
 
     };
@@ -79,7 +79,7 @@ box-shadow: 0px 0px .3rem rgba(0, 0, 0, 0.3) inset;
         margin-bottom: .5rem;
         box-shadow: 0px 0px .8rem rgba(0, 0, 0, 0.3) inset;
 
-    }; */
+    };
 `;
 
 export const ImageThumbs = styled.img`
