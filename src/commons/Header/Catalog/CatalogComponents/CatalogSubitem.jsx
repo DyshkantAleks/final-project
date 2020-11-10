@@ -5,8 +5,8 @@ import { SubItem } from '../StyledCatalog'
 export const CatalogSubitem = () => {
   return (
     <>
-      <SubItem>Офисные</SubItem>
-      <SubItem>Не офисные</SubItem>
+      <SubItem></SubItem>
+      <SubItem></SubItem>
     </>
 
   )

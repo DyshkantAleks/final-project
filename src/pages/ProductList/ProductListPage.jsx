@@ -10,19 +10,20 @@ import { Footer } from '../../commons/Footer'
 
 export const ProductListPage = ({ match, location }) => {
   const { params: { route } } = match
-
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route))
-
   const allProducts = useSelector(selectProducts)
-
   let array = []
   if (currentItemByRoute) {
-    const isRootCategory = currentItemByRoute.parentId === 'null'
-    array = allProducts.filter(e => isRootCategory
-      ? e.category === currentItemByRoute.category
-      : e.subCategory === currentItemByRoute.category
-    )
+    // const isRootCategory = currentItemByRoute.parentId === 'null'
+    if (currentItemByRoute.parentId === 'null') {
+      array = allProducts.filter(e => e.category === currentItemByRoute.category)
+    } else if (currentItemByRoute.parentId === 'all') {
+      array = allProducts
+    } else {
+      array = allProducts.filter(e => e.subCategory === currentItemByRoute.category)
+    }
   }
+
 
   return (
 

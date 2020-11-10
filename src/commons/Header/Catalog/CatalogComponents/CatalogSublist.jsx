@@ -8,9 +8,7 @@ import { selectByParentCategory } from '../../../../store/categories/selectors'
 export const CatalogSublist = ({ props }) => {
   return (
 
-    <SubList>
-      {/* <CatalogSubitem/> */}
-      <SubItem />
+    <SubList><SubItem />
     </SubList>
 
   )
