@@ -55,7 +55,7 @@
     "stylelint-dev": "stylelint \"src/**/*.scss\" --cache --cache-location \".stylelintcache\"; exit 0",
     "watch-sass-js": "npm-watch",
     "stylelint-fix": "stylelint --fix \"src/**/*.scss\"",
-    "eslint-fix": "eslint --fix \"src/**/*.js\"",
+    "eslint-fix": "eslint --fix \"src/**/*.js\""
     },
     "eslintConfig": {
         "extends": "react-app"
