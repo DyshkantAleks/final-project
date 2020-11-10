@@ -43,17 +43,19 @@
         "yup": "^0.29.3"
     },
     "scripts": {
-         "start:dev": "npm-run-all -p watch-sass-js start-js",
-        "start": "if-env NODE_ENV=production ?? npm run start:prod && serve -s build || npm run start:dev",
-         "start:prod": "npm run build && react-scripts start",        
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "eslint": "eslint \"src/**/*.jsx\"",
-        "start-js": "react-scripts start",
-        "stylelint-dev": "stylelint 'src/**/*.scss' --cache --cache-location './.stylelintcache'; exit 0",
-        "stylelint-build": "stylelint 'src/**/*.scss'",
-        "watch-sass-js": "npm-watch"
+     "start": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
+    "start:dev": "npm-run-all -p watch-sass-js start-js",
+    "start:prod": "npm run build && react-scripts start",
+    "start-js": "npm run eslint && react-scripts start",
+    "build": "npm run eslint-fix && npm run stylelint-fix && react-scripts build",
+    "test": "react-scripts test",
+    "eslint": "eslint \"src/**/*.js\"",
+    "stylelint": "stylelint \"src/**/*.scss\"",
+    "eject": "react-scripts eject",
+    "stylelint-dev": "stylelint \"src/**/*.scss\" --cache --cache-location \".stylelintcache\"; exit 0",
+    "watch-sass-js": "npm-watch",
+    "stylelint-fix": "stylelint --fix \"src/**/*.scss\"",
+    "eslint-fix": "eslint --fix \"src/**/*.js\"",
     },
     "eslintConfig": {
         "extends": "react-app"
