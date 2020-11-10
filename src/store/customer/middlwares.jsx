@@ -2,6 +2,8 @@ import { server } from '../../API';
 import { setAuthToken } from '../auth/middlware';
 
 import { setCustomer } from './action-creators';
+import { getCart } from '../cart/middlware'
+import { getFavorites } from '../favorites/middlware'
 
 export const registerCustomer = (customer) => async (dispatch) => {
   try {
@@ -25,6 +27,8 @@ export const getCustomer = () => async (dispatch, getState) => {
 
     if (status === 200) {
       dispatch(setCustomer(data));
+      dispatch(getCart());
+      dispatch(getFavorites());
     }
   } catch (error) {
     console.log(error.response.data);

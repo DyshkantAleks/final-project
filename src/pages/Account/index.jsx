@@ -11,12 +11,10 @@ import { icon } from '../../commons/Header/AccountInfo/icons';
 import {ScrollToTop} from '../../components/ScrollToTop';
 import { logOut } from '../../store/auth/middlware';
 
-
 export const AccountPage = (props) => {
   const user = useSelector(selectCustomer);
   const dispatch = useDispatch()
-  console.log(user);
-
+ 
   return (
     <>
       <Header />
