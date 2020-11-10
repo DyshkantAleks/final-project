@@ -44,7 +44,7 @@
     },
     "scripts": {
          "start:dev": "npm-run-all -p watch-sass-js start-js",
-        "start": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
+        "start": "if-env NODE_ENV=production ?? npm run start:prod && serve -s build || npm run start:dev",
          "start:prod": "npm run build && react-scripts start",        
         "build": "react-scripts build",
         "test": "react-scripts test",
