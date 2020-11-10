@@ -4,12 +4,14 @@ import { device } from '../../styles/breakpoints/breakpoints'
 import {Header} from '../../commons/Header/Header';
 import {ContactForm} from '../../components/forms/ContactForm/ContactForm';
 import {OrderCart} from './OrderCart';
-import { Title } from '../../components/Title/Title'
-import { ContentContairer } from '../../components/Content/Content'
+import { Title } from '../../components/Title/Title';
+import { ContentContairer } from '../../components/Content/Content';
+import { Footer } from '../../commons/Footer';
 
 
 export const OrderPage = () => {
   return (
+    <>
     <ContentContairer>
       <Header/>
       <Title text='Оформить заказ' />
@@ -18,6 +20,8 @@ export const OrderPage = () => {
       <OrderCart/>
       </ContainerPage>
     </ContentContairer>
+  <Footer />
+  </>
   )
 }
 

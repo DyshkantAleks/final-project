@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { selectCart } from '../../store/cart/selectors';
@@ -14,7 +14,8 @@ import { ROUTES } from '../navigation/routes';
 import { Footer } from '../../commons/Footer';
 
 export const CartPage = () => {
-  const cartItems = useSelector(selectCart)
+  
+  const cartItems = useSelector(selectCart);
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
@@ -26,33 +27,34 @@ export const CartPage = () => {
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
     <>
-    <ContentContairer>
-      <Header />
-      <Title text='Корзина' />
+      <ContentContairer>
+        <Header />
+        <Title text='Корзина' />
 
-      <CartContainer>
-        <CartMenu>
-          {cartItems.length > 0 && menuArray.map((item, index) => <p key={index}>{item}</p>)}
-        </CartMenu>
-        {cartItems.length === 0 ? "В корзине нет товаров" :
-          cartItems.map(item =>
-            <CartItem
-              {...item.product}
-              cartQuantity={item.cartQuantity}
-              key={item.product._id}
-            />
-          )
-        }
-      </CartContainer>
+        <CartContainer>
+          <CartMenu>
+            {cartItems.length > 0 && menuArray.map((item, index) => <p key={index}>{item}</p>)}
+          </CartMenu>
+          {cartItems.length === 0 ? "В корзине нет товаров" :
+            cartItems.map(item =>
+              <CartItem
+                {...item.product}
+                cartQuantity={item.cartQuantity}
+                key={item.product._id}
+              />
+            )
+          }
+        </CartContainer>
 
-      {(cartItems > 0) &&
-        <CartTotalContainer>
-          <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-          <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
-        </CartTotalContainer>}
+        {(cartItems.length > 0) &&
+          <CartTotalContainer>
+            {/* ASK ANDREW FOR TOTAL LEGNTH - {sumQuantity} or  {cartItems.length} ? */}
+            <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+            <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
+          </CartTotalContainer>}
     </ContentContairer>
-     <Footer/>
-     </>
+      <Footer />
+    </>
   )
 }
 
@@ -69,14 +71,14 @@ background-color: #F5F5F5;//
     display: none;
   };
   @media ${device.tabletS}{
-    grid-template-columns: 35% 21% 28% 18%;
-    padding: 0.7rem 1.1rem 0.8rem 8rem;
+    grid-template-columns: 31% 1fr 27% 19%;
+    padding: 0.7rem 1.1rem 0.7rem calc(3% + 7rem);
     display: ${props => (props.fav ? 'none' : 'grid')};
     align-items: center;
   };
   @media ${device.tabletM}{
-  grid-template-columns: 31% 27% 18% 25%;
-  padding: 0.7rem 1.1rem 0.8rem 14%;
+  grid-template-columns: 32% 27% 18% 25%;
+  padding: 0.7rem 0.8rem 0.7rem 14%;
   display: grid;
   }
 

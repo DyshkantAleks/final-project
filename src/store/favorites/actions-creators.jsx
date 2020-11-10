@@ -14,7 +14,3 @@ export const removeFromFavorites = (payload) => ({
   type: REMOVE_FROM_FAVORITES,
   payload
 })
-
-export const setFavoriteLoader = () => ({
-  type: SET_FAVORITE_LOADER
-})

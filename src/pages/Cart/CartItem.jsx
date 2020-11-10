@@ -58,7 +58,7 @@ export const CartItemContainer = styled.div`
         }
 
         @media ${device.tabletS}{
-          grid-template-columns: ${props => (props.fav ? '5% 15% 1fr 1fr 130px' : '3% 13% 26% 21% 21% 20%')};
+          grid-template-columns: ${props => (props.fav ? '5% 5.5rem 1fr 1fr 13rem' : '3% 6rem 26% 21% 21% 20%')};
           //grid-template-columns: 3% 13% 26% 21% 21% 20%;
           position: static;
           grid-gap: inherit;
@@ -72,8 +72,8 @@ export const CartItemContainer = styled.div`
 export const CartImage = styled.img`
 width: 100%;
 height: auto;
-padding-left: 0.5rem;
-
+max-height: 5rem;
+padding-left: 1rem;
 
 @media ${device.mobile}{
 grid-row-end: 4;

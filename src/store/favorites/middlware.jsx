@@ -1,5 +1,5 @@
 import {server} from '../../API';
-import { addToFavorites, removeFromFavorites, setFavorites, setFavoriteLoader } from './actions-creators';
+import { addToFavorites, removeFromFavorites, setFavorites } from './actions-creators';
 
 function unique (arr) {
   const res = new Map();
@@ -29,7 +29,6 @@ export const getFavorites = () => async (dispatch, getState) => {
  
   if (customer.isLogined) {
     try {
-      dispatch(setFavoriteLoader());
       const {status, data} = await server.get('/wishlist');
       console.log({status, data})
       if (status === 200) {
