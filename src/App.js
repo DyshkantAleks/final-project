@@ -19,6 +19,7 @@ function App () {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Navigation />
+
     </PersistGate>
   );
 };
