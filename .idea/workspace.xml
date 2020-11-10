@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50908e2f-d0c8-49dc-b8c7-72ee4e59709f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogSubitem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogSubitem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogSublist.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogSublist.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TopRatedProducts/TopRatedProductsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopRatedProducts/TopRatedProductsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/StyledCatalog/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/StyledCatalog/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/ProductList/ProductListPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProductList/ProductListPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/categories/selectors.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/categories/selectors.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

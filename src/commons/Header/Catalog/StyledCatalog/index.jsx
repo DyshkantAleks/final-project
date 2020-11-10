@@ -86,7 +86,6 @@ font-weight: normal;
 padding-left: 4.5rem;
 border-bottom: .1rem solid #aecfd9;
 &:not(:last-child) {
-
 }
 //background-color: #e6e9ef;
 @media ${device.desktop}{

@@ -14,7 +14,6 @@ export const ProductListPage = ({ match, location }) => {
   const allProducts = useSelector(selectProducts)
   let array = []
   if (currentItemByRoute) {
-    // const isRootCategory = currentItemByRoute.parentId === 'null'
     if (currentItemByRoute.parentId === 'null') {
       array = allProducts.filter(e => e.category === currentItemByRoute.category)
     } else if (currentItemByRoute.parentId === 'all') {
