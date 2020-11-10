@@ -1,33 +1,33 @@
-import React, { useEffect, useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Autoplay, Virtual } from 'swiper'
+import React, { useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Autoplay, Virtual } from 'swiper';
 
-import styled from 'styled-components'
-import 'swiper/swiper.scss'
-import './style.scss'
-import 'swiper/components/navigation/navigation.scss'
-import 'swiper/components/pagination/pagination.scss'
-import 'swiper/components/scrollbar/scrollbar.scss'
-import { device } from '../../styles/breakpoints/breakpoints'
-import { connect, useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components';
+import 'swiper/swiper.scss';
+import './style.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
 
-import { getPromotionsList } from '../../store/promotions/actions'
-import { Link } from 'react-router-dom'
-import { selectPromotions } from '../../store/promotions/selectors'
+import { connect } from 'react-redux';
 
-SwiperCore.use([Navigation, Pagination, Autoplay, Virtual])
+import { getPromotionsList } from '../../store/promotions/actions';
 
-const mapStateToProps = state => ({
-  promotions: selectPromotions(state)
-})
+import { selectPromotions } from '../../store/promotions/selectors';
+
+SwiperCore.use([Navigation, Pagination, Autoplay, Virtual]);
+
+const mapStateToProps = (state) => ({
+  promotions: selectPromotions(state),
+});
 
 export const SliderTest = connect(mapStateToProps, { getPromotionsList })(
   ({ promotions, getPromotionsList }) => {
     // console.log(getPromotionsList);
 
     useEffect(() => {
-      getPromotionsList()
-    }, [getPromotionsList])
+      getPromotionsList();
+    }, [getPromotionsList]);
     // console.log(promotions);
 
     return (
@@ -52,9 +52,9 @@ export const SliderTest = connect(mapStateToProps, { getPromotionsList })(
           ))}
         </Swiper>
       </SliderContainer>
-
-    )
-  })
+    );
+  }
+);
 
 // export const SliderTest = () => {
 //
@@ -78,7 +78,7 @@ export const SliderTest = connect(mapStateToProps, { getPromotionsList })(
 //               autoplay={true}
 //       >
 //         {promotions.map((e, index) => (
-//           <SwiperSlide  tag="li" key={index}>
+//           <SwiperSlide  tag='li' key={index}>
 //             <Link
 //               to={`/promo/${e.route}`}>
 //               <ImageContainer>
@@ -93,14 +93,14 @@ export const SliderTest = connect(mapStateToProps, { getPromotionsList })(
 //   )
 // };
 
-const SliderContainer = styled.div``
+const SliderContainer = styled.div``;
 
 const ImageContainer = styled.div`
-position: absolute;
-width: 100%;
-height: 100%;
-`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
 const Image = styled.img`
-width: 100%;
-height: auto;
-`
+  width: 100%;
+  height: auto;
+`;

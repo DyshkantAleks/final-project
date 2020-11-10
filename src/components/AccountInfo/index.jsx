@@ -27,8 +27,6 @@ export const AccountInfo = () => {
   
   const { name, surname, gender, email, login } = useSelector(selectCustomer);
   const dispatch = useDispatch();
-console.log(params)
-
   const userInfoList = [
     { label: 'Имя:', userData: name },
     { label: 'Фамилия:', userData: surname },
