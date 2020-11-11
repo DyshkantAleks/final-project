@@ -6,11 +6,8 @@ import { RadioGroup } from './Radio';
 import styled from 'styled-components';
 import { selectCustomer, selectCustomerIslogined } from '../../../store/customer/slectors';
 
-// const { Option } = Select;
-
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
-  // const dispatch = useDispatch();
   const logined = useSelector(selectCustomerIslogined)
   const customer = useSelector(selectCustomer)
   const [form] = Form.useForm();
