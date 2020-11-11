@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 export const RadioGroup = (props) => {
   const {title, radioProps = [] } = props;
+
   const radioList = radioProps.map(({ text, value }, index) => (
     <Radio style={radioStyle} key={index} value={value}>
       {text}
