@@ -21,6 +21,7 @@ import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { params } from '../LiqPay/liqpay';
 import { liqPayServer } from '../../API';
+import {liqpay} from '../../components/LiqPay/liqpay';
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
@@ -98,14 +99,14 @@ export const AccountInfo = () => {
       {customerData()}
       <PersonalSectionFooter>
         <Button
-          onClick={() => liqPayServer.post('/3/checkout', params)}color={'#7191A6'} text={'Изменить пароль'} />
+          onClick={() => console.log(params)}color={'#7191A6'} text={'Изменить пароль'} />
         <Button color={'#7191A6'} text={'Удалить аккаунт'} />
         <Button
           onClick={() => dispatch(logOut())}
           color={'#7191A6'}
           text={'Выйти'}
         />
-      </PersonalSectionFooter>
+      </PersonalSectionFooter>g
     </>
   );
 };
