@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { server } from '../../API'
 import { logOutCustomer } from '../customer/action-creators'
 import { getCustomer } from '../customer/middlwares'

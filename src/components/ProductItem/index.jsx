@@ -6,7 +6,7 @@ import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
 import { IconNew } from './IconsSvg/IconNew';
 import { IconTopRated } from './IconsSvg/IconTopRated';
-import { useToggle } from '../../utils/useToggle';
+// import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';

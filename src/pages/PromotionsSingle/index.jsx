@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
-import { selectById, selectPromotions } from '../../store/promotions/selectors';
+import { selectById } from '../../store/promotions/selectors';
 import { getPromotions } from '../../store/promotions/middlware';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Footer } from '../../commons/Footer';
 
-export const PromotionsSinglePage = ({ match, location }) => {
-  const { params: { route } } = match
+export const PromotionsSinglePage = ({ match }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
