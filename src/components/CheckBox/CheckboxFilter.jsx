@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Container, StyledCheckbox } from './StyledCheckboxFilter.jsx';
 
-export const CheckboxFilter = ({ filterOption, onClickHandler }) => {
+export const CheckboxFilter = ({ filterOption }) => {
   return (
     <Container className="checkbox-wrapper">
-      <StyledCheckbox onClick={onClickHandler}>{filterOption}</StyledCheckbox>
+      <StyledCheckbox>{filterOption}</StyledCheckbox>
     </Container>
   );
 };
