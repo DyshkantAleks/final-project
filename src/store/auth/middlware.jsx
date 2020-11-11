@@ -31,7 +31,7 @@ export const auth = (login, password, history) => async (dispatch) => {
       dispatch(getCustomer())
     }
     history.goBack();
-    console.log(status, data)
+    
   } catch (error) {
     dispatch(setAuthError(error))
   }

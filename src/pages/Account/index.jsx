@@ -15,8 +15,6 @@ import { logOut } from '../../store/auth/middlware';
 export const AccountPage = (props) => {
   const user = useSelector(selectCustomer);
   const dispatch = useDispatch()
-  console.log(user);
-
   return (
     <>
       <Header />
