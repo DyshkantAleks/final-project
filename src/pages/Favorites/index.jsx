@@ -16,19 +16,22 @@ export const FavoritesPage = () => {
   return (
     <>
       <Header />
-      <Title text='Избранное' />
-      <CartContainer>
-        <CartMenu fav>
-          {favMenuArray.map((item, index) => (
-            <p key={index}>{item}</p>
-          ))}
-        </CartMenu>
-        {favorites.length === 0
-          ? 'У вас нет избранных товаров'
-          : favorites.map((item) => (
-            <FavItem {...item} key={item._id} item={item} />
-          ))}
-      </CartContainer>
-    </ContentContairer>
-  );
-};
+      <ContentContairer>
+        <Title text='Избранное' />
+        <CartContainer>
+          <CartMenu fav>
+            {favMenuArray.map((item, index) => <p key={index}>{item}</p>)}
+          </CartMenu>
+          {favorites.length === 0 ? 'У вас нет избранных товаров' : favorites.map(item =>
+            <FavItem
+              {...item}
+              key={item._id}
+              item={item}
+            />
+          )}
+        </CartContainer>
+      </ContentContairer>
+      <Footer/>
+    </>
+  )
+}
