@@ -9,7 +9,6 @@ import { removeProductFromCart } from '../../store/cart/middlware.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
 export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity, cartQuantity, _id, route }) => {
-  
   const dispatch = useDispatch();
   const btnCloseheandler = (id) => {
     dispatch(removeProductFromCart(id))
@@ -30,7 +29,7 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
         {color}
       </CartColor>
       <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id}/>
-       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
+      <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {/* <CartPrice>{currentPrice} грн</CartPrice> */}
     </CartItemContainer>
   )
