@@ -1,28 +1,11 @@
-export const getCartList = (productObj, cartArray, cartId) => {
-  const objCopy = JSON.parse(JSON.stringify(productObj))
-  let productArray = []
-  for (const key in objCopy) {
-    productArray = [...productArray, ...objCopy[key]]
+export const categoriesFilter = (products, categorie) => {
+  let array = [];
+  if (categorie) {
+    const isRootCategory = categorie.parentId === 'null'
+    array = products.filter(e => isRootCategory
+      ? e.category === categorie.category
+      : e.subCategory === categorie.category
+    );
   }
-
-  const result = productArray.filter(productItem => cartArray.some(cartItem => cartItem[cartId] === productItem[cartId]))
-  result.forEach(item => {
-    cartArray.forEach(cartItem => {
-      if (cartItem.code === item.code) {
-        item.quantity = cartItem.quantity
-      }
-    })
-  })
-
-  return result
+  return array
 }
-
-// export const getFavList = (productObj, favArray) => {
-//   const objCopy = JSON.parse(JSON.stringify(productObj)) // показать Саше
-//   let productArray = [];
-//   for (const key in objCopy) {
-//     productArray = [...productArray, ...objCopy[key]]
-//   }
-//   const result = productArray.filter(productItem => favArray.some(favItem => favItem[id] === productItem[id]))
-//   return result;
-// }

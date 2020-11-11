@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
 import { selectByRoute } from '../../store/products_draft/selectors';
-import { useToggle } from '../../utils/useToggle';
+// import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
 import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from './StyledProductPage';
