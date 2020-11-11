@@ -246,7 +246,7 @@ export const ContactForm = (props) => {
         </Col>
       </Row>
       <Button text='Подтвердить заказ' type='submit'></Button>
-      <SearchLocationInput/>
+      
     </Form>
     
   );

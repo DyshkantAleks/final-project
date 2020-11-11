@@ -27,9 +27,8 @@ export const auth = (login, password, history) => async (dispatch) => {
       dispatch(setToken(data.token));
       dispatch(setAuthError(null));
       dispatch(getCustomer());
+      history.goBack();
     }
-    history.goBack();
-    
   } catch (error) {
     dispatch(setAuthError(error))
     

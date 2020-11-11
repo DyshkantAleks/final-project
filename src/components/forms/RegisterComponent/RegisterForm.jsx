@@ -49,7 +49,7 @@ export const RegisterForm = (props) => {
             message: 'Введите имя!',
           },
           {
-            pattern: /^[a-zA-Zа-яА-Я]+$/,
+            pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
             message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -72,7 +72,7 @@ export const RegisterForm = (props) => {
             message: 'Введите фамилию!',
           },
           {
-            pattern: /^[a-zA-Zа-яА-Я]+$/,
+            pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
             message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -121,7 +121,7 @@ export const RegisterForm = (props) => {
             message: 'Максимум 30 символов!',
           },
           {
-            pattern: /^[a-zA-Zа-яА-Я0-9]+$/,
+            pattern: /^[а-яёА-ЯЁІіїЇєЄ0-9]+$/,
             message: 'Пароль должен состоять из букв и цифр!',
           },
         ]}
