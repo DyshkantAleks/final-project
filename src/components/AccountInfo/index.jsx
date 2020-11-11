@@ -99,14 +99,14 @@ export const AccountInfo = () => {
       {customerData()}
       <PersonalSectionFooter>
         <Button
-          onClick={() => console.log(params)}color={'#7191A6'} text={'Изменить пароль'} />
+          onClick={() => liqPayServer.post('/3/checkout', params)}color={'#7191A6'} text={'Изменить пароль'} />
         <Button color={'#7191A6'} text={'Удалить аккаунт'} />
         <Button
           onClick={() => dispatch(logOut())}
           color={'#7191A6'}
           text={'Выйти'}
         />
-      </PersonalSectionFooter>g
+      </PersonalSectionFooter>
     </>
   );
 };
