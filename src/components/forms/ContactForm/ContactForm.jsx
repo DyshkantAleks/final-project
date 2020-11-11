@@ -55,7 +55,7 @@ export const ContactForm = (props) => {
   ];
   const {name, surname, email, phone} = customer
   const initialValues = logined ? {name, surname, email, phone, prefix: '+380' } : {prefix: '+380'}
-
+  
   return (
     <Form
       layout='vertical'
@@ -78,7 +78,7 @@ export const ContactForm = (props) => {
                 message: 'Введите имя!',
               },
               {
-                pattern: /^[a-zA-Zа-яА-Я]+$/,
+                pattern: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ]+$/,
                 message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
               },
               {
@@ -104,7 +104,7 @@ export const ContactForm = (props) => {
                 message: 'Введите фамилию!',
               },
               {
-                pattern: /^[a-zA-Zа-яА-Я]+$/,
+                pattern: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ]+$/,
                 message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
               },
               {
@@ -162,7 +162,7 @@ export const ContactForm = (props) => {
                 message: 'Заполните поле!',
               },
               {
-                pattern: /^[а-яА-Я]+$/,
+                pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
                 message: 'заполните поле кирилицей',
               },
             ]}
@@ -180,7 +180,7 @@ export const ContactForm = (props) => {
                 message: 'Заполните поле!',
               },
               {
-                pattern: /^[а-яА-Я]+$/,
+                pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
                 message: 'Заполните поле кирилицей',
               },
             ]}
@@ -200,7 +200,7 @@ export const ContactForm = (props) => {
                 message: 'Заполните поле!',
               },
               {
-                pattern: /^[а-яА-Я0-9]+$/,
+                pattern: /^[0-9а-яёА-ЯЁІіїЇєЄ]+$/,
                 message: 'Используйте цифры и буквы',
               },
             ]}
