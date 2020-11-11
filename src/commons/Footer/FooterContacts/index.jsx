@@ -2,7 +2,6 @@ import React from 'react'
 import {
   FooterContactsContainer,
   SocialLink,
-  TextAdress,
   ContactsItem,
   SocialsContainer,
   SocialsIconContainer,

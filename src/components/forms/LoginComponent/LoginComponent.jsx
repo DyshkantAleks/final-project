@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Checkbox } from 'antd';
 
-import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
+// import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
 import {LoginForm} from '../LoginComponent/LoginForm'
 import { auth } from '../../../store/auth/middlware';
 import { useDispatch, useSelector } from 'react-redux';
