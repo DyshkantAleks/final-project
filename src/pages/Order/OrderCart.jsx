@@ -7,8 +7,7 @@ import { device } from '../../styles/breakpoints/breakpoints';
 
 export const OrderCart = () => {
   const cartItems = useSelector(selectCart);
-  console.log(cartItems);
-
+  
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity;
   }, 0);

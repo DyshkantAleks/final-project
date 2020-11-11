@@ -16,7 +16,7 @@ export const OrderPage = () => {
       <Header />
       <Title text='Оформить заказ' />
       <ContainerPage>
-        <ContactForm />
+        <ContactForm handleSubmit={(val) => handleSubmit(val)}/>
         <OrderCart />
       </ContainerPage>
     </ContentContairer>

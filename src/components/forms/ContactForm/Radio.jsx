@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
-import styled from 'styled-components';
+
 
 export const RadioGroup = (props) => {
-  const {title, radioProps = [] } = props;
-
-  const radioList = radioProps.map(({ text, value }, index) => (
-    <Radio style={radioStyle} key={index} value={value}>
-      {text}
-    </Radio>))
-  console.log(radioList)
+  const { radioProps = [] } = props;
+  const [value, setValue] = useState(null)
+  useEffect(() => {
+    setValue(value)
+  }, [value])
+  const onChange = e => {
+    console.log('radio checked', e.target.value);
+    setValue(e.target.value)
+  };
+ 
   return (
-    <Radio.Group >
-      <Text>{title}</Text>
-      {radioList}
+    <Radio.Group
+      value={value}
+      onChange={(e) => onChange(e)}>
+      {radioProps.map(({ text, value }, index) => (
+        <Radio style={radioStyle} key={index} value={value}>
+          {text}
+        </Radio>))}
     </Radio.Group>
   );
 };
-
-const Text = styled.p`
-  font-size: 1.4rem;
-  line-height: 1.5;
-`;
 
 const radioStyle = {
   display: 'block',

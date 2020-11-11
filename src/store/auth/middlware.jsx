@@ -23,6 +23,7 @@ export const auth = (login, password, history) => async (dispatch) => {
       }
     )
     if (status === 200) {
+      console.log(history)
       dispatch(setToken(data.token));
       dispatch(setAuthError(null));
       dispatch(getCustomer());
@@ -31,5 +32,6 @@ export const auth = (login, password, history) => async (dispatch) => {
     
   } catch (error) {
     dispatch(setAuthError(error))
+    
   }
 }

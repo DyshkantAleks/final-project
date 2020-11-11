@@ -5,13 +5,14 @@ import { Button } from '../../Button';
 import { RadioGroup } from './Radio';
 import styled from 'styled-components';
 import { selectCustomer, selectCustomerIslogined } from '../../../store/customer/slectors';
+import SearchLocationInput from '../../../utils/GoogleAutoComplete';
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const logined = useSelector(selectCustomerIslogined)
   const customer = useSelector(selectCustomer)
   const [form] = Form.useForm();
-
+  
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select
@@ -52,7 +53,7 @@ export const ContactForm = (props) => {
   ];
   const {name, surname, email, phone} = customer
   const initialValues = logined ? {name, surname, email, phone, prefix: '+380' } : {prefix: '+380'}
-  
+  console.log('inVal', initialValues)
   return (
     <Form
       layout='vertical'
@@ -224,21 +225,30 @@ export const ContactForm = (props) => {
           </Form.Item>
         </Col>
       </Row>
-
       <Row>
         <Col span={12}>
-          <Form.Item>
-            <RadioGroup title='Способ доставки' radioProps={deliveryMethod} />
+          <Form.Item
+            name='delivery'
+            label='Способ доставки'
+            rules={[{ required: true, message: 'Выбирите способ доставки!' }]}
+          >
+            <RadioGroup radioProps={deliveryMethod} />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item>
-            <RadioGroup title='Способ оплаты' radioProps={payMethod} />
+          <Form.Item
+            name='payMethod'
+            label='Способ оплаты'
+            rules={[{ required: true, message: 'Выбирите способ оплаты!' }]}
+          >
+            <RadioGroup radioProps={payMethod} />
           </Form.Item>
         </Col>
       </Row>
       <Button text='Подтвердить заказ' type='submit'></Button>
+      <SearchLocationInput/>
     </Form>
+    
   );
 };
 
