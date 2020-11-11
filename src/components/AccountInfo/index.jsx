@@ -22,10 +22,11 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { params } from '../LiqPay/liqpay';
 import { liqPayServer } from '../../API';
 import {liqpay} from '../../components/LiqPay/liqpay';
+import { LiqpayV } from './comp';
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
-  
+  console.log(params)
   const { name, surname, gender, email, login } = useSelector(selectCustomer);
   const dispatch = useDispatch();
   const userInfoList = [
@@ -93,11 +94,12 @@ export const AccountInfo = () => {
         </PersonalSection>
       );
     });
-
+   
   return (
     <>
       {customerData()}
       <PersonalSectionFooter>
+        <div><LiqpayV params={params}/></div>
         <Button
           onClick={() => liqPayServer.post('/3/checkout', params)}color={'#7191A6'} text={'Изменить пароль'} />
         <Button color={'#7191A6'} text={'Удалить аккаунт'} />
