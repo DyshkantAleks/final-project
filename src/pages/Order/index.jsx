@@ -8,16 +8,18 @@ import { Title } from '../../components/Title/Title';
 import { ContentContairer } from '../../components/Content/Content';
 import { Footer } from '../../commons/Footer';
 
-
 export const OrderPage = () => {
+  const handleSubmit = (values) => {
+    console.log(values)
+  }
   return (
     <>
     <ContentContairer>
       <Header/>
       <Title text='Оформить заказ' />
       <ContainerPage>
-      <ContactForm/>
-      <OrderCart/>
+        <ContactForm handleSubmit={handleSubmit}/>
+        <OrderCart/>
       </ContainerPage>
     </ContentContairer>
   <Footer />

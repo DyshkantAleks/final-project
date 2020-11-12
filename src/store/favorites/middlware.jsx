@@ -12,10 +12,9 @@ const updatedFavorites = async (state) => {
   if (customer.isLogined) {
     if (state.favorites.favorites.length > 0) {
       const productsInFav = state.favorites.favorites.map(item => item._id);
-      const newFavList = {products: productsInFav};
+      const updatedFav = {products: productsInFav}
       try {
-        //dispatch(setFavoriteLoader());
-        await server.put('/wishlist', newFavList)
+        await server.put('/wishlist', updatedFav)
       } catch (error) {
         console.log(error)
       }
@@ -29,15 +28,13 @@ export const getFavorites = () => async (dispatch, getState) => {
  
   if (customer.isLogined) {
     try {
-      const {status, data} = await server.get('/wishlist');
-      console.log({status, data})
+      const {status, data} = await server.get('/wishlist')
       if (status === 200) {
         const itemsToFav = [...state.favorites.favorites, ...data.products];
         const result = unique(itemsToFav);
         dispatch(setFavorites(result));
         const newState = getState();
         updatedFavorites(newState);
-        console.log(newState)
       }
     } catch (error) {
       console.log(error)

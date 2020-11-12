@@ -1,10 +1,7 @@
-import React from 'react'
 import { server } from '../../API'
 import { logOutCustomer } from '../customer/action-creators'
-
 import { getCustomer } from '../customer/middlwares'
-import { getCart } from '../cart/middlware'
-import { getFavorites } from '../favorites/middlware'
+
 import { delLogin, delToken, setAuthError, setToken } from './action-creators'
 
 export const setAuthToken = (token) => {
@@ -27,11 +24,9 @@ export const auth = (login, password, history) => async (dispatch) => {
       }
     )
     if (status === 200) {
-      dispatch(setToken(data.token))
-      dispatch(setAuthError(null))
-      dispatch(getCustomer())
-      dispatch(getCart());
-      dispatch(getFavorites());
+      dispatch(setToken(data.token));
+      dispatch(setAuthError(null));
+      dispatch(getCustomer());
     }
     history.goBack();
     console.log(status, data)

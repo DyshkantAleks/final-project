@@ -19,7 +19,7 @@ const updateCart = async (state) => {
   }
 };
 
-function unique (arr) {
+export function unique (arr) {
   const res = new Map();
   return arr.filter((a) => !res.has(a.product._id) && res.set(a.product._id, 1))
 };
@@ -33,7 +33,6 @@ export const getCart = () => async (dispatch, getState) => {
       const {status, data} = await server.get('/cart')
       if (status === 200) {
         const sumTwoCart = [...state.cart.cart, ...data.products];
-        //console.log(sumTwoCart)
         const result = unique(sumTwoCart)
         dispatch(setCart(result));
         const newState = getState();

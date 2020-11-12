@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,16 +6,15 @@ import { Link } from 'react-router-dom';
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
 import { Header } from '../../commons/Header/Header';
+import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
 import { ROUTES } from '../navigation/routes';
-import { Footer } from '../../commons/Footer';
 
 export const CartPage = () => {
-  
-  const cartItems = useSelector(selectCart);
+  const cartItems = useSelector(selectCart)
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
@@ -27,15 +26,18 @@ export const CartPage = () => {
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
     <>
+      <Header />
       <ContentContairer>
-        <Header />
         <Title text='Корзина' />
 
         <CartContainer>
           <CartMenu>
-            {cartItems.length > 0 && menuArray.map((item, index) => <p key={index}>{item}</p>)}
+            {/* {cartItems.length > 0 && menuArray.map((item, index) => <p key={index}>{item}</p>)}
+          </CartMenu> */}
+            {cartItems.length === 0 ? "В корзине нет товаров" :
+               menuArray.map((item, index) => <p key={index}>{item}</p>) }
           </CartMenu>
-          {cartItems.length === 0 ? "В корзине нет товаров" :
+          {
             cartItems.map(item =>
               <CartItem
                 {...item.product}
@@ -45,14 +47,13 @@ export const CartPage = () => {
             )
           }
         </CartContainer>
-
         {(cartItems.length > 0) &&
           <CartTotalContainer>
             {/* ASK ANDREW FOR TOTAL LEGNTH - {sumQuantity} or  {cartItems.length} ? */}
-            <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+            <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
             <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
           </CartTotalContainer>}
-    </ContentContairer>
+      </ContentContairer>
       <Footer />
     </>
   )
@@ -65,7 +66,7 @@ text-align: center;
 `;
 
 export const CartMenu = styled.div`
-background-color: #F5F5F5;//
+background-color: #F5F5F5;
 
   @media ${device.mobile}{
     display: none;
