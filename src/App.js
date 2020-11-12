@@ -15,10 +15,9 @@ function App () {
     dispatch(getProducts(),
       dispatch(getCustomer()));
   }, [dispatch]);
-
   return (
     <PersistGate loading={null} persistor={persistor}>
-      <Navigation />
+      <Navigation/>
     </PersistGate>
   );
 };

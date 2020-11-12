@@ -85,6 +85,8 @@ line-height: 3.5rem;
 font-weight: normal;
 padding-left: 4.5rem;
 border-bottom: .1rem solid #aecfd9;
+border-right: .1rem solid #aecfd9;
+border-left: .1rem solid #aecfd9;
 &:not(:last-child) {
 }
 //background-color: #e6e9ef;
@@ -108,7 +110,7 @@ list-style: none;
     left: -.1rem;
     width: 25rem;
     padding: 0;
-    border: .1rem solid #aecfd9;
+    //border: .1rem solid #aecfd9;
     text-align: left;
     z-index: 1000;
     background-color: white;
