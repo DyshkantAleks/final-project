@@ -1,30 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Form, Input, Select, Row, Col } from 'antd';
+import { Form, Input, Select, Row, Col, Radio } from 'antd';
 import { Button } from '../../Button';
-import { RadioGroup } from './Radio';
 import styled from 'styled-components';
 import { selectCustomer, selectCustomerIslogined } from '../../../store/customer/slectors';
 
-// const { Option } = Select;
+
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
-  // const dispatch = useDispatch();
-  const logined = useSelector(selectCustomerIslogined)
   const customer = useSelector(selectCustomer)
   const [form] = Form.useForm();
-
-  const prefixSelector = (
-    <Form.Item name='prefix' noStyle>
-      <Select
-        showArrow={false}
-        style={{
-          width: 76,
-        }}
-      />
-    </Form.Item>
-  );
+  const [delivery, setdelivery] = useState('Self')
+  const {name, surname, email, phone} = customer
   const deliveryMethod = [
     {
       text: 'Самовывоз',
@@ -43,6 +31,7 @@ export const ContactForm = (props) => {
       value: 'toHome',
     },
   ];
+  
   const payMethod = [
     {
       text: 'Наличными при получении',
@@ -53,16 +42,24 @@ export const ContactForm = (props) => {
       value: 'creditCard',
     },
   ];
-  const {name, surname, email, phone} = customer
-  const initialValues = logined ? {name, surname, email, phone, prefix: '+380' } : {prefix: '+380'}
   
+  const prefixSelector = (
+    <Form.Item name='prefix' noStyle>
+      <Select
+        showArrow={false}
+        style={{
+          width: 76,
+        }}
+      />
+    </Form.Item>
+  );
   return (
     <Form
       layout='vertical'
       name='order'
       form={form}
       onFinish={handleSubmit}
-      initialValues={initialValues}
+      initialValues={{name, surname, email, phone, prefix: '+380', delivery: 'Self' }}
     >
       <Text>Пожалуйста, заполните форму</Text>
       <Text>Выберите форму доставки и оплаты</Text>
@@ -152,7 +149,7 @@ export const ContactForm = (props) => {
         </Col>
       </Row>
       <Row gutter={10}>
-        <Col span={12}>
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='city'
             label='Населенный пункт'
@@ -169,8 +166,8 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
-        <Col span={12}>
+        </Col>}
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='street'
             label='Улица'
@@ -187,10 +184,10 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
+        </Col>}
       </Row>
       <Row gutter={10}>
-        <Col span={12}>
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='house'
             label='Дом'
@@ -207,8 +204,8 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
-        <Col span={12}>
+        </Col>}
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='flat'
             label='Квартира'
@@ -225,23 +222,37 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
+        </Col>}
       </Row>
-
       <Row>
         <Col span={12}>
-          <Form.Item>
-            <RadioGroup title='Способ доставки' radioProps={deliveryMethod} />
+          <Form.Item
+            name='delivery'
+            label='Способ доставки'
+            rules={[{ message: 'Выбирите способ доставки!' }]}
+          >
+            <Radio.Group onChange={(val) => setdelivery(val.target.value)}>
+              {deliveryMethod.map(({text, value}, index) => (<Radio style={radioStyle} key={index} value={value}>{text}</Radio>))}
+            </Radio.Group>
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item>
-            <RadioGroup title='Способ оплаты' radioProps={payMethod} />
+          <Form.Item
+            name='payMethod'
+            label='Способ оплаты'
+            rules={[{ message: 'Выбирите способ оплаты!' }]}
+          >
+            <Radio.Group>
+              {payMethod.map(({text, value}, index) => (<Radio style={radioStyle} key={index} value={value}>{text}</Radio>))}
+            </Radio.Group>
           </Form.Item>
         </Col>
       </Row>
+      
       <Button text='Подтвердить заказ' type='submit'></Button>
+      
     </Form>
+    
   );
 };
 
@@ -249,3 +260,8 @@ const Text = styled.p`
   font-size: 1.4rem;
   line-height: 1.5;
 `;
+const radioStyle = {
+  display: 'block',
+  height: '30px',
+  lineHeight: '30px',
+};
