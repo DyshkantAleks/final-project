@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import {Content, Wrapper, Title, FilterName, StyledChCheckboxGroupe, ProductList} from './StyledProductListPage';
+import {Content, Wrapper, Title, FilterName, StyledCheckboxGroupe, ProductList} from './StyledProductListPage';
 import { Header } from '../../commons/Header/Header';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
@@ -10,7 +10,7 @@ import { ContentContairer } from '../../components/Content/Content';
 import { Footer } from '../../commons/Footer';
 // import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
 import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
-// import { ProductSorting } from '../../components/productSorting/ProductSorting'
+import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import './style.scss';
@@ -53,7 +53,7 @@ export const ProductListPage = ({ match }) => {
             // onAfterChangeHandler={onAfterChangeHandler}
             />
 
-            <StyledChCheckboxGroupe onChange={onClickHandlerColor} >
+            <StyledCheckboxGroupe onChange={onClickHandlerColor} >
               <FilterName>Цвет</FilterName>
               {[...arrayOfColors].map((item, index) => (
                 <StyledCheckbox
@@ -72,7 +72,7 @@ export const ProductListPage = ({ match }) => {
                   value={item}
                 >{item}</StyledCheckbox>)
               )}
-            </StyledChCheckboxGroupe>
+            </StyledCheckboxGroupe>
           </Wrapper>
           {/* <ProductSorting onChangeHandler={onChangeHandler} /> */}
           <ProductList>

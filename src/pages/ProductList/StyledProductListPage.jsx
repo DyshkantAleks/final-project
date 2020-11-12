@@ -21,7 +21,7 @@ export const FilterName = styled.h3`
   text-align: left;
 `;
 
-export const StyledChCheckboxGroupe = styled(Checkbox.Group)`
+export const StyledCheckboxGroupe = styled(Checkbox.Group)`
 display: flex;
 flex-direction: column;
 justify-content: center;
