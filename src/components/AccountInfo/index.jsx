@@ -19,10 +19,10 @@ import { logOut } from '../../store/auth/middlware';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-import { params } from '../LiqPay/liqpay';
-import { liqPayServer } from '../../API';
-import {liqpay} from '../../components/LiqPay/liqpay';
-import { LiqpayV } from './comp';
+import { params } from '../LiqPay/liqpayData';
+
+import {LiqPaySheckout} from '../LiqPay/LiqPaySheckout';
+
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
@@ -99,9 +99,9 @@ export const AccountInfo = () => {
     <>
       {customerData()}
       <PersonalSectionFooter>
-        <div><LiqpayV params={params}/></div>
+        <div> <LiqPaySheckout params={params}/></div>
         <Button
-          onClick={() => liqPayServer.post('/3/checkout', params)}color={'#7191A6'} text={'Изменить пароль'} />
+          color={'#7191A6'} text={'Изменить пароль'} />
         <Button color={'#7191A6'} text={'Удалить аккаунт'} />
         <Button
           onClick={() => dispatch(logOut())}

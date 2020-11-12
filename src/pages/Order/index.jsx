@@ -6,11 +6,17 @@ import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title';
 import { ContentContairer } from '../../components/Content/Content';
+import { createOrder } from '../../store/order/middlware';
+import { useDispatch } from 'react-redux';
 
 export const OrderPage = () => {
+  const dispatch = useDispatch()
   const handleSubmit = (values) => {
+  
     console.log(values)
+    dispatch(createOrder())
   }
+ 
   return (
     <ContentContairer>
       <Header />

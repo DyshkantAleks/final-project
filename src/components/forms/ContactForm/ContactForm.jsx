@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { selectCustomer, selectCustomerIslogined } from '../../../store/customer/slectors';
 
 
+
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const logined = useSelector(selectCustomerIslogined)
@@ -52,7 +53,7 @@ export const ContactForm = (props) => {
     },
   ];
   const {name, surname, email, phone} = customer
-  const initialValues = logined ? {name, surname, email, phone, prefix: '+380' } : {prefix: '+380'}
+  const initialValues = logined ? {name, surname, email, phone, prefix: '+380', delivery: 'Self' } : {prefix: '+380', delivery: 'Self'}
   console.log(delivery)
   return (
     <Form
@@ -60,6 +61,7 @@ export const ContactForm = (props) => {
       name='order'
       form={form}
       onFinish={handleSubmit}
+      onFinishFailed={val =>({...initialValues, ...val}) }
       initialValues={initialValues}
     >
       <Text>Пожалуйста, заполните форму</Text>
@@ -232,7 +234,7 @@ export const ContactForm = (props) => {
             label='Способ доставки'
             rules={[{ message: 'Выбирите способ доставки!' }]}
           >
-            <Radio.Group defaultValue={delivery} onChange={(val) => setdelivery(val.target.value)}>
+            <Radio.Group onChange={(val) => setdelivery(val.target.value)}>
               {deliveryMethod.map(({text, value}, index) => (<Radio style={radioStyle} key={index} value={value}>{text}</Radio>))}
             </Radio.Group>
           </Form.Item>

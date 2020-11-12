@@ -8,6 +8,7 @@ export const params = liqpay.cnb_object({
   amount: '1',
   currency: 'UAH',
   description: 'description text',
-  order_id: 'order_id_1',
+  order_id: 'order_id_4',
   version: '3',
+  result_url: 'http://localhost:3000/'
 });
