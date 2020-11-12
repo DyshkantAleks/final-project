@@ -21,9 +21,6 @@ import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { params } from '../LiqPay/liqpayData';
 
-import {LiqPaySheckout} from '../LiqPay/LiqPaySheckout';
-
-
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
   console.log(params)
@@ -72,36 +69,35 @@ export const AccountInfo = () => {
     </PersonalDataContainer>
   );
 
-  const customerData = () =>
-    userInfoTitle.map(({ title, icon }, index) => {
-      return (
-        <PersonalSection key={index}>
-          <PersonalSectionHeader>
-            <PersonalSectionHeading>
-              <Icon>{icon}</Icon>
-              {title}
-            </PersonalSectionHeading>
-            {screenWidth >= 481 ? <Button text={'Редактировать'} /> : null}
-          </PersonalSectionHeader>
-          {index === 0 && personalData()}
-          {index === 1 && contactData()}
-          {index === 2 && loginData()}
-          {screenWidth < 481 ? (
-            <PersonalSectionActive>
-              <Button text={'Редактировать'} />
-            </PersonalSectionActive>
-          ) : null}
-        </PersonalSection>
-      );
-    });
-   
+  const customerData = () => userInfoTitle.map(({ title, icon }, index) => {
+    return (
+      <PersonalSection key={index}>
+        <PersonalSectionHeader>
+          <PersonalSectionHeading>
+            <Icon>
+              {icon}
+            </Icon>
+            {title}
+          </PersonalSectionHeading>
+          {screenWidth >= 481 ? <Button text={'Редактировать'} onClick={() => dispatch(openModal({content: <ChangePersonalDataForm/>}))}/> : null}
+        </PersonalSectionHeader>
+        {(index === 0) && personalData()}
+        {(index === 1) && contactData()}
+        {(index === 2) && loginData()}
+        {screenWidth < 481
+          ? <PersonalSectionActive>
+            <Button text={'Редактировать'} />
+          </PersonalSectionActive> : null}
+      </PersonalSection>
+    )
+  });
+
   return (
     <>
+      {/* {isOpenModal && <Modal content={contentModal} closeModalHandler={() => dispatch(closeModal())}/>} */}
       {customerData()}
       <PersonalSectionFooter>
-        <div> <LiqPaySheckout params={params}/></div>
-        <Button
-          color={'#7191A6'} text={'Изменить пароль'} />
+        <Button color={'#7191A6'} text={'Изменить пароль'} onClick={() => dispatch(openModal({content: <ChangePassForm/>, title: 'Введите старый и новый пароли'}))}/>
         <Button color={'#7191A6'} text={'Удалить аккаунт'} />
         <Button
           onClick={() => dispatch(logOut())}

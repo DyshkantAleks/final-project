@@ -9,20 +9,10 @@ import { selectCustomer, selectCustomerIslogined } from '../../../store/customer
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
-  const logined = useSelector(selectCustomerIslogined)
   const customer = useSelector(selectCustomer)
   const [form] = Form.useForm();
   const [delivery, setdelivery] = useState('Self')
-  const prefixSelector = (
-    <Form.Item name='prefix' noStyle>
-      <Select
-        showArrow={false}
-        style={{
-          width: 76,
-        }}
-      />
-    </Form.Item>
-  );
+  const {name, surname, email, phone} = customer
   const deliveryMethod = [
     {
       text: 'Самовывоз',
@@ -52,17 +42,24 @@ export const ContactForm = (props) => {
       value: 'creditCard',
     },
   ];
-  const {name, surname, email, phone} = customer
-  const initialValues = logined ? {name, surname, email, phone, prefix: '+380', delivery: 'Self' } : {prefix: '+380', delivery: 'Self'}
-  console.log(delivery)
+  
+  const prefixSelector = (
+    <Form.Item name='prefix' noStyle>
+      <Select
+        showArrow={false}
+        style={{
+          width: 76,
+        }}
+      />
+    </Form.Item>
+  );
   return (
     <Form
       layout='vertical'
       name='order'
       form={form}
       onFinish={handleSubmit}
-      onFinishFailed={val =>({...initialValues, ...val}) }
-      initialValues={initialValues}
+      initialValues={{name, surname, email, phone, prefix: '+380', delivery: 'Self' }}
     >
       <Text>Пожалуйста, заполните форму</Text>
       <Text>Выберите форму доставки и оплаты</Text>

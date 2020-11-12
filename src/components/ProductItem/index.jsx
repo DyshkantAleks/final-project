@@ -15,6 +15,7 @@ import { addProductToFav, removeProductFromFav } from '../../store/favorites/mid
 import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductItem = (props) => {
+  
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
 
   const dispatch = useDispatch();
@@ -24,8 +25,8 @@ export const ProductItem = (props) => {
 
   const btnInCart = productInCart.map(itemCart => itemCart.product._id).some(itemId => itemId === id);
 
-  const btnHeandler = (product, quantity) => {
-    dispatch(addProductToCart(product, quantity))
+  const btnHeandler = (item, quantity) => {
+    dispatch(addProductToCart(item, quantity))
   }
 
   const productInFavorite = useSelector(selectFavorites);
