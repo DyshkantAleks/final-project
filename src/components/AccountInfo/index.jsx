@@ -22,6 +22,7 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { params } from '../LiqPay/liqpay';
 import { liqPayServer } from '../../API';
 import {liqpay} from '../../components/LiqPay/liqpay';
+import SearchLocationInput from '../../utils/GoogleAutoComplete';
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
@@ -106,7 +107,8 @@ export const AccountInfo = () => {
           color={'#7191A6'}
           text={'Выйти'}
         />
-      </PersonalSectionFooter>g
+        <SearchLocationInput/>
+      </PersonalSectionFooter>
     </>
   );
 };

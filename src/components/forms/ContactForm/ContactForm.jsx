@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Form, Input, Select, Row, Col } from 'antd';
+import { Form, Input, Select, Row, Col, Radio } from 'antd';
 import { Button } from '../../Button';
-import { RadioGroup } from './Radio';
 import styled from 'styled-components';
 import { selectCustomer, selectCustomerIslogined } from '../../../store/customer/slectors';
-import SearchLocationInput from '../../../utils/GoogleAutoComplete';
+
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const logined = useSelector(selectCustomerIslogined)
   const customer = useSelector(selectCustomer)
   const [form] = Form.useForm();
-  
+  const [delivery, setdelivery] = useState('Self')
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select
@@ -41,6 +40,7 @@ export const ContactForm = (props) => {
       value: 'toHome',
     },
   ];
+  
   const payMethod = [
     {
       text: 'Наличными при получении',
@@ -53,7 +53,7 @@ export const ContactForm = (props) => {
   ];
   const {name, surname, email, phone} = customer
   const initialValues = logined ? {name, surname, email, phone, prefix: '+380' } : {prefix: '+380'}
-  console.log('inVal', initialValues)
+  console.log(delivery)
   return (
     <Form
       layout='vertical'
@@ -150,7 +150,7 @@ export const ContactForm = (props) => {
         </Col>
       </Row>
       <Row gutter={10}>
-        <Col span={12}>
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='city'
             label='Населенный пункт'
@@ -167,8 +167,8 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
-        <Col span={12}>
+        </Col>}
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='street'
             label='Улица'
@@ -185,10 +185,10 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
+        </Col>}
       </Row>
       <Row gutter={10}>
-        <Col span={12}>
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='house'
             label='Дом'
@@ -205,8 +205,8 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
-        <Col span={12}>
+        </Col>}
+        {(!(delivery === 'Self')) && <Col span={12}>
           <Form.Item
             name='flat'
             label='Квартира'
@@ -223,28 +223,33 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col>
+        </Col>}
       </Row>
       <Row>
         <Col span={12}>
           <Form.Item
             name='delivery'
             label='Способ доставки'
-            rules={[{ required: true, message: 'Выбирите способ доставки!' }]}
+            rules={[{ message: 'Выбирите способ доставки!' }]}
           >
-            <RadioGroup radioProps={deliveryMethod} />
+            <Radio.Group defaultValue={delivery} onChange={(val) => setdelivery(val.target.value)}>
+              {deliveryMethod.map(({text, value}, index) => (<Radio style={radioStyle} key={index} value={value}>{text}</Radio>))}
+            </Radio.Group>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item
             name='payMethod'
             label='Способ оплаты'
-            rules={[{ required: true, message: 'Выбирите способ оплаты!' }]}
+            rules={[{ message: 'Выбирите способ оплаты!' }]}
           >
-            <RadioGroup radioProps={payMethod} />
+            <Radio.Group>
+              {payMethod.map(({text, value}, index) => (<Radio style={radioStyle} key={index} value={value}>{text}</Radio>))}
+            </Radio.Group>
           </Form.Item>
         </Col>
       </Row>
+      
       <Button text='Подтвердить заказ' type='submit'></Button>
       
     </Form>
@@ -256,3 +261,8 @@ const Text = styled.p`
   font-size: 1.4rem;
   line-height: 1.5;
 `;
+const radioStyle = {
+  display: 'block',
+  height: '30px',
+  lineHeight: '30px',
+};
