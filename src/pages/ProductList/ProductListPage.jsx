@@ -1,24 +1,22 @@
-
 import React, { useState } from 'react';
-
-import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
+import {Content, Wrapper, Title, FilterName, StyledCheckboxGroupe, ProductList} from './StyledProductListPage';
 import { Header } from '../../commons/Header/Header';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContairer } from '../../components/Content/Content';
-import { ProductItemList } from '../Product/StyledProductPage';
 import { Footer } from '../../commons/Footer';
-import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
+// import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
 import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
-// import { ProductSorting } from '../../components/productSorting/ProductSorting'
+import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
-import { Checkbox } from 'antd';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
+import './style.scss';
+import { ScrollToTop } from '../../components/ScrollToTop';
 
-export const ProductListPage = ({ match, location }) => {
+export const ProductListPage = ({ match }) => {
   const [checkedVal, setCheckedVal] = useState([])
   const { params: { route } } = match;
 
@@ -28,9 +26,9 @@ export const ProductListPage = ({ match, location }) => {
 
   const arrayOfColors = new Set(array.map(item => item.color));
   const arrayOfBrands = new Set(array.map(item => item.brand));
- 
+
   const newArray = array.filter(productItem => checkedVal.some(chackedItem => chackedItem === productItem.color || chackedItem === productItem.brand))
- 
+
   const onClickHandlerColor = (checkedValues) => {
     setCheckedVal(checkedValues)
   }
@@ -38,9 +36,9 @@ export const ProductListPage = ({ match, location }) => {
   checkedVal.length > 0 ? result = newArray : result = array;
 
   return (
-
     <>
       <Header />
+      <ScrollToTop />
       <ContentContairer>
         <Content>
           <Wrapper>
@@ -52,10 +50,10 @@ export const ProductListPage = ({ match, location }) => {
               max={200000}
               step={1}
               defaultValue={50000}
-              // onAfterChangeHandler={onAfterChangeHandler}
+            // onAfterChangeHandler={onAfterChangeHandler}
             />
 
-            <Checkbox.Group onChange={onClickHandlerColor} style={{display: 'flex'}}>
+            <StyledCheckboxGroupe onChange={onClickHandlerColor} >
               <FilterName>Цвет</FilterName>
               {[...arrayOfColors].map((item, index) => (
                 <StyledCheckbox
@@ -74,49 +72,29 @@ export const ProductListPage = ({ match, location }) => {
                   value={item}
                 >{item}</StyledCheckbox>)
               )}
-            </Checkbox.Group>
+            </StyledCheckboxGroupe>
           </Wrapper>
-          <Wrapper>
-            {/* <ProductSorting onChangeHandler={onChangeHandler} /> */}
-            <ProductItemList>
-              {result.map((e, index) => (
-                <ProductItem
-                  key={index}
-                  name={e.name}
-                  price={e.currentPrice}
-                  image={e.imageUrl[0]}
-                  route={e.route}
-                  id={e._id}
-                  isNewProduct={e.isNewProduct}
-                  isTopRated={e.isTopRated}
-                  product={e}
-                />
-              ))}
-            </ProductItemList>
-          </Wrapper>
+          {/* <ProductSorting onChangeHandler={onChangeHandler} /> */}
+          <ProductList>
+            {result.map((e, index) => (
+              <ProductItem
+                key={index}
+                name={e.name}
+                price={e.currentPrice}
+                previousPrice={e.previousPrice}
+                image={e.imageUrl[0]}
+                route={e.route}
+                id={e._id}
+                isNewProduct={e.isNewProduct}
+                isTopRated={e.isTopRated}
+                isSale={e.isSale}
+                product={e}
+              />
+            ))}
+          </ProductList>
         </Content>
       </ContentContairer>
       <Footer />
     </>
-
   )
-}
-
-const Content = styled.main`
-  display: flex;
-  margin-top: 20px;
-`;
-
-const Wrapper = styled.div`
-  margin: 10px;
-  min-width: 250px;
-`;
-
-const Title = styled.h1`
-  font-size: 30px;
-`;
-
-const FilterName = styled.h3`
-  font-size: 24px;
-  text-align: left;
-`;
+};
