@@ -1,76 +1,39 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux'
-import { Header } from '../../commons/Header/Header'
-import { selectProducts } from '../../store/products_draft/selectors'
-import { selectCategoryFromRoute } from '../../store/categories/selectors'
-import { ProductItem } from '../../components/ProductItem'
-import { ContentContairer } from '../../components/Content/Content'
-import { ProductItemList } from '../Product/StyledProductPage'
-import { Footer } from '../../commons/Footer'
-import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter'
-import { RangeSlider } from '../../components/rangeSlider/RangeSlider'
+import { useSelector } from 'react-redux';
+
+import { Header } from '../../commons/Header/Header';
+import { selectProducts } from '../../store/products_draft/selectors';
+import { selectCategoryFromRoute } from '../../store/categories/selectors';
+import { ProductItem } from '../../components/ProductItem';
+import { ContentContairer } from '../../components/Content/Content';
+import { ProductItemList } from '../Product/StyledProductPage';
+import { Footer } from '../../commons/Footer';
+import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
+import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
 import { ProductSorting } from '../../components/productSorting/ProductSorting'
+import { categoriesFilter } from '../../utils/filters';
+import { Checkbox } from 'antd';
+import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 
 export const ProductListPage = ({ match, location }) => {
+  const [checkedVal, setCheckedVal] = useState([])
   const { params: { route } } = match;
 
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
-
   const allProducts = useSelector(selectProducts);
+  const array = categoriesFilter(allProducts, currentItemByRoute);
 
-  let array = [];
-  if (currentItemByRoute) {
-    const isRootCategory = currentItemByRoute.parentId === 'null'
-    array = allProducts.filter(e => isRootCategory
-      ? e.category === currentItemByRoute.category
-      : e.subCategory === currentItemByRoute.category
-    );
+  const arrayOfColors = new Set(array.map(item => item.color));
+  const arrayOfBrands = new Set(array.map(item => item.brand));
+ 
+  const newArray = array.filter(productItem => checkedVal.some(chackedItem => chackedItem === productItem.color || chackedItem === productItem.brand))
+ 
+  const onClickHandlerColor = (checkedValues) => {
+    setCheckedVal(checkedValues)
   }
-
-  array.sort((a, b) => a.isTopRated === b.isTopRated ? 0 : a.isTopRated ? -1 : 1);
-
-  const [selectedColors, setSelectedColors] = useState([]);
-  const colors = ['Белый', 'Бежевый', 'Оранжевый', 'Коричневый', 'Металлик', 'Черный'];
-
-
-  function onClickHandlerColor(e) {
-    const wrapper = e.target.closest('div');
-    const color = wrapper.querySelector('.ant-checkbox + span').innerText;
-
-    if (!wrapper.querySelector('.ant-checkbox-checked')) {
-      setSelectedColors(prev => [...prev, color]);
-      array.filter(item => selectedColors.includes(item.color));
-    } else {
-      setSelectedColors(prev => prev.filter(item => item !== color));
-    }
-  }
-
-  function onAfterChangeHandler(value) {
-    array.filter(item => item.currentPrice <= value)
-  }
-
-  function onChangeHandler(value) {
-    switch (value) {
-      case "По рейтингу":
-        array.sort((a, b) => a.isTopRated === b.isTopRated ? 0 : a.isTopRated ? -1 : 1);
-        break;
-      case "От дешевых к дорогим":
-        array.sort((a, b) => a.currentPrice < b.currentPrice ? -1 : 1);
-        break;
-      case "От дорогих к дешевым":
-        array.sort((a, b) => a.currentPrice > b.currentPrice ? -1 : 1);
-        break;
-      case "Новинки":
-        array.sort((a, b) => a.isNewProduct === b.isNewProduct ? 0 : a.isNewProduct ? -1 : 1);
-        break;
-      case "Акционные":
-        array.sort((a, b) => a.isSale === b.isSale ? 0 : a.isSale ? -1 : 1);
-        break;
-      default:
-        array.sort((a, b) => a.isTopRated === b.isTopRated ? 0 : a.isTopRated ? -1 : 1);
-    }
-  }
+  let result;
+  checkedVal.length > 0 ? result = newArray : result = array;
 
   return (
 
@@ -87,21 +50,34 @@ export const ProductListPage = ({ match, location }) => {
               max={200000}
               step={1}
               defaultValue={50000}
-              onAfterChangeHandler={onAfterChangeHandler}
+              // onAfterChangeHandler={onAfterChangeHandler}
             />
-            <FilterName>Цвет</FilterName>
-            {colors.map((item, index) => (
-              <CheckboxFilter
-                key={index}
-                onClickHandler={onClickHandlerColor}
-                filterOption={item}
-              />)
-            )}
+
+            <Checkbox.Group onChange={onClickHandlerColor}>
+              <FilterName>Цвет</FilterName>
+              {[...arrayOfColors].map((item, index) => (
+                <StyledCheckbox
+                  key={index}
+                  // onClickHandler={onClickHandlerColor}
+                  // filterOption={item}
+                  value={item}
+                >{item}</StyledCheckbox>)
+              )}
+
+              <FilterName>Бренд</FilterName>
+              {[...arrayOfBrands].map((item, index) => (
+                <StyledCheckbox
+                  key={index}
+                  // onClickHandler={onClickHandlerColor}
+                  value={item}
+                >{item}</StyledCheckbox>)
+              )}
+            </Checkbox.Group>
           </Wrapper>
           <Wrapper>
-            <ProductSorting onChangeHandler={onChangeHandler} />
+            {/* <ProductSorting onChangeHandler={onChangeHandler} /> */}
             <ProductItemList>
-              {array.map((e, index) => (
+              {result.map((e, index) => (
                 <ProductItem
                   key={index}
                   name={e.name}
@@ -111,6 +87,7 @@ export const ProductListPage = ({ match, location }) => {
                   id={e._id}
                   isNewProduct={e.isNewProduct}
                   isTopRated={e.isTopRated}
+                  product={e}
                 />
               ))}
             </ProductItemList>

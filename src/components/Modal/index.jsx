@@ -1,22 +1,34 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLockBodyScroll } from 'react-use';
+import styled from 'styled-components';
 
-export const Modal = ({ closeButton = true, closeModalHandler, content, actions }) => {
+import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
+import { closeModal } from '../../store/modal/actions-creators.jsx';
+import { selectModalContent, selectModalTitle, selectModalActions } from '../../store/modal/selectors.jsx';
+
+export const Modal = ({ closeButton = true }) => {
+  useLockBodyScroll();
+  const dispatch = useDispatch();
+  const content = useSelector(selectModalContent);
+  const title = useSelector(selectModalTitle);
+  const actions = useSelector(selectModalActions)
+
+  const closeModalHandler = () => {
+    dispatch(closeModal())
+  }
   return ReactDOM.createPortal(
     <ModalOwerlay onClick={(e) => e.currentTarget === e.target ? closeModalHandler() : null}>
       <ModalWindow>
         <ModalHeader>
-          {closeButton && <StyledFontAwesomeIcon icon={faTimes} onClick={closeModalHandler} />}
+          <ModalTittle>{title}</ModalTittle>
+          {closeButton && <CloseBtn onClick={closeModalHandler}>{icon.close}</CloseBtn>}
         </ModalHeader>
         <ModalText>
           {content}
         </ModalText>
-        <ModalActions>
-          {actions}
-        </ModalActions>
+        {actions && <ModalActions>{actions}</ModalActions>}
       </ModalWindow>
     </ModalOwerlay>,
     document.getElementById('modal-root')
@@ -26,7 +38,6 @@ export const Modal = ({ closeButton = true, closeModalHandler, content, actions 
 const ModalOwerlay = styled.div`
   position: fixed;
   background-color: #312e2e83;
- 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,25 +51,18 @@ const ModalWindow = styled.div`
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-width: 30%;
+  justify-content: space-between;  
+  max-height: 100vh;
+  overflow: auto;
 `
 
 const ModalHeader = styled.div`
+  margin: 1rem 2rem 0 2rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end; 
+  justify-content: space-between; 
 `
 
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-    font-size: 1.2em;
-    color: #A0A9AF;
-    padding: 5px 7px 0 0;
-    &:hover{
-      cursor: pointer;
-      color: #007042;
-    }
-`
 const ModalText = styled.div`
   display: flex;
   align-self: center;
@@ -73,4 +77,18 @@ const ModalActions = styled.div`
   justify-content: space-between;
   align-self: center;
   margin: 25px 0;
+`
+export const CloseBtn = styled.div`
+width: 1.5rem;
+height: 1.5rem;
+fill: #A0A9AF;
+  &:hover{
+    fill: #c91212;
+    cursor: pointer;
+  }
+`;
+
+const ModalTittle = styled.div`
+font-size: 1.6rem;
+font-weight: bold;
 `

@@ -1,24 +1,19 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
 import { Header } from '../../commons/Header/Header';
+import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
 import { ROUTES } from '../navigation/routes';
-import { getCart } from '../../store/cart/middlware';
 
 export const CartPage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCart());
-  }, [dispatch]);
-  
   const cartItems = useSelector(selectCart)
 
   const sumCart = cartItems.reduce(function (sum, current) {
@@ -30,30 +25,33 @@ export const CartPage = () => {
 
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
-    <ContentContairer>
+    <>
       <Header />
-      <Title text='Корзина' />
+      <ContentContairer>
+        <Title text='Корзина' />
 
-      <CartContainer>
-        <CartMenu>
-          {menuArray.map((item, index) => <p key={index}>{item}</p>)}
-        </CartMenu>
-        {
-          cartItems.map(item =>
-            <CartItem
-              {...item.product}
-              cartQuantity={item.cartQuantity}
-              key={item.product._id}
-            />
-          )
-        }
-      </CartContainer>
+        <CartContainer>
+          <CartMenu>
+            {menuArray.map((item, index) => <p key={index}>{item}</p>)}
+          </CartMenu>
+          {
+            cartItems.map(item =>
+              <CartItem
+                {...item.product}
+                cartQuantity={item.cartQuantity}
+                key={item.product._id}
+              />
+            )
+          }
+        </CartContainer>
 
-      <CartTotalContainer>
-        <CartTotalText>Всего в корзине {cartItems.length} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-        <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
-      </CartTotalContainer>
-    </ContentContairer>
+        <CartTotalContainer>
+          <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
+          <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
+        </CartTotalContainer>
+      </ContentContairer>
+      <Footer/>
+    </>
   )
 }
 
