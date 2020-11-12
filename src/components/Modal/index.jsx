@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLockBodyScroll } from 'react-use';
 import styled from 'styled-components';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
+import { closeModal } from '../../store/modal/actions-creators.jsx';
+import { selectModalContent, selectModalTitle, selectModalActions } from '../../store/modal/selectors.jsx';
 
-export const Modal = ({ closeButton = true, closeModalHandler, content, actions, title }) => {
+export const Modal = ({ closeButton = true }) => {
   useLockBodyScroll();
+  const dispatch = useDispatch();
+  const content = useSelector(selectModalContent);
+  const title = useSelector(selectModalTitle);
+  const actions = useSelector(selectModalActions)
 
+  const closeModalHandler = () => {
+    dispatch(closeModal())
+  }
   return ReactDOM.createPortal(
     <ModalOwerlay onClick={(e) => e.currentTarget === e.target ? closeModalHandler() : null}>
       <ModalWindow>

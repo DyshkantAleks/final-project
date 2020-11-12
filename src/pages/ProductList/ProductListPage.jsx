@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
@@ -13,7 +11,7 @@ import { ProductItemList } from '../Product/StyledProductPage';
 import { Footer } from '../../commons/Footer';
 import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
 import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
-// import { ProductSorting } from '../../components/productSorting/ProductSorting'
+import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import { Checkbox } from 'antd';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
@@ -55,7 +53,7 @@ export const ProductListPage = ({ match, location }) => {
               // onAfterChangeHandler={onAfterChangeHandler}
             />
 
-            <Checkbox.Group onChange={onClickHandlerColor} style={{display: 'flex'}}>
+            <Checkbox.Group onChange={onClickHandlerColor}>
               <FilterName>Цвет</FilterName>
               {[...arrayOfColors].map((item, index) => (
                 <StyledCheckbox
