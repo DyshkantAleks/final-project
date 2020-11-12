@@ -12,6 +12,7 @@ import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContairer } from '../../components/Content/Content';
 import { ROUTES } from '../navigation/routes';
+import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const CartPage = () => {
   const cartItems = useSelector(selectCart)
@@ -27,6 +28,7 @@ export const CartPage = () => {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <ContentContairer>
         <Title text='Корзина' />
 
