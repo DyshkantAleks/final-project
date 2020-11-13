@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
 
 import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
@@ -84,3 +86,44 @@ export const ProductItem = (props) => {
     </>
   )
 };
+
+// ProductItem.propTypes = {
+//   name: PropTypes.string,
+//   price: PropTypes.number,
+//   previousPrice: PropTypes.number,
+//   image: PropTypes.string,
+//   route: PropTypes.string,
+//   id: PropTypes.string,
+//   isNewProduct: PropTypes.bool,
+//   isTopRated: PropTypes.bool,
+//   isSale: PropTypes.bool,
+//   product: PropTypes.shape({
+//     _id: PropTypes.string,
+//     brand: PropTypes.string,
+//     category: PropTypes.string,
+//     color: PropTypes.string,
+//     currentPrice: PropTypes.number,
+//     date: PropTypes.string,
+//     description: PropTypes.string,
+//     enabled: PropTypes.bool,
+//     imageUrl: PropTypes.arrayOf(PropTypes.string),
+//     isNewProduct: PropTypes.bool,
+//     isTopRated: PropTypes.bool,
+//     isSale: PropTypes.bool,
+//     itemNo: PropTypes.string,
+//     name: PropTypes.string,
+//     quantity: PropTypes.number,
+//     route: PropTypes.string,
+//     sizes: PropTypes.shape({
+//       height: PropTypes.number,
+//       width: PropTypes.number,
+//       lenght: PropTypes.number
+//     }),
+//     specifications: PropTypes.shape({
+//       covering: PropTypes.string,
+//       casing: PropTypes.string
+//     }),
+//     subCategory: PropTypes.string,
+//     __v: PropTypes.number
+//   }),
+// };

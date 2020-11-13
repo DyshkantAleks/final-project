@@ -29,6 +29,7 @@ describe('Button is rendered correctly', () => {
         expect(button.getAttribute('color')).toEqual('red');
         expect(button.getAttribute('width')).toEqual('10rem');
 
+
         act(() => {
             for (let i = 0; i < 5; i++) {
                 button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
