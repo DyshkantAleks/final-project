@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from '../../Button';
 import { closeModal } from '../../../store/modal/actions-creators';
-import { updateCustomer } from '../../../store/customer/middlwares';
+
 import { selectCustomer } from '../../../store/customer/slectors';
+import GlobalConfig from '../../../GlobalConfig';
 
 const { Option } = Select;
 
@@ -23,8 +24,8 @@ export const ChangePersonalDataForm = () => {
 
   return (
     <Form
-      name="change_persinal"
-      className="login-form"
+      name='change_persinal'
+      className='login-form'
       initialValues={initialValues}
       onFinish={handleSubmit}
     >
@@ -38,7 +39,7 @@ export const ChangePersonalDataForm = () => {
             message: 'Введите имя!',
           },
           {
-            pattern: /^[a-zA-Zа-яА-Я]+$/,
+            pattern: GlobalConfig.textFieldRegExp,
             message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -61,7 +62,7 @@ export const ChangePersonalDataForm = () => {
             message: 'Введите фамилию!',
           },
           {
-            pattern: /^[a-zA-Zа-яА-Я]+$/,
+            pattern: GlobalConfig.textFieldRegExp,
             message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -88,7 +89,7 @@ export const ChangePersonalDataForm = () => {
       </Form.Item>
       <Form.Item>
         <Button text='Отмена' onClick={() => dispatch(closeModal())}/>
-        <Button text='Изменить' type="submit"/>
+        <Button text='Изменить' type='submit'/>
       </Form.Item>
     </Form>
   );

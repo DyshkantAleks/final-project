@@ -20,6 +20,7 @@ import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { params } from '../LiqPay/liqpayData';
+import { openModal } from '../../store/modal/actions-creators';
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();

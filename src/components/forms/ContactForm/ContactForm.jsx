@@ -3,45 +3,21 @@ import { useSelector } from 'react-redux';
 import { Form, Input, Select, Row, Col, Radio } from 'antd';
 import { Button } from '../../Button';
 import styled from 'styled-components';
-import { selectCustomer, selectCustomerIslogined } from '../../../store/customer/slectors';
-
-
+import {
+  selectCustomer,
+  selectCustomerIslogined,
+} from '../../../store/customer/slectors';
+import GlobalConfig from '../../../GlobalConfig';
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
-  const customer = useSelector(selectCustomer)
+  const customer = useSelector(selectCustomer);
   const [form] = Form.useForm();
-  const [delivery, setdelivery] = useState('Self')
-  const {name, surname, email, phone} = customer
-  const deliveryMethod = [
-    {
-      text: 'Самовывоз',
-      value: 'Self',
-    },
-    {
-      text: 'Новая почта',
-      value: 'Nova Poshta',
-    },
-    {
-      text: 'УкрПочта',
-      value: 'ukrPoshta',
-    },
-    {
-      text: 'Курьероом на дом',
-      value: 'toHome',
-    },
-  ];
+  const [delivery, setdelivery] = useState(GlobalConfig.deliveryOptions[0].PICKUP.value);
+  console.log(GlobalConfig.deliveryOptions[0].PICKUP.value);
   
-  const payMethod = [
-    {
-      text: 'Наличными при получении',
-      value: 'cash',
-    },
-    {
-      text: 'Кредитная карта',
-      value: 'creditCard',
-    },
-  ];
+  const { name, surname, email, phone } = customer;
+  const isVisibleAdressField = delivery === GlobalConfig.deliveryOptions[0].PICKUP.value
   
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
@@ -59,7 +35,14 @@ export const ContactForm = (props) => {
       name='order'
       form={form}
       onFinish={handleSubmit}
-      initialValues={{name, surname, email, phone, prefix: '+380', delivery: 'Self' }}
+      initialValues={{
+        name,
+        surname,
+        email,
+        phone,
+        prefix: '+380',
+        delivery: GlobalConfig.deliveryOptions[0].PICKUP.value,
+      }}
     >
       <Text>Пожалуйста, заполните форму</Text>
       <Text>Выберите форму доставки и оплаты</Text>
@@ -75,7 +58,7 @@ export const ContactForm = (props) => {
                 message: 'Введите имя!',
               },
               {
-                pattern: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ]+$/,
+                pattern: GlobalConfig.textFieldRegExp,
                 message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
               },
               {
@@ -85,7 +68,7 @@ export const ContactForm = (props) => {
               {
                 max: 25,
                 message: 'Имя должно содержать максимум 25 символов!',
-              }
+              },
             ]}
           >
             <Input />
@@ -101,7 +84,7 @@ export const ContactForm = (props) => {
                 message: 'Введите фамилию!',
               },
               {
-                pattern: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ]+$/,
+                pattern: GlobalConfig.textFieldRegExp,
                 message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
               },
               {
@@ -111,7 +94,7 @@ export const ContactForm = (props) => {
               {
                 max: 25,
                 message: 'Фамилия должна содержать максимум 25 символов!',
-              }
+              },
             ]}
           >
             <Input />
@@ -137,93 +120,105 @@ export const ContactForm = (props) => {
           >
             <Input />
           </Form.Item>
-        </Col >
+        </Col>
         <Col span={12}>
           <Form.Item
             name='phone'
             label='Телефон'
-            rules={[{ required: true, message: 'Введите номер телефона!' }]}
+            rules={[
+              { required: true, message: 'Введите номер телефона!' },
+              {
+                pattern: GlobalConfig.numberFieldRegExp,
+                message: 'Введите правильный номер',
+              },
+            ]}
           >
             <Input addonBefore={prefixSelector} />
           </Form.Item>
         </Col>
       </Row>
-      <Row gutter={10}>
-        {(!(delivery === 'Self')) && <Col span={12}>
-          <Form.Item
-            name='city'
-            label='Населенный пункт'
-            rules={[
-              {
-                required: true,
-                message: 'Заполните поле!',
-              },
-              {
-                pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
-                message: 'заполните поле кирилицей',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>}
-        {(!(delivery === 'Self')) && <Col span={12}>
-          <Form.Item
-            name='street'
-            label='Улица'
-            rules={[
-              {
-                required: true,
-                message: 'Заполните поле!',
-              },
-              {
-                pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
-                message: 'Заполните поле кирилицей',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>}
-      </Row>
-      <Row gutter={10}>
-        {(!(delivery === 'Self')) && <Col span={12}>
-          <Form.Item
-            name='house'
-            label='Дом'
-            rules={[
-              {
-                required: true,
-                message: 'Заполните поле!',
-              },
-              {
-                pattern: /^[0-9а-яёА-ЯЁІіїЇєЄ]+$/,
-                message: 'Используйте цифры и буквы',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>}
-        {(!(delivery === 'Self')) && <Col span={12}>
-          <Form.Item
-            name='flat'
-            label='Квартира'
-            rules={[
-              {
-                
-                message: 'Заполните поле!',
-              },
-              {
-                pattern: /^[0-9]+$/,
-                message: 'Используйте цифры',
-              }
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>}
-      </Row>
+      {!isVisibleAdressField && (
+        <>
+          <Row gutter={10}>
+            <Col span={12}>
+              <Form.Item
+                name='city'
+                label='Населенный пункт'
+                rules={[
+                  {
+                    required: !isVisibleAdressField,
+                    message: 'Заполните поле!',
+                  },
+                  {
+                    pattern: GlobalConfig.textFieldRegExp,
+                    message: 'заполните поле кирилицей',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                name='street'
+                label='Улица'
+                rules={[
+                  {
+                    required: !isVisibleAdressField,
+                    message: 'Заполните поле!',
+                  },
+                  {
+                    pattern: GlobalConfig.textFieldRegExp,
+                    message: 'Заполните поле кирилицей',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={10}>
+            <Col span={12}>
+              <Form.Item
+                name='house'
+                label='Дом'
+                rules={[
+                  {
+                    required: !isVisibleAdressField,
+                    message: 'Заполните поле!',
+                  },
+                  {
+                    pattern: GlobalConfig.adressFieldRegExp,
+                    message: 'Используйте цифры и буквы',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+
+            <Col span={12}>
+              <Form.Item
+                name='flat'
+                label='Квартира'
+                rules={[
+                  {
+                    message: 'Заполните поле!',
+                  },
+                  {
+                    pattern: GlobalConfig.numberFieldRegExp,
+                    message: 'Используйте цифры',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+          </Row>
+        </>
+      )}
+
       <Row>
         <Col span={12}>
           <Form.Item
@@ -232,7 +227,15 @@ export const ContactForm = (props) => {
             rules={[{ message: 'Выбирите способ доставки!' }]}
           >
             <Radio.Group onChange={(val) => setdelivery(val.target.value)}>
-              {deliveryMethod.map(({text, value}, index) => (<Radio style={radioStyle} key={index} value={value}>{text}</Radio>))}
+              {GlobalConfig.deliveryOptions
+                .reduce((acc, rec, index) => {
+                  return acc.concat(Object.values(rec));
+                }, [])
+                .map(({ text, value }, index) => (
+                  <Radio style={radioStyle} key={index} value={value}>
+                    {text}
+                  </Radio>
+                ))}
             </Radio.Group>
           </Form.Item>
         </Col>
@@ -243,16 +246,22 @@ export const ContactForm = (props) => {
             rules={[{ message: 'Выбирите способ оплаты!' }]}
           >
             <Radio.Group>
-              {payMethod.map(({text, value}, index) => (<Radio style={radioStyle} key={index} value={value}>{text}</Radio>))}
+              {GlobalConfig.paymentOptions
+                .reduce((acc, rec, index) => {
+                  return acc.concat(Object.values(rec));
+                }, [])
+                .map(({ text, value }, index) => (
+                  <Radio style={radioStyle} key={index} value={value}>
+                    {text}
+                  </Radio>
+                ))}
             </Radio.Group>
           </Form.Item>
         </Col>
       </Row>
-      
+
       <Button text='Подтвердить заказ' type='submit'></Button>
-      
     </Form>
-    
   );
 };
 
