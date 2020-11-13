@@ -5,7 +5,7 @@ import { Container, StyledLink, Title } from '../StyledFooter';
 import useWindowDimensions from '../../../utils/useWindowDimensions';
 
 export const FooterCustomers = () => {
-  const { screenWidth } = useWindowDimensions()
+  const { screenWidth } = useWindowDimensions();
   return (
     <Container>
       {screenWidth < 768 && (
