@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import {Content, Wrapper, Title, FilterName, StyledCheckboxGroupe, ProductList} from './StyledProductListPage';
 import { Header } from '../../commons/Header/Header';
-import { selectProducts } from '../../store/products_draft/selectors';
+import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContairer } from '../../components/Content/Content';

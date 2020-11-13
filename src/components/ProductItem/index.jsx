@@ -6,7 +6,6 @@ import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
 import { IconNew } from './IconsSvg/IconNew';
 import { IconTopRated } from './IconsSvg/IconTopRated';
-// import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
@@ -19,7 +18,6 @@ export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
 
   const dispatch = useDispatch();
-  //const [inFavorite, toggleInFavorite] = useToggle();
 
   const productInCart = useSelector(selectCart);
 
@@ -66,7 +64,6 @@ export const ProductItem = (props) => {
               <Name>{name}</Name>
             </NameContainer>
           </StyledLink>
-          {/* toggleInFavorite(id) */}
           {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
           {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(id)} />}
           {isSale &&

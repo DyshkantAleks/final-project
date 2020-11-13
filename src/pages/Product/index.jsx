@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
-import { selectByRoute } from '../../store/products_draft/selectors';
-// import { useToggle } from '../../utils/useToggle';
+import { selectByRoute } from '../../store/products/selectors';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
 import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from './StyledProductPage';
@@ -27,7 +26,6 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 export const ProductPage = (props) => {
   const { match } = props;
   const { screenWidth } = useWindowDimensions();
-  //const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1);
@@ -47,7 +45,7 @@ export const ProductPage = (props) => {
     return (
       <ShowMore onClick={() => setIsSpecification(!isSpecification)}>&#9660;</ShowMore>
     )
-  }
+  };
 
   const toggleDimensionsBtn = () => {
     if (isDimensions) {
@@ -58,22 +56,21 @@ export const ProductPage = (props) => {
     return (
       <ShowMore onClick={() => setIsDimensions(!isDimensions)}>&#9660;</ShowMore>
     )
-  }
+  };
 
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
-  }
-
+  };
 
   const inFavorite = productInFavorite.map(item => item.route).some(item => item === match.params.route);
 
   const addToFav = (product) => {
     dispatch(addProductToFav(product))
-  }
+  };
 
   const removeFromFav = (product) => {
     dispatch(removeProductFromFav(product))
-  }
+  };
 
   return (
     <>

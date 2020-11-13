@@ -2,14 +2,16 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Title } from '../Title/Title';
-import { selectProducts } from '../../store/products_draft/selectors';
+import { selectProducts } from '../../store/products/selectors';
 import { ProductItem } from '../ProductItem';
 import { ProductItemList } from '../../pages/Product/StyledProductPage';
 
 export const TopRatedProductsList = () => {
-  const allProducts = useSelector(selectProducts)
+
+  const allProducts = useSelector(selectProducts);
+  
   const arrayOfTopRated = allProducts.filter(e => e.isTopRated === true);
-  console.log(arrayOfTopRated)
+
   return (
     <>
       <Title text='Популярные товары' />
