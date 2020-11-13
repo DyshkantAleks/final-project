@@ -20,6 +20,7 @@ export const ProductListPage = ({ match }) => {
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
   const [priceValues, setPriceValues] = useState([]);
+  const [sortValue, setSortValue] = useState('');
 
   const { params: { route } } = match;
   
@@ -33,12 +34,22 @@ export const ProductListPage = ({ match }) => {
   useEffect(() => {
     setCheckedColors([]);
     setCheckedBrands([]);
+    setPriceValues([]);
+    setSortValue('');
   }, [route]);
-  console.log(priceValues);
+  
+  if (sortValue === 'priceAscending') {
+    array.sort((a, b) => a.currentPrice > b.currentPrice ? 1 : -1)
+  }
+  if (sortValue === 'priceDescending') {
+    array.sort((a, b) => a.currentPrice < b.currentPrice ? 1 : -1)
+  }
+
   const newArray = array
     .filter(productItem => (checkedColors.length === 0) ? productItem : checkedColors.some(chackedItem => chackedItem === productItem.color))
     .filter(productItem => (checkedBrands.length === 0) ? productItem : checkedBrands.some(chackedItem => chackedItem === productItem.brand))
     .filter(productItem => (priceValues.length === 0) ? productItem : (priceValues[0] < productItem.currentPrice && productItem.currentPrice < priceValues[1]))
+    .filter(productItem => (sortValue === '' || sortValue === 'priceAscending' || sortValue === 'priceDescending') ? productItem : productItem[sortValue] === true)
 
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
@@ -48,6 +59,9 @@ export const ProductListPage = ({ match }) => {
   }
   const onAfterChangeHandler = (disabled) => {
     setPriceValues(disabled)
+  }
+  const onSelectChangeHandler = (checkedSelectValue) => {
+    setSortValue(checkedSelectValue)
   }
   
   return (
@@ -82,24 +96,26 @@ export const ProductListPage = ({ match }) => {
             </StyledCheckboxGroupe>
 
           </Wrapper>
-          {/* <ProductSorting onChangeHandler={onChangeHandler} /> */}
-          <ProductList>
-            {newArray.map((e, index) => (
-              <ProductItem
-                key={index}
-                name={e.name}
-                price={e.currentPrice}
-                previousPrice={e.previousPrice}
-                image={e.imageUrl[0]}
-                route={e.route}
-                id={e._id}
-                isNewProduct={e.isNewProduct}
-                isTopRated={e.isTopRated}
-                isSale={e.isSale}
-                product={e}
-              />
-            ))}
-          </ProductList>
+          <Wrapper>
+            <ProductSorting onChangeHandler={onSelectChangeHandler} />
+            <ProductList>
+              {newArray.map((e, index) => (
+                <ProductItem
+                  key={index}
+                  name={e.name}
+                  price={e.currentPrice}
+                  previousPrice={e.previousPrice}
+                  image={e.imageUrl[0]}
+                  route={e.route}
+                  id={e._id}
+                  isNewProduct={e.isNewProduct}
+                  isTopRated={e.isTopRated}
+                  isSale={e.isSale}
+                  product={e}
+                />
+              ))}
+            </ProductList>
+          </Wrapper>
         </Content>
       </ContentContairer>
       <Footer />
