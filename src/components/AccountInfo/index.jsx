@@ -78,7 +78,7 @@ export const AccountInfo = () => {
             </Icon>
             {title}
           </PersonalSectionHeading>
-          {screenWidth >= 481 ? <Button text={'Редактировать'} onClick={() => dispatch(openModal(<ChangePersonalDataForm/>))}/> : null}
+          {screenWidth >= 481 ? <Button text={'Редактировать'} onClick={() => dispatch(openModal({content: <ChangePersonalDataForm/>}))}/> : null}
         </PersonalSectionHeader>
         {(index === 0) && personalData()}
         {(index === 1) && contactData()}
@@ -93,10 +93,10 @@ export const AccountInfo = () => {
 
   return (
     <>
-      {isOpenModal && <Modal content={contentModal} closeModalHandler={() => dispatch(closeModal())}/>}
+      {/* {isOpenModal && <Modal content={contentModal} closeModalHandler={() => dispatch(closeModal())}/>} */}
       {customerData()}
       <PersonalSectionFooter>
-        <Button color={'#7191A6'} text={'Изменить пароль'} onClick={() => dispatch(openModal(<ChangePassForm/>))}/>
+        <Button color={'#7191A6'} text={'Изменить пароль'} onClick={() => dispatch(openModal({content: <ChangePassForm/>, title: 'Введите старый и новый пароли'}))}/>
         <Button color={'#7191A6'} text={'Удалить аккаунт'} />
         <Button color={'#7191A6'} text={'Выйти'} onClick={() => dispatch(logOut())}/>
       </PersonalSectionFooter>

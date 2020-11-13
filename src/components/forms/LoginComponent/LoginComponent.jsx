@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ErrorsField } from '../Errors/ErrorsField';
 import { selectError } from '../../../store/auth/selectors';
 import { useHistory } from 'react-router';
-import { closeModal } from '../../../store/modal/actions-creators';
+import { closeModal, openModal } from '../../../store/modal/actions-creators';
 import { RegisterForm } from '../RegisterComponent/RegisterForm';
 import { registerCustomer } from '../../../store/customer/middlwares';
 

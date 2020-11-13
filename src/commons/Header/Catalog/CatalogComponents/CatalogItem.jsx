@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import useWindowDimensions from '../../../../utils/useWindowDimensions'
+import useWindowDimensions from '../../../../utils/useWindowDimensions';
 import {
   NewItem,
   IconContainer,
@@ -14,16 +14,16 @@ import {
   ArrowContainer,
   Arrow,
   StyledLinkMainCategory
-} from '../StyledCatalog'
-import { useSelector } from 'react-redux'
-import { selectByParentCategory } from '../../../../store/categories/selectors'
+} from '../StyledCatalog';
+import { useSelector } from 'react-redux';
+import { selectByParentCategory } from '../../../../store/categories/selectors';
 
 export const CatalogItem = (props) => {
-  const { category, icon, id, route } = props
-  const [isOpen, setIsOpen] = useState(false)
-  const [hover, setHover] = useState(false)
-  const { screenWidth } = useWindowDimensions()
-  const subCategory = useSelector(selectByParentCategory(category))
+  const { category, icon, id, route } = props;
+  const [isOpen, setIsOpen] = useState(false);
+  const [hover, setHover] = useState(false);
+  const { screenWidth } = useWindowDimensions();
+  const subCategory = useSelector(selectByParentCategory(category));
 
   return (
     <>

@@ -3,7 +3,9 @@ import { CLOSE_MODAL, OPEN_MODAL } from './action-types'
 const initialState = {
 
   isOpenModal: false,
-  content: {}
+  content: {},
+  title: '',
+  actions: {}
 }
 
 export function reducer (state = initialState, { type, payload }) {
@@ -11,7 +13,9 @@ export function reducer (state = initialState, { type, payload }) {
     case OPEN_MODAL:
       return {
         ...state,
-        content: payload,
+        content: payload.content,
+        title: payload.title,
+        actions: payload.actions,
         isOpenModal: true
 
       }

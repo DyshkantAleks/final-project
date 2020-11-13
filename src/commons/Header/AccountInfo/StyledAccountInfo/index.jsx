@@ -18,7 +18,6 @@ export const Item = styled.div`
 position:relative;
 width: 2rem;
 height: 2rem;
-//color: #595959;
 margin: 0 .5rem;
 @media ${device.tabletM}{
         width: 2.5rem;
@@ -32,8 +31,8 @@ export const AccountContainer = styled.div`
 position:relative;
 width: 2rem;
 height: 2rem;
-//color: #595959;
 margin: 0 .5rem;
+cursor: pointer;
 @media ${device.tabletM}{
         width: 2.5rem;
         height: 2.5rem;
@@ -51,8 +50,6 @@ export const List = styled.ul`
     display: flex;
     justify-content: flex-end;
     align-items:center;
-    //flex-basis: 40%;
-    //order: 0;
     @media ${device.desktop}{
     margin-bottom: 0;
     }
