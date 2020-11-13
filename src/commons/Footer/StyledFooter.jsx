@@ -140,3 +140,45 @@ export const SocialIcon = styled.img`
 width: 100%;
 height: 100%;
 `
+
+
+export const FooterLogoImg = styled.img`
+  width: 100%;
+`
+export const FooterText = styled.p`
+  font-size: 1.2rem;
+  width: 50%;
+   @media ${device.tabletL}{
+        width: 80%;
+        }
+`
+export const LogoContainer = styled.div`
+display: flex;
+margin-bottom: 2rem;
+flex-basis: 100%;
+order: 1;
+@media${device.tabletM}{
+flex-basis: 40%;
+}
+@media${device.tabletL}{
+flex-basis: 30%;
+flex-direction: column;
+}
+  
+`
+export const ContainerFooterLogo = styled.div`
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 3rem;
+    
+        @media ${device.tabletM}{
+        width: 10rem;
+        }
+        @media ${device.tabletL}{
+        margin-right: 0;
+        }
+`
+
