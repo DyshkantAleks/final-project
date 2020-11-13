@@ -1,29 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
-
-import { InfoLinks } from './InfoLinks/InfoLinkList'
-import useWindowDimensions from '../../utils/useWindowDimensions'
-import { Logo } from './Logo/Logo'
-import { AccountInfoList } from './AccountInfo/AccountInfoList'
-import { device } from '../../styles/breakpoints/breakpoints'
-import { MobileMenu } from './MobileMenu/MobileMenu'
-import { CatalogList } from './Catalog/CatalogList'
+import React from 'react';
+import { InfoLinks } from './InfoLinks/InfoLinkList';
+import useWindowDimensions from '../../utils/useWindowDimensions';
+import { Logo } from './Logo/Logo';
+import { AccountInfoList } from './AccountInfo/AccountInfoList';
+import { MobileMenu } from './MobileMenu/MobileMenu';
+import { CatalogList } from './Catalog/CatalogList';
+import { HeaderContainer } from './StyledHeader';
 
 export const Header = () => {
-  const { screenWidth } = useWindowDimensions()
+  const { screenWidth } = useWindowDimensions();
   return (
     <>
-      <StyledHeader>
-        <HeaderContainer>
-          {screenWidth >= 1200 && (
-            <InfoLinks />
-          )}
-          <Logo />
-          <MobileMenu />
-          <AccountInfoList />
-        </HeaderContainer>
-      </StyledHeader>
-
+      <HeaderContainer>
+        {screenWidth >= 1200 && (
+          <InfoLinks />
+        )}
+        <Logo />
+        <MobileMenu />
+        <AccountInfoList />
+      </HeaderContainer>
       {screenWidth >= 1200 && (
         <CatalogList />
       )}
@@ -31,24 +26,3 @@ export const Header = () => {
   )
 }
 
-const StyledHeader = styled.header`
-    //background-color: #848484;
-    //border-bottom: 1px solid black;
-`
-
-const HeaderContainer = styled.div`
-    position: relative;
-    padding: 1.6rem;
-        @media ${device.tabletL}{
-        padding: 2.4rem 5rem
-        }
-        
-        @media ${device.desktop}{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 4rem 0;
-        width: 120rem;
-        margin: 0 auto;
-        }
-`

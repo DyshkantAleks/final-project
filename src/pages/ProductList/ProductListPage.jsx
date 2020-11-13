@@ -6,7 +6,7 @@ import { Header } from '../../commons/Header/Header';
 import { selectProducts } from '../../store/products_draft/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
-import { ContentContairer } from '../../components/Content/Content';
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { Footer } from '../../commons/Footer';
 // import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
 import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
@@ -68,13 +68,13 @@ export const ProductListPage = ({ match }) => {
     <>
       <Header/>
       <ScrollToTop/>
-      <ContentContairer>
+      <ContentContainer>
         <Content>
           <Wrapper>
             <Title>Название</Title>
             <RangeSlider
-              price="Цена"
-              currency="грн"
+              price='Цена'
+              currency='грн'
               min={0}
               max={200000}
               step={100}
@@ -117,7 +117,7 @@ export const ProductListPage = ({ match }) => {
             </ProductList>
           </Wrapper>
         </Content>
-      </ContentContairer>
+      </ContentContainer>
       <Footer />
     </>
   )

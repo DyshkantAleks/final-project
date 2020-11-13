@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '../../commons/Header/Header'
-import { ContentContairer } from '../../components/Content/Content'
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { PopularCategoryList } from '../../components/PopularCategory/PopularCategoryList'
 import { SliderMainPage } from '../../components/SliderMainPage/SliderMainPage'
 import { Footer } from '../../commons/Footer'
@@ -12,11 +12,11 @@ export const Homepage = () => {
     <>
       <Header />
       <ScrollToTop />
-      <ContentContairer>
+      <ContentContainer>
         <SliderMainPage />
         <TopRatedProductsList />
         <PopularCategoryList />
-      </ContentContairer>
+      </ContentContainer>
       <Footer />
     </>
   )
