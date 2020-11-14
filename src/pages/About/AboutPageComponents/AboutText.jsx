@@ -1,12 +1,12 @@
 import React from 'react'
-import { ContentContairer } from '../../../components/Content/Content'
+import { ContentContainer } from '../../../styles/GeneralStyledComponents';
 import { ContainerPage, TextContainer, Text, TextList, TextListItem } from '../StyledAboutPage'
 import { ContactsForm } from './ContactForm'
 
 export const AboutText = () => {
   return (
 
-    <ContentContairer>
+    <ContentContainer>
       <ContainerPage>
         <TextContainer>
           <h2>МЫ - КОМАНДА МОЛОДЫХ УВЛЕЧЕННЫХ ПРОФЕССИОНАЛОВ</h2>
@@ -39,7 +39,7 @@ export const AboutText = () => {
         </TextContainer>
         <ContactsForm />
       </ContainerPage>
-    </ContentContairer>
+    </ContentContainer>
 
   )
 }
