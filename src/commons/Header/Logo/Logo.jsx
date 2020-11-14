@@ -3,7 +3,7 @@ import { ROUTES } from '../../../pages/navigation/routes'
 
 import { Container, Image, StyledLink } from './StyledLogo'
 
-export const Logo = (props) => {
+export const Logo = () => {
   return (
 
     <StyledLink to={ROUTES.HOMEPAGE}>

@@ -9,7 +9,6 @@ display: flex;
 
 export const Image = styled.img`
 width: 100%;
-//height: 100%;
 `
 
 export const Container = styled.div`
@@ -23,7 +22,6 @@ export const Container = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    //margin-right: -50%;
     transform: translate(-50%, -50%);
     
         @media ${device.tabletM}{
@@ -31,7 +29,6 @@ export const Container = styled.div`
         }
         @media ${device.desktop}{
         width: 10rem;
-        //height: 6rem;
         }
 
 `

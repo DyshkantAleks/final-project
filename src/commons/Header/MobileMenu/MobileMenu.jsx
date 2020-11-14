@@ -8,16 +8,16 @@ import { useHistory } from 'react-router'
 import { Input } from 'antd'
 
 export const MobileMenu = () => {
-  const { screenWidth } = useWindowDimensions()
-  const history = useHistory()
+  const { screenWidth } = useWindowDimensions();
+  const history = useHistory();
 
-  const { Search } = Input
+  const { Search } = Input;
   const onSearch = value => {
     if (value === '') {
       return
     }
     history.push(`/search?query=${value}`)
-  }
+  };
   return (
     <>
       {screenWidth < 1200 && (

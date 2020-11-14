@@ -17,36 +17,34 @@ import { LoginComponent } from '../../../components/forms/LoginComponent/LoginCo
 import { selectModalIsOpen } from '../../../store/modal/selectors';
 
 export const AccountInfoList = () => {
-  const { screenWidth } = useWindowDimensions()
-  const history = useHistory()
+  const { screenWidth } = useWindowDimensions();
+  const history = useHistory();
 
-  const { Search } = Input
+  const { Search } = Input;
   const onSearch = value => {
     if (value === '') {
       return
     }
     history.push(`/search?query=${value}`)
-  }
-  const isLogined = useSelector(selectCustomerIslogined)
-  const customerName = useSelector(selectCustomer).name
-  // eslint-disable-next-line no-unused-vars
+  };
+  const isLogined = useSelector(selectCustomerIslogined);
+  const customerName = useSelector(selectCustomer).name;
   const isOpenModal = useSelector(selectModalIsOpen);
-  
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handler = () => {
     if (isLogined) {
       history.push(ROUTES.ACCOUNT)
     } else {
       dispatch(openModal({
-        content: <LoginComponent/>,
+        content: <LoginComponent />,
         title: 'Вход'
       }))
     }
   }
   return (
     <List>
-      {isOpenModal && <Modal/>}
+      {isOpenModal && <Modal />}
 
       {screenWidth >= 1200 && (
         <Search enterbutton='true' onSearch={onSearch} placeholder='Найти товар по названию' />
@@ -59,4 +57,4 @@ export const AccountInfoList = () => {
       <HeaderCart />
     </List>
   )
-}
+};
