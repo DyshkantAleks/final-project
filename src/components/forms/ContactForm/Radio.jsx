@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react'
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
 import styled from 'styled-components';
@@ -9,9 +10,20 @@ export const RadioGroup = (props) => {
     <Radio style={radioStyle} key={index} value={value}>
       {text}
     </Radio>))
-  console.log(radioList)
+
+  const [state, setState] = useState({
+    value: props.value
+  })
+
+  const onChange = e => {
+    console.log(e.target.value);
+    setState({
+      value: e.target.value,
+    });
+  };
+
   return (
-    <Radio.Group >
+    <Radio.Group onChange={onChange} value={state.value}>
       <Text>{title}</Text>
       {radioList}
     </Radio.Group>

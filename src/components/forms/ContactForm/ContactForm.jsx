@@ -231,12 +231,12 @@ export const ContactForm = (props) => {
       <Row>
         <Col span={12}>
           <Form.Item>
-            <RadioGroup title='Способ доставки' radioProps={deliveryMethod} />
+            <RadioGroup title='Способ доставки' radioProps={deliveryMethod} value='Self'/>
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item>
-            <RadioGroup title='Способ оплаты' radioProps={payMethod} />
+            <RadioGroup title='Способ оплаты' radioProps={payMethod} value='cash'/>
           </Form.Item>
         </Col>
       </Row>
@@ -244,6 +244,8 @@ export const ContactForm = (props) => {
     </Form>
   );
 };
+
+console.log ();
 
 const Text = styled.p`
   font-size: 1.4rem;
