@@ -1,7 +1,7 @@
 const GlobalConfig = {
   phoneNumberRegExp: /^\+?3?8?(0\d{9})$/,
-  textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ]+$/,
-  adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ]+$/,
+  textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ_]+$/,
+  adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ.,\s]+$/,
   numberFieldRegExp: /^[0-9]+$/,
   deliveryOptions: [
     {
