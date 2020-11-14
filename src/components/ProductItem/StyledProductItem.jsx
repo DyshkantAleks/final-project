@@ -1,9 +1,10 @@
-import styled from 'styled-components'
-import { device } from '../../styles/breakpoints/breakpoints'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { device } from '../../styles/breakpoints/breakpoints';
+import { Link } from 'react-router-dom';
 
 export const ConteinerItem = styled.li`
 width: 29rem;
+/* width: 100%; */
 list-style: none;
 border: .1rem solid #e6e9ef;
 transition: all .3s linear;
@@ -23,7 +24,7 @@ margin-bottom: 2rem;
     @media ${device.desktop}{
         width: 100%;
     };
-`
+`;
 
 export const PhotoBox = styled.div`
 display: flex;
@@ -47,13 +48,13 @@ padding: .5rem;
         height: 26.5rem;
         padding: 1.3rem;
     };
-`
+`;
 
 export const Photo = styled.img`
 max-width: 100%;
 max-height: 100%;
 cursor: pointer;
-`
+`;
 
 export const ProductActivityContainer = styled.div`
 position: absolute; 
@@ -63,43 +64,46 @@ width: 6.7rem;
 height: 6.7rem;
 border-bottom-right-radius: 100%;
 background-color: #e6e9ef;
-`
+`;
 
 export const IconContainer = styled.span`
 display: flex;
 justify-content: center;
 align-items: center;
 width: 5rem;
-`
+`;
 
 export const SaleIcon = styled.span`
     fill: #8D145E;
-`
+`;
 
 export const NewIcon = styled.span`
     fill: #8CB6DB;
-`
+`;
 
 export const TopRatedIcon = styled.span`
     fill: #7D37A3;
-`
+`;
 
 export const TitleBox = styled.div`
 display: flex;
 flex-direction: column;
 position: relative;
 padding: .5rem 1.4rem 1.4rem 1.4rem;
-`
+`;
 
 export const NameContainer = styled.div`
 width: 85%;
-height: 4rem;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+/* height: 4rem;
     @media ${device.tabletL}{
         height: 6rem;
     };
     @media ${device.desktop}{
         height: 4rem;
-    }
+    } */
 `;
 
 export const Name = styled.span`
@@ -134,7 +138,6 @@ height: 3rem;
 export const PreviousPrice = styled.span`
 font-size: 2rem;
 font-weight: 800;
-/* color:#6F909A; */
 color:#6F7281;
 text-decoration: line-through;
     &::after{
@@ -156,8 +159,8 @@ text-decoration: line-through;
 `;
 
 export const CurrentPrice = styled.span`
-font-size: 2.5rem;
-font-weight: 800;
+font-size: 2rem;
+font-weight: 600;
 color: #8D145E;
     &::after{
         content: 'грн';
@@ -168,7 +171,7 @@ color: #8D145E;
     };
     @media ${device.tabletM}{
         font-weight: 800;
-        font-size: 3rem;
+        font-size: 2.5rem;
             &::after{
                 left: 0.5;
                 font-size: 1.5rem;
@@ -178,9 +181,8 @@ color: #8D145E;
 `;
 
 export const Price = styled.span`
-font-size: 2.5rem;
-font-weight: 800;
-/* color: #6F909A; */
+font-size: 2rem;
+font-weight: 600;
 color: #6F7281;
     &::after{
         content: 'грн';
@@ -190,8 +192,8 @@ color: #6F7281;
         font-weight: 700;
     };
     @media ${device.tabletM}{
-        font-weight: 800;
-        font-size: 3rem;
+        font-weight: 700;
+        font-size: 2.5rem;
             &::after{
                 left: 1rem;
                 font-size: 1.8rem;
@@ -228,4 +230,4 @@ justify-content: start;
 align-items: center;
 width: 100%;
 margin-top: 1.5rem;
-`
+`;

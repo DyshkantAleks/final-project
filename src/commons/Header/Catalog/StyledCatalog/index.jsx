@@ -19,27 +19,19 @@ list-style: none;
     display: flex;
     width: fit-content;
     margin: 0 auto;
-    //padding: 1rem 0;
     }
 `
 
 export const NewItem = styled.li`
-//display: flex;
-//align-items: center;
 cursor: pointer;
-//border-bottom: .1rem solid #aecfd9;
-//padding: 1rem 0;
 text-align: left;
 
 @media ${device.desktop}{
 position: relative;
-//margin: 0 40px;
-//padding: 1rem 4rem;
 border-bottom: none;
 border:1px solid transparent;
 &:hover {
 background-color: #aecfd9;
-//border:1px solid #aecfd9;
 transition: all .5s;
 }
 }
@@ -64,20 +56,6 @@ font-size: 16px;
 vertical-align: middle;
 
 `
-// export const Item = styled.li`
-// font-size: 1.6rem;
-// font-weight: 500;
-// line-height: 3.5rem;
-// border-bottom: 1px solid;
-// text-align: left;
-//
-// @media ${device.desktop}{
-// position: relative;
-// border-bottom: 0;
-// margin: 0 5rem;
-// text-align: center;
-// }
-// `;
 
 export const SubItem = styled.li`
 font-size: 1.6rem;
@@ -85,10 +63,8 @@ line-height: 3.5rem;
 font-weight: normal;
 padding-left: 4.5rem;
 border-bottom: .1rem solid #aecfd9;
-&:not(:last-child) {
-
-}
-//background-color: #e6e9ef;
+border-right: .1rem solid #aecfd9;
+border-left: .1rem solid #aecfd9;
 @media ${device.desktop}{
 padding-left: 1rem;
 &:hover {
@@ -109,7 +85,6 @@ list-style: none;
     left: -.1rem;
     width: 25rem;
     padding: 0;
-    border: .1rem solid #aecfd9;
     text-align: left;
     z-index: 1000;
     background-color: white;
@@ -117,14 +92,13 @@ list-style: none;
     }
 `
 
-export const TextContainer = styled.div`
-padding: 1rem 0;
+export const ItemContainer = styled.div`
 border-bottom: .1rem solid #aecfd9;
 display: flex;
 align-items: center;
+padding: 1rem;
 @media ${device.desktop}{
 padding: 1rem 4rem;
-//position: relative;
 border-bottom: none;
 }
 `
@@ -136,4 +110,22 @@ height: auto;
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: initial;
+`
+export const StyledLinkMainCategory = styled(Link)`
+text-decoration: none;
+color: initial;
+flex-basis: 60%;
+`
+
+export const TextContainer = styled.div`
+display: flex;
+`
+export const ArrowContainer = styled.div`
+display: flex;
+justify-content: flex-end;
+flex-basis: 40%;
+
+`
+export const Arrow = styled.img`
+width: 1.5rem;
 `

@@ -6,7 +6,7 @@ import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
 import { CartContainer, CartMenu } from '../Cart/'
 import { FavItem } from './FavItem';
-import { ContentContairer } from '../../components/Content/Content';
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
@@ -16,7 +16,7 @@ export const FavoritesPage = () => {
   return (
     <>
       <Header />
-      <ContentContairer>
+      <ContentContainer>
         <Title text='Избранное' />
         <CartContainer>
           <CartMenu fav>
@@ -30,7 +30,7 @@ export const FavoritesPage = () => {
             />
           )}
         </CartContainer>
-      </ContentContairer>
+      </ContentContainer>
       <Footer/>
     </>
   )

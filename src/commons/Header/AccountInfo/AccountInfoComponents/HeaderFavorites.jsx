@@ -10,7 +10,7 @@ import { selectFavorites } from '../../../../store/favorites/selectors';
 
 export const HeaderFavorites = () => {
   const favItems = useSelector(selectFavorites);
-  const favLength = favItems.length
+  const favLength = favItems.length;
 
   return (
     <Link to={ROUTES.FAVORITES}>
