@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { CatalogItem } from './CatalogComponents/CatalogItem';
 import { Container, StyledLink, List } from './StyledCatalog';
-import { selectMainCategory } from '../../../store/categories/selectors';
-import { getCategories } from '../../../store/categories/middlware';
+import { selectMainCategory } from '../../../store/AppData/categories/selectors';
+import { getCategories } from '../../../store/AppData/categories/middlware';
 
 export const CatalogList = () => {
   const dispatch = useDispatch();

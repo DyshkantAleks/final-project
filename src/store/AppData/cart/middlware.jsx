@@ -1,4 +1,4 @@
-import {server} from '../../API';
+import {server} from '../../../API';
 import { addToCart, quantityDown, quantityUp, removeFromCart, setCart } from './actions-creators';
 
 const updateCart = async (state) => {

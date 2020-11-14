@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { selectCart } from '../../store/cart/selectors';
+import { selectCart } from '../../store/AppData/cart/selectors';
 import { Button } from '../../components/Button';
 import { Header } from '../../commons/Header/Header';
 import { Footer } from '../../commons/Footer';

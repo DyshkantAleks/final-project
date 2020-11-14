@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import useWindowDimensions from '../../../../utils/useWindowDimensions'
 import { NewItem, IconContainer, ItemText, SubList, SubItem, ImageIcon, StyledLink, TextContainer } from '../StyledCatalog'
 import { useSelector } from 'react-redux'
-import { selectByParentCategory } from '../../../../store/categories/selectors'
+import { selectByParentCategory } from '../../../../store/AppData/categories/selectors'
 
 export const CatalogItem = (props) => {
   const { category, icon, id } = props

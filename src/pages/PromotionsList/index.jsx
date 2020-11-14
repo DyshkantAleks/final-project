@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { PromoList } from '../../components/Promotions/PromoList';
-import { getPromotions } from '../../store/promotions/middlware';
+import { getPromotions } from '../../store/AppData/promotions/middlware';
 import { Footer } from '../../commons/Footer';
 
 export const PromotionsPage = () => {

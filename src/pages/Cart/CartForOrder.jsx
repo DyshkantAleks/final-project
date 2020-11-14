@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { selectCart } from '../../store/cart/selectors'
+import { selectCart } from '../../store/AppData/cart/selectors'
 import { CartImage, CartNameCode, CartPrice } from '../Delivery/CartItem'
 
 // FOR ORDERING - DELETE IN CASE OF UNUSE

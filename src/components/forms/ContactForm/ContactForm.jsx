@@ -1,24 +1,42 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Form, Input, Select, Row, Col, Radio } from 'antd';
+import { Form, Input, Select, Row, Col, Radio, AutoComplete } from 'antd';
 import { Button } from '../../Button';
 import styled from 'styled-components';
 import {
   selectCustomer,
-  selectCustomerIslogined,
-} from '../../../store/customer/slectors';
+} from '../../../store/Сustomer/customer/slectors';
 import GlobalConfig from '../../../GlobalConfig';
+import { getCityList } from '../../../utils/novaPoshtaApi';
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const customer = useSelector(selectCustomer);
   const [form] = Form.useForm();
-  const [delivery, setdelivery] = useState(GlobalConfig.deliveryOptions[0].PICKUP.value);
-  console.log(GlobalConfig.deliveryOptions[0].PICKUP.value);
-  
+
+  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+
+  const onCityChange = (value) => {
+    if (!value) {
+      setAutoCompleteResult([]);
+    } else {
+      getCityList(value).then((list) => setAutoCompleteResult(list.map(list => list)));
+    }
+  };
+  console.log(autoCompleteResult);
+  const cityOptions = autoCompleteResult.map(city => ({
+    label: city,
+    value: city,
+  }));
+
+  const [delivery, setdelivery] = useState(
+    GlobalConfig.deliveryOptions[0].PICKUP.value
+  );
+
   const { name, surname, email, phone } = customer;
-  const isVisibleAdressField = delivery === GlobalConfig.deliveryOptions[0].PICKUP.value
-  
+  const isVisibleAdressField =
+    delivery === GlobalConfig.deliveryOptions[0].PICKUP.value;
+
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select
@@ -150,12 +168,14 @@ export const ContactForm = (props) => {
                     message: 'Заполните поле!',
                   },
                   {
-                    pattern: GlobalConfig.textFieldRegExp,
+                    pattern: GlobalConfig.adressFieldRegExp,
                     message: 'заполните поле кирилицей',
                   },
                 ]}
               >
-                <Input />
+                <AutoComplete options={cityOptions} onChange={onCityChange}>
+                  <Input />
+                </AutoComplete>
               </Form.Item>
             </Col>
 
@@ -169,7 +189,7 @@ export const ContactForm = (props) => {
                     message: 'Заполните поле!',
                   },
                   {
-                    pattern: GlobalConfig.textFieldRegExp,
+                    pattern: GlobalConfig.adressFieldRegExp,
                     message: 'Заполните поле кирилицей',
                   },
                 ]}

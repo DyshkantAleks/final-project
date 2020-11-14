@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { selectById } from '../../store/products_draft/selectors';
+import { selectById } from '../../store/AppData/products_draft/selectors';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ContainerHorizontal, ContainerVertical, SliderGalleryHorizontal, SliderGalleryVertical, SliderThumbsHorizontal, SliderThumbsVertical, ImageMainContainer, ImageMain, ImageThumbsContainer, ImageThumbs } from './StyledProductSlider';
 import './style.scss';

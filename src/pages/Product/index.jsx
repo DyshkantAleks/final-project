@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
-import { selectByRoute } from '../../store/products_draft/selectors';
+import { selectByRoute } from '../../store/AppData/products_draft/selectors';
 // import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
 import { Button } from '../../components/Button';
@@ -18,16 +18,16 @@ import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
 import { Footer } from '../../commons/Footer';
 import { NewProductsList } from '../../components/NewProducts/NewProductsList';
-import { selectCart } from '../../store/cart/selectors';
-import { addProductToCart } from '../../store/cart/middlware';
-import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
-import { selectFavorites } from '../../store/favorites/selectors';
+import { selectCart } from '../../store/AppData/cart/selectors';
+import { addProductToCart } from '../../store/AppData/cart/middlware';
+import { addProductToFav, removeProductFromFav } from '../../store/AppData/favorites/middlware';
+import { selectFavorites } from '../../store/AppData/favorites/selectors';
 import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const ProductPage = (props) => {
   const { match } = props;
   const { screenWidth } = useWindowDimensions();
-  //const [inFavorite, toggleInFavorite] = useToggle();
+  // const [inFavorite, toggleInFavorite] = useToggle();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1);
@@ -63,7 +63,6 @@ export const ProductPage = (props) => {
   const btnHeandler = (product, quantity) => {
     dispatch(addProductToCart(product, quantity))
   }
-
 
   const inFavorite = productInFavorite.map(item => item.route).some(item => item === match.params.route);
 

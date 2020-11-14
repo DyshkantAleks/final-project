@@ -1,4 +1,4 @@
-import {server} from '../../API';
+import {server} from '../../../API';
 import { addToFavorites, removeFromFavorites, setFavorites } from './actions-creators';
 
 function unique (arr) {

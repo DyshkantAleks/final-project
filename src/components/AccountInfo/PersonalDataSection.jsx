@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   PersonalSection,
   PersonalSectionHeader,
@@ -10,7 +10,6 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { Button } from '../../components/Button';
 
 export const PersonalDataSection = (props) => {
- 
   const { title, icon, data, changeData } = props;
   const { screenWidth } = useWindowDimensions();
   

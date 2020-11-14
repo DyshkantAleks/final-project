@@ -1,7 +1,6 @@
-import { server } from '../../API'
+import { server } from '../../../API'
 import { logOutCustomer } from '../customer/action-creators'
 import { getCustomer } from '../customer/middlwares'
-
 import { delLogin, delToken, setAuthError, setToken } from './action-creators'
 
 export const setAuthToken = (token) => {
@@ -31,6 +30,5 @@ export const auth = (login, password, history) => async (dispatch) => {
     }
   } catch (error) {
     dispatch(setAuthError(error))
-    
   }
 }

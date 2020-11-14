@@ -6,7 +6,7 @@ import { PopularCategoryItem } from './PopularCategoryComponents/PopularCategory
 
 import { Title } from '../Title/Title'
 import { useSelector } from 'react-redux'
-import { selectPopularCategories } from '../../store/categories/selectors'
+import { selectPopularCategories } from '../../store/AppData/categories/selectors'
 
 export const PopularCategoryList = () => {
   const popularCategories = useSelector(selectPopularCategories)

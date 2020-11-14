@@ -5,7 +5,7 @@ import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { useDispatch } from 'react-redux';
-import { removeProductFromCart } from '../../store/cart/middlware.jsx';
+import { removeProductFromCart } from '../../store/AppData/cart/middlware.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
 export const CartItem = ({

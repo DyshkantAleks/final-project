@@ -4,8 +4,8 @@ import { device } from '../../styles/breakpoints/breakpoints';
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Button } from '../../components/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeProductFromFav } from '../../store/favorites/middlware.jsx';
-import { selectCart } from '../../store/cart/selectors.jsx';
+import { removeProductFromFav } from '../../store/AppData/favorites/middlware.jsx';
+import { selectCart } from '../../store/AppData/cart/selectors.jsx';
 import {
   CartItemContainer,
   CloseBtnContainer,
@@ -13,7 +13,7 @@ import {
   CartImage,
   CartColor,
 } from '../Cart/CartItem';
-import { addProductToCart } from '../../store/cart/middlware.jsx';
+import { addProductToCart } from '../../store/AppData/cart/middlware.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
 export const FavItem = ({

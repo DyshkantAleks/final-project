@@ -1,4 +1,4 @@
-import { server } from '../../API'
+import { server } from '../../../API'
 import { setProducts } from './actions'
 
 export const getProducts = () => async (dispatch) => {

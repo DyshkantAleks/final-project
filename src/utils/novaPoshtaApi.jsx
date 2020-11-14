@@ -13,12 +13,15 @@ export const getCityList = async (phrase) => {
     },
   };
   try {
-    const { success, data } = Axios.post(
+    const {status, data} = await Axios.post(
       'http://testapi.novaposhta.ua/v2.0/json/Address/searchSettlements/',
       JSON.stringify(reqBody)
     );
-    if (success) {
-      console.log(data);
+    console.log(data)
+    if (status) {
+      const result = data.success ? data.data[0].Addresses.map(item => item.Present) : []
+      console.log(result)
+      return result
     }
   } catch (error) {
     console.log(error);

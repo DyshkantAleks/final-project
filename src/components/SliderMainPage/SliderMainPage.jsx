@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { getPromotions } from '../../store/promotions/middlware';
-import { selectPromotions } from '../../store/promotions/selectors';
+import { getPromotions } from '../../store/AppData/promotions/middlware';
+import { selectPromotions } from '../../store/AppData/promotions/selectors';
 import { Container, SlideContainer, Image } from './StyledSliderMainPage';
 
 export const SliderMainPage = () => {

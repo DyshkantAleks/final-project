@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { decreaseQuantity, increaseQuantity } from '../../store/cart/middlware';
+import { decreaseQuantity, increaseQuantity } from '../../store/AppData/cart/middlware';
 
 export const Counter = ({ cartQuantity, quantity, id }) => {
   const dispatch = useDispatch();

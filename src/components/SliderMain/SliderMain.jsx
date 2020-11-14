@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 
 import { getPromotionsList } from '../../store/promotions/actions';
 
-import { selectPromotions } from '../../store/promotions/selectors';
+import { selectPromotions } from '../../store/AppData/promotions/selectors';
 
 SwiperCore.use([Navigation, Pagination, Autoplay, Virtual]);
 

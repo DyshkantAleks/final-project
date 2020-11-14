@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Header } from '../../commons/Header/Header';
 import { ContentContairer } from '../../components/Content/Content';
-import { selectById } from '../../store/promotions/selectors';
-import { getPromotions } from '../../store/promotions/middlware';
+import { selectById } from '../../store/AppData/promotions/selectors';
+import { getPromotions } from '../../store/AppData/promotions/middlware';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Footer } from '../../commons/Footer';
 

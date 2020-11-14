@@ -1,5 +1,4 @@
-import { server } from '../../API';
-import { setOrder } from './actions-creators';
+import { server } from '../../../API';
 
 export const createOrder = () => async (dispatch, getState) => {
   const state = getState()
@@ -18,7 +17,7 @@ export const createOrder = () => async (dispatch, getState) => {
   console.log(JSON.stringify(newOrder))
   try {
     const { status, data } = server.post('/orders', JSON.stringify(newOrder));
-    if (status === 200 ) {
+    if (status === 200) {
       console.log(data)
     }
   } catch (error) {}

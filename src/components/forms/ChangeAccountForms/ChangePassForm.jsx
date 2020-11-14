@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import { Button } from '../../Button';
 import { closeModal } from '../../../store/modal/actions-creators';
-import { changePass } from '../../../store/customer/middlwares';
+import { changePass } from '../../../store/Сustomer/customer/middlwares';
 
 export const ChangePassForm = () => {
   const dispatch = useDispatch();

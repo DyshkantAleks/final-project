@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux';
 import './App.css';
 import './styles/style.scss';
 import { Navigation } from './pages/navigation';
-import { getProducts } from './store/products_draft/middlware';
+import { getProducts } from './store/AppData/products_draft/middlware';
 import { persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { getCustomer } from './store/customer/middlwares';
+import { getCustomer } from './store/Сustomer/customer/middlwares';
 
 function App () {
   const dispatch = useDispatch();

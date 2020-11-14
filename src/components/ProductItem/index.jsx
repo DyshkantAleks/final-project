@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
@@ -9,13 +8,12 @@ import { IconTopRated } from './IconsSvg/IconTopRated';
 // import { useToggle } from '../../utils/useToggle';
 import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
-import { selectCart } from '../../store/cart/selectors';
-import { addProductToCart } from '../../store/cart/middlware';
-import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
-import { selectFavorites } from '../../store/favorites/selectors';
+import { selectCart } from '../../store/AppData/cart/selectors';
+import { addProductToCart } from '../../store/AppData/cart/middlware';
+import { addProductToFav, removeProductFromFav } from '../../store/AppData/favorites/middlware';
+import { selectFavorites } from '../../store/AppData/favorites/selectors';
 
 export const ProductItem = (props) => {
-  
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
 
   const dispatch = useDispatch();

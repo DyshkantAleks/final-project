@@ -3,36 +3,34 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { Button } from '.';
 
-
 let container = null;
 beforeEach(() => {
-    container = document.createElement("div");
-    document.body.appendChild(container);
+  container = document.createElement('div');
+  document.body.appendChild(container);
 });
 
 afterEach(() => {
-    unmountComponentAtNode(container);
-    container.remove();
-    container = null;
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
 });
 
 it('Button is rendered correctly', () => {
-    const onClick = jest.fn();
+  const onClick = jest.fn();
 
-    act(() => {
-       render(<Button text="someText" onClick={onClick}/>, container) ;
-    });
+  act(() => {
+    render(<Button text='someText' onClick={onClick} />, container);
+  });
 
-    const button = container.querySelector('button');
+  const button = container.querySelector('button');
 
-    expect(button.textContent).toBe('someText');
+  expect(button.textContent).toBe('someText');
 
-    act(() => {
-        for (let i = 0; i < 5; i++) {
-        button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-        }
-    });
+  act(() => {
+    for (let i = 0; i < 5; i++) {
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    }
+  });
 
-    expect(onClick).toHaveBeenCalledTimes(5);
-
+  expect(onClick).toHaveBeenCalledTimes(5);
 });

@@ -1,5 +1,5 @@
 
-import { server } from '../../API'
+import { server } from '../../../API'
 import { setPromotions } from './actions'
 
 export const getPromotions = () => async (dispatch) => {

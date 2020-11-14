@@ -3,14 +3,13 @@ import { useSelector } from 'react-redux';
 
 import {Content, Wrapper, Title, FilterName, StyledCheckboxGroupe, ProductList} from './StyledProductListPage';
 import { Header } from '../../commons/Header/Header';
-import { selectProducts } from '../../store/products_draft/selectors';
-import { selectCategoryFromRoute } from '../../store/categories/selectors';
+import { selectProducts } from '../../store/AppData/products_draft/selectors';
+import { selectCategoryFromRoute } from '../../store/AppData/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContairer } from '../../components/Content/Content';
 import { Footer } from '../../commons/Footer';
 // import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
 import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
-import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import './style.scss';

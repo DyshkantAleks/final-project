@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCustomerIslogined, selectCustomer } from '../../../store/customer/slectors';
+import { selectCustomerIslogined, selectCustomer } from '../../../store/Сustomer/customer/slectors';
 import { HeaderAccount } from './AccountInfoComponents/HeaderAccount';
 import { HeaderFavorites } from './AccountInfoComponents/HeaderFavorites';
 import { HeaderCart } from './AccountInfoComponents/HeaderCart';

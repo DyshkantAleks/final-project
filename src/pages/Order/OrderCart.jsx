@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { selectCart } from '../../store/cart/selectors';
+import { selectCart } from '../../store/AppData/cart/selectors';
 import { CartItem } from './CartItem';
 import { useSelector } from 'react-redux';
 import { device } from '../../styles/breakpoints/breakpoints';

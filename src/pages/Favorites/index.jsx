@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectFavorites } from '../../store/favorites/selectors';
+import { selectFavorites } from '../../store/AppData/favorites/selectors';
 import { Header } from '../../commons/Header/Header';
 import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
