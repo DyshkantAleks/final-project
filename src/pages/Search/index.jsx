@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { selectProducts } from '../../store/products/selectors'
 import { ProductItem } from '../../components/ProductItem'
 import { ProductItemList } from '../Product/StyledProductPage'
-import { ContentContairer } from '../../components/Content/Content'
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const SearchPage = ({ match, location }) => {
   const allProducts = useSelector(selectProducts)
@@ -18,7 +18,7 @@ export const SearchPage = ({ match, location }) => {
   return (
     <>
       <Header />
-      <ContentContairer>
+      <ContentContainer>
         {searchArray.length > 0 && (
           <h2>Результат поиска по запросу "{parsed.query}"</h2>
         )}
@@ -39,7 +39,7 @@ export const SearchPage = ({ match, location }) => {
             />
           ))}
         </ProductItemList>
-      </ContentContairer>
+      </ContentContainer>
       <Footer />
     </>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContentContairer } from '../../components/Content/Content'
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import styled from 'styled-components'
 import { device } from '../../styles/breakpoints/breakpoints'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,7 @@ export const NotFoundPage = () => {
   return (
     <>
       <ContainerFor404>
-        <ContentContairer>
+        <ContentContainer>
           <ContainerImage404>
             <Image404 src='https://res.cloudinary.com/dg-home/image/upload/v1604486670/General/404_f3bscz.gif' />
           </ContainerImage404>
@@ -19,7 +19,7 @@ export const NotFoundPage = () => {
               <Button404>Вернуться на главную</Button404>
             </Link>
           </TextContainer404>
-        </ContentContairer>
+        </ContentContainer>
       </ContainerFor404>
     </>
   )

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Header } from '../../commons/Header/Header';
-import { ContentContairer } from '../../components/Content/Content';
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectById } from '../../store/promotions/selectors';
 import { getPromotions } from '../../store/promotions/middlware';
 import { device } from '../../styles/breakpoints/breakpoints';
@@ -28,12 +28,12 @@ export const PromotionsSinglePage = ({ match }) => {
               <Image src={single.desctopSliderImageUrl} />
             </ImageContainer>
           </Container>
-          <ContentContairer>
-            <ContentContainer>
+          <ContentContainer>
+            <ContentContainerPromo>
               <Title>{single.title}</Title>
               <Description>{single.fullDescription}</Description>
-            </ContentContainer>
-          </ContentContairer>
+            </ContentContainerPromo>
+          </ContentContainer>
           <Footer />
         </>
       )}
@@ -76,7 +76,7 @@ margin-bottom: 1.5rem;
   };
 `;
 
-export const ContentContainer = styled.div`
+export const ContentContainerPromo = styled.div`
   @media ${device.tabletM}{
     width: 60%;
   };

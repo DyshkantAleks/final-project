@@ -5,21 +5,21 @@ import {Header} from '../../commons/Header/Header';
 import {ContactForm} from '../../components/forms/ContactForm/ContactForm';
 import {OrderCart} from './OrderCart';
 import { Title } from '../../components/Title/Title'
-import { ContentContairer } from '../../components/Content/Content'
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const OrderPage = () => {
   const handleSubmit = (values) => {
     console.log(values)
   }
   return (
-    <ContentContairer>
+    <ContentContainer>
       <Header/>
       <Title text='Оформить заказ' />
       <ContainerPage>
         <ContactForm handleSubmit={handleSubmit}/>
         <OrderCart/>
       </ContainerPage>
-    </ContentContairer>
+    </ContentContainer>
   )
 }
 

@@ -26,7 +26,6 @@ export const Item = styled.li`
           font-size: 1.6rem;
           }
         @media ${device.desktop}{
-          //margin: 0 15px;
           text-align: center;
           font-size: 1.8rem;
           margin: 0 1.5rem
