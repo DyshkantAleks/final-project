@@ -47,7 +47,6 @@ export const ProductListPage = ({ match }) => {
   if (sortValue === 'priceDescending') {
     productsByCategorie.sort((a, b) => a.currentPrice < b.currentPrice ? 1 : -1)
   }
-  
   const result = productsByCategorie
     .filter(productItem => (checkedColors.length === 0) ? productItem : checkedColors.some(chackedItem => chackedItem === productItem.color))
     .filter(productItem => (checkedBrands.length === 0) ? productItem : checkedBrands.some(chackedItem => chackedItem === productItem.brand))
