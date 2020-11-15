@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Price, Currency, StyledSlider } from './StyledRangeSlider.jsx';
 
-
 export const RangeSlider = ({ price, currency, min, max, step, defaultValue, onAfterChangeHandler }) => {
   return (
     <>
