@@ -20,12 +20,15 @@ export const ProductListPage = ({ match }) => {
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
   const [priceValues, setPriceValues] = useState([]);
+
   const [sortValue, setSortValue] = useState('Сортировать');
+
 
   const { params: { route } } = match;
   
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
   const allProducts = useSelector(selectProducts);
+
   const productsByCategorie = categoriesFilter(allProducts, currentItemByRoute);
    
   const arrayOfColors = new Set(productsByCategorie.map(item => item.color));
@@ -54,6 +57,7 @@ export const ProductListPage = ({ match }) => {
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
   }
+
   const onCheckedBrandHandler = (checkedValues) => {
     setCheckedBrands(checkedValues)
   }
@@ -78,17 +82,21 @@ export const ProductListPage = ({ match }) => {
               min={0}
               max={200000}
               step={100}
+
               defaultValue={[1000, 160000]}
               onAfterChangeHandler={onAfterChangeHandler}
             />
 
             <StyledCheckboxGroupe onChange={onChackedColorHandler} value={checkedColors}>
+
               <FilterName>Цвет</FilterName>
               {[...arrayOfColors].map((item, index) =>
                 <StyledCheckbox key={index} value={item}>{ item }</StyledCheckbox>
               )}
             </StyledCheckboxGroupe>
+
             <StyledCheckboxGroupe onChange={onCheckedBrandHandler} value={checkedBrands}>
+
               <FilterName>Бренд</FilterName>
               {[...arrayOfBrands].map((item, index) =>
                 <StyledCheckbox key={index} value={item}>{ item }</StyledCheckbox>
@@ -97,9 +105,11 @@ export const ProductListPage = ({ match }) => {
 
           </Wrapper>
           <Wrapper>
+
             <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue}/>
             <ProductList>
               {result.map((e, index) => (
+
                 <ProductItem
                   key={index}
                   name={e.name}
