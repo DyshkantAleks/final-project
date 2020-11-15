@@ -3,13 +3,13 @@ import { Header } from '../../commons/Header/Header'
 import { Footer } from '../../commons/Footer'
 import { ContainerPage, Text, TextContainer } from '../About/StyledAboutPage'
 import { Map, MapContainer } from './StyledStoresPage'
-import { ContentContairer } from '../../components/Content/Content'
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const StoresPage = () => {
   return (
     <>
       <Header />
-      <ContentContairer>
+      <ContentContainer>
         <ContainerPage>
           <TextContainer>
             <Text>Для вашего удобства мы создали современный шоу-рум.</Text>
@@ -26,7 +26,7 @@ export const StoresPage = () => {
           </MapContainer>
 
         </ContainerPage>
-      </ContentContairer>
+      </ContentContainer>
       <Footer />
     </>
   )

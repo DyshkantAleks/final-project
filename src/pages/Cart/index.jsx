@@ -10,7 +10,7 @@ import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { CartItem } from '../Cart/CartItem';
-import { ContentContairer } from '../../components/Content/Content';
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { ROUTES } from '../navigation/routes';
 import { ScrollToTop } from '../../components/ScrollToTop';
 
@@ -29,7 +29,7 @@ export const CartPage = () => {
     <>
       <Header />
       <ScrollToTop />
-      <ContentContairer>
+      <ContentContainer>
         <Title text='Корзина' />
 
         <CartContainer>
@@ -51,7 +51,7 @@ export const CartPage = () => {
           <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
           <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
         </CartTotalContainer>
-      </ContentContairer>
+      </ContentContainer>
       <Footer/>
     </>
   )

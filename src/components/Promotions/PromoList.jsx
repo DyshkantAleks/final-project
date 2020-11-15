@@ -1,7 +1,7 @@
 import React from 'react'
 import { List, StyledLink } from './StyledPromotions'
 import { PromoItem } from './PromotionsComponents/PromoPageItem'
-import { ContentContairer } from '../Content/Content'
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { useSelector } from 'react-redux'
 import { selectPromotions } from '../../store/AppData/promotions/selectors'
 
@@ -9,7 +9,7 @@ export const PromoList = () => {
   const promotions = useSelector(selectPromotions)
 
   return (
-    <ContentContairer>
+    <ContentContainer>
       <List>
         {promotions && promotions.map((e) => (
           <StyledLink
@@ -22,6 +22,6 @@ export const PromoList = () => {
           </StyledLink>
         ))}
       </List>
-    </ContentContairer>
+    </ContentContainer>
   )
 }
