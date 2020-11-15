@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../../../pages/navigation/routes';
-import { selectCart } from '../../../../store/cart/selectors';
+import { selectCart } from '../../../../store/AppData/cart/selectors';
 import { icon } from '../icons';
 import { CartCounter, Item } from '../StyledAccountInfo';
 
