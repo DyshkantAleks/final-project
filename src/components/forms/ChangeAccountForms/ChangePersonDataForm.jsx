@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../Button';
 import { closeModal } from '../../../store/modal/actions-creators';
 
-import { selectCustomer } from '../../../store/Сustomer/customer/slectors';
+import { selectCustomer } from '../../../store/Сustomer/selectors';
 import GlobalConfig from '../../../GlobalConfig';
 
 const { Option } = Select;

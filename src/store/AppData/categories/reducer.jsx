@@ -1,7 +1,8 @@
 import { SET_CATEGORIES } from './actions'
 
 const InitialState = {
-  categories: []
+  categories: [],
+  categoriesLoaded: false,
 }
 
 export function reducer (state = InitialState, { type, payload }) {
@@ -9,7 +10,8 @@ export function reducer (state = InitialState, { type, payload }) {
     case SET_CATEGORIES:
       return {
         ...state,
-        categories: payload
+        categories: payload,
+        categoriesLoaded: true
       }
     default:
       return state

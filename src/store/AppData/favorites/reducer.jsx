@@ -6,6 +6,7 @@ import {
 
 const InitialState = {
   favorites: [],
+  favoritesLoaded: false
 };
 
 export function reducer (state = InitialState, { type, payload }) {
@@ -14,6 +15,7 @@ export function reducer (state = InitialState, { type, payload }) {
       return {
         ...state,
         favorites: payload,
+        favoritesLoaded: true
       };
 
     case ADD_TO_FAVORITES:

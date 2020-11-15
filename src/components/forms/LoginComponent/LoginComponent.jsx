@@ -5,7 +5,7 @@ import {LoginForm} from '../LoginComponent/LoginForm'
 import { auth } from '../../../store/Сustomer/auth/middlware';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorsField } from '../Errors/ErrorsField';
-import { selectError } from '../../../store/Сustomer/auth/selectors';
+import { selectError } from '../../../store/Сustomer/selectors';
 import { useHistory } from 'react-router';
 import { closeModal } from '../../../store/modal/actions-creators';
 import { RegisterForm } from '../RegisterComponent/RegisterForm';

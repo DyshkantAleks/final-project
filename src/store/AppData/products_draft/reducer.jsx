@@ -8,16 +8,11 @@ const InitialState = {
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
-    case SET_LOADER:
-      return {
-        ...state,
-        isDataLoaded: true
-      }
     case SET_PRODUCTS:
       return {
         ...state,
         products: payload,
-        isDataLoaded: false
+        isDataLoaded: true
       }
     default:
       return state

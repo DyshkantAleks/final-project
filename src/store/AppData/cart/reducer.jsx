@@ -1,7 +1,8 @@
 import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART, SET_CART } from './action-types';
 
 const InitialState = {
-  cart: []
+  cart: [],
+  cartLoaded: false
 };
 
 export function reducer (state = InitialState, { type, payload }) {
@@ -9,7 +10,8 @@ export function reducer (state = InitialState, { type, payload }) {
     case SET_CART:
       return {
         ...state,
-        cart: payload
+        cart: payload,
+        cartLoaded: true
       };
 
     case ADD_TO_CART:

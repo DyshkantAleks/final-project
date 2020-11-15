@@ -1,7 +1,7 @@
 import { server } from '../../../API'
 import { logOutCustomer } from '../customer/action-creators'
 import { getCustomer } from '../customer/middlwares'
-import { delLogin, delToken, setAuthError, setToken } from './action-creators'
+import { setAuthError, setToken } from './action-creators'
 
 export const setAuthToken = (token) => {
   server.defaults.headers.common.Authorization = token
@@ -10,8 +10,7 @@ export const setAuthToken = (token) => {
 export const logOut = () => dispatch => {
   server.defaults.headers.common.Authorization = ''
   dispatch(logOutCustomer())
-  dispatch(delLogin())
-  dispatch(delToken())
+ 
 }
 export const auth = (login, password, history) => async (dispatch) => {
   try {
@@ -22,7 +21,7 @@ export const auth = (login, password, history) => async (dispatch) => {
       }
     )
     if (status === 200) {
-      console.log(history)
+      
       dispatch(setToken(data.token));
       dispatch(setAuthError(null));
       dispatch(getCustomer());

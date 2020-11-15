@@ -17,10 +17,11 @@ export const registerCustomer = (customer) => async (dispatch) => {
   }
 };
 export const getCustomer = () => async (dispatch, getState) => {
-  const { auth } = getState();
-
-  if (auth.token) {
-    setAuthToken(auth.token);
+  const state = getState();
+  console.log(state)
+  if (state.customer.token) {
+    
+    setAuthToken(state.customer.token);
   }
   try {
     const { status, data } = await server.get('/customers/customer');

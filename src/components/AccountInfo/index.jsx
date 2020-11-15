@@ -14,7 +14,7 @@ import {
   PersonalSectionActive,
   PersonalSectionFooter,
 } from './StyledAccountInfo';
-import { selectCustomer } from '../../store/Сustomer/customer/slectors';
+import { selectCustomer } from '../../store/Сustomer/selectors';
 import { logOut } from '../../store/Сustomer/auth//middlware';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';

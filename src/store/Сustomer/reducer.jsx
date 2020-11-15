@@ -1,20 +1,17 @@
 import { LOGOUT_CUSTOMER, SET_CUSTOMER } from './customer/action-types';
 import {
-  DEL_LOGIN,
-  DEL_TOKEN,
   SET_AUTH_ERROR,
   SET_LOGIN,
   SET_PASSWORD,
   SET_TOKEN,
 } from './auth/action-types';
 const initialState = {
-  customer: {
+  customer:{
     name: 'Пользователь',
-    login: null,
-    password: null,
-    token: null,
-    error: null,
   },
+  token: null,
+  error: null,
+
   isLogined: false,
 };
 export function reducer (state = initialState, { type, payload }) {
@@ -22,13 +19,14 @@ export function reducer (state = initialState, { type, payload }) {
     case SET_CUSTOMER:
       return {
         ...state,
-        customer: {...payload },
+        customer: {...payload},
         isLogined: true,
       };
     case LOGOUT_CUSTOMER:
       return {
         ...state,
-        customer: { name: 'Пользователь' },
+        customer: { name: 'Пользователь'},
+        token: null,
         isLogined: false,
       };
     case SET_LOGIN:
@@ -51,17 +49,6 @@ export function reducer (state = initialState, { type, payload }) {
         ...state,
         error: payload,
       };
-    case DEL_LOGIN:
-      return {
-        ...state,
-        login: null,
-      };
-    case DEL_TOKEN:
-      return {
-        ...state,
-        token: null,
-      };
-
     default:
       return state;
   }

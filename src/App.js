@@ -8,18 +8,20 @@ import { getProducts } from './store/AppData/products_draft/middlware';
 import { persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getCustomer } from './store/Сustomer/customer/middlwares';
+import { dataLoaded, getAllData } from './store/AppData/getAllData';
 
-function App () {
-  const dispatch = useDispatch();
+function App() {
+ 
   useEffect(() => {
-    dispatch(getProducts(),
-      dispatch(getCustomer()));
-  }, [dispatch]);
+    if (!dataLoaded.LOADED) {
+      getAllData();
+    }
+  }, [dataLoaded.LOADED]);
   return (
     <PersistGate loading={null} persistor={persistor}>
-      <Navigation/>
+      <Navigation />
     </PersistGate>
   );
-};
+}
 
 export default App;

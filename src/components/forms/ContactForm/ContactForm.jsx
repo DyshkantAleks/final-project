@@ -5,7 +5,7 @@ import { Button } from '../../Button';
 import styled from 'styled-components';
 import {
   selectCustomer,
-} from '../../../store/Сustomer/customer/slectors';
+} from '../../../store/Сustomer/selectors';
 import GlobalConfig from '../../../GlobalConfig';
 import { getCityList } from '../../../utils/novaPoshtaApi';
 

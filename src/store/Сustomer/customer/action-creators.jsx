@@ -6,5 +6,4 @@ export const setCustomer = payload => ({
 })
 export const logOutCustomer = () => ({
   type: LOGOUT_CUSTOMER
-  
 })

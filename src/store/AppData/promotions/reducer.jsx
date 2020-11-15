@@ -1,7 +1,8 @@
 import { SET_PROMOTIONS } from './actions'
 
 const InitialState = {
-  promotions: []
+  promotions: [],
+  promotionsLoaded: false
 }
 
 export function reducer (state = InitialState, { type, payload }) {
@@ -9,7 +10,8 @@ export function reducer (state = InitialState, { type, payload }) {
     case SET_PROMOTIONS:
       return {
         ...state,
-        promotions: payload
+        promotions: payload,
+        promotionsLoaded: true
       }
     default:
       return state
