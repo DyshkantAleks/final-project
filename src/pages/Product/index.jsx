@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Header } from '../../commons/Header/Header';
-import { ContentContairer } from '../../components/Content/Content';
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectByRoute } from '../../store/products_draft/selectors';
 // import { useToggle } from '../../utils/useToggle';
 import { Title } from '../../components/Title/Title';
@@ -79,7 +79,7 @@ export const ProductPage = (props) => {
     <>
       <Header />
       <ScrollToTop />
-      <ContentContairer>
+      <ContentContainer>
         {
           product && (
             <>
@@ -155,7 +155,7 @@ export const ProductPage = (props) => {
           )
         }
         <NewProductsList />
-      </ContentContairer>
+      </ContentContainer>
       <Footer />
     </>
   )

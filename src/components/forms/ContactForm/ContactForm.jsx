@@ -5,8 +5,6 @@ import { Button } from '../../Button';
 import styled from 'styled-components';
 import { selectCustomer, selectCustomerIslogined } from '../../../store/customer/slectors';
 
-
-
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const customer = useSelector(selectCustomer)
