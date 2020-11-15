@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50908e2f-d0c8-49dc-b8c7-72ee4e59709f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/icons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/icons.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductSlider/StyledProductSlider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductSlider/StyledProductSlider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/ContactForm/ContactForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/ContactForm/ContactForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Account/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/navigation/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/navigation/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +21,7 @@
   <component name="ProjectId" id="1jgfF3zPi4GkgnliPYVdgrXiIRx" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -47,8 +43,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/public/img" />
     </key>
   </component>
@@ -75,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604230548325</updated>
       <workItem from="1604230551285" duration="15427000" />
-      <workItem from="1604571333650" duration="624000" />
+      <workItem from="1604571333650" duration="13434000" />
     </task>
     <servers />
   </component>

@@ -11,14 +11,14 @@ import { handleSubmit } from './SendNewOrder';
 export const OrderPage = () => {
 
   return (
-    <ContentContainer>
+    <ContentContairer>
       <Header/>
       <Title text='Оформить заказ' />
       <ContainerPage>
         <ContactForm handleSubmit={handleSubmit}/>
         <OrderCart/>
       </ContainerPage>
-    </ContentContainer>
+    </ContentContairer>
   )
 }
 
