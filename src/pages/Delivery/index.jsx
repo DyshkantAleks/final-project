@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from '../../commons/Header/Header'
 import { Footer } from '../../commons/Footer'
-import { ContentContairer } from '../../components/Content/Content'
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { ContainerPage, Text, TextContainer, TextList, TextListItem } from '../About/StyledAboutPage'
 import { ContactsForm } from '../About/AboutPageComponents/ContactForm'
 
@@ -9,7 +9,7 @@ export const DeliveryPage = () => {
   return (
     <>
       <Header />
-      <ContentContairer>
+      <ContentContainer>
         <ContainerPage>
           <TextContainer>
             <h2>ОБЩИЕ УСЛОВИЯ</h2>
@@ -55,7 +55,7 @@ export const DeliveryPage = () => {
           </TextContainer>
           <ContactsForm />
         </ContainerPage>
-      </ContentContairer>
+      </ContentContainer>
       <Footer />
     </>
   )

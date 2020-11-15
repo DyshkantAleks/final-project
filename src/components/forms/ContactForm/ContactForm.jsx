@@ -256,6 +256,8 @@ export const ContactForm = (props) => {
   );
 };
 
+console.log ();
+
 const Text = styled.p`
   font-size: 1.4rem;
   line-height: 1.5;
