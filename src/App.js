@@ -13,7 +13,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts())
+    dispatch(getProducts());
     dispatch(getCustomer());
   }, [dispatch]);
 
@@ -22,6 +22,6 @@ function App() {
       <Navigation />
     </PersistGate>
   );
-};
+}
 
 export default App;
