@@ -54,7 +54,7 @@ export const ContactForm = (props) => {
     GlobalConfig.deliveryOptions[0].PICKUP.value
   );
 
-  const { name, surname, email, phone } = customer;
+  // const { name, surname, email, phone } = customer;
   const isVisibleAdressField =
     delivery === GlobalConfig.deliveryOptions[0].PICKUP.value;
 

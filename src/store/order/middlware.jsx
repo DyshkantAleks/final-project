@@ -1,7 +1,7 @@
 import { server } from '../../API';
 import { setOrder } from './actions-creators';
 
-export const createOrder = (order) => async (dispatch, getState) => {
+export const createOrder = (order) => (_, getState) => {
   const state = getState()
   const newOrder = {
     deliveryAddress: {
@@ -10,7 +10,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       address: `${order.street} ${order.house}, f.${order.flat}`,
     },
     shipping: order.delivery,
-    paymentInfo: order.paymentMethod,
+    payMethod: order.payMethod,
     status: order.status,
     email: order.email,
     mobile: `${order.prefix}${order.phone}`,
@@ -21,15 +21,28 @@ export const createOrder = (order) => async (dispatch, getState) => {
         <p>Sincerely, your WMF team.</p>`,
   };
 
-  if (state.customer._id) {
+  if (state.customer.customer._id) {
     return {
       ...newOrder,
-      customerId: `${state.customer._id}`,
+      customerId: `${state.customer.customer._id}`,
     };
   }
 
   return {
     ...newOrder,
-    products: state.cart.products,
+    products: state.cart.cart.products,
   };
+};
+
+export const confirmOrder = (order) => async (dispatch) => {
+  const newOrder = dispatch(createOrder(order))
+  console.log(newOrder)
+  try {
+    const { status, data } = await server.post('/orders', newOrder);
+    
+    if (status === 200) {
+      console.log("удачно", data)
+      dispatch(setOrder(data))
+    }
+  } catch (error) {}
 };

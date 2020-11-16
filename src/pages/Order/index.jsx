@@ -6,16 +6,21 @@ import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title'
 import { ContentContainer } from '../../styles/GeneralStyledComponents'
-import { handleSubmit } from './SendNewOrder';
+
+import { confirmOrder } from '../../store/order/middlware';
+import { useDispatch } from 'react-redux';
 
 export const OrderPage = props => {
-  
+ const dispatch = useDispatch()
   return (
     <ContentContainer>
       <Header/>
       <Title text='Оформить заказ' />
       <ContainerPage>
-        <ContactForm handleSubmit={(val) => handleSubmit(val)}/>
+        <ContactForm handleSubmit={(val) => {
+          console.log(val)
+          dispatch(confirmOrder(val))
+        }}/>
         <OrderCart />
       </ContainerPage>
     </ContentContainer>

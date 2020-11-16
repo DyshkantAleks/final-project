@@ -1,6 +1,6 @@
 import {SET_ORDER} from './action-types';
 
-const InitialState = {orders: []};
+const InitialState = {};
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
