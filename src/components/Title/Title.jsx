@@ -1,7 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { device } from '../../styles/breakpoints/breakpoints'
+import { device } from '../../styles/breakpoints/breakpoints';
+import PropTypes from 'prop-types';
 
 export const Title = (props) => {
   const { text } = props
@@ -9,6 +10,15 @@ export const Title = (props) => {
     <MainTitle>{text}</MainTitle>
   )
 }
+
+Title.propTypes = {
+  text: PropTypes.string
+
+};
+
+Title.defaultProps = {
+  text: 'Заголовок'
+};
 
 const MainTitle = styled.h2`
 font-size: 1.8rem;
