@@ -1,5 +1,6 @@
-import React from 'react'
-import { CopyrightContainer, CopyrightText } from '../StyledFooter'
+import React from 'react';
+
+import { CopyrightContainer, CopyrightText } from '../StyledFooter';
 
 export const FooterCopyright = () => {
   return (
@@ -7,4 +8,4 @@ export const FooterCopyright = () => {
       <CopyrightText>© FEM7, 2020. All rights reserved.</CopyrightText>
     </CopyrightContainer>
   )
-}
+};
