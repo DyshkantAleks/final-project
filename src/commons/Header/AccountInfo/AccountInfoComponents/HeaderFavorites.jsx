@@ -7,7 +7,6 @@ import { CartCounter, Item } from '../StyledAccountInfo';
 import { icon } from '../icons';
 import { selectFavorites } from '../../../../store/favorites/selectors';
 
-
 export const HeaderFavorites = () => {
   const favItems = useSelector(selectFavorites);
   const favLength = favItems.length;
