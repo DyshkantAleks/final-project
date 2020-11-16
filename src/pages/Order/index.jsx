@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components'
 import { device } from '../../styles/breakpoints/breakpoints'
-import {Header} from '../../commons/Header/Header';
-import {ContactForm} from '../../components/forms/ContactForm/ContactForm';
-import {OrderCart} from './OrderCart';
+import { Header } from '../../commons/Header/Header';
+import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
+import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title'
-import { ContentContainer } from '../../styles/GeneralStyledComponents';
+import { ContentContairer } from '../../styles/GeneralStyledComponents'
+import { handleSubmit } from './SendNewOrder';
 
 export const OrderPage = () => {
-  const handleSubmit = (values) => {
-    console.log(values)
-  }
+
   return (
     <ContentContainer>
       <Header/>
