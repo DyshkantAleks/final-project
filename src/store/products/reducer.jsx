@@ -1,3 +1,4 @@
+
 import { SET_PRODUCTS, SET_LOADER } from './actions';
 
 export const InitialState = {
@@ -22,3 +23,4 @@ export function reducer (state = InitialState, { type, payload }) {
       return state
   }
 };
+

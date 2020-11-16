@@ -9,7 +9,6 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { ContainerHorizontal, ContainerVertical, SliderGalleryHorizontal, SliderGalleryVertical, SliderThumbsHorizontal, SliderThumbsVertical, ImageMainContainer, ImageMain, ImageThumbsContainer, ImageThumbs } from './StyledProductSlider';
 import './style.scss';
 
-
 export const ProductSlider = (props) => {
   const { id } = props;
   const { screenWidth } = useWindowDimensions();
@@ -49,7 +48,7 @@ export const ProductSlider = (props) => {
     fade: true,
     swipe: true,
     touchMove: true,
-    className: "product-slider"
+    className: 'product-slider'
 
   };
 
@@ -69,7 +68,7 @@ export const ProductSlider = (props) => {
     verticalSwiping: true,
     arrows: false,
     infinite: false,
-    className: "vertical-thumbs"
+    className: 'vertical-thumbs'
   };
 
   return (
@@ -97,7 +96,7 @@ export const ProductSlider = (props) => {
             </SliderThumbsHorizontal>
           </ContainerHorizontal>)}
       </> : <>
-          {productById &&
+        {productById &&
             (
               <ContainerVertical>
                 <SliderThumbsVertical>
@@ -119,7 +118,7 @@ export const ProductSlider = (props) => {
                   </Slider>
                 </SliderGalleryVertical>
               </ContainerVertical>)}
-        </>
+      </>
       }
     </>
   )
