@@ -1,23 +1,27 @@
 import React from 'react';
 import styled from 'styled-components'
 import { device } from '../../styles/breakpoints/breakpoints'
-import {Header} from '../../commons/Header/Header';
-import {ContactForm} from '../../components/forms/ContactForm/ContactForm';
-import {OrderCart} from './OrderCart';
+import { Header } from '../../commons/Header/Header';
+import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
+import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title'
-import { ContentContainer } from '../../styles/GeneralStyledComponents';
+import { ContentContainer } from '../../styles/GeneralStyledComponents'
 
-export const OrderPage = () => {
-  const handleSubmit = (values) => {
-    console.log(values)
-  }
+import { confirmOrder } from '../../store/order/middlware';
+import { useDispatch } from 'react-redux';
+
+export const OrderPage = props => {
+ const dispatch = useDispatch()
   return (
     <ContentContainer>
       <Header/>
       <Title text='Оформить заказ' />
       <ContainerPage>
-        <ContactForm handleSubmit={handleSubmit}/>
-        <OrderCart/>
+        <ContactForm handleSubmit={(val) => {
+          console.log(val)
+          dispatch(confirmOrder(val))
+        }}/>
+        <OrderCart />
       </ContainerPage>
     </ContentContainer>
   )

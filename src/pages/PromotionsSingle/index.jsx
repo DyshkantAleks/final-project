@@ -14,7 +14,7 @@ export const PromotionsSinglePage = ({ match }) => {
 
   useEffect(() => {
     dispatch(getPromotions())
-  }, [])
+  }, [dispatch])
 
   const single = useSelector(selectById(match.params.route))
 

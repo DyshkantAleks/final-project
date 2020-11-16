@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50908e2f-d0c8-49dc-b8c7-72ee4e59709f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stylelintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.stylelintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Footer/FooterAbout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Footer/FooterAbout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Catalog/CatalogComponents/CatalogItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Content/Content.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopularCategory/PopularCategoryComponents/PopularCategoryItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopularCategory/PopularCategoryComponents/PopularCategoryItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Promotions/PromotionsComponents/PromoPageItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Promotions/PromotionsComponents/PromoPageItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SliderMain/SliderMain.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SliderMain/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Title/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Title/Title.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

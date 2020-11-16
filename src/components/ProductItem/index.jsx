@@ -19,7 +19,7 @@ export const ProductItem = (props) => {
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
 
   const dispatch = useDispatch();
-  //const [inFavorite, toggleInFavorite] = useToggle();
+  // const [inFavorite, toggleInFavorite] = useToggle();
 
   const productInCart = useSelector(selectCart);
 
