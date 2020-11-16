@@ -9,9 +9,11 @@ import { ContentContainer } from '../../styles/GeneralStyledComponents'
 
 import { confirmOrder } from '../../store/order/middlware';
 import { useDispatch } from 'react-redux';
+import { LiqPaySheckout } from '../../components/LiqPay/LiqPaySheckout';
+import { params } from '../../components/LiqPay/liqpayData';
 
 export const OrderPage = props => {
- const dispatch = useDispatch()
+  const dispatch = useDispatch()
   return (
     <ContentContainer>
       <Header/>

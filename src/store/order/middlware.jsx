@@ -15,7 +15,7 @@ export const createOrder = (order) => (_, getState) => {
     email: order.email,
     mobile: `${order.prefix}${order.phone}`,
     comments: order.comments || '',
-    letterSubject: 'Thank you for your order!',
+    letterSubject: 'Спасибо за ваш заказ!',
     letterHtml: `<h1>Your order №XXXXXXXX is placed. </h1>
         <p>Looking forward to see you again soon. In case of any questions - we are happy to help!</p>
         <p>Sincerely, your WMF team.</p>`,

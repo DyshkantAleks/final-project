@@ -7,7 +7,7 @@ export function reducer (state = InitialState, { type, payload }) {
     case SET_ORDER:
       return {
         ...state,
-        orders: payload
+        order:{ ...state.order, ...payload}
       };
     default:
       return state
