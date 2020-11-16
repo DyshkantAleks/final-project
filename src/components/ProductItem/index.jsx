@@ -87,15 +87,15 @@ export const ProductItem = (props) => {
   )
 };
 
-// ProductItem.propTypes = {
-//   name: PropTypes.string,
-//   price: PropTypes.number,
-//   previousPrice: PropTypes.number,
-//   image: PropTypes.string,
-//   route: PropTypes.string,
-//   id: PropTypes.string,
-//   isNewProduct: PropTypes.bool,
-//   isTopRated: PropTypes.bool,
-//   isSale: PropTypes.bool,
-//   product: PropTypes.object
-// };
+ProductItem.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number,
+  previousPrice: PropTypes.number,
+  image: PropTypes.string,
+  route: PropTypes.string,
+  id: PropTypes.string,
+  isNewProduct: PropTypes.bool,
+  isTopRated: PropTypes.bool,
+  isSale: PropTypes.bool,
+  product: PropTypes.object
+};

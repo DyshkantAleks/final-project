@@ -11,10 +11,12 @@ import { getCustomer } from './store/customer/middlwares';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getProducts(),
       dispatch(getCustomer()));
   }, [dispatch]);
+
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Navigation />

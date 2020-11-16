@@ -20,6 +20,5 @@ export const ScrollIcon = (props) => {
                 <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
             </svg>
         </IconScroll>
-
     )
 };
