@@ -1,7 +1,7 @@
-const GlobalConfig = {
+export const GlobalConfig = {
   phoneNumberRegExp: /^\+?3?8?(0\d{9})$/,
-  textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ_]+$/,
-  adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ.,\s]+$/,
+  textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
+  adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ.,\s`]+$/,
   numberFieldRegExp: /^[0-9]+$/,
   deliveryOptions: [
     {
@@ -20,7 +20,9 @@ const GlobalConfig = {
       NOVA_POSHTA: {
         value: 'Nova Poshta',
         text: 'Новая почта',
+        serchCityCode: ''
       },
+
     },
     {
       UKRPOSHTA: {
@@ -47,4 +49,3 @@ const GlobalConfig = {
   REACT_APP_PRIVATE_KEY: 'sandbox_pVJv7Gf09lfFEVCQISpdO2nCUwQ7OxbQVFaIXdU9',
   NOVA_POSHTA_API: '61df9e46c38be9addf6ced229c854397'
 };
-export default GlobalConfig

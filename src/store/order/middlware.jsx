@@ -1,25 +1,35 @@
 import { server } from '../../API';
 import { setOrder } from './actions-creators';
 
-export const createOrder = () => async (dispatch, getState) => {
+export const createOrder = (order) => async (dispatch, getState) => {
   const state = getState()
-  console.log(state.cart.cart)
   const newOrder = {
-    customerId: state.customer.customer._id || '',
     deliveryAddress: {
       country: 'Ukraine',
-      city: 'Kiev',
-      address: 'Kreshchatic Street 56//A',
-      postal: '01044'
+      city: order.city,
+      address: `${order.street} ${order.house}, f.${order.flat}`,
     },
-    products: state.cart.cart
-    
+    shipping: order.delivery,
+    paymentInfo: order.paymentMethod,
+    status: order.status,
+    email: order.email,
+    mobile: `${order.prefix}${order.phone}`,
+    comments: order.comments || '',
+    letterSubject: 'Thank you for your order!',
+    letterHtml: `<h1>Your order №XXXXXXXX is placed. </h1>
+        <p>Looking forward to see you again soon. In case of any questions - we are happy to help!</p>
+        <p>Sincerely, your WMF team.</p>`,
+  };
+
+  if (state.customer._id) {
+    return {
+      ...newOrder,
+      customerId: `${state.customer._id}`,
+    };
   }
-  console.log(JSON.stringify(newOrder))
-  try {
-    const { status, data } = server.post('/orders', JSON.stringify(newOrder));
-    if (status === 200 ) {
-      console.log(data)
-    }
-  } catch (error) {}
+
+  return {
+    ...newOrder,
+    products: state.cart.products,
+  };
 };
