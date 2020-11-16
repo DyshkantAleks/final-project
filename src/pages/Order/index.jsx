@@ -28,10 +28,10 @@ export const OrderPage = props => {
 }
 
 const ContainerPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media ${device.tabletM} {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-`;
+display: flex;
+flex-direction: column;
+@media${device.tabletM}{
+justify-content: space-between;
+flex-direction: row;
+}
+`
