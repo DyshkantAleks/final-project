@@ -11,11 +11,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { getCustomer } from './store/customer/middlwares';
 import ErrorBoundary from './components/ErrorBoundary';
 
-function App () {
+function App() {
   const dispatch = useDispatch();
-  const [dataLoad, seDataLoad] = useState(false);
+  const [dataLoad, setDataLoad] = useState(false);
   useEffect(() => {
-    Promise.all([dispatch(getProducts()), dispatch(getCustomer())]).then(() => seDataLoad(true))
+    Promise.all([dispatch(getProducts()), dispatch(getCustomer())]).then(() => setDataLoad(true))
   }, [dispatch]);
 
   return (

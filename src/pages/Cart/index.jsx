@@ -20,7 +20,7 @@ import { ROUTES } from '../navigation/routes';
 import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const CartPage = () => {
-  const cartItems = useSelector(selectCart)
+  const cartItems = useSelector(selectCart);
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
