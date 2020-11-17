@@ -16,23 +16,33 @@ afterEach(() => {
     container = null;
 });
 
-it('Button is rendered correctly', () => {
-    const onClick = jest.fn();
+const props = {
+    text: 'someText',
+    color: 'red',
+    width: '10rem',
 
-    act(() => {
-       render(<Button text="someText" onClick={onClick}/>, container) ;
+}
+describe('Button component', () => {
+    it('should render with props', () => {
+        const onClick = jest.fn();
+
+        act(() => {
+            render(<Button {...props} onClick={onClick} />, container);
+        });
+
+        const button = container.querySelector('button');
+
+        expect(button.textContent).toEqual('someText');
+        expect(button.getAttribute('color')).toEqual('red');
+        expect(button.getAttribute('width')).toEqual('10rem');
+
+
+        act(() => {
+            for (let i = 0; i < 5; i++) {
+                button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+            }
+        });
+
+        expect(onClick).toHaveBeenCalledTimes(5);
     });
-
-    const button = container.querySelector('button');
-
-    expect(button.textContent).toBe('someText');
-
-    act(() => {
-        for (let i = 0; i < 5; i++) {
-        button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-        }
-    });
-
-    expect(onClick).toHaveBeenCalledTimes(5);
-
 });
