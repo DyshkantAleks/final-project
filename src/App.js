@@ -12,26 +12,21 @@ import { getCustomer } from './store/customer/middlwares';
 import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
-    const dispatch = useDispatch();
-    const [dataLoad, seDataLoad] = useState(false);
-    useEffect(() => {
-        Promise.all([dispatch(getProducts()), dispatch(getCustomer())]).then(() => seDataLoad(true))
-    }, [dispatch]);
+  const dispatch = useDispatch();
+  const [dataLoad, setDataLoad] = useState(false);
+  useEffect(() => {
+    Promise.all([dispatch(getProducts()), dispatch(getCustomer())]).then(() => setDataLoad(true))
+  }, [dispatch]);
 
-    return ( <
-        PersistGate loading = { null }
-        persistor = { persistor } >
-        <
-        Router >
-        <
-        ErrorBoundary >
-        <
-        Navigation / >
-        <
-        /ErrorBoundary> <
-        /Router> <
-        /PersistGate>
-    );
+  return (
+    <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <ErrorBoundary>
+          <Navigation/>
+        </ErrorBoundary>
+      </Router>
+    </PersistGate>
+  );
 }
 
 export default App;
