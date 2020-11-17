@@ -22,7 +22,6 @@ Button.propTypes = {
 
 Button.defaultProps = {
   text: 'Simple text',
-  color: '#ffffff',
   disabled: false,
   onClick: () => {}
 }

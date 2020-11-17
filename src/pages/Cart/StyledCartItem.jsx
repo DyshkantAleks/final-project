@@ -47,7 +47,7 @@ margin: 0 auto;
   @media ${device.tabletS}{
     padding-top: 3rem;
     flex-wrap: wrap;
-    text-align: right;
+    text-align: center;
     justify-content: flex-end;
   };
   @media ${device.tabletM}{
@@ -226,3 +226,20 @@ font-family: inherit;
 // justify-content: space-between;
 // overflow: hidden;
 // `
+
+export const ButtonWrapper = styled.div`
+padding-top: 1rem;
+`
+
+export const CartButtonHolder = styled.div`
+display: flex;
+
+@media ${device.mobile}
+flex-direction: column;
+
+@media ${device.tabletS} {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+`
