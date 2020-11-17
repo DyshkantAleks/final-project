@@ -1,17 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { message } from 'antd';
 
 import { decreaseQuantity, increaseQuantity } from '../../store/cart/middlware';
 
-export const Counter = ({ cartQuantity, quantity, id }) => {
+export const Counter = ({ cartQuantity, quantity, id, name }) => {
   const dispatch = useDispatch();
 
   const increaseQty = () => {
     if (cartQuantity < quantity) {
       dispatch(increaseQuantity(id))
+    } else {
+      message.warn(`На складе есть только ${quantity}шт ${name}`)
     }
   }
+
   const decreaseQty = () => {
     if (cartQuantity > 1) {
       dispatch(decreaseQuantity(id))
@@ -21,7 +25,9 @@ export const Counter = ({ cartQuantity, quantity, id }) => {
     <CouterContainer>
       <BtnDecr onClick ={() => decreaseQty()}>-</BtnDecr>
       <CountInput readOnly value={cartQuantity + ' шт'}/>
+
       <BtnIncr onClick={() => increaseQty()}>+</BtnIncr>
+
     </CouterContainer>
   )
 }

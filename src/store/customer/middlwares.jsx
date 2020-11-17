@@ -1,7 +1,7 @@
 import { server } from '../../API';
 import { setAuthToken } from '../auth/middlware';
 
-import { setCustomer } from './action-creators';
+import { setCustomer, setCustomerError } from './action-creators';
 import { getCart } from '../cart/middlware'
 import { getFavorites } from '../favorites/middlware'
 import { openModal } from '../modal/actions-creators';
@@ -14,7 +14,7 @@ export const registerCustomer = (customer) => async (dispatch) => {
       dispatch(setCustomer(data));
     }
   } catch (error) {
-    console.log(error.response.data);
+    dispatch(setCustomerError(error.response.data.message))
   }
 };
 export const getCustomer = () => async (dispatch, getState) => {

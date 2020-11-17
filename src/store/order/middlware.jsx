@@ -39,10 +39,12 @@ export const confirmOrder = (order) => async (dispatch) => {
   console.log(newOrder)
   try {
     const { status, data } = await server.post('/orders', newOrder);
-    console.dir(data)
+    
     if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
       
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 };
