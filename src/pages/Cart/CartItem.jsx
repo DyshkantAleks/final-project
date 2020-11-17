@@ -37,7 +37,7 @@ export const CartItem = ({
         </CartNameCode>
       </StyledLink>
       <CartColor>{color}</CartColor>
-      <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id} />
+      <Counter cartQuantity={cartQuantity} quantity={quantity} id={_id} name={name}/>
       <CartPrice>
         {(currentPrice * cartQuantity).toLocaleString()} грн
       </CartPrice>
