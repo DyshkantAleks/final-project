@@ -6,12 +6,12 @@ export const createOrder = (order) => (_, getState) => {
   const newOrder = {
     deliveryAddress: {
       country: 'Ukraine',
-      city: order.city,
-      address: `${order.street} ${order.house}, f.${order.flat}`,
+      city: order.city || 'none',
+      address: `${order.street} ${order.house}, кв.${order.flat}` || 'none',
     },
     shipping: order.delivery,
     payMethod: order.payMethod,
-    status: order.status,
+    status: order.status || 'not shiped',
     email: order.email,
     mobile: `${order.prefix}${order.phone}`,
     letterSubject: 'Спасибо за ваш заказ!',
