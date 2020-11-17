@@ -93,11 +93,11 @@ export const checkQuantity = (products = [], cart = []) => {
   return cart.reduce(
     (acc, rec) => {
       console.log(acc, rec)
-      products.forEach((item, index) => {
+      products.forEach((item) => {
         
         if (item.itemNo === rec.product.itemNo) {
           
-          if (item.quantity < rec.product.quantity) {
+          if (item.quantity < rec.cartQuantity) {
             
             acc.push({product: item, quantity: rec.cartQuantity - item.quantity });
           }
