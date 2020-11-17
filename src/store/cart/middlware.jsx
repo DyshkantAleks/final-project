@@ -1,11 +1,11 @@
-import { server } from "../../API";
+import { server } from '../../API';
 import {
   addToCart,
   quantityDown,
   quantityUp,
   removeFromCart,
   setCart,
-} from "./actions-creators";
+} from './actions-creators';
 
 const updateCart = async (state) => {
   const { customer } = state;
@@ -17,7 +17,7 @@ const updateCart = async (state) => {
       });
       const updatedCart = { products: productsInCart };
       try {
-        await server.put("/cart", updatedCart);
+        await server.put('/cart', updatedCart);
       } catch (error) {
         console.log(error.response.data);
       }
@@ -25,7 +25,7 @@ const updateCart = async (state) => {
   }
 };
 
-export function unique(arr) {
+export function unique (arr) {
   const res = new Map();
   return arr.filter(
     (a) => !res.has(a.product._id) && res.set(a.product._id, 1)
@@ -38,7 +38,7 @@ export const getCart = () => async (dispatch, getState) => {
 
   if (customer.isLogined) {
     try {
-      const { status, data } = await server.get("/cart");
+      const { status, data } = await server.get('/cart');
       if (status === 200) {
         const sumTwoCart = [...state.cart.cart, ...data.products];
         const result = unique(sumTwoCart);
@@ -89,17 +89,14 @@ export const decreaseQuantity = (productId) => (dispatch, getState) => {
   const state = getState();
   updateCart(state);
 };
+
 export const checkQuantity = (products = [], cart = []) => {
   return cart.reduce(
     (acc, rec) => {
       console.log(acc, rec)
-
-      products.forEach((item) => {
-        
+      products.forEach((item, index) => {
         if (item.itemNo === rec.product.itemNo) {
-          
-          if (item.quantity < rec.cartQuantity) {
-            
+          if (item.quantity < rec.product.quantity) {
             acc.push({product: item, quantity: rec.cartQuantity - item.quantity });
           }
         }
