@@ -12,6 +12,12 @@ export const Button = (props) => {
   )
 };
 
+Button.defaultProps = {
+  text: 'Simple text',
+  disabled: false,
+  onClick: () => { }
+}
+
 Button.propTypes = {
   text: PropTypes.string,
   color: PropTypes.string,
@@ -20,8 +26,3 @@ Button.propTypes = {
   onClick: PropTypes.func
 };
 
-Button.defaultProps = {
-  text: 'Simple text',
-  disabled: false,
-  onClick: () => {}
-}

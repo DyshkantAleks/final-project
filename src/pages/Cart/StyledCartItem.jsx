@@ -47,7 +47,11 @@ margin: 0 auto;
   @media ${device.tabletS}{
     padding-top: 3rem;
     flex-wrap: wrap;
+<<<<<<< HEAD
     text-align: center;
+=======
+    text-align: right;
+>>>>>>> dev
     justify-content: flex-end;
   };
   @media ${device.tabletM}{
