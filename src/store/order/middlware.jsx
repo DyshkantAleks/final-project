@@ -21,7 +21,7 @@ export const createOrder = (order) => (_, getState) => {
   };
 
   if (state.customer.customer._id) {
-    console.log(state.customer.customer._id)
+   
     return {
       ...newOrder,
       customerId: `${state.customer.customer._id}`,
@@ -40,9 +40,11 @@ export const confirmOrder = (order) => async (dispatch) => {
   try {
     const { status, data } = await server.post('/orders', newOrder);
     
-    if (status === 200) {
-      
+    if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
+      
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 };
