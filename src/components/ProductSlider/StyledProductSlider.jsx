@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../styles/breakpoints/breakpoints';
 
-
 export const ContainerHorizontal = styled.section`
 min-height: 40rem;
 padding: 2rem;

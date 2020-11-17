@@ -4,7 +4,7 @@ import {registerCustomer} from '../../../store/customer/middlwares'
 
 import { RegisterForm } from './RegisterForm'
 
-export const RegisterComponent = props =>{
+export const RegisterComponent = props => {
   const dispatch = useDispatch()
 
   return (

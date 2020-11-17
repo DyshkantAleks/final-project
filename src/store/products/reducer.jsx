@@ -1,10 +1,10 @@
-import { SET_PRODUCTS, SET_LOADER } from './actions'
 
-const InitialState = {
+import { SET_PRODUCTS, SET_LOADER } from './actions';
+
+export const InitialState = {
   products: [],
   isDataLoaded: false
 }
-// console.log(InitialState)
 
 export function reducer (state = InitialState, { type, payload }) {
   switch (type) {
@@ -22,4 +22,5 @@ export function reducer (state = InitialState, { type, payload }) {
     default:
       return state
   }
-}
+};
+

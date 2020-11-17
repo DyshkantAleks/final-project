@@ -23,13 +23,13 @@ export const ChangePassForm = () => {
 
   return (
     <Form
-      name="change_password"
-      className="login-form"
+      name='change_password'
+      className='login-form'
       initialValues={initialValues}
       onFinish={handleSubmit}
     >
       <Form.Item
-        name="password"
+        name='password'
         rules={[
           {
             required: true,
@@ -38,13 +38,13 @@ export const ChangePassForm = () => {
         ]}
       >
         <Input.Password
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
+          prefix={<LockOutlined className='site-form-item-icon' />}
+          type='password'
+          placeholder='Введите старый пароль'
         />
       </Form.Item>
       <Form.Item
-        name="newPassword"
+        name='newPassword'
         rules={[
           {
             required: true,
@@ -53,14 +53,14 @@ export const ChangePassForm = () => {
         ]}
       >
         <Input.Password
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="New Password"
+          prefix={<LockOutlined className='site-form-item-icon' />}
+          type='password'
+          placeholder='Введите новый пароль'
         />
       </Form.Item>
       <Form.Item>
         <Button text='Отмена' onClick={() => dispatch(closeModal())}/>
-        <Button text='Изменить' type="submit"/>
+        <Button text='Изменить' type='submit'/>
       </Form.Item>
     </Form>
   );

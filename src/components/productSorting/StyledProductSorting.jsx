@@ -7,4 +7,7 @@ export const StyledSelect = styled(Select)`
   &:not(.ant-select-disabled):hover .ant-select-selector {
     border-color: #7191A6;
   }
+  @media (max-width: 1200) {
+    margin: auto;
+  }
 `;
