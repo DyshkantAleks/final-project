@@ -15,7 +15,7 @@ export const OrderCart = () => {
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
 
   return (
-    <ContentContairer>
+    <>
       <CartContainer>
         <CartMenu>
           {menuArray.map((item, index) => (
@@ -37,14 +37,9 @@ export const OrderCart = () => {
           {sumCart.toLocaleString()} грн
         </CartTotalText>
       </CartTotalContainer>
-    </ContentContairer>
+    </>
   );
 };
-
-const ContentContairer = styled.div`
-  margin-left: 1em;
-  margin-bottom: 1em;
-`;
 
 const CartContainer = styled.div`
   margin: 0 auto;

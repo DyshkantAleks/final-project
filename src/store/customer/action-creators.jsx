@@ -1,4 +1,4 @@
-import { LOGOUT_CUSTOMER, SET_CUSTOMER } from './action-types'
+import { LOGOUT_CUSTOMER, SET_CUSTOMER, SET_CUSTOMER_ERROR } from './action-types'
 
 export const setCustomer = payload => ({
   type: SET_CUSTOMER,
@@ -7,4 +7,8 @@ export const setCustomer = payload => ({
 export const logOutCustomer = () => ({
   type: LOGOUT_CUSTOMER
   
+})
+export const setCustomerError = payload => ({
+  type: SET_CUSTOMER_ERROR,
+  payload
 })

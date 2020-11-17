@@ -9,6 +9,7 @@ import {
 } from 'antd';
 import { Button } from '../../Button';
 import { QuestionCircleOutlined } from '@ant-design/icons';
+import { GlobalConfig } from '../../../GlobalConfig';
 
 const { Option } = Select;
 export const RegisterForm = (props) => {
@@ -49,7 +50,7 @@ export const RegisterForm = (props) => {
             message: 'Введите имя!',
           },
           {
-            pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
+            pattern: GlobalConfig.textFieldRegExp,
             message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -72,7 +73,7 @@ export const RegisterForm = (props) => {
             message: 'Введите фамилию!',
           },
           {
-            pattern: /^[а-яёА-ЯЁІіїЇєЄ]+$/,
+            pattern: GlobalConfig.textFieldRegExp,
             message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -121,7 +122,7 @@ export const RegisterForm = (props) => {
             message: 'Максимум 30 символов!',
           },
           {
-            pattern: /^[а-яёА-ЯЁІіїЇєЄ0-9]+$/,
+            pattern: GlobalConfig.adressFieldRegExp,
             message: 'Пароль должен состоять из букв и цифр!',
           },
         ]}
