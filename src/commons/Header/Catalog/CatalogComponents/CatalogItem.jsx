@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
 
 export const CatalogItem = (props) => {
   const { category, icon, id, route } = props;
-  console.log(typeof id);
+  
   const [isOpen, setIsOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const { screenWidth } = useWindowDimensions();
