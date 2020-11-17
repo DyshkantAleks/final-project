@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import './App.css';
@@ -11,17 +11,16 @@ import { getCustomer } from './store/customer/middlwares';
 
 function App() {
   const dispatch = useDispatch();
-
+  const [dataLoad, seDataLoad] = useState(false);
   useEffect(() => {
-    dispatch(getProducts())
-    dispatch(getCustomer());
+    Promise.all([dispatch(getProducts()), dispatch(getCustomer())]).then(() => seDataLoad(true))
   }, [dispatch]);
 
   return (
     <PersistGate loading={null} persistor={persistor}>
-      <Navigation />
+      {dataLoad && <Navigation />}
     </PersistGate>
   );
-};
+}
 
 export default App;
