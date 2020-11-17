@@ -14,7 +14,6 @@ export const createOrder = (order) => (_, getState) => {
     status: order.status,
     email: order.email,
     mobile: `${order.prefix}${order.phone}`,
-    comments: order.comments || '',
     letterSubject: 'Спасибо за ваш заказ!',
     letterHtml: `<h1>Your order №XXXXXXXX is placed. </h1>
         <p>Looking forward to see you again soon. In case of any questions - we are happy to help!</p>
@@ -22,6 +21,7 @@ export const createOrder = (order) => (_, getState) => {
   };
 
   if (state.customer.customer._id) {
+    console.log(state.customer.customer._id)
     return {
       ...newOrder,
       customerId: `${state.customer.customer._id}`,
@@ -30,7 +30,7 @@ export const createOrder = (order) => (_, getState) => {
 
   return {
     ...newOrder,
-    products: state.cart.cart.products,
+    products: state.cart.cart,
   };
 };
 
@@ -41,8 +41,8 @@ export const confirmOrder = (order) => async (dispatch) => {
     const { status, data } = await server.post('/orders', newOrder);
     
     if (status === 200) {
-      console.log("удачно", data)
-      dispatch(setOrder(data))
+      
+      dispatch(setOrder(data.order))
     }
   } catch (error) {}
 };
