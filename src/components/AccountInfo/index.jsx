@@ -26,7 +26,7 @@ import { ChangePassForm } from '../forms/ChangeAccountForms/ChangePassForm';
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
-  console.log(params)
+  
   const { name, surname, gender, email, login } = useSelector(selectCustomer);
   const dispatch = useDispatch();
   const userInfoList = [

@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-import { device } from '../../styles/breakpoints/breakpoints';
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Button } from '../../components/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,10 +9,12 @@ import {
   CloseBtnContainer,
   CartNameCode,
   CartImage,
-  CartColor,
-} from '../Cart/CartItem';
+  CartColor
+} from '../Cart/StyledCartItem';
+import { FavDimensions } from './StyledFavoriteItemPage';
 import { addProductToCart } from '../../store/cart/middlware.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
+
 
 export const FavItem = ({
   imageUrl,
@@ -58,7 +58,10 @@ export const FavItem = ({
       <FavDimensions>
         {sizes.height}cм x {sizes.width}см x {sizes.length}см
       </FavDimensions>
-      {btnInCart ? (
+      {btnInCart ? <Button disabled width={'100%'} text={'В корзине'}/> : 
+      <Button width={'100%'} color text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
+
+      {/* {btnInCart ? (
         <Button disabled width={'100%'} text={'В корзине'} />
       ) : (
         <Button
@@ -66,23 +69,9 @@ export const FavItem = ({
           text={'Купить'}
           onClick={() => btnAddToCart(item, 1)}
         />
-      )}
+      )} */}
     </CartItemContainer>
   );
 };
 
-const FavDimensions = styled.p`
-  margin-bottom: 0;
 
-  @media ${device.mobile} {
-    text-align: left;
-    display: none;
-  }
-  @media ${device.tabletS} {
-    text-align: center;
-    padding-right: 5%;
-  }
-  @media ${device.tabletM} {
-    display: inherit;
-  }
-`;
