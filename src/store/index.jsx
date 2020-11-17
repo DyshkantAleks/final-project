@@ -28,6 +28,9 @@ import { reducer as customerReducer } from './customer/reducer';
 import { MODULE_NAME as categoriesModuleName } from './categories/selectors';
 import { reducer as categoriesReducer } from './categories/reducer';
 
+import { MODULE_NAME as orderModuleName } from './order/selectors';
+import { reducer as orderReducer } from './order/reducer';
+
 const persistCart = {
   key: 'cart',
   storage,
@@ -51,7 +54,8 @@ const rootReducer = combineReducers({
   [promotionsModuleName]: promotionsReducer,
   [categoriesModuleName]: categoriesReducer,
   [favoritesModuleNAme]: persistReducer(persistFavorite, favoritesReducer),
-  [customerModuleName]: customerReducer
+  [customerModuleName]: customerReducer,
+  [orderModuleName]: orderReducer
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

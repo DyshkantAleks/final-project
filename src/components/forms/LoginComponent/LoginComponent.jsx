@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Checkbox } from 'antd';
 
-// import { GoogleButton } from '../../Button/SocialButtons/gogleButton/GoogleButton';
 import {LoginForm} from '../LoginComponent/LoginForm'
 import { auth } from '../../../store/auth/middlware';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,21 +16,24 @@ export const LoginComponent = props => {
   const error = useSelector(selectError)
   const history = useHistory()
   const [registered, setRegistered] = useState(false)
+  const logInHandler = (login, password) =>{
+    
+    dispatch(auth(login, password, history))
+    console.log(error)
+    if (!error) { dispatch(closeModal()) }
+  }
   
   return (
+  
     <div>
-      {!registered && <LoginForm handleSubmit={({login, password}) => {
-        dispatch(auth(login, password, history))
-        dispatch(closeModal())
-      }
-      }/>}
+      {!registered && <LoginForm handleSubmit={({login, password}) => logInHandler(login, password)}/>}
       {registered && <RegisterForm handleSubmit={(values) => {
         dispatch(registerCustomer(values))
         setRegistered(true)
       }
       }/>}
       
-      {error && <ErrorsField errorText='Ошибка ввода. Повторите ввод данных!'/>}
+      {error && <ErrorsField errorText='Неверные даные!'/>}
       <Checkbox checked={registered} onClick={() => setRegistered((val) => !val)}>Я новый пользователь</Checkbox>
     </div>
   )

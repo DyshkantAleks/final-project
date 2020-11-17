@@ -13,8 +13,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts(),
-      dispatch(getCustomer()));
+    dispatch(getProducts())
+    dispatch(getCustomer());
   }, [dispatch]);
 
   return (

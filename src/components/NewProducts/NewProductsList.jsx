@@ -7,7 +7,6 @@ import { ProductItem } from '../ProductItem';
 import { ProductItemList } from '../../pages/Product/StyledProductPage';
 
 export const NewProductsList = () => {
-
   const allProducts = useSelector(selectProducts);
   const arrayOfNew = allProducts.filter(e => e.isNewProduct === true);
 

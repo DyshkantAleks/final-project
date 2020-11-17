@@ -2,19 +2,6 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Radio } from 'antd';
 
-class App extends React.Component {
-  state = {
-    value: 1,
-  };
-
-  onChange = e => {
-    console.log('radio checked', e.target.value);
-    this.setState({
-      value: e.target.value,
-    });
-  };
-}
-
 export const RadioGroup = () => {
   return (
     <Radio.Group onChange={this.onChange} value={this.state.value}>
@@ -24,4 +11,4 @@ export const RadioGroup = () => {
       <Radio value={4}>D</Radio>
     </Radio.Group>
   );
-}
+};
