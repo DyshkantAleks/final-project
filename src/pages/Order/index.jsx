@@ -26,7 +26,9 @@ export const OrderPage = (props) => {
   const products = useSelector(selectProducts);
   const cart = useSelector(selectCart);
   const shortageProducts = checkQuantity(products, cart);
-  if (!shortageProducts.lenth) {
+
+  if (shortageProducts.length) {    
+
     dispatch(
       openModal({
         content: shortageProducts.map((item) => (
