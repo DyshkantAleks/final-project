@@ -4,7 +4,7 @@ import { FilterTwoTone } from '@ant-design/icons';
 import { Collapse } from 'antd';
 import { slide as MobileFilter } from 'react-burger-menu';
 
-import { Content, Wrapper, Title, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper } from './StyledProductListPage';
+import { Content, Wrapper, Title, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper, StyledPagination } from './StyledProductListPage';
 import { Header } from '../../commons/Header/Header';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
@@ -22,6 +22,11 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
   const { screenWidth } = useWindowDimensions();
+
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(9);
+  const [current, setCurrent] = useState(1);
+
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
   const [priceValues, setPriceValues] = useState([]);
@@ -60,6 +65,7 @@ export const ProductListPage = ({ match }) => {
 
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
+    setCurrent(1)
   }
 
   const onCheckedBrandHandler = (checkedValues) => {
@@ -70,6 +76,16 @@ export const ProductListPage = ({ match }) => {
   }
   const onSelectChangeHandler = (checkedSelectValue) => {
     setSortValue(checkedSelectValue)
+  }
+
+  const onPaginateChange = value => {
+    if (value <= 1) {
+      setMinValue(0);
+      setMaxValue(9);
+    } else {
+      setMinValue(maxValue);
+      setMaxValue(value * 9);
+    }
   }
 
   return (
@@ -139,7 +155,7 @@ export const ProductListPage = ({ match }) => {
               </Wrapper>}
             </FiltersWrapper>
             <ProductList>
-              {result.map((e, index) => (
+              {result.slice(minValue, maxValue).map((e, index) => (
                 <ProductItem
                   key={index}
                   name={e.name}
@@ -155,6 +171,7 @@ export const ProductListPage = ({ match }) => {
                 />
               ))}
             </ProductList>
+            <StyledPagination defaultCurrent={1} current={current} defaultPageSize={9} total={result.length} onChange={onPaginateChange} />
           </Wrapper>
         </Content>
       </ContentContainer>

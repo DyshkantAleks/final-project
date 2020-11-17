@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyledSelect } from './StyledProductSorting';
 
-export const ProductSorting = ({ onChangeHandler }) => {
+export const ProductSorting = ({ onChangeHandler, value }) => {
   const { Option } = StyledSelect;
   return (
     <StyledSelect onChange={onChangeHandler} value={value}>
