@@ -1,27 +1,28 @@
-import { server } from '../../API'
-import { setProducts } from './actions'
+import { server } from '../../API';
+import { setProducts } from './actions';
 
 export const getProducts = () => async (dispatch) => {
   try {
-    const { status, data } = await server('/products')
+    const { status, data } = await server('/products');
     if (status === 200) {
-      dispatch(setProducts(data))
+      console.log("product get")
+      dispatch(setProducts(data));
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const getProductsByIsPopular = () => async (dispatch) => {
   try {
     const { status, data } = await server('/products/filter?isTopRated=true')
-    // console.log(data)
+    
     if (status === 200) {
       dispatch(setProducts(data.products))
-      // console.log(data)
+      
     }
   } catch (error) {
-    console.log(error)
+    console.log(error.response.data)
   }
 }
 

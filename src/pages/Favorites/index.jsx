@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import { selectFavorites } from '../../store/favorites/selectors';
 import { Header } from '../../commons/Header/Header';
 import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
-import { CartContainer, CartMenu } from '../Cart/'
+import { CartContainer, CartMenu } from '../Cart/';
 import { FavItem } from './FavItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
+import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
@@ -16,6 +18,7 @@ export const FavoritesPage = () => {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <ContentContainer>
         <Title text='Избранное' />
         <CartContainer>
