@@ -1,13 +1,23 @@
 import React from 'react'
-import {
-  Switch,
-  Route
-} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ROUTES } from './routes';
+import { AboutPage } from '../About';
+import { DeliveryPage } from '../Delivery';
+import { Homepage } from '../Homepage';
+import { PromotionsPage } from '../PromotionsList';
+import { StoresPage } from '../Stores';
+import { CartPage } from '../Cart';
+import { OrderPage } from '../Order';
+import { FavoritesPage } from '../Favorites';
+import { AccountPage } from '../Account';
+import { ProductPage } from '../Product';
+import { PromotionsSinglePage } from '../PromotionsSingle';
+import { ProductListPage } from '../ProductList/ProductListPage';
+import { SearchPage } from '../Search';
+import { NotFoundPage } from '../404';
 
 export const Navigation = () => (
- 
   <Switch>
     <Route exact path={ROUTES.ABOUT} component={AboutPage} />
     <Route exact path={ROUTES.DELIVERY} component={DeliveryPage} />
@@ -24,5 +34,4 @@ export const Navigation = () => (
     <Route exact path={ROUTES.HOMEPAGE} component={Homepage} />
     <Route component={NotFoundPage} />
   </Switch>
- 
 )
