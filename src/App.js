@@ -22,7 +22,7 @@ function App () {
     <PersistGate loading={null} persistor={persistor}>
       <Router>
         <ErrorBoundary>
-          <Navigation/>
+          {dataLoad && <Navigation/>}
         </ErrorBoundary>
       </Router>
     </PersistGate>
