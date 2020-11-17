@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 
-import { device } from "../../styles/breakpoints/breakpoints";
-import { Header } from "../../commons/Header/Header";
-import { ContactForm } from "../../components/forms/ContactForm/ContactForm";
-import { OrderCart } from "./OrderCart";
+import { device } from '../../styles/breakpoints/breakpoints';
+import { Header } from '../../commons/Header/Header';
+import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
+import { OrderCart } from './OrderCart';
 
-import { Title } from "../../components/Title/Title";
-import { ContentContainer } from "../../styles/GeneralStyledComponents";
+import { Title } from '../../components/Title/Title';
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
-import { confirmOrder } from "../../store/order/middlware";
-import { getProducts } from "../../store/products/middlware";
-import { checkQuantity } from "../../store/cart/middlware";
-import { selectProducts } from "../../store/products/selectors";
-import { selectCart } from "../../store/cart/selectors";
-import { openModal } from "../../store/modal/actions-creators";
-import { selectOrder } from "../../store/order/selectors";
+import { confirmOrder } from '../../store/order/middlware';
+import { getProducts } from '../../store/products/middlware';
+import { checkQuantity } from '../../store/cart/middlware';
+import { selectProducts } from '../../store/products/selectors';
+import { selectCart } from '../../store/cart/selectors';
+import { openModal } from '../../store/modal/actions-creators';
+import { selectOrder } from '../../store/order/selectors';
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
 
@@ -27,6 +27,7 @@ export const OrderPage = (props) => {
   const cart = useSelector(selectCart);
   const order = useSelector(selectOrder);
   const shortageProducts = checkQuantity(products, cart);
+
   if (shortageProducts.length) {
     dispatch(
       openModal({
@@ -43,7 +44,7 @@ export const OrderPage = (props) => {
   return (
     <ContentContainer>
       <Header />
-      <Title text="Оформить заказ" />
+      <Title text='Оформить заказ' />
       <ContainerPage>
         <ContactForm
           handleSubmit={(val) => {
@@ -59,6 +60,7 @@ export const OrderPage = (props) => {
             );
           }}
         />
+
         <OrderCart />
       </ContainerPage>
     </ContentContainer>
