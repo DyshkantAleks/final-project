@@ -50,7 +50,7 @@ export const CartPage = () => {
 
         <CartTotalContainer>
           <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-          <Button text='Вернуться к покупкам' color/>
+          <Button text='Вернуться к покупкам' />
           <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
         </CartTotalContainer>
       </ContentContainer>
