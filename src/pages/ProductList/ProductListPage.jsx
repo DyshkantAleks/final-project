@@ -6,7 +6,7 @@ import { slide as MobileFilter } from 'react-burger-menu';
 
 import { Content, Wrapper, Title, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper } from './StyledProductListPage';
 import { Header } from '../../commons/Header/Header';
-import { selectProducts } from '../../store/products_draft/selectors';
+import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';

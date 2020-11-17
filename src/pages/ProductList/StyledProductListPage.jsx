@@ -5,7 +5,9 @@ import { Checkbox } from 'antd';
 
 export const Content = styled.main`
 display: grid;
+
 grid-template-columns: 20% auto;
+
 @media (max-width: 1200px) {
   grid-template-columns: auto;
 }
