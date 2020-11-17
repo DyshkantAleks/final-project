@@ -123,7 +123,7 @@ export const ProductPage = (props) => {
                     </>}
                   <ActionsContainer>
                     <Actions>
-                      <ProductCounter value={value} setValue={setValue} quantity={product.quantity} />
+                      <ProductCounter value={value} setValue={setValue} quantity={product.quantity} name={product.name} />
                     </Actions>
                     <Actions>
                       {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}

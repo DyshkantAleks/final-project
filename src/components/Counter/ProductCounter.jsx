@@ -1,10 +1,13 @@
+import { message } from 'antd';
 import React from 'react';
 import styled from 'styled-components';
 
-export const ProductCounter = ({ quantity, value, setValue }) => {
+export const ProductCounter = ({ quantity, value, setValue, name }) => {
   const increaseQty = () => {
     if (value < quantity) {
       setValue(value + 1)
+    } else {
+      message.warn(`На складе есть только ${quantity}шт ${name}`)
     }
   }
   const decreaseQty = () => {
