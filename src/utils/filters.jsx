@@ -1,5 +1,3 @@
-import { array } from 'yup';
-
 export const categoriesFilter = (products, categorie) => {
   let array = [];
   if (categorie) {

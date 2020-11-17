@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ErrorsField } from '../Errors/ErrorsField';
 import { selectError } from '../../../store/auth/selectors';
 import { useHistory } from 'react-router';
-import { closeModal, openModal } from '../../../store/modal/actions-creators';
+import { closeModal } from '../../../store/modal/actions-creators';
 import { RegisterForm } from '../RegisterComponent/RegisterForm';
 import { registerCustomer } from '../../../store/customer/middlwares';
 
@@ -20,7 +20,7 @@ export const LoginComponent = props => {
     
     dispatch(auth(login, password, history))
     console.log(error)
-    if (!error) { dispatch(closeModal()) }
+    if (error) { dispatch(closeModal()) }
   }
   
   return (
