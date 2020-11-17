@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Input, Select, Row, Col, Radio, AutoComplete } from 'antd';
 import { Button } from '../../Button';
@@ -10,9 +10,15 @@ import { getCity, getStreet } from '../../../utils/novaPoshtaApi';
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const customer = useSelector(selectCustomer);
+  const { name, surname, email, phone } = customer;
+
   const searchCode = GlobalConfig.deliveryOptions[2].NOVA_POSHTA.serchCityCode;
   const [autoCompleteCityResult, setAutoCompleteCityResult] = useState([]);
   const [autoCompleteStreetResult, setAutoCompleteStreetResult] = useState([]);
+  const [delivery, setdelivery] = useState(
+    GlobalConfig.deliveryOptions[0].PICKUP.value
+  );
+  
   const [form] = Form.useForm();
   // autocomplete city
   const onCityChange = (value) => {
@@ -50,14 +56,9 @@ export const ContactForm = (props) => {
     value: street,
   }));
   // --------------------------------------------
-  const [delivery, setdelivery] = useState(
-    GlobalConfig.deliveryOptions[0].PICKUP.value
-  );
-
-  // const { name, surname, email, phone } = customer;
   const isVisibleAdressField =
-    delivery === GlobalConfig.deliveryOptions[0].PICKUP.value;
-
+  delivery === GlobalConfig.deliveryOptions[0].PICKUP.value;
+  console.log("form render", isVisibleAdressField)
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select
@@ -75,12 +76,13 @@ export const ContactForm = (props) => {
       form={form}
       onFinish={handleSubmit}
       initialValues={{
-        name: 'Покупатель',
-        surname: 'qwe',
-        email: 'mail@mail.com',
-        phone: '970001122',
+        name,
+        surname,
+        email,
+        phone,
         prefix: '+380',
         delivery: GlobalConfig.deliveryOptions[0].PICKUP.value,
+        payMethod: GlobalConfig.paymentOptions[0].BY_CASH.value,
       }}
     >
       <Text>Пожалуйста, заполните форму</Text>
@@ -185,7 +187,7 @@ export const ContactForm = (props) => {
                 label='Населенный пункт'
                 rules={[
                   {
-                    required: !isVisibleAdressField,
+                    required: isVisibleAdressField,
                     message: 'Заполните поле!',
                   },
                   {
@@ -195,7 +197,7 @@ export const ContactForm = (props) => {
                 ]}
               >
                 <AutoComplete options={cityOptions} onChange={onCityChange}>
-                  <Input />
+                  <Input onChange={onCityChange} />
                 </AutoComplete>
               </Form.Item>
             </Col>
@@ -206,7 +208,7 @@ export const ContactForm = (props) => {
                 label='Улица'
                 rules={[
                   {
-                    required: !isVisibleAdressField,
+                    required: isVisibleAdressField,
                     message: 'Заполните поле!',
                   },
                   {
@@ -228,7 +230,7 @@ export const ContactForm = (props) => {
                 label='Дом'
                 rules={[
                   {
-                    required: !isVisibleAdressField,
+                    required: isVisibleAdressField,
                     message: 'Заполните поле!',
                   },
                   {

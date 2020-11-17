@@ -17,9 +17,11 @@ import {
 } from '../StyledCatalog';
 import { useSelector } from 'react-redux';
 import { selectByParentCategory } from '../../../../store/categories/selectors';
+import PropTypes from 'prop-types';
 
 export const CatalogItem = (props) => {
   const { category, icon, id, route } = props;
+  console.log(typeof id);
   const [isOpen, setIsOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const { screenWidth } = useWindowDimensions();
@@ -82,3 +84,17 @@ export const CatalogItem = (props) => {
     </>
   )
 }
+
+CatalogItem.propTypes = {
+  category: PropTypes.string,
+  icon: PropTypes.string,
+  id: PropTypes.string,
+  route: PropTypes.string,
+};
+
+CatalogItem.defaultProps = {
+  category: 'Категория',
+  icon: 'https://res.cloudinary.com/dg-home/image/upload/v1604312381/General/dg-home-logo_onswjp.png',
+  id: '1',
+  route: '/'
+};
