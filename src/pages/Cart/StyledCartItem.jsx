@@ -233,8 +233,6 @@ padding-top: 1rem;
 
 export const CartButtonHolder = styled.div`
 display: flex;
-
-@media ${device.mobile}
 flex-direction: column;
 
 @media ${device.tabletS} {
