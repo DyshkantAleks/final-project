@@ -5,17 +5,16 @@ import { getCustomer } from '../customer/middlwares'
 import { delLogin, delToken, setAuthError, setToken } from './action-creators'
 
 export const setAuthToken = (token) => {
-  server.defaults.headers.common['Authorization'] = token
+  server.defaults.headers.common.Authorization = token
 }
 
 export const logOut = () => dispatch => {
-  server.defaults.headers.common['Authorization'] = ''
+  server.defaults.headers.common.Authorization = ''
   dispatch(logOutCustomer())
   dispatch(delLogin())
   dispatch(delToken())
 }
 export const auth = (login, password, history) => async (dispatch) => {
-    
   try {
     const {status, data} = await server.post('/customers/login',
       {
@@ -24,13 +23,14 @@ export const auth = (login, password, history) => async (dispatch) => {
       }
     )
     if (status === 200) {
+      console.log(history)
       dispatch(setToken(data.token));
       dispatch(setAuthError(null));
       dispatch(getCustomer());
+      history.goBack();
     }
-    history.goBack();
-    console.log(status, data)
   } catch (error) {
     dispatch(setAuthError(error))
+    
   }
 }

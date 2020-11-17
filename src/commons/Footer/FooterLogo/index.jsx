@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { LogoContainer, ContainerFooterLogo, FooterLogoImg, FooterText } from '../StyledFooter';
 
 export const FooterLogo = () => {

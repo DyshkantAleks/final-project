@@ -1,7 +1,6 @@
-import { CLOSE_MODAL, OPEN_MODAL } from './action-types'
+import { CLOSE_MODAL, OPEN_MODAL } from './action-types';
 
 const initialState = {
-
   isOpenModal: false,
   content: {},
   title: '',
