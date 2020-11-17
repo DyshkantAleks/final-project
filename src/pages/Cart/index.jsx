@@ -1,8 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-<<<<<<< HEAD
-import { Link, useHistory} from 'react-router-dom';
-=======
 import { Link } from 'react-router-dom';
 import { 
   CartContainer,
@@ -11,7 +8,6 @@ import {
   CartTotalText,
   CartEmpty
  } from './StyledCartItem';
->>>>>>> dev
 
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
@@ -25,7 +21,6 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const CartPage = () => {
   const cartItems = useSelector(selectCart);
-  const history = useHistory();
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
@@ -59,20 +54,11 @@ export const CartPage = () => {
             )
           }
         </CartContainer>
-<<<<<<< HEAD
-
-        <CartTotalContainer>
-          <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
-          <Button text='Вернуться к покупкам' />
-          <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
-        </CartTotalContainer>
-=======
         {(cartItems.length > 0) &&
           <CartTotalContainer>
             <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
             <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
           </CartTotalContainer>}
->>>>>>> dev
       </ContentContainer>
       <Footer />
     </>
