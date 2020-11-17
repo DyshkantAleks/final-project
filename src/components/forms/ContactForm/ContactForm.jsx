@@ -26,7 +26,7 @@ export const ContactForm = (props) => {
       setAutoCompleteCityResult([]);
     } else {
       getCity(value).then((list) => {
-        console.log(list);
+        
         return setAutoCompleteCityResult(list.map((list) => list));
       });
     }
@@ -42,7 +42,7 @@ export const ContactForm = (props) => {
       setAutoCompleteStreetResult([]);
     } else {
       getStreet(value, searchCode).then((list) => {
-        console.log(list);
+      
         setAutoCompleteStreetResult(
           list.map((list) => {
             return list;
@@ -58,7 +58,7 @@ export const ContactForm = (props) => {
   // --------------------------------------------
   const isVisibleAdressField =
   delivery === GlobalConfig.deliveryOptions[0].PICKUP.value;
-  console.log("form render", isVisibleAdressField)
+  
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select

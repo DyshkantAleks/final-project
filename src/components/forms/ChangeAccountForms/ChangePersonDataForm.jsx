@@ -14,9 +14,8 @@ export const ChangePersonalDataForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
-    // dispatch(updateCustomer(values));
-    // dispatch(closeModal());
-    console.log(values)
+    dispatch(updateCustomer(values));
+    dispatch(closeModal());
   };
   const customer = useSelector(selectCustomer);
   const initialValues = customer;

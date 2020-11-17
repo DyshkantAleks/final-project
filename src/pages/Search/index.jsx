@@ -9,12 +9,12 @@ import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const SearchPage = ({ match, location }) => {
   const allProducts = useSelector(selectProducts)
-  console.log(allProducts)
+  
   const queryString = require('query-string')
   const parsed = queryString.parse(location.search)
-  console.log(parsed.query)
+  
   const searchArray = allProducts.filter(e => e.name.toLowerCase().includes(parsed.query.toLowerCase()))
-  console.log(searchArray)
+  
   return (
     <>
       <Header />
