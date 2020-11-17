@@ -21,7 +21,7 @@ export const createOrder = (order) => (_, getState) => {
   };
 
   if (state.customer.customer._id) {
-    console.log(state.customer.customer._id)
+   
     return {
       ...newOrder,
       customerId: `${state.customer.customer._id}`,

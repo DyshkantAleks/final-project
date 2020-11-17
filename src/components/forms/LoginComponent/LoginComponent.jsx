@@ -19,7 +19,7 @@ export const LoginComponent = props => {
   const logInHandler = (login, password) =>{
     
     dispatch(auth(login, password, history))
-    console.log(error)
+    
     if (error) { dispatch(closeModal()) }
   }
   

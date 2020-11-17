@@ -19,17 +19,17 @@ export const getCity = async (city = '', street = '') => {
       'http://testapi.novaposhta.ua/v2.0/json/Address/searchSettlements/',
       JSON.stringify(reqBodyCity)
     );
-    
+
     if (status) {
       const result = data.success
         ? data?.data[0]?.Addresses.map((item) => {
-         
-          return item.Present
+          return item.Present;
         })
         : [];
-     
-      GlobalConfig.deliveryOptions[2].NOVA_POSHTA.serchCityCode = data?.data[0]?.Addresses[0]?.Ref
-      
+
+      GlobalConfig.deliveryOptions[2].NOVA_POSHTA.serchCityCode =
+        data?.data[0]?.Addresses[0]?.Ref;
+
       return result;
     }
   } catch (error) {
@@ -52,28 +52,24 @@ export const getStreet = async (street, SettlementRef) => {
       'http://testapi.novaposhta.ua/v2.0/json/Address/searchSettlements/',
       JSON.stringify(reqBodyStreet)
     );
-    console.log(data);
     if (status) {
       const result = data.success
         ? data?.data[0]?.Addresses.map((item) => {
-         
-          return item.Present
+          return item.Present;
         })
         : [];
-     
+
       return result;
     }
   } catch (error) {
     console.log(error);
-    return []
+    return [];
   }
 };
 
 getCity.propsTypes = {
   city: PropTypes.string,
-  
 };
 getCity.propsTypes = {
-  
   street: PropTypes.string,
 };

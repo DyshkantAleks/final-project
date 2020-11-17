@@ -3,7 +3,7 @@ const LiqPay = require('../../utils/liqpay');
 
 
 export const liqpay = new LiqPay(GlobalConfig.REACT_APP_PUBLIC_KEY, GlobalConfig.REACT_APP_PRIVATE_KEY);
-console.log(process.env.REACT_APP_PUBLIC_KEY, process.env.REACT_APP_PRIVATE_KEY)
+
 export const params = liqpay.cnb_object({
   action: 'pay',
   amount: '1',
