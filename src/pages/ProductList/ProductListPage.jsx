@@ -11,7 +11,6 @@ import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { Footer } from '../../commons/Footer';
-import { CheckboxFilter } from '../../components/CheckBox/CheckboxFilter';
 import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
 import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
@@ -29,9 +28,8 @@ export const ProductListPage = ({ match }) => {
 
   const [sortValue, setSortValue] = useState('Сортировать');
 
-
   const { params: { route } } = match;
-
+  
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
   const allProducts = useSelector(selectProducts);
 
@@ -76,8 +74,8 @@ export const ProductListPage = ({ match }) => {
 
   return (
     <>
-      <Header />
-      <ScrollToTop />
+      <Header/>
+      <ScrollToTop/>
       <ContentContainer>
         <Content>
           {screenWidth >= 1200 && <Wrapper>
@@ -107,7 +105,6 @@ export const ProductListPage = ({ match }) => {
             </StyledCheckboxGroupe>
           </Wrapper>}
 
-
           <Wrapper>
             <FiltersWrapper>
               <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
@@ -126,14 +123,14 @@ export const ProductListPage = ({ match }) => {
                     <Panel header="Цвет" key="2">
                       <StyledCheckboxGroupe onChange={onChackedColorHandler} value={checkedColors}>
                         {[...arrayOfColors].map((item, index) =>
-                          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
+                          <StyledCheckbox key={index}>{item}</StyledCheckbox>
                         )}
                       </StyledCheckboxGroupe>
                     </Panel>
                     <Panel header="Бренд" key="3">
                       <StyledCheckboxGroupe onChange={onCheckedBrandHandler} value={checkedBrands}>
                         {[...arrayOfBrands].map((item, index) =>
-                          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
+                          <StyledCheckbox key={index}>{item}</StyledCheckbox>
                         )}
                       </StyledCheckboxGroupe>
                     </Panel>
