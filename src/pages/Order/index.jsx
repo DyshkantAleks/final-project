@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Header } from '../../commons/Header/Header';
+import { Footer } from '../../commons/Footer';
 import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 
@@ -16,6 +17,7 @@ import { checkQuantity } from '../../store/cart/middlware';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions-creators';
+import { ScrollToTop }from '../../components/ScrollToTop';
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
@@ -41,26 +43,45 @@ export const OrderPage = (props) => {
     );
   }
   return (
+    <>
+    <Header />
+    <ScrollToTop/>
     <ContentContainer>
-      <Header />
+
+
       <Title text='Оформить заказ' />
+
       <ContainerPage>
+      <ComponentContainer>
         <ContactForm
           handleSubmit={(val) => {
             dispatch(confirmOrder(val));
           }}
         />
-
+      </ComponentContainer>
+      <ComponentContainer>
         <OrderCart />
+      </ComponentContainer>
       </ContainerPage>
     </ContentContainer>
+    <Footer/>
+    </>
+
   );
 };
 
+const ComponentContainer = styled.div`
+@media ${device.desktop} {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+} ;
+`;
+
 const ContainerPage = styled.div`
   display: flex;
-  flex-direction: column;
-  @media ${device.tabletM} {
+  flex-direction: column-reverse;
+  @media ${device.desktop} {
     justify-content: space-between;
     flex-direction: row;
   } ;
