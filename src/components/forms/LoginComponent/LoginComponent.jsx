@@ -20,7 +20,7 @@ export const LoginComponent = props => {
     
     dispatch(auth(login, password, history))
     console.log(error)
-    if (!error) { dispatch(closeModal()) }
+    if (error) { dispatch(closeModal()) }
   }
   
   return (
