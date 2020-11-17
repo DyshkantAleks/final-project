@@ -1,4 +1,4 @@
-import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART, SET_CART } from './action-types';
+import { ADD_TO_CART, QTY_DOWN, QTY_UP, REMOVE_FROM_CART, SET_CART, CLEAR_CART } from './action-types';
 
 const InitialState = {
   cart: []
@@ -46,6 +46,11 @@ export function reducer (state = InitialState, { type, payload }) {
         })
       };
 
+    case CLEAR_CART:
+      return {
+        ...state,
+        cart: []
+      };
     default:
       return state
   }
