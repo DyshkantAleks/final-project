@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { ROUTES } from './routes';
@@ -15,7 +16,9 @@ import { ProductPage } from '../Product';
 import { PromotionsSinglePage } from '../PromotionsSingle';
 import { ProductListPage } from '../ProductList/ProductListPage';
 import { SearchPage } from '../Search';
-import { NotFoundPage } from '\../404';
+
+import { NotFoundPage } from '../404';
+
 
 export const Navigation = () => {
   return (
