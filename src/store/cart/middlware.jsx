@@ -19,7 +19,7 @@ const updateCart = async (state) => {
       try {
         await server.put('/cart', updatedCart);
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error);
       }
     }
   }
