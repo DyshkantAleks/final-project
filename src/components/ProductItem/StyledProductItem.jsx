@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Link } from 'react-router-dom';
 
-export const ConteinerItem = styled.li`
+export const ContainerItem = styled.li`
 width: 100%;
 list-style: none;
 border: .1rem solid #e6e9ef;
