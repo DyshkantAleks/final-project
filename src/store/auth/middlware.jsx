@@ -14,7 +14,7 @@ export const logOut = () => dispatch => {
   dispatch(delLogin())
   dispatch(delToken())
 }
-export const auth = (login, password, history) => async (dispatch) => {
+export const auth = (login, password) => async (dispatch) => {
   try {
     const {status, data} = await server.post('/customers/login',
       {
@@ -23,14 +23,11 @@ export const auth = (login, password, history) => async (dispatch) => {
       }
     )
     if (status === 200) {
-      console.log(history)
-      dispatch(setToken(data.token));
       dispatch(setAuthError(null));
+      dispatch(setToken(data.token));
       dispatch(getCustomer());
-      history.goBack();
     }
   } catch (error) {
     dispatch(setAuthError(error))
-    
   }
 }

@@ -19,14 +19,14 @@ import { logOut } from '../../store/auth/middlware';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-import { params } from '../LiqPay/liqpayData';
+// import { params } from '../LiqPay/liqpayData';
 import { openModal } from '../../store/modal/actions-creators';
 import { ChangePersonalDataForm } from '../forms/ChangeAccountForms/ChangePersonDataForm';
 import { ChangePassForm } from '../forms/ChangeAccountForms/ChangePassForm';
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
-  console.log(params)
+  
   const { name, surname, gender, email, login } = useSelector(selectCustomer);
   const dispatch = useDispatch();
   const userInfoList = [
