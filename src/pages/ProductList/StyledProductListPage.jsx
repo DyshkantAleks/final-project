@@ -4,12 +4,9 @@ import { device } from '../../styles/breakpoints/breakpoints';
 import { Checkbox } from 'antd';
 
 export const Content = styled.main`
-display: grid;
-
-grid-template-columns: 20% auto;
-
-@media (max-width: 1200px) {
-  grid-template-columns: auto;
+  @media ${device.desktop} {
+    display: grid;
+    grid-template-columns: 23% auto;
 }
 `;
 
@@ -40,6 +37,7 @@ export const Wrapper = styled.div`
     .ant-slider {
       margin-top: 25px;
     }
+  }
 
   .ant-collapse-content-box h4 {
     height: 0;
@@ -50,19 +48,18 @@ export const FiltersWrapper = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-
-@media ${device.desktop} {
-  display: block;
-}; 
+  @media ${device.desktop} {
+    display: block;
+  }; 
 `;
 
 export const Title = styled.h1`
-  font-size: 3rem;
+font-size: 3rem;
 `;
 
 export const FilterName = styled.h3`
-  font-size: 2.4rem;
-  text-align: left;
+font-size: 2.4rem;
+text-align: left;
 `;
 
 export const StyledCheckboxGroupe = styled(Checkbox.Group)`
@@ -76,18 +73,16 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-     @media ${device.tabletM} {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
-    };
-    @media ${device.tabletL} {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        /* grid-auto-flow: row dense; */
-        align-items: baseline;
-    };
-    @media ${device.desktop} {
-        gap: 2rem;
-    }; 
+  @media ${device.tabletM}{
+    display: grid;
+    grid-template-columns: repeat(3, 22rem);
+    justify-items: center;
+    gap: 2rem;
+  };
+  @media ${device.tabletL}{
+    grid-template-columns: repeat(3, 29rem);
+  };
+  @media ${device.desktop}{
+    align-items: baseline;
+  }; 
 `;

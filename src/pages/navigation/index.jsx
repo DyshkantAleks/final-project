@@ -34,4 +34,4 @@ export const Navigation = () => (
     <Route exact path={ROUTES.HOMEPAGE} component={Homepage} />
     <Route component={NotFoundPage} />
   </Switch>
-)
+);

@@ -17,7 +17,7 @@ import { Title } from '../../components/Title/Title';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { ROUTES } from '../navigation/routes';
-import { ScrollToTop } from '../../components/ScrollToTop';
+import { ScrollToTop } from '../../commons/ScrollToTop';
 
 export const CartPage = () => {
   const cartItems = useSelector(selectCart);
@@ -36,7 +36,6 @@ export const CartPage = () => {
       <ScrollToTop />
       <ContentContainer>
         <Title text='Корзина' />
-
         <CartContainer>
           {
             (cartItems.length === 0) ? <CartEmpty>В корзине нет товаров</CartEmpty> :

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { device } from '../../styles/breakpoints/breakpoints'
+import styled from 'styled-components';
+import { device } from '../../styles/breakpoints/breakpoints';
 
 export const ContainerDetails = styled.div`
 display: flex;
@@ -18,7 +18,7 @@ margin-bottom: 5rem;
         padding-bottom: 4.2rem;
         margin-bottom: 10rem;
     };
-`
+`;
 
 export const ContainerProduct = styled.div`
 position: relative;
@@ -27,7 +27,7 @@ flex-direction: column;
     @media ${device.tabletL}{
         padding: 0 1.2rem 1.2rem;
     };
-`
+`;
 
 export const PriceContainer = styled.div`
 display: flex;
@@ -47,7 +47,7 @@ width: 85%;
     @media ${device.desktop}{
         width: 60%;
     };
-`
+`;
 
 export const PreviousPrice = styled.span`
 font-size: 2rem;
@@ -79,7 +79,7 @@ text-decoration: line-through;
                 font-weight: 700;
         };
     };
-`
+`;
 
 export const CurrentPrice = styled.span`
 font-size: 3rem;
@@ -108,7 +108,7 @@ color: #8D145E;
                 font-weight: 700;
         };
     };
-`
+`;
 
 export const Price = styled.span`
 font-size: 3rem;
@@ -137,7 +137,7 @@ color: #7191A6;
                 font-weight: 700;
         };
     };
-`
+`;
 
 export const Article = styled.span`
 font-size: 1.2rem;
@@ -146,7 +146,7 @@ color:#9fa1a5;
     @media ${device.tabletM}{
         font-size: 1.3rem;
     };
-`
+`;
 
 export const AvailabilityArticleWrap = styled.div`
 display: flex;
@@ -162,7 +162,7 @@ padding-top: .5rem;
     @media ${device.tabletL}{
         grid-template-columns: 25% 60%;
     };
-`
+`;
 
 export const Availability = styled.span`
 font-size: 1.2rem;
@@ -171,7 +171,7 @@ color:#7191A6;
     @media ${device.tabletM}{
         font-size: 1.3rem;
     };
-`
+`;
 
 export const Description = styled.span`
 text-align: justify;
@@ -180,8 +180,8 @@ font-size: 1.4rem;
 line-height: 2rem;
     @media ${device.tabletM}{
         line-height: 2.2rem;
-    }
-`
+    };
+`;
 
 export const Subtitle = styled.span`
 font-size: 1.6rem;
@@ -189,7 +189,7 @@ font-weight: 700;
 padding: 1rem 0;
     @media ${device.tabletM}{
         font-size: 2rem;
-    }
+    };
 `;
 
 export const DimensionsContainer = styled.div`
@@ -241,13 +241,13 @@ justify-content: center;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
+        gap: 2rem;
     };
     @media ${device.tabletL} {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 21.5rem);
+        gap: 1rem;
     };
     @media ${device.desktop} {
-        display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
     };

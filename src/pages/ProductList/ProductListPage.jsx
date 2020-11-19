@@ -16,7 +16,7 @@ import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import './style.scss';
-import { ScrollToTop } from '../../components/ScrollToTop';
+import { ScrollToTop } from '../../commons/ScrollToTop';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 
 export const ProductListPage = ({ match }) => {

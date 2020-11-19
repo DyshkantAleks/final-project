@@ -8,7 +8,7 @@ import { Title } from '../../components/Title/Title';
 import { CartContainer, CartMenu } from '../Cart/StyledCartItem';
 import { FavItem } from './FavItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { ScrollToTop } from '../../components/ScrollToTop';
+import { ScrollToTop } from '../../commons/ScrollToTop';
 
 export const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);

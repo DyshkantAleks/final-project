@@ -21,7 +21,7 @@ import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
 import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
 import { selectFavorites } from '../../store/favorites/selectors';
-import { ScrollToTop } from '../../components/ScrollToTop';
+import { ScrollToTop } from '../../commons/ScrollToTop';
 
 export const ProductPage = (props) => {
   const { match } = props;

@@ -18,14 +18,14 @@ import { selectProducts } from "../../store/products/selectors";
 import { selectCart } from "../../store/cart/selectors";
 import { openModal } from "../../store/modal/actions-creators";
 import { selectOrder } from "../../store/order/selectors";
-import { ScrollToTop } from "../../components/ScrollToTop";
+import { ScrollToTop } from "../../commons/ScrollToTop";
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
   const products = useSelector(selectProducts);
   const cart = useSelector(selectCart);
   const order = useSelector(selectOrder);

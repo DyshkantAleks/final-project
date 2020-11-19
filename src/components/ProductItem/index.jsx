@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-
 import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
@@ -16,7 +15,7 @@ import { addProductToFav, removeProductFromFav } from '../../store/favorites/mid
 import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductItem = (props) => {
-  
+
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
 
   const dispatch = useDispatch();
