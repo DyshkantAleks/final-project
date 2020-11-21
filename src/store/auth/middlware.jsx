@@ -23,8 +23,8 @@ export const auth = (login, password) => async (dispatch) => {
       }
     )
     if (status === 200) {
-      dispatch(setToken(data.token));
       dispatch(setAuthError(null));
+      dispatch(setToken(data.token));
       dispatch(getCustomer());
     }
   } catch (error) {

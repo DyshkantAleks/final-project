@@ -1,15 +1,16 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { useHistory } from 'react-router';
 
-import { device } from "../../styles/breakpoints/breakpoints";
-import { Header } from "../../commons/Header/Header";
-import { Footer } from "../../commons/Footer";
-import { ContactForm } from "../../components/forms/ContactForm/ContactForm";
-import { OrderCart } from "./OrderCart";
+import { device } from '../../styles/breakpoints/breakpoints';
+import { Header } from '../../commons/Header/Header';
+import { Footer } from '../../commons/Footer';
+import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
+import { OrderCart } from './OrderCart';
 
-import { Title } from "../../components/Title/Title";
-import { ContentContainer } from "../../styles/GeneralStyledComponents";
+import { Title } from '../../components/Title/Title';
+import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 import { confirmOrder } from "../../store/order/middlware";
 import { getProducts } from "../../store/products/middlware";
@@ -19,9 +20,12 @@ import { selectCart } from "../../store/cart/selectors";
 import { openModal } from "../../store/modal/actions-creators";
 import { selectOrder } from "../../store/order/selectors";
 import { ScrollToTop } from "../../commons/ScrollToTop";
+import { Button } from '../../components/Button';
+
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getProducts());
@@ -39,14 +43,19 @@ export const OrderPage = (props) => {
             <ModalTitle>
               Товара
               <ItemInnerWrapper>
-                {" "}
-                {item.product.name.toLowerCase()}{" "}
+                {' '}
+                {item.product.name}{' '}
               </ItemInnerWrapper>
-              не хватает на складе. <br />
+              не хватает на складе.
             </ModalTitle>
-            <ModalTitle>Доступно в количестве {item.quantity}</ModalTitle>
+            <ModalTitle>Доступно в количестве {item.quantity} шт. Вы можете "Продолжить покупки" или же "Оставте заявку" и наш менеджер свяжеться с Вами, как только товар появиться на складе. </ModalTitle>
           </ModalContentWrapper>
         )),
+        actions: 
+        <>
+        <Button color='true' text={'Продолжить покупки'} onClick={() => history.push('/catalog/all')}/>
+        <Button color='true' text={'Оставить заявку'} onClick={() => history.push('/order')}/>
+        </>
       })
     );
   }
@@ -101,8 +110,12 @@ const ContainerPage = styled.div`
 `;
 
 const ModalContentWrapper = styled.div`
-  padding: 3rem 1.5rem;
-  text-align: center;
+display: flex;
+flex-direction: column;
+width: 70rem;
+padding: 3rem 1.5rem;
+text-align: center;
+
 `;
 
 const ModalTitle = styled.h2`
@@ -113,4 +126,5 @@ const ModalTitle = styled.h2`
 const ItemInnerWrapper = styled.span`
   color: #7191a6;
   font-weight: 700;
+  cursor: pointer;
 `;
