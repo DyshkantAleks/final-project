@@ -11,7 +11,7 @@ import { addProductToCart } from '../../store/cart/middlware';
 import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
 import { selectFavorites } from '../../store/favorites/selectors';
 import { ScrollToTop } from '../../commons/ScrollToTop';
-import { ProductItemDetails } from '../../components/ProductItemDetails';
+import { ProductItemDetails } from '../../components/ProductItemDetails/index';
 
 export const ProductPage = (props) => {
   const { match } = props;

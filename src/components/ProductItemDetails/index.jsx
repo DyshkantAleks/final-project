@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
-import { Button } from './Button';
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from '../pages/Product/StyledProductPage';
-import { RegularIconFavorite } from './ProductItem/IconsSvg/RegularIconFavorite';
-import { SolidIconFavorite } from './ProductItem/IconsSvg/SolidIconFavorite';
-import { Title } from './Title/Title';
-import { ProductCounter } from './Counter/ProductCounter';
-import { ProductSlider } from './ProductSlider';
-import { IconSale } from './ProductItem/IconsSvg/IconSale';
-import { IconNew } from './ProductItem/IconsSvg/IconNew';
-import { IconTopRated } from './ProductItem/IconsSvg/IconTopRated';
-import useWindowDimensions from '../utils/useWindowDimensions';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from '../../pages/Product/StyledProductPage';
+import { RegularIconFavorite } from '../ProductItem/IconsSvg/RegularIconFavorite';
+import { SolidIconFavorite } from '../ProductItem/IconsSvg/SolidIconFavorite';
+import { Title } from '../Title/Title';
+import { ProductCounter } from '../Counter/ProductCounter';
+import { ProductSlider } from '../ProductSlider';
+import { IconSale } from '../ProductItem/IconsSvg/IconSale';
+import { IconNew } from '../ProductItem/IconsSvg/IconNew';
+import { IconTopRated } from '../ProductItem/IconsSvg/IconTopRated';
+import useWindowDimensions from '../../utils/useWindowDimensions';
+import { Button } from '../Button';
 
 export const ProductItemDetails = (props) => {
     const { name, isSale, currentPrice, previousPrice, brand, quantity, itemNo, isNewProduct, isTopRated, description, sizes, specifications, product, btnInCart, btnHeandler, inFavorite, addToFav, removeFromFav} = props;
