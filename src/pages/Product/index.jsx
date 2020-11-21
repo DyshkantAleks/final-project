@@ -33,20 +33,6 @@ export const ProductPage = (props) => {
   const productDetails = (
       <ProductItemDetails
       {...product.product} 
-      name={product.name}
-      _id={product.i_id}
-      isSale={product.isSale}
-      currentPrice={product.currentPrice}
-      previousPrice={product.previousPrice}
-      brand={product.brand}
-      quantity={product.quantity} 
-      itemNo={product.itemNo} 
-      isNewProduct={product.isNewProduct}
-      isTopRated={product.isTopRated}
-      description={product.description} 
-      sizes={product.sizes}
-      specifications={product.specifications} 
-      match={product.match}
       product={product}
       btnInCart={btnInCart}
       btnHeandler={btnHeandler}
@@ -55,6 +41,7 @@ export const ProductPage = (props) => {
       removeFromFav={removeFromFav}
       />
   )
+  
   return (
     <>
       <Header />

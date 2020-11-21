@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from '../../pages/Product/StyledProductPage';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox} from './StyledProductItemDetails';
 import { RegularIconFavorite } from '../ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../ProductItem/IconsSvg/SolidIconFavorite';
 import { Title } from '../Title/Title';
@@ -13,7 +14,8 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { Button } from '../Button';
 
 export const ProductItemDetails = (props) => {
-    const { name, isSale, currentPrice, previousPrice, brand, quantity, itemNo, isNewProduct, isTopRated, description, sizes, specifications, product, btnInCart, btnHeandler, inFavorite, addToFav, removeFromFav} = props;
+    const { product, btnInCart, btnHeandler, inFavorite, addToFav, removeFromFav} = props;
+    const {name, isSale, currentPrice, previousPrice, brand, quantity, itemNo, isNewProduct, isTopRated, description, sizes, specifications, color } = product;
     const { screenWidth } = useWindowDimensions();
     const [isSpecification, setIsSpecification] = useState(false);
     const [isDimensions, setIsDimensions] = useState(false);
@@ -70,6 +72,8 @@ export const ProductItemDetails = (props) => {
                         {isTopRated && <IconTopRated />}
                     </SubtitleBox>
                     <Description>{description}</Description>
+                    <Subtitle>Цвет</Subtitle>
+                    <Description>{color}</Description>
                     {screenWidth >= 768
                         ? <>
                             <Subtitle>Габариты</Subtitle>
@@ -84,14 +88,6 @@ export const ProductItemDetails = (props) => {
                                 <Description>Глубина - {sizes.length} cм </Description>
                             </DimensionsContainer>}
                         </>}
-                    <ActionsContainer>
-                        <Actions>
-                            <ProductCounter value={value} setValue={setValue} quantity={quantity} name={name} />
-                        </Actions>
-                        <Actions>
-                            {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
-                        </Actions>
-                    </ActionsContainer>
                 </ContainerProduct>
                 {screenWidth >= 768
                     ? <Subtitle>Характеристики
@@ -110,7 +106,35 @@ export const ProductItemDetails = (props) => {
                             <Description>{specifications.casing}</Description>
                         </SpecificationContainer>}
                     </Subtitle>}
+                    <ActionsContainer>
+                    <Actions>
+                        <ProductCounter value={value} setValue={setValue} quantity={quantity} name={name} />
+                    </Actions>
+                    <Actions>
+                        {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
+                    </Actions>
+                </ActionsContainer>
             </ContainerDetails>
         </>
     )
 };
+
+ProductItemDetails.propTypes = {
+    // product: PropTypes.shape({
+    //     name: PropTypes.string,
+    //     price: PropTypes.number,
+    //     previousPrice: PropTypes.number,
+    //     image: PropTypes.string,
+    //     route: PropTypes.string,
+    //     id: PropTypes.string,
+    //     isNewProduct: PropTypes.bool,
+    //     isTopRated: PropTypes.bool,
+    //     isSale: PropTypes.bool,
+    // }),
+    btnInCart: PropTypes.bool,
+    inFavorite: PropTypes.bool,
+    btnHeandler: PropTypes.func,
+    addToFav: PropTypes.func,
+    removeFromFav: PropTypes.func,
+
+  };

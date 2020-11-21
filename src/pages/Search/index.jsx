@@ -6,7 +6,7 @@ import { Footer } from '../../commons/Footer';
 import { ScrollToTop } from '../../commons/ScrollToTop';
 import { selectProducts } from '../../store/products/selectors';
 import { ProductItem } from '../../components/ProductItem';
-import { ProductItemList } from '../Product/StyledProductPage';
+import { ProductItemList } from '../../components/ProductItemDetails/StyledProductItemDetails';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const SearchPage = ({ match, location }) => {

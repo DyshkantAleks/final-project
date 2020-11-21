@@ -52,10 +52,10 @@ export const OrderPage = (props) => {
           </ModalContentWrapper>
         )),
         actions: 
-        <>
+        <Actions>
         <Button color='true' text={'Продолжить покупки'} onClick={() => history.push('/catalog/all')}/>
         <Button color='true' text={'Оставить заявку'} onClick={() => history.push('/order')}/>
-        </>
+        </Actions>
       })
     );
   }
@@ -128,3 +128,7 @@ const ItemInnerWrapper = styled.span`
   font-weight: 700;
   cursor: pointer;
 `;
+
+const Actions = styled.div`
+display: flex;
+width: 100%;`
