@@ -1,40 +1,44 @@
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
+// import * as actions from './actions';
+// import { getProducts } from './middlware';
+// import { BASE_URL, server } from '../../API';
 
-import * as actions from './actions';
-import { getProducts } from './middlware';
-import { BASE_URL, server } from '../../API';
-import fetchMock from 'fetch-mock';
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
-describe('Product middlware', () => {
+// import thunk from 'redux-thunk';
+// import configureMockStore from 'redux-mock-store';
 
-    afterEach(() => {
-        //   fetchMock.reset()
-        fetchMock.restore()
-    })
+// import * as actions from './actions';
+// import { getProducts } from './middlware';
+// import { BASE_URL, server } from '../../API';
+// import fetchMock from 'fetch-mock';
+// import {setProducts} from './actions';
 
-    it('creates SET_PRODUCTS when fetching products has been done', () => {
-        fetchMock.getOnce(`${BASE_URL}/products`, {
-            headers: { 'content-type': 'application/json' },
-            body: { data: [1, 2, 3], status: 200 },
-        })
+// const middlewares = [thunk]
+// const mockStore = configureMockStore(middlewares)
+// describe('Product middlware', () => {
 
-        const expectedActions = [{
-            type: actions.SET_LOADER
-        }, {
-            type: actions.SET_PRODUCTS,
-            payload: [1, 2, 3]
-        }];
+//     afterEach(() => {
+//         //   fetchMock.reset()
+//         fetchMock.restore()
+//     })
 
-        const store = mockStore({ data: [] });
+//     it('creates SET_PRODUCTS when fetching products has been done', () => {
+//         fetchMock.getOnce(`${BASE_URL}/products`, {
+//             headers: { 'content-type': 'application/json' },
+//             body: { data: [1, 2, 3], status: 200 },
+//         })
 
-        return store.dispatch(getProducts())
-            .then(() => {
-                console.log(store.getActions())
-                expect(store.getActions()).toBe(expectedActions)
-            })
-    })
+//         const expectedActions = {
+//             type: actions.SET_PRODUCTS,
+//             payload: [1, 2, 3]
+//         };
 
-})
+//         const store = mockStore({ data: []});
+
+//         return store.dispatch(getProducts(data))
+//             .then(() => {
+//                 console.log(store.getActions())
+//                 expect(store.getActions()).toBe(expectedActions)
+//             })
+//     })
+
+// })
