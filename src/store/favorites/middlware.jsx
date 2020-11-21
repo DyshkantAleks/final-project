@@ -16,7 +16,7 @@ const updatedFavorites = async (state) => {
       try {
         await server.put('/wishlist', updatedFav)
       } catch (error) {
-        console.log(error.response.data)
+        console.log(error)
       }
     }
   }
@@ -37,7 +37,7 @@ export const getFavorites = () => async (dispatch, getState) => {
         updatedFavorites(newState);
       }
     } catch (error) {
-      console.log(error?.response?.data)
+      console.log(error)
     }
   }
 };

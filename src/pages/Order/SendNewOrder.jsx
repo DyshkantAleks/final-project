@@ -5,7 +5,7 @@ export const handleSubmit = (values) => {
   
   const sendNewOrder = (newOrder) => async (dispatch) => {
     try {
-      const { status, data } = await server.post(
+      const { status } = await server.post(
         '/orders',
         JSON.stringify(newOrder)
       );

@@ -19,7 +19,7 @@ import { logOut } from '../../store/auth/middlware';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-import { params } from '../LiqPay/liqpayData';
+// import { params } from '../LiqPay/liqpayData';
 import { openModal } from '../../store/modal/actions-creators';
 import { ChangePersonalDataForm } from '../forms/ChangeAccountForms/ChangePersonDataForm';
 import { ChangePassForm } from '../forms/ChangeAccountForms/ChangePassForm';

@@ -21,7 +21,6 @@ export const createOrder = (order) => (_, getState) => {
   };
 
   if (state.customer.customer._id) {
-   
     return {
       ...newOrder,
       customerId: `${state.customer.customer._id}`,
@@ -42,7 +41,6 @@ export const confirmOrder = (order) => async (dispatch) => {
     
     if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
-      
     }
   } catch (error) {
     console.log(error)
