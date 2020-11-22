@@ -160,7 +160,7 @@ padding-top: .5rem;
         justify-content:start;
     };
     @media ${device.tabletL}{
-        grid-template-columns: 25% 60%;
+        grid-template-columns: 40% auto;
     };
 `;
 
@@ -238,10 +238,16 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-    @media ${device.tabletM} {
+    @media ${device.tabletS} {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
+        gap: 1rem;
+    };
+    @media ${device.tabletM} {
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center; */
         gap: 2rem;
     };
     @media ${device.tabletL} {
