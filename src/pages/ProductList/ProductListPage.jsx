@@ -123,14 +123,14 @@ export const ProductListPage = ({ match }) => {
                     <Panel header="Цвет" key="2">
                       <StyledCheckboxGroupe onChange={onChackedColorHandler} value={checkedColors}>
                         {[...arrayOfColors].map((item, index) =>
-                          <StyledCheckbox key={index}>{item}</StyledCheckbox>
+                          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
                         )}
                       </StyledCheckboxGroupe>
                     </Panel>
                     <Panel header="Бренд" key="3">
                       <StyledCheckboxGroupe onChange={onCheckedBrandHandler} value={checkedBrands}>
                         {[...arrayOfBrands].map((item, index) =>
-                          <StyledCheckbox key={index}>{item}</StyledCheckbox>
+                          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
                         )}
                       </StyledCheckboxGroupe>
                     </Panel>
