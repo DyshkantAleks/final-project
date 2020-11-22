@@ -120,21 +120,34 @@ export const ProductItemDetails = (props) => {
 };
 
 ProductItemDetails.propTypes = {
-    // product: PropTypes.shape({
-    //     name: PropTypes.string,
-    //     price: PropTypes.number,
-    //     previousPrice: PropTypes.number,
-    //     image: PropTypes.string,
-    //     route: PropTypes.string,
-    //     id: PropTypes.string,
-    //     isNewProduct: PropTypes.bool,
-    //     isTopRated: PropTypes.bool,
-    //     isSale: PropTypes.bool,
-    // }),
+    product: PropTypes.shape({
+        name: PropTypes.string,
+        currentPrice: PropTypes.number,
+        previousPrice: PropTypes.number,
+        barnd: PropTypes.string,
+        quantity: PropTypes.number,
+        itemNo: PropTypes.string,
+        description: PropTypes.string,
+        imageUrl: PropTypes.array,
+        route: PropTypes.string,
+        id: PropTypes.string,
+        isNewProduct: PropTypes.bool,
+        isTopRated: PropTypes.bool,
+        isSale: PropTypes.bool,
+        color: PropTypes.string,
+        sizes: PropTypes.shape({
+            height: PropTypes.number,
+            length: PropTypes.number,
+            width: PropTypes.number
+        }),
+        specifications: PropTypes.shape({
+            casing: PropTypes.string,
+            covering: PropTypes.string
+        }),
+    }),
     btnInCart: PropTypes.bool,
     inFavorite: PropTypes.bool,
     btnHeandler: PropTypes.func,
     addToFav: PropTypes.func,
     removeFromFav: PropTypes.func,
-
   };
