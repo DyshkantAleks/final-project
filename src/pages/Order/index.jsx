@@ -38,7 +38,7 @@ export const OrderPage = (props) => {
     dispatch(
       openModal({
         content: shortageProducts.map((item) => (
-          <ModalExistence name={item.product.name} quantity={item.quantity} route={item.product.route}/>
+          <ModalExistence name={item.product.name} quantity={item.quantity} route={item.product.route} key={item.product.itemNo}/>
         ))
       })
     );

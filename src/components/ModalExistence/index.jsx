@@ -8,7 +8,7 @@ import { Button } from '../Button';
 import { closeModal } from '../../store/modal/actions-creators.jsx';
 
 export const ModalExistence = (props) => {
-    const { name, quantity, route } = props;
+    const { name, quantity, route} = props;
     const history = useHistory();
     const dispatch = useDispatch();
     const closeModalHandler = () => {
