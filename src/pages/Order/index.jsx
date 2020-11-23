@@ -66,7 +66,8 @@ export const OrderPage = (props) => {
                 );
               }}
             />
-
+          </ComponentContainer>    
+          <ComponentContainer>
             <OrderCart />
           </ComponentContainer>
         </ContainerPage>
