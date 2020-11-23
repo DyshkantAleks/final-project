@@ -20,7 +20,7 @@ describe('<ProductItem />', () => {
 
         it('wrapper should have one <ProductItem />', () => {
             const productItem = wrapper.find(ProductItem);
-            console.log(productItem.debug())
+            // console.log(productItem.debug())
             expect(productItem.length).toEqual(1)
         });
     });

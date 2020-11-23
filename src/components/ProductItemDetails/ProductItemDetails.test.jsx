@@ -2,14 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
-
 import { ProductItemDetails } from '.';
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox} from './StyledProductItemDetails';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from './StyledProductItemDetails';
 import { Title } from '../Title/Title';
 import { ProductSlider } from '../ProductSlider';
 import { RegularIconFavorite } from '../ProductItem/IconsSvg/RegularIconFavorite';
-
-
 
 const setUp = (props = {}) => {
     const component = shallow(<ProductItemDetails {...props} />);
@@ -61,7 +58,6 @@ describe('ProductItemDetails component', () => {
             const title = wrapper.find(Title);
             expect(title.length).toEqual(1);
         });
-        
         it('should have a container with detailed product description', () => {
             const containerDetails = wrapper.find(ContainerDetails);
             expect(containerDetails.length).toEqual(1);
@@ -93,13 +89,12 @@ describe('ProductItemDetails component', () => {
             const avilabilityContainer = wrapper.find(ContainerDetails).find(AvailabilityArticleWrap);
             expect(avilabilityContainer.length).toEqual(1);
         });
-        it('should be render ✔ aviability if quantity > 0',() => {
+        it('should be render ✔ aviability if quantity > 0', () => {
             expect(wrapper.find(ContainerDetails).find(AvailabilityArticleWrap).find(Availability).text()).toEqual('✔ в наличии');
         });
         it('should be render with article', () => {
             const article = wrapper.find(ContainerDetails).find(AvailabilityArticleWrap).find(Article);
-            expect(article.text()).toEqual('Артикул: testNumber')
-        })
-
+            expect(article.text()).toEqual('Артикул: testNumber');
+        });
     });
-})
+});
