@@ -240,7 +240,7 @@ align-items: center;
 justify-content: center;
     @media ${device.tabletS} {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 50%);
         justify-items: center;
         gap: 1rem;
     };
