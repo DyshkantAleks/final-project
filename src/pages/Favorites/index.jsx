@@ -5,10 +5,10 @@ import { selectFavorites } from '../../store/favorites/selectors';
 import { Header } from '../../commons/Header/Header';
 import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
-import { CartContainer, CartMenu } from '../Cart/';
+import { CartContainer, CartMenu } from '../Cart/StyledCartItem';
 import { FavItem } from './FavItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { ScrollToTop } from '../../components/ScrollToTop';
+import { ScrollToTop } from '../../commons/ScrollToTop';
 
 export const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
@@ -22,10 +22,10 @@ export const FavoritesPage = () => {
       <ContentContainer>
         <Title text='Избранное' />
         <CartContainer>
-          <CartMenu fav>
-            {favMenuArray.map((item, index) => <p key={index}>{item}</p>)}
-          </CartMenu>
-          {favorites.length === 0 ? 'У вас нет избранных товаров' : favorites.map(item =>
+          {(favorites.length === 0) ? "У вас нет избранных товаров" :
+          <CartMenu fav> {favMenuArray.map((item, index) => <p key={index}>{item}</p>)}</CartMenu>
+          }
+          {favorites.map(item =>
             <FavItem
               {...item}
               key={item._id}
@@ -34,7 +34,7 @@ export const FavoritesPage = () => {
           )}
         </CartContainer>
       </ContentContainer>
-      <Footer/>
+      <Footer />
     </>
   )
 }

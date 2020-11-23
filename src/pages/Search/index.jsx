@@ -1,23 +1,26 @@
-import React from 'react'
-import { Header } from '../../commons/Header/Header'
-import { Footer } from '../../commons/Footer'
-import { useSelector } from 'react-redux'
-import { selectProducts } from '../../store/products/selectors'
-import { ProductItem } from '../../components/ProductItem'
-import { ProductItemList } from '../Product/StyledProductPage'
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { Header } from '../../commons/Header/Header';
+import { Footer } from '../../commons/Footer';
+import { ScrollToTop } from '../../commons/ScrollToTop';
+import { selectProducts } from '../../store/products/selectors';
+import { ProductItem } from '../../components/ProductItem';
+import { ProductItemList } from '../../components/ProductItemDetails/StyledProductItemDetails';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const SearchPage = ({ match, location }) => {
   const allProducts = useSelector(selectProducts)
-  console.log(allProducts)
+  
   const queryString = require('query-string')
   const parsed = queryString.parse(location.search)
-  console.log(parsed.query)
+  
   const searchArray = allProducts.filter(e => e.name.toLowerCase().includes(parsed.query.toLowerCase()))
-  console.log(searchArray)
+  
   return (
     <>
       <Header />
+      <ScrollToTop />
       <ContentContainer>
         {searchArray.length > 0 && (
           <h2>Результат поиска по запросу "{parsed.query}"</h2>

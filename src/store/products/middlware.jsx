@@ -15,13 +15,12 @@ export const getProducts = () => async (dispatch) => {
 export const getProductsByIsPopular = () => async (dispatch) => {
   try {
     const { status, data } = await server('/products/filter?isTopRated=true')
-    // console.log(data)
+    
     if (status === 200) {
       dispatch(setProducts(data.products))
-      // console.log(data)
     }
   } catch (error) {
-    console.log(error)
+    console.log(error.response.data)
   }
 }
 
@@ -31,7 +30,6 @@ export const getProductsByIsNew = () => async (dispatch) => {
     // console.log(data)
     if (status === 200) {
       dispatch(setProducts(data.products))
-      // console.log(data)
     }
   } catch (error) {
     console.log(error)

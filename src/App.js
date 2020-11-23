@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
 import './styles/style.scss';
@@ -8,20 +9,24 @@ import { getProducts } from './store/products/middlware';
 import { persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getCustomer } from './store/customer/middlwares';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   const dispatch = useDispatch();
-
+  const [dataLoad, setDataLoad] = useState(false);
   useEffect(() => {
-    dispatch(getProducts())
-    dispatch(getCustomer());
+    Promise.all([dispatch(getProducts()), dispatch(getCustomer())]).then(() => setDataLoad(true))
   }, [dispatch]);
 
   return (
     <PersistGate loading={null} persistor={persistor}>
-      <Navigation />
+      <Router>
+        <ErrorBoundary>
+          {dataLoad && <Navigation/>}
+        </ErrorBoundary>
+      </Router>
     </PersistGate>
   );
-};
+}
 
 export default App;

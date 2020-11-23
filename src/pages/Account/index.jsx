@@ -3,7 +3,7 @@ import React from 'react';
 import { Header } from '../../commons/Header/Header';
 import { Footer } from '../../commons/Footer';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { ScrollToTop } from '../../components/ScrollToTop';
+import { ScrollToTop } from '../../commons/ScrollToTop';
 import { Title } from '../../components/Title/Title';
 import { AccountInfo } from '../../components/AccountInfo';
 
