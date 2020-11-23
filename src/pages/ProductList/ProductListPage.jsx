@@ -25,7 +25,6 @@ export const ProductListPage = ({ match }) => {
 
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(9);
-  const [current, setCurrent] = useState(1);
 
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
@@ -65,7 +64,6 @@ export const ProductListPage = ({ match }) => {
 
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
-    setCurrent(1)
   }
 
   const onCheckedBrandHandler = (checkedValues) => {
@@ -78,7 +76,7 @@ export const ProductListPage = ({ match }) => {
     setSortValue(checkedSelectValue)
   }
 
-  const onPaginateChange = value => {
+  const onPaginationChange = value => {
     if (value <= 1) {
       setMinValue(0);
       setMaxValue(9);
@@ -171,7 +169,7 @@ export const ProductListPage = ({ match }) => {
                 />
               ))}
             </ProductList>
-            <StyledPagination defaultCurrent={1} current={current} defaultPageSize={9} total={result.length} onChange={onPaginateChange} />
+            <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPaginationChange} />
           </Wrapper>
         </Content>
       </ContentContainer>
