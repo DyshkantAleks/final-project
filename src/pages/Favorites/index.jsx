@@ -22,7 +22,7 @@ export const FavoritesPage = () => {
       <ContentContainer>
         <Title text='Избранное' />
         <CartContainer>
-          {(favorites.length === 0) ? <CartEmpty>У вас нет избранных товаров </CartEmpty> :
+          { favorites.length === 0 ? <CartEmpty>У вас нет избранных товаров </CartEmpty> :
           <CartMenu fav> {favMenuArray.map((item, index) => <p key={index}>{item}</p>)}</CartMenu>
           }
           {favorites.map(item =>

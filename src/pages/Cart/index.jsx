@@ -43,7 +43,7 @@ export const CartPage = () => {
 
         <CartContainer>
           {
-            (cartItems.length === 0) ? <CartEmpty>В корзине нет товаров</CartEmpty> :
+            cartItems.length === 0 ? <CartEmpty>В корзине нет товаров</CartEmpty> :
               <CartMenu>
                 {menuArray.map((item, index) => <p key={index}>{item}</p>)}
               </CartMenu>
@@ -58,16 +58,15 @@ export const CartPage = () => {
             )
           }
         </CartContainer>
-        {(cartItems.length > 0) &&
+        {cartItems.length > 0 &&
           <CartTotalContainer>
             <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
             <CartButtonHolder>
-            <ButtonWrapper>
-               <Button text='Вернуться к покупкам' onClick={() => history.push('/catalog/all')} />
-            </ButtonWrapper>
-            <ButtonWrapper>
-            <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
-            </ButtonWrapper>
+
+              <Button text='Вернуться к покупкам' onClick={() => history.push('/catalog/all')} />
+              
+              <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
+
             </CartButtonHolder>
           </CartTotalContainer>}
       </ContentContainer>
