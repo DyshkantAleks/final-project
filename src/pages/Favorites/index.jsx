@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { selectFavorites } from '../../store/favorites/selectors';
 import { Title } from '../../components/Title/Title';
-import { CartContainer, CartMenu } from '../Cart/StyledCartItem';
+import { CartContainer, CartMenu, CartEmpty } from '../Cart/StyledCartItem';
 import { FavItem } from './FavItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
@@ -16,7 +16,7 @@ export const FavoritesPage = () => {
     <ContentContainer>
       <Title text='Избранное' />
       <CartContainer>
-        {(favorites.length === 0) ? 'У вас нет избранных товаров'
+        { favorites.length === 0 ? <CartEmpty>У вас нет избранных товаров </CartEmpty>
           : <CartMenu fav> {favMenuArray.map((item, index) => <p key={index}>{item}</p>)}</CartMenu>
         }
         {favorites.map(item =>

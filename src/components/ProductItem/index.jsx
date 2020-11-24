@@ -7,7 +7,7 @@ import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
 import { IconNew } from './IconsSvg/IconNew';
 import { IconTopRated } from './IconsSvg/IconTopRated';
-import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
+import { ContainerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
@@ -40,61 +40,50 @@ export const ProductItem = (props) => {
   }
 
   return (
-    <>
-      <ConteinerItem key={_id}>
-        <PhotoBox>
-          <StyledLink to={`/products/${route}`}>
-            <Photo alt={name} src={image} />
-          </StyledLink>
-          {isSale && (
-            <ProductActivityContainer>
-              <IconSale />
-            </ProductActivityContainer>)}
-          {isNewProduct && (
-            <ProductActivityContainer>
-              <IconNew />
-            </ProductActivityContainer>)}
-          {isTopRated && (
-            <ProductActivityContainer>
-              <IconTopRated />
-            </ProductActivityContainer>)}
-        </PhotoBox>
-        <TitleBox>
-          <StyledLink to={`/products/${route}`}>
-            <NameContainer>
-              <Name>{name}</Name>
-            </NameContainer>
-          </StyledLink>
-          {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
-          {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(_id)} />}
-          {isSale &&
+    <ContainerItem key={_id}>
+      <PhotoBox>
+        <StyledLink to={`/products/${route}`}>
+          <Photo alt={name} src={image} />
+        </StyledLink>
+        {isSale && (
+          <ProductActivityContainer>
+            <IconSale />
+          </ProductActivityContainer>)}
+        {isNewProduct && (
+          <ProductActivityContainer>
+            <IconNew />
+          </ProductActivityContainer>)}
+        {isTopRated && (
+          <ProductActivityContainer>
+            <IconTopRated />
+          </ProductActivityContainer>)}
+      </PhotoBox>
+      <TitleBox>
+        <StyledLink to={`/products/${route}`}>
+          <NameContainer>
+            <Name>{name}</Name>
+          </NameContainer>
+        </StyledLink>
+        {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
+        {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(_id)} />}
+        {isSale &&
             <PriceContainer>
               <CurrentPrice>{currentPrice.toLocaleString()}</CurrentPrice>
               <PreviousPrice>{previousPrice.toLocaleString()}</PreviousPrice>
             </PriceContainer>}
-          {!isSale &&
+        {!isSale &&
             <PriceContainer>
               <Price>{currentPrice.toLocaleString()}</Price>
             </PriceContainer>}
-          <ButtonContainer>
-            {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} />
-              : <Button color={'#7191A6'} width={'13rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
-          </ButtonContainer>
-        </TitleBox>
-      </ConteinerItem>
-    </>
+        <ButtonContainer>
+          {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} />
+            : <Button color={'#7191A6'} width={'13rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
+        </ButtonContainer>
+      </TitleBox>
+    </ContainerItem>
   )
 };
 
 ProductItem.propTypes = {
-  // name: PropTypes.string,
-  // price: PropTypes.number,
-  // previousPrice: PropTypes.number,
-  // image: PropTypes.string,
-  // route: PropTypes.string,
-  // id: PropTypes.string,
-  // isNewProduct: PropTypes.bool,
-  // isTopRated: PropTypes.bool,
-  // isSale: PropTypes.bool,
   product: PropTypes.object
 };

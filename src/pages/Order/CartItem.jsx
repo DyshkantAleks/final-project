@@ -15,9 +15,9 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      
-      <div>{cartQuantity}</div>
-     
+      <CartQuantity>
+        {cartQuantity}
+      </CartQuantity>
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {fav && <Button text='Купить' color='green' />}
     </CartItemContainer>
@@ -126,6 +126,9 @@ color: #000000;
 @media ${device.tabletM}{
   font-size: 14px;
 }
+`
+const CartQuantity = styled.h4`
+color: #000000;
 `
 
 const CloseBtnContainer = styled.div`

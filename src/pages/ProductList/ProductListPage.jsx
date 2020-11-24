@@ -5,7 +5,7 @@ import { Collapse } from 'antd';
 import { slide as MobileFilter } from 'react-burger-menu';
 import './style.scss';
 
-import { Content, Wrapper, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper } from './StyledProductListPage';
+import { Content, Wrapper, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper, StyledPagination } from './StyledProductListPage';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
@@ -19,6 +19,10 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
   const { screenWidth } = useWindowDimensions();
+
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(9);
+
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
   const [priceValues, setPriceValues] = useState([]);
@@ -26,7 +30,7 @@ export const ProductListPage = ({ match }) => {
   const [sortValue, setSortValue] = useState('Сортировать');
 
   const { params: { route } } = match;
-  
+
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
   const allProducts = useSelector(selectProducts);
 
@@ -103,6 +107,16 @@ export const ProductListPage = ({ match }) => {
     )
   }
 
+  const onPaginationChange = value => {
+    if (value <= 1) {
+      setMinValue(0);
+      setMaxValue(9);
+    } else {
+      setMinValue(maxValue);
+      setMaxValue(value * 9);
+    }
+  }
+
   return (
     <ContentContainer>
       <Content>
@@ -132,6 +146,7 @@ export const ProductListPage = ({ match }) => {
             </Wrapper>}
           </FiltersWrapper>
           {filtredProducts()}
+          <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPaginationChange} />
         </Wrapper>
       </Content>
     </ContentContainer>

@@ -15,6 +15,7 @@ import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions-creators';
 import { selectOrder } from '../../store/order/selectors';
+import { ModalExistence } from '../../components/ModalExistence';
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
@@ -31,24 +32,15 @@ export const OrderPage = (props) => {
     dispatch(
       openModal({
         content: shortageProducts.map((item) => (
-          <ModalContentWrapper>
-            <ModalTitle>
-              Товара
-              <ItemInnerWrapper>
-                {' '}
-                {item.product.name.toLowerCase()}{' '}
-              </ItemInnerWrapper>
-              не хватает на складе. <br />
-            </ModalTitle>
-            <ModalTitle>Доступно в количестве {item.quantity}</ModalTitle>
-          </ModalContentWrapper>
-        )),
+          <ModalExistence name={item.product.name} quantity={item.quantity} route={item.product.route} key={item.product.itemNo}/>
+        ))
       })
     );
   }
   return (
     <ContentContainer>
       <Title text="Оформить заказ" />
+
       <ContainerPage>
         <ComponentContainer>
           <ContactForm
@@ -65,7 +57,8 @@ export const OrderPage = (props) => {
               );
             }}
           />
-
+        </ComponentContainer>
+        <ComponentContainer>
           <OrderCart />
         </ComponentContainer>
       </ContainerPage>
@@ -88,19 +81,4 @@ const ContainerPage = styled.div`
     justify-content: space-between;
     flex-direction: row;
   } ;
-`;
-
-const ModalContentWrapper = styled.div`
-  padding: 3rem 1.5rem;
-  text-align: center;
-`;
-
-const ModalTitle = styled.h2`
-  font-size: 1.1em;
-  margin-bottom: 2rem;
-`;
-
-const ItemInnerWrapper = styled.span`
-  color: #7191a6;
-  font-weight: 700;
 `;

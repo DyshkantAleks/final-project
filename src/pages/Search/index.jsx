@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { selectProducts } from '../../store/products/selectors';
 import { ProductItem } from '../../components/ProductItem';
-import { ProductItemList } from '../Product/StyledProductPage';
+import { ProductItemList } from '../../components/ProductItemDetails/StyledProductItemDetails';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
 export const SearchPage = ({ match, location }) => {
@@ -26,7 +26,13 @@ export const SearchPage = ({ match, location }) => {
         {searchArray.map((e, index) => (
           <ProductItem
             key={index}
-            product={e}
+            name={e.name}
+            price={e.currentPrice}
+            image={e.imageUrl[0]}
+            route={e.route}
+            id={e._id}
+            isNewProduct={e.isNewProduct}
+            isTopRated={e.isTopRated}
           />
         ))}
       </ProductItemList>
