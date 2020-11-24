@@ -23,4 +23,3 @@ export function reducer (state = InitialState, { type, payload }) {
       return state
   }
 };
-

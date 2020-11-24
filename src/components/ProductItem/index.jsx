@@ -2,13 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-
 import { RegularIconFavorite } from './IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
 import { IconNew } from './IconsSvg/IconNew';
 import { IconTopRated } from './IconsSvg/IconTopRated';
-import { ConteinerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
+import { ContainerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
@@ -16,11 +15,10 @@ import { addProductToFav, removeProductFromFav } from '../../store/favorites/mid
 import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductItem = (props) => {
-  
+
   const { name, price, image, route, id, isNewProduct, isTopRated, isSale, previousPrice, product } = props
 
   const dispatch = useDispatch();
-
 
   const productInCart = useSelector(selectCart);
 
@@ -43,7 +41,7 @@ export const ProductItem = (props) => {
 
   return (
     <>
-      <ConteinerItem key={id}>
+      <ContainerItem key={id}>
         <PhotoBox>
           <StyledLink to={`/products/${route}`}>
             <Photo alt={name} src={image} />
@@ -83,7 +81,7 @@ export const ProductItem = (props) => {
               : <Button color={'#7191A6'} width={'13rem'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
           </ButtonContainer>
         </TitleBox>
-      </ConteinerItem>
+      </ContainerItem>
     </>
   )
 };

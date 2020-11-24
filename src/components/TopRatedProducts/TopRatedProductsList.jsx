@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Title } from '../Title/Title';
 import { selectProducts } from '../../store/products/selectors';
 import { ProductItem } from '../ProductItem';
-import { ProductItemList } from '../../pages/Product/StyledProductPage';
+import { ProductItemList } from '../ProductItemDetails/StyledProductItemDetails';
 
 export const TopRatedProductsList = () => {
   const allProducts = useSelector(selectProducts)
