@@ -17,6 +17,9 @@ import { ProductListPage } from '../ProductList/ProductListPage';
 import { SearchPage } from '../Search';
 import { NotFoundPage } from '../404';
 
+const MyError = () => {
+  throw new Error('ky')
+}
 export const Navigation = () => (
   <Switch>
     <Route exact path={ROUTES.ABOUT} component={AboutPage} />
@@ -32,6 +35,6 @@ export const Navigation = () => (
     <Route path='/products/:route' component={ProductPage} />
     <Route path='/search' component={SearchPage} />
     <Route exact path={ROUTES.HOMEPAGE} component={Homepage} />
-    <Route component={NotFoundPage} />
+    <Route component={MyError} />
   </Switch>
 )

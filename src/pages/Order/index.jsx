@@ -3,11 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { device } from '../../styles/breakpoints/breakpoints';
-import { Header } from '../../commons/Header/Header';
-import { Footer } from '../../commons/Footer';
 import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
-
 import { Title } from '../../components/Title/Title';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
@@ -18,7 +15,6 @@ import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions-creators';
 import { selectOrder } from '../../store/order/selectors';
-import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
@@ -51,35 +47,29 @@ export const OrderPage = (props) => {
     );
   }
   return (
-    <>
-      <Header />
-      <ScrollToTop />
-      <ContentContainer>
-        <Title text="Оформить заказ" />
+    <ContentContainer>
+      <Title text="Оформить заказ" />
+      <ContainerPage>
+        <ComponentContainer>
+          <ContactForm
+            handleSubmit={(val) => {
+              dispatch(confirmOrder(val));
+              setTimeout(
+                () =>
+                  dispatch(
+                    openModal({
+                      content: <h2> Ваш заказ № {order.orderNo} принят</h2>,
+                    })
+                  ),
+                500
+              );
+            }}
+          />
 
-        <ContainerPage>
-          <ComponentContainer>
-            <ContactForm
-              handleSubmit={(val) => {
-                dispatch(confirmOrder(val));
-                setTimeout(
-                  () =>
-                    dispatch(
-                      openModal({
-                        content: <h2> Ваш заказ № {order.orderNo} принят</h2>,
-                      })
-                    ),
-                  500
-                );
-              }}
-            />
-
-            <OrderCart />
-          </ComponentContainer>
-        </ContainerPage>
-      </ContentContainer>
-      <Footer />
-    </>
+          <OrderCart />
+        </ComponentContainer>
+      </ContainerPage>
+    </ContentContainer>
   );
 };
 

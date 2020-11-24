@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Header } from '../../commons/Header/Header';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectById } from '../../store/promotions/selectors';
 import { getPromotions } from '../../store/promotions/middlware';
 import { device } from '../../styles/breakpoints/breakpoints';
-import { Footer } from '../../commons/Footer';
 
 export const PromotionsSinglePage = ({ match }) => {
   const dispatch = useDispatch()
@@ -22,7 +20,6 @@ export const PromotionsSinglePage = ({ match }) => {
     <>
       {single && (
         <>
-          <Header />
           <Container>
             <ImageContainer>
               <Image src={single.desctopSliderImageUrl} />
@@ -34,12 +31,12 @@ export const PromotionsSinglePage = ({ match }) => {
               <Description>{single.fullDescription}</Description>
             </ContentContainerPromo>
           </ContentContainer>
-          <Footer />
         </>
       )}
     </>
   )
 }
+
 export const Container = styled.div`
 width: 100%;
 `;

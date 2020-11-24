@@ -15,9 +15,9 @@ export const CartItem = ({ imageUrl, currentPrice, name, color, itemNo, quantity
       <CartColor>
         {color}
       </CartColor>
-      <cartQuantity>
-        <h4>{cartQuantity}</h4>
-      </cartQuantity>
+      
+      <div>{cartQuantity}</div>
+     
       <CartPrice>{(currentPrice * cartQuantity).toLocaleString()} грн</CartPrice>
       {fav && <Button text='Купить' color='green' />}
     </CartItemContainer>

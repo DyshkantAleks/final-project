@@ -16,15 +16,7 @@ export const NewProductsList = () => {
       <ProductItemList>
         {
           arrayOfNew.map((e, index) => (
-            <ProductItem
-              key={index}
-              name={e.name}
-              price={e.currentPrice}
-              image={e.imageUrl[0]}
-              route={e.route}
-              id={e._id}
-              product={e}
-            />
+            <ProductItem key={index} product={e}/>
           ))
         }
       </ProductItemList>

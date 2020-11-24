@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Header } from '../../commons/Header/Header';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectByRoute } from '../../store/products/selectors';
 import { Title } from '../../components/Title/Title';
@@ -15,13 +14,11 @@ import { ProductSlider } from '../../components/ProductSlider';
 import { IconSale } from '../../components/ProductItem/IconsSvg/IconSale';
 import { IconNew } from '../../components/ProductItem/IconsSvg/IconNew';
 import { IconTopRated } from '../../components/ProductItem/IconsSvg/IconTopRated';
-import { Footer } from '../../commons/Footer';
 import { NewProductsList } from '../../components/NewProducts/NewProductsList';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/middlware';
 import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
 import { selectFavorites } from '../../store/favorites/selectors';
-import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -73,87 +70,82 @@ export const ProductPage = (props) => {
   };
 
   return (
-    <>
-      <Header />
-      <ScrollToTop />
-      <ContentContainer>
-        {
-          product && (
-            <>
-              <Title text={product.name} />
-              <ContainerDetails>
-                <ProductSlider id={product._id} />
-                <ContainerProduct>
-                  {product.isSale &&
+    <ContentContainer>
+      {
+        product && (
+          <>
+            <Title text={product.name} />
+            <ContainerDetails>
+              <ProductSlider id={product._id} />
+              <ContainerProduct>
+                {product.isSale &&
                     <PriceContainer>
                       <CurrentPrice>{product.currentPrice.toLocaleString()}</CurrentPrice>
                       <PreviousPrice>{product.previousPrice.toLocaleString()}</PreviousPrice>
                     </PriceContainer>}
-                  {!product.isSale &&
+                {!product.isSale &&
                     <PriceContainer>
                       <Price>{product.currentPrice.toLocaleString()}</Price>
                     </PriceContainer>}
-                  {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
-                  {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product._id)} />}
-                  <Subtitle>Бренд: {product.brand}</Subtitle>
-                  <AvailabilityArticleWrap>
-                    {product.quantity === 0 ? <Availability>&#10006; нет в наличии</Availability> : <Availability>&#10004; в наличии</Availability>}
-                    <Article>Артикул: {product.itemNo}</Article>
-                  </AvailabilityArticleWrap>
-                  <SubtitleBox>
-                    <Subtitle>Описание товара</Subtitle>
-                    {product.isSale && <IconSale />}
-                    {product.isNewProduct && <IconNew />}
-                    {product.isTopRated && <IconTopRated />}
-                  </SubtitleBox>
-                  <Description>{product.description}</Description>
-                  {screenWidth >= 768
-                    ? <>
-                      <Subtitle>Габариты</Subtitle>
+                {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
+                {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product._id)} />}
+                <Subtitle>Бренд: {product.brand}</Subtitle>
+                <AvailabilityArticleWrap>
+                  {product.quantity === 0 ? <Availability>&#10006; нет в наличии</Availability> : <Availability>&#10004; в наличии</Availability>}
+                  <Article>Артикул: {product.itemNo}</Article>
+                </AvailabilityArticleWrap>
+                <SubtitleBox>
+                  <Subtitle>Описание товара</Subtitle>
+                  {product.isSale && <IconSale />}
+                  {product.isNewProduct && <IconNew />}
+                  {product.isTopRated && <IconTopRated />}
+                </SubtitleBox>
+                <Description>{product.description}</Description>
+                {screenWidth >= 768
+                  ? <>
+                    <Subtitle>Габариты</Subtitle>
+                    <Description>Высота - {product.sizes.height} cм, </Description>
+                    <Description>Ширина - {product.sizes.width} cм, </Description>
+                    <Description>Глубина - {product.sizes.length} cм </Description>
+                  </> : <>
+                    <Subtitle>Габариты{toggleDimensionsBtn()}</Subtitle>
+                    {isDimensions && <DimensionsContainer>
                       <Description>Высота - {product.sizes.height} cм, </Description>
                       <Description>Ширина - {product.sizes.width} cм, </Description>
                       <Description>Глубина - {product.sizes.length} cм </Description>
-                    </> : <>
-                      <Subtitle>Габариты{toggleDimensionsBtn()}</Subtitle>
-                      {isDimensions && <DimensionsContainer>
-                        <Description>Высота - {product.sizes.height} cм, </Description>
-                        <Description>Ширина - {product.sizes.width} cм, </Description>
-                        <Description>Глубина - {product.sizes.length} cм </Description>
-                      </DimensionsContainer>}
-                    </>}
-                  <ActionsContainer>
-                    <Actions>
-                      <ProductCounter value={value} setValue={setValue} quantity={product.quantity} name={product.name} />
-                    </Actions>
-                    <Actions>
-                      {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
-                    </Actions>
-                  </ActionsContainer>
-                </ContainerProduct>
-                {screenWidth >= 768
-                  ? <Subtitle>Характеристики
-                    <SpecificationContainer>
-                      <DescriptionKey>Покрытие</DescriptionKey>
-                      <Description>{product.specifications.covering}</Description>
-                      <DescriptionKey>Обивка</DescriptionKey>
-                      <Description>{product.specifications.casing}</Description>
-                    </SpecificationContainer>
-                  </Subtitle> : <Subtitle>Характеристики
-                    {toggleSpecificationBtn()}
-                    {isSpecification && <SpecificationContainer>
-                      <DescriptionKey>Покрытие</DescriptionKey>
-                      <Description>{product.specifications.covering}</Description>
-                      <DescriptionKey>Обивка</DescriptionKey>
-                      <Description>{product.specifications.casing}</Description>
-                    </SpecificationContainer>}
-                  </Subtitle>}
-              </ContainerDetails>
-            </>
-          )
-        }
-        <NewProductsList />
-      </ContentContainer>
-      <Footer />
-    </>
+                    </DimensionsContainer>}
+                  </>}
+                <ActionsContainer>
+                  <Actions>
+                    <ProductCounter value={value} setValue={setValue} quantity={product.quantity} name={product.name} />
+                  </Actions>
+                  <Actions>
+                    {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
+                  </Actions>
+                </ActionsContainer>
+              </ContainerProduct>
+              {screenWidth >= 768
+                ? <Subtitle>Характеристики
+                  <SpecificationContainer>
+                    <DescriptionKey>Покрытие</DescriptionKey>
+                    <Description>{product.specifications.covering}</Description>
+                    <DescriptionKey>Обивка</DescriptionKey>
+                    <Description>{product.specifications.casing}</Description>
+                  </SpecificationContainer>
+                </Subtitle> : <Subtitle>Характеристики
+                  {toggleSpecificationBtn()}
+                  {isSpecification && <SpecificationContainer>
+                    <DescriptionKey>Покрытие</DescriptionKey>
+                    <Description>{product.specifications.covering}</Description>
+                    <DescriptionKey>Обивка</DescriptionKey>
+                    <Description>{product.specifications.casing}</Description>
+                  </SpecificationContainer>}
+                </Subtitle>}
+            </ContainerDetails>
+          </>
+        )
+      }
+      <NewProductsList />
+    </ContentContainer>
   )
 };

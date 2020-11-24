@@ -15,7 +15,6 @@ import { FavDimensions } from './StyledFavoriteItemPage';
 import { addProductToCart } from '../../store/cart/middlware.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
-
 export const FavItem = ({
   imageUrl,
   name,
@@ -58,8 +57,8 @@ export const FavItem = ({
       <FavDimensions>
         {sizes.height}cм x {sizes.width}см x {sizes.length}см
       </FavDimensions>
-      {btnInCart ? <Button disabled width={'100%'} text={'В корзине'}/> : 
-      <Button width={'100%'} color text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
+      {btnInCart ? <Button disabled width={'100%'} text={'В корзине'}/>
+        : <Button width={'100%'} color text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
 
       {/* {btnInCart ? (
         <Button disabled width={'100%'} text={'В корзине'} />
@@ -73,5 +72,3 @@ export const FavItem = ({
     </CartItemContainer>
   );
 };
-
-

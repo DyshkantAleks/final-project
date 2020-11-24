@@ -16,8 +16,7 @@ export const LoginComponent = props => {
   const error = useSelector(selectError)
   const history = useHistory()
   const [registered, setRegistered] = useState(false)
-  const logInHandler = (login, password) =>{
-    
+  const logInHandler = (login, password) => {
     dispatch(auth(login, password, history))
     
     if (error) { dispatch(closeModal()) }

@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-
 import './App.css';
 import './styles/style.scss';
+
 import { Navigation } from './pages/navigation';
 import { getProducts } from './store/products/middlware';
-import { persistor } from './store';
-import { PersistGate } from 'redux-persist/integration/react';
 import { getCustomer } from './store/customer/middlwares';
-import ErrorBoundary from './components/ErrorBoundary';
+import { Header } from './commons/Header/Header';
+import { Footer } from './commons/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App () {
   const dispatch = useDispatch();
@@ -19,13 +18,12 @@ function App () {
   }, [dispatch]);
 
   return (
-    <PersistGate loading={null} persistor={persistor}>
-      <Router>
-        <ErrorBoundary>
-          {dataLoad && <Navigation/>}
-        </ErrorBoundary>
-      </Router>
-    </PersistGate>
+    <>
+      <Header/>
+      <ScrollToTop/>
+      {dataLoad && <Navigation/>}
+      <Footer/>
+    </>
   );
 }
 

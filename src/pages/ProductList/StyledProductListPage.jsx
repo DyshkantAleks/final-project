@@ -56,10 +56,6 @@ align-items: center;
 }; 
 `;
 
-export const Title = styled.h1`
-  font-size: 3rem;
-`;
-
 export const FilterName = styled.h3`
   font-size: 2.4rem;
   text-align: left;

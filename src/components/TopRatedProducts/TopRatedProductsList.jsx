@@ -16,12 +16,12 @@ export const TopRatedProductsList = () => {
         {
           arrayOfTopRated.map((e, index) => (
             <ProductItem
-              name={e.name}
-              price={e.currentPrice}
-              image={e.imageUrl[0]}
+              // name={e.name}
+              // price={e.currentPrice}
+              // image={e.imageUrl[0]}
+              // route={e.route}
+              // id={e._id}
               key={index}
-              route={e.route}
-              id={e._id}
               product={e}
             />
           ))

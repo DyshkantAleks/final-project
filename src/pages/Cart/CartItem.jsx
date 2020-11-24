@@ -41,8 +41,6 @@ export const CartItem = ({
       <CartPrice>
         {(currentPrice * cartQuantity).toLocaleString()} грн
       </CartPrice>
-      {/* <CartPrice>{currentPrice} грн</CartPrice> */}
     </CartItemContainer>
   );
 };
-
