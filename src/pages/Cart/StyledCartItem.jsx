@@ -20,7 +20,7 @@ background-color: #F5F5F5;
     align-items: center;
   };
   @media ${device.tabletM}{
-  grid-template-columns: 32% 27% 18% 25%;
+  grid-template-columns: 31% 28% 18% 25%;
   padding: 0.7rem 0.8rem 0.7rem 14%;
   display: grid;
   }

@@ -9,7 +9,7 @@ describe('Set favorite actions', () => {
       payload: [1, 2, 3]
     };
     expect(setFavorites(expectedActions.payload)).toEqual(expectedActions)
-});
+  });
 });
 
 describe('Add Favorite action', () => {
@@ -18,10 +18,9 @@ describe('Add Favorite action', () => {
       type: actions.ADD_TO_FAVORITES,
       payload: [1, 2, 3]
     }
-  expect(addToFavorites(expectedActions.payload)).toEqual(expectedActions)
-});
+    expect(addToFavorites(expectedActions.payload)).toEqual(expectedActions)
+  });
 })
-
 
 describe('Remove from Favorite action', () => {
   it('removeFromFavorites(): should remove items from favorites', () => {

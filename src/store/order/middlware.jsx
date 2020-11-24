@@ -1,5 +1,6 @@
 import { server } from '../../API';
 import { setOrder } from './actions-creators';
+import axios from "axios";
 
 export const createOrder = (order) => (_, getState) => {
   const state = getState()
@@ -21,7 +22,6 @@ export const createOrder = (order) => (_, getState) => {
   };
 
   if (state.customer.customer._id) {
-   
     return {
       ...newOrder,
       customerId: `${state.customer.customer._id}`,
@@ -34,6 +34,30 @@ export const createOrder = (order) => (_, getState) => {
   };
 };
 
+const createLetter = (data) => {
+  const letter = {
+  FullAddress: 
+  "Country: " + data.deliveryAddress.country + 
+  ", City: " + data.deliveryAddress.city + 
+  ", Address: " + data.deliveryAddress.address,
+  Shipping: data.shipping,
+  PayMethod: data.payMethod,
+  Email: data.email,
+  Mobile: data.mobile,
+  OrderNo: data.orderNo,
+  Date: data.date,
+  TotalSum: data.totalSum,
+  Status: data.status
+  }
+  return letter;
+};
+
+const sendLetter = (letter) =>{
+  axios.post('https://formcarry.com/s/Eu_mXAz6nC', letter, {headers: {'Accept': 'application/json'}})
+  .then(response => console.log(response))
+  .catch(error => console.log(error))
+}
+
 export const confirmOrder = (order) => async (dispatch) => {
   const newOrder = dispatch(createOrder(order))
   console.log(newOrder)
@@ -42,7 +66,8 @@ export const confirmOrder = (order) => async (dispatch) => {
     
     if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
-      
+      sendLetter(createLetter(data.order))
+      console.log(data.order)
     }
   } catch (error) {
     console.log(error)

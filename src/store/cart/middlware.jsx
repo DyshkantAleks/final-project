@@ -19,13 +19,13 @@ const updateCart = async (state) => {
       try {
         await server.put('/cart', updatedCart);
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error);
       }
     }
   }
 };
 
-export function unique(arr) {
+export function unique (arr) {
   const res = new Map();
   return arr.filter(
     (a) => !res.has(a.product._id) && res.set(a.product._id, 1)
@@ -92,13 +92,9 @@ export const decreaseQuantity = (productId) => (dispatch, getState) => {
 export const checkQuantity = (products = [], cart = []) => {
   return cart.reduce(
     (acc, rec) => {
-     
       products.forEach((item) => {
-        
         if (item.itemNo === rec.product.itemNo) {
-          
           if (item.quantity < rec.cartQuantity) {
-            
             acc.push({product: item, quantity: rec.cartQuantity - item.quantity });
           }
         }
