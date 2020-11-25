@@ -1,6 +1,8 @@
+import React from 'react';
 import { server } from '../../API';
 import { setOrder } from './actions';
 import axios from 'axios';
+import { openModal } from '../modal/actions';
 
 export const createOrder = (order) => (_, getState) => {
   const state = getState()
@@ -67,7 +69,7 @@ export const confirmOrder = (order) => async (dispatch) => {
     if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
       sendLetter(createLetter(data.order))
-      console.log(data.order)
+      dispatch(openModal({ content: <h2> Ваш заказ № {data.order.orderNo} принят</h2>}))
     }
   } catch (error) {
     console.log(error)

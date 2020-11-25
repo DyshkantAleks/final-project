@@ -106,7 +106,7 @@ export const ProductListPage = ({ match }) => {
       </ProductList>
     )
   }
-
+  
   const onPaginationChange = value => {
     if (value <= 1) {
       setMinValue(0);

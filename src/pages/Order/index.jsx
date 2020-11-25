@@ -47,12 +47,12 @@ export const OrderPage = (props) => {
             handleSubmit={(val) => {
               dispatch(confirmOrder(val));
               setTimeout(
-                () =>
-                  dispatch(
-                    openModal({
-                      content: <h2> Ваш заказ № {order.orderNo} принят</h2>,
-                    })
-                  ),
+                () => console.log(order),
+                  // dispatch(
+                  //   openModal({
+                  //     content: <h2> Ваш заказ № {order.orderNo} принят</h2>,
+                  //   })
+                  // ),
                 500
               );
             }}
