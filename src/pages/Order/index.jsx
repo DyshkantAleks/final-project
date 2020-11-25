@@ -42,7 +42,7 @@ export const OrderPage = (props) => {
       <Title text="Оформить заказ" />
 
       <ContainerPage>
-        <ComponentContainer>
+        <ComponentContainerL>
           <ContactForm
             handleSubmit={(val) => {
               dispatch(confirmOrder(val));
@@ -57,20 +57,28 @@ export const OrderPage = (props) => {
               );
             }}
           />
-        </ComponentContainer>
-        <ComponentContainer>
+        </ComponentContainerL>
+        <ComponentContainerR>
           <OrderCart />
-        </ComponentContainer>
+        </ComponentContainerR>
       </ContainerPage>
     </ContentContainer>
   );
 };
 
-const ComponentContainer = styled.div`
+const ComponentContainerL = styled.div`
   @media ${device.desktop} {
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-bottom: 1em;
+    margin-right: 4rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  } ;
+`;
+
+const ComponentContainerR = styled.div`
+  @media ${device.desktop} {
+    margin-left: 4rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
   } ;
 `;
 
