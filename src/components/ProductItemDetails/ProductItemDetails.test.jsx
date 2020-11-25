@@ -96,5 +96,9 @@ describe('ProductItemDetails component', () => {
             const article = wrapper.find(ContainerDetails).find(AvailabilityArticleWrap).find(Article);
             expect(article.text()).toEqual('Артикул: testNumber');
         });
+        it('should be render with description', () => {
+            const descriptionContainer = wrapper.find(ContainerDetails).find(SubtitleBox).find(Subtitle);
+            expect(descriptionContainer.text()).toBe('Описание товара');
+        })
     });
 });

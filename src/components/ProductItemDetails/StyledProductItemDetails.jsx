@@ -240,11 +240,12 @@ align-items: center;
 justify-content: center;
     @media ${device.tabletS} {
         display: grid;
-        grid-template-columns: repeat(2, 50%);
+        grid-template-columns: repeat(2, 49%);
         justify-items: center;
         gap: 1rem;
     };
     @media ${device.tabletM} {
+        grid-template-columns: repeat(2, auto);
         gap: 2rem;
     };
     @media ${device.tabletL} {

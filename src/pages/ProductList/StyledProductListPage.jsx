@@ -73,10 +73,14 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-  @media ${device.tabletM}{
+  @media ${device.tabletS} {
     display: grid;
-    grid-template-columns: repeat(3, 22rem);
+    grid-template-columns: repeat(2, 49%);
     justify-items: center;
+    gap: 1rem;
+  };
+  @media ${device.tabletM}{
+    grid-template-columns: repeat(3, 22rem);
     gap: 2rem;
   };
   @media ${device.tabletL}{
