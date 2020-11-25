@@ -5,7 +5,7 @@ import { useLockBodyScroll } from 'react-use';
 import styled from 'styled-components';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
-import { closeModal } from '../../store/modal/actions-creators.jsx';
+import { closeModal } from '../../store/modal/actions.jsx';
 import { selectModalContent, selectModalTitle, selectModalActions } from '../../store/modal/selectors.jsx';
 
 export const Modal = ({ closeButton = true }) => {

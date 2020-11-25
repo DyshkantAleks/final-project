@@ -69,7 +69,6 @@ font-weight: bold;
   };
 `;
 
-
 export const CartItemContainer = styled.div`
         align-items: center;
         display: grid;

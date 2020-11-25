@@ -5,7 +5,7 @@ import {
   quantityUp,
   removeFromCart,
   setCart,
-} from './actions-creators';
+} from './actions';
 
 const updateCart = async (state) => {
   const { customer } = state;
@@ -89,6 +89,7 @@ export const decreaseQuantity = (productId) => (dispatch, getState) => {
   const state = getState();
   updateCart(state);
 };
+
 export const checkQuantity = (products = [], cart = []) => {
   return cart.reduce(
     (acc, rec) => {

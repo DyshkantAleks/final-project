@@ -26,7 +26,6 @@ export const ContactForm = (props) => {
       setAutoCompleteCityResult([]);
     } else {
       getCity(value).then((list) => {
-        
         return setAutoCompleteCityResult(list.map((list) => list));
       });
     }
@@ -42,7 +41,6 @@ export const ContactForm = (props) => {
       setAutoCompleteStreetResult([]);
     } else {
       getStreet(value, searchCode).then((list) => {
-      
         setAutoCompleteStreetResult(
           list.map((list) => {
             return list;

@@ -1,5 +1,5 @@
 
-import { SET_PRODUCTS, SET_LOADER } from './actions';
+import { SET_PRODUCTS, SET_LOADER } from './types';
 
 export const InitialState = {
   products: [],

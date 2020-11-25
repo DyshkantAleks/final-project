@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 import { device } from '../../styles/breakpoints/breakpoints';
-import { Checkbox } from 'antd';
-import { Pagination } from 'antd';
+import { Checkbox, Pagination } from 'antd';
 
 export const Content = styled.main`
   @media ${device.desktop} {
