@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Item } from '../StyledPopularCategory'
-import { StaticCategoryItem } from './HoverItem/StaticCategoryItem'
-import { HoverCategoryItem } from './HoverItem/HoverCategoryItem'
+import { Item } from '../StyledPopularCategory';
+import { StaticCategoryItem } from './HoverItem/StaticCategoryItem';
+import { HoverCategoryItem } from './HoverItem/HoverCategoryItem';
 import PropTypes from 'prop-types';
-
 
 export const PopularCategoryItem = (props) => {
   const { textForTitle, textForSubtitle, backGround } = props

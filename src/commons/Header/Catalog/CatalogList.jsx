@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CatalogItem } from './CatalogComponents/CatalogItem'
 import { Container, List } from './StyledCatalog'
 import { selectMainCategory } from '../../../store/categories/selectors'
-import { getCategories } from '../../../store/categories/middlware'
+import { getCategories } from '../../../store/categories/operations'
 
 export const CatalogList = () => {
   const dispatch = useDispatch();

@@ -4,8 +4,8 @@ import { Form, Input, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from '../../Button';
-import { closeModal } from '../../../store/modal/actions-creators';
-import { updateCustomer } from '../../../store/customer/middlwares';
+import { closeModal } from '../../../store/modal/actions';
+import { updateCustomer } from '../../../store/customer/operations';
 import { selectCustomer } from '../../../store/customer/slectors';
 import {GlobalConfig} from '../../../GlobalConfig'
 const { Option } = Select;
