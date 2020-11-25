@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../../../pages/navigation/routes';
-import { selectCart } from '../../../../store/cart/selectors';
-import { icon } from '../icons';
-import { CartCounter, Item } from '../StyledAccountInfo';
+import { Routes } from '../../../../../pages/Navigation/Routes';
+import { selectCart } from '../../../../../store/cart/selectors';
+import { icon } from '../../icons';
+import { CartCounter, Item } from '../../StyledAccountInfo';
 
 export const HeaderCart = () => {
   const cartItems = useSelector(selectCart);
@@ -14,7 +14,7 @@ export const HeaderCart = () => {
   }, 0);
 
   return (
-    <Link to={ROUTES.CART}>
+    <Link to={Routes.CART}>
       <Item>
         {icon.cart}
         {sumQuantity > 0 && <CartCounter>{sumQuantity}</CartCounter>}

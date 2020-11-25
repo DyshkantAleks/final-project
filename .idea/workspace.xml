@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50908e2f-d0c8-49dc-b8c7-72ee4e59709f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderAccountComponent/HeaderAccount.test.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stylelintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.stylelintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderAccount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderAccountComponent/HeaderAccount.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderCartComponent/HeaderCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderFavorites.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/AccountInfo/AccountInfoComponents/HeaderFavoritesComponent/HeaderFavorites.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Header/Header.test.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Header/Header.test.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jgfF3zPi4GkgnliPYVdgrXiIRx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />

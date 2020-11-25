@@ -7,8 +7,8 @@ import { Logo } from './Logo/Logo';
 
 const setUp = (props) =>  shallow(<Header {...props} />)
 describe('Header component', () => {
-    let component;
-    beforeEach(() => {
+  let component;
+  beforeEach(() => {
         component = setUp()
     })
     it('should be render with wrapper', () => {
