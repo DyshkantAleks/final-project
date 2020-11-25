@@ -88,6 +88,7 @@ justify-content: center;
 `;
 
 export const StyledPagination = styled(Pagination)`
+margin-top: 2rem;
 text-align: center;
 
 .ant-pagination-next:hover,
@@ -100,6 +101,13 @@ text-align: center;
 
 .ant-pagination-item:hover {
   border-color: #7191a6;
+}
+
+.ant-pagination-jump-next-custom-icon:hover,
+.ant-pagination-jump-prev-custom-icon:hover {
+  .ant-pagination-item-link-icon {
+    color: #7191a6;
+  }
 }
 
 .ant-pagination-item-active {
