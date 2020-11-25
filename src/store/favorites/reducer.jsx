@@ -2,7 +2,7 @@ import {
   ADD_TO_FAVORITES,
   REMOVE_FROM_FAVORITES,
   SET_FAVORITES,
-} from './action-types';
+} from './types';
 
 const InitialState = {
   favorites: [],

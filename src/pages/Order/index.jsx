@@ -8,12 +8,12 @@ import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 
-import { confirmOrder } from '../../store/order/middlware';
-import { getProducts } from '../../store/products/middlware';
-import { checkQuantity } from '../../store/cart/middlware';
+import { confirmOrder } from '../../store/order/operations';
+import { getProducts } from '../../store/products/operations';
+import { checkQuantity } from '../../store/cart/operations';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
-import { openModal } from '../../store/modal/actions-creators';
+import { openModal } from '../../store/modal/actions';
 import { selectOrder } from '../../store/order/selectors';
 import { ModalExistence } from '../../components/ModalExistence';
 

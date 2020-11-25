@@ -1,5 +1,5 @@
-import { openModal, closeModal } from './actions-creators';
-import * as actions from './action-types';
+import { openModal, closeModal } from './actions';
+import * as actions from './types';
 
 describe('Modal actions', () => {
   it('openModal(): should open modal', () => {

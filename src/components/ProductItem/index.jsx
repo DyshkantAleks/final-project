@@ -10,8 +10,8 @@ import { IconTopRated } from './IconsSvg/IconTopRated';
 import { ContainerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
-import { addProductToCart } from '../../store/cart/middlware';
-import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
+import { addProductToCart } from '../../store/cart/operations';
+import { addProductToFav, removeProductFromFav } from '../../store/favorites/operations';
 import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductItem = (props) => {

@@ -1,4 +1,4 @@
-import { DEL_LOGIN, DEL_TOKEN, SET_AUTH_ERROR, SET_LOGIN, SET_PASSWORD, SET_TOKEN } from './action-types';
+import { DEL_LOGIN, DEL_TOKEN, SET_AUTH_ERROR, SET_LOGIN, SET_PASSWORD, SET_TOKEN } from './types';
 
 const initialState = {
   login: 'User',

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectById } from '../../store/promotions/selectors';
-import { getPromotions } from '../../store/promotions/middlware';
+import { getPromotions } from '../../store/promotions/operations';
 import {Container, ImageContainer, Image, Title, ContentContainerPromo, Description} from './StyledPromotionsSingle';
 
 export const PromotionsSinglePage = ({ match }) => {

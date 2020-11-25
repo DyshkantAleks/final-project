@@ -5,8 +5,8 @@ import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectByRoute } from '../../store/products/selectors';
 import { NewProductsList } from '../../components/NewProducts/NewProductsList';
 import { selectCart } from '../../store/cart/selectors';
-import { addProductToCart } from '../../store/cart/middlware';
-import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
+import { addProductToCart } from '../../store/cart/operations';
+import { addProductToFav, removeProductFromFav } from '../../store/favorites/operations';
 import { selectFavorites } from '../../store/favorites/selectors';
 import { ProductItemDetails } from '../../components/ProductItemDetails/index';
 

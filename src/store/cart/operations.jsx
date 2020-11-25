@@ -5,7 +5,7 @@ import {
   quantityUp,
   removeFromCart,
   setCart,
-} from './actions-creators';
+} from './actions';
 
 const updateCart = async (state) => {
   const { customer } = state;

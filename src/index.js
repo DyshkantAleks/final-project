@@ -8,15 +8,15 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './store';
-import ErrorBoundary from './components/ErrorBoundary';
+// import ErrorBoundary from './components/ErrorBoundary';
 
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <Router>
-        <ErrorBoundary>
+        {/* <ErrorBoundary> */}
           <App />
-        </ErrorBoundary>
+        {/* </ErrorBoundary> */}
       </Router>
     </PersistGate>
   </Provider>
