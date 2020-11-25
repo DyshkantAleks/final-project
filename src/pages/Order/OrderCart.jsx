@@ -22,11 +22,11 @@ export const OrderCart = () => {
             <p key={index}>{item}</p>
           ))}
         </CartMenu>
-        {cartItems.map((item) => (
+        {cartItems.map((item, index) => (
           <CartItem
             {...item.product}
             cartQuantity={item.cartQuantity}
-            key={item.id}
+            key={index}
             cart='true'
           />
         ))}

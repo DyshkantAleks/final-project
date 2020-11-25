@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Button } from '../../components/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeProductFromFav } from '../../store/favorites/middlware.jsx';
+import { removeProductFromFav } from '../../store/favorites/operations.jsx';
 import { selectCart } from '../../store/cart/selectors.jsx';
 import {
   CartItemContainer,
@@ -13,7 +13,7 @@ import {
   CartColor
 } from '../Cart/StyledCartItem';
 import { FavDimensions } from './StyledFavoriteItemPage';
-import { addProductToCart } from '../../store/cart/middlware.jsx';
+import { addProductToCart } from '../../store/cart/operations.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
 export const FavItem = ({
@@ -58,8 +58,8 @@ export const FavItem = ({
       <FavDimensions>
         {sizes.height}cм x {sizes.width}см x {sizes.length}см
       </FavDimensions>
-      {btnInCart ? <Button center disabled width={'100%'} text={'В корзине'}/> : 
-      <Button center color width={'100%'} text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
+      {btnInCart ? <Button center disabled width={'100%'} text={'В корзине'}/>
+        : <Button center color width={'100%'} text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
     </CartItemContainer>
   );
 };

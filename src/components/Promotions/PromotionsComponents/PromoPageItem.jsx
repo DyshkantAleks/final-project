@@ -21,7 +21,6 @@ export const PromoItem = (props) => {
   )
 }
 
-
 PromoItem.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
@@ -34,4 +33,3 @@ PromoItem.defaultProps = {
   subtitle: 'Текст',
   image: 'https://res.cloudinary.com/dg-home/image/upload/v1605196877/General/Categories/popular-category-table-min_fmalgj.png'
 };
-
