@@ -1,6 +1,6 @@
 import React from 'react';
-import { NotFoundPage } from '../../pages/404';
 import { withRouter } from 'react-router-dom';
+import { NotFoundPage } from '../../pages/404';
 
 class ErrorBoundary extends React.Component {
     state = {

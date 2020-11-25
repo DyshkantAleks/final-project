@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './StyledButton';
 
-
 export const Button = (props) => {
   const { text, onClick, color, width, disabled, center } = props;
   return (
@@ -25,4 +24,3 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func
 };
-
