@@ -301,7 +301,7 @@ export const ContactForm = (props) => {
           </Form.Item>
         </Col>
       </Row>
-      <Button text='Подтвердить заказ' type='submit'></Button>
+      <Button text='Подтвердить заказ' type='submit'  color='green'></Button>
     </Form>
   );
 };
