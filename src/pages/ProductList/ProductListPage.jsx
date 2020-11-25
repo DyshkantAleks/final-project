@@ -61,7 +61,6 @@ export const ProductListPage = ({ match }) => {
 
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
-    setCurrent(1)
   }
 
   const onCheckedBrandHandler = (checkedValues) => {
@@ -102,19 +101,21 @@ export const ProductListPage = ({ match }) => {
     return (
       <ProductList>
         {result.length === 0 ? prodFilterNotFound() : result.map((e, index) => (
-          <ProductItem key={index} product={e}/>
+          <ProductItem key={index} product={e} />
         ))}
       </ProductList>
     )
   }
 
-  const onPaginationChange = value => {
-    if (value <= 1) {
+  const onPageChange = (page, pageSize) => {
+    if (page <= 1) {
       setMinValue(0);
       setMaxValue(9);
+      console.log(minValue, maxValue);
     } else {
       setMinValue(maxValue);
-      setMaxValue(value * 9);
+      setMaxValue(page * 9);
+      console.log(minValue, maxValue);
     }
   }
 
@@ -122,7 +123,7 @@ export const ProductListPage = ({ match }) => {
     <ContentContainer>
       <Content>
         {screenWidth >= 1200 && <Wrapper>
-          <RangeSlider onAfterChangeHandler={onAfterChangeHandler}/>
+          <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
           {colorCheckBoxes()}
           {brandCheckBoxes()}
         </Wrapper>}
@@ -134,7 +135,7 @@ export const ProductListPage = ({ match }) => {
               <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
                 <Collapse ghost>
                   <Panel header="Цена" key="1">
-                    <RangeSlider onAfterChangeHandler={onAfterChangeHandler}/>
+                    <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
                   </Panel>
                   <Panel header="Цвет" key="2">
                     {colorCheckBoxes()}
@@ -147,7 +148,7 @@ export const ProductListPage = ({ match }) => {
             </Wrapper>}
           </FiltersWrapper>
           {filtredProducts()}
-          <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPaginationChange} />
+          <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPageChange} />
         </Wrapper>
       </Content>
     </ContentContainer>

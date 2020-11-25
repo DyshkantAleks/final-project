@@ -110,27 +110,3 @@ text-align: center;
   }
 }
 `;
-
-export const StyledPagination = styled(Pagination)`
-text-align: center;
-
-.ant-pagination-next:hover,
-.ant-pagination-prev:hover {
-  .ant-pagination-item-link {
-    border-color: #7191a6;
-    color: #7191a6;
-  }
-}
-
-.ant-pagination-item:hover {
-  border-color: #7191a6;
-}
-
-.ant-pagination-item-active {
-  border-color: #7191a6;
-
-  a {
-    color: #7191a6;
-  }
-}
-`;
