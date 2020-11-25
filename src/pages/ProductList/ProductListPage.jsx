@@ -20,8 +20,8 @@ export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
   const { screenWidth } = useWindowDimensions();
 
-  const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(9);
+  let pageSize = 9;
+  const [current, setCurrent] = useState(1);
 
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
@@ -44,7 +44,12 @@ export const ProductListPage = ({ match }) => {
     setCheckedBrands([]);
     setPriceValues([]);
     setSortValue('Сортировать');
+    setCurrent(1)
   }, [route]);
+
+  useEffect(() => {
+    setCurrent(1)
+  }, [checkedColors, checkedBrands, priceValues]);
 
   if (sortValue === 'priceAscending') {
     productsByCategorie.sort((a, b) => a.currentPrice > b.currentPrice ? 1 : -1)
@@ -52,6 +57,8 @@ export const ProductListPage = ({ match }) => {
   if (sortValue === 'priceDescending') {
     productsByCategorie.sort((a, b) => a.currentPrice < b.currentPrice ? 1 : -1)
   }
+
+  const onPageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
 
   const result = productsByCategorie
     .filter(productItem => (checkedColors.length === 0) ? productItem : checkedColors.some(chackedItem => chackedItem === productItem.color))
@@ -100,23 +107,11 @@ export const ProductListPage = ({ match }) => {
   const filtredProducts = () => {
     return (
       <ProductList>
-        {result.length === 0 ? prodFilterNotFound() : result.map((e, index) => (
+        {result.length === 0 ? prodFilterNotFound() : onPageChange(current, pageSize).map((e, index) => (
           <ProductItem key={index} product={e} />
         ))}
       </ProductList>
     )
-  }
-
-  const onPageChange = (page, pageSize) => {
-    if (page <= 1) {
-      setMinValue(0);
-      setMaxValue(9);
-      console.log(minValue, maxValue);
-    } else {
-      setMinValue(maxValue);
-      setMaxValue(page * 9);
-      console.log(minValue, maxValue);
-    }
   }
 
   return (
@@ -148,7 +143,7 @@ export const ProductListPage = ({ match }) => {
             </Wrapper>}
           </FiltersWrapper>
           {filtredProducts()}
-          <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPageChange} />
+          <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
         </Wrapper>
       </Content>
     </ContentContainer>
