@@ -21,20 +21,21 @@ function App () {
 
   const {
     ErrorBoundary,
-    didCatch,
-    error
+    didCatch
   } = useErrorBoundary();
 
   return (
     <>
       {didCatch ? (<NotFoundPage/>
       ) : (
-        <ErrorBoundary>
+        <>
           <Header/>
           <ScrollToTop/>
-          {dataLoad && <Navigation/>}
+          <ErrorBoundary>
+            {dataLoad && <Navigation/>}
+          </ErrorBoundary>
           <Footer/>
-        </ErrorBoundary>
+        </>
       )
       }
     </>

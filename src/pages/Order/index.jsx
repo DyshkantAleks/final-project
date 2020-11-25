@@ -14,7 +14,6 @@ import { checkQuantity } from '../../store/cart/operations';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions';
-import { selectOrder } from '../../store/order/selectors';
 import { ModalExistence } from '../../components/ModalExistence';
 
 export const OrderPage = (props) => {
@@ -25,7 +24,6 @@ export const OrderPage = (props) => {
   }, [dispatch]);
   const products = useSelector(selectProducts);
   const cart = useSelector(selectCart);
-  const order = useSelector(selectOrder);
   const shortageProducts = checkQuantity(products, cart);
 
   if (shortageProducts.length) {
@@ -42,35 +40,34 @@ export const OrderPage = (props) => {
       <Title text="Оформить заказ" />
 
       <ContainerPage>
-        <ComponentContainer>
+        <ComponentContainerL>
           <ContactForm
             handleSubmit={(val) => {
               dispatch(confirmOrder(val));
-              setTimeout(
-                () => console.log(order),
-                  // dispatch(
-                  //   openModal({
-                  //     content: <h2> Ваш заказ № {order.orderNo} принят</h2>,
-                  //   })
-                  // ),
-                500
-              );
             }}
           />
-        </ComponentContainer>
-        <ComponentContainer>
+        </ComponentContainerL>
+        <ComponentContainerR>
           <OrderCart />
-        </ComponentContainer>
+        </ComponentContainerR>
       </ContainerPage>
     </ContentContainer>
   );
 };
 
-const ComponentContainer = styled.div`
+const ComponentContainerL = styled.div`
   @media ${device.desktop} {
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-bottom: 1em;
+    margin-right: 4rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  } ;
+`;
+
+const ComponentContainerR = styled.div`
+  @media ${device.desktop} {
+    margin-left: 4rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
   } ;
 `;
 

@@ -36,12 +36,17 @@ export const createOrder = (order) => (_, getState) => {
   };
 };
 
-const createLetter = (data) => {
+const createLetter = (data, order) => {
+  const CreateFullAddress = () => {
+    let FullAddress = '';
+    if (data.shipping !== 'Pick up from store') FullAddress = 'Country: ' + data.deliveryAddress.country + ', City: ' + data.deliveryAddress.city + ', Address: ' + data.deliveryAddress.address
+    else FullAddress = '-'
+    return FullAddress
+  }
+
   const letter = {
-    FullAddress:
-  'Country: ' + data.deliveryAddress.country +
-  ', City: ' + data.deliveryAddress.city +
-  ', Address: ' + data.deliveryAddress.address,
+    FullName: order.name + ' ' + order.surname,
+    FullAddress: CreateFullAddress(),
     Shipping: data.shipping,
     PayMethod: data.payMethod,
     Email: data.email,

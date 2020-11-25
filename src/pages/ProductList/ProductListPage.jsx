@@ -15,20 +15,21 @@ import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import useWindowDimensions from '../../utils/useWindowDimensions';
+import { useHistory } from 'react-router';
 
 export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
   const { screenWidth } = useWindowDimensions();
 
-  const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(9);
+  const pageSize = 9;
+  const [current, setCurrent] = useState(1);
 
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
   const [priceValues, setPriceValues] = useState([]);
-
   const [sortValue, setSortValue] = useState('Сортировать');
 
+  const history = useHistory();
   const { params: { route } } = match;
 
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
@@ -44,7 +45,15 @@ export const ProductListPage = ({ match }) => {
     setCheckedBrands([]);
     setPriceValues([]);
     setSortValue('Сортировать');
+    setCurrent(1)
   }, [route]);
+
+  useEffect(() => {
+    setCurrent(1);
+    
+    history.push(`${route}?${checkedColors.length > 0 ? `colors=${checkedColors.join('&')};` : ''}${checkedBrands.length > 0 ? `brands=${checkedBrands.join('&')};` : ''}${priceValues.length > 0 ? `price=${priceValues.join('-')}` : ''}`)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkedColors, checkedBrands, priceValues]);
 
   if (sortValue === 'priceAscending') {
     productsByCategorie.sort((a, b) => a.currentPrice > b.currentPrice ? 1 : -1)
@@ -58,6 +67,8 @@ export const ProductListPage = ({ match }) => {
     .filter(productItem => (checkedBrands.length === 0) ? productItem : checkedBrands.some(chackedItem => chackedItem === productItem.brand))
     .filter(productItem => (priceValues.length === 0) ? productItem : (priceValues[0] < productItem.currentPrice && productItem.currentPrice < priceValues[1]))
     .filter(productItem => (sortValue === 'Сортировать' || sortValue === 'priceAscending' || sortValue === 'priceDescending') ? productItem : productItem[sortValue] === true)
+    
+  const onPageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
 
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
@@ -74,7 +85,7 @@ export const ProductListPage = ({ match }) => {
   }
   const prodFilterNotFound = () => {
     return (
-      <div>По фильтрам {checkedColors} и {checkedBrands} ничего не найдено.</div>
+      <div>По данным фильтрам ничего не найдено.</div>
     )
   }
   const colorCheckBoxes = () => {
@@ -100,21 +111,11 @@ export const ProductListPage = ({ match }) => {
   const filtredProducts = () => {
     return (
       <ProductList>
-        {result.length === 0 ? prodFilterNotFound() : result.map((e, index) => (
+        {result.length === 0 ? prodFilterNotFound() : onPageChange(current, pageSize).map((e, index) => (
           <ProductItem key={index} product={e}/>
         ))}
       </ProductList>
     )
-  }
-  
-  const onPaginationChange = value => {
-    if (value <= 1) {
-      setMinValue(0);
-      setMaxValue(9);
-    } else {
-      setMinValue(maxValue);
-      setMaxValue(value * 9);
-    }
   }
 
   return (
@@ -146,7 +147,7 @@ export const ProductListPage = ({ match }) => {
             </Wrapper>}
           </FiltersWrapper>
           {filtredProducts()}
-          <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPaginationChange} />
+          <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false}/>
         </Wrapper>
       </Content>
     </ContentContainer>
