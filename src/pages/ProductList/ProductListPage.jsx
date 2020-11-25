@@ -16,7 +16,7 @@ import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import './style.scss';
-import { ScrollToTop } from '../../components/ScrollToTop';
+import { ScrollToTop } from '../../commons/ScrollToTop';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 
 export const ProductListPage = ({ match }) => {
@@ -25,7 +25,6 @@ export const ProductListPage = ({ match }) => {
 
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(9);
-  const [current, setCurrent] = useState(1);
 
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
@@ -78,7 +77,7 @@ export const ProductListPage = ({ match }) => {
     setSortValue(checkedSelectValue)
   }
 
-  const onPaginateChange = value => {
+  const onPaginationChange = value => {
     if (value <= 1) {
       setMinValue(0);
       setMaxValue(9);
@@ -171,7 +170,7 @@ export const ProductListPage = ({ match }) => {
                 />
               ))}
             </ProductList>
-            <StyledPagination defaultCurrent={1} current={current} defaultPageSize={9} total={result.length} onChange={onPaginateChange} />
+            <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPaginationChange} />
           </Wrapper>
         </Content>
       </ContentContainer>

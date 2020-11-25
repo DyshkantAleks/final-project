@@ -4,10 +4,10 @@ import { StyledButton } from './StyledButton';
 
 
 export const Button = (props) => {
-  const { text, onClick, color, width, disabled } = props;
+  const { text, onClick, color, width, disabled, center } = props;
   return (
     <>
-      <StyledButton disabled={disabled} width={width} color={color} onClick={onClick}>{text}</StyledButton>
+      <StyledButton disabled={disabled} center={center} width={width} color={color} onClick={onClick}>{text}</StyledButton>
     </>
   )
 };

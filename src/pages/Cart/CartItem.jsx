@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
@@ -46,3 +47,14 @@ export const CartItem = ({
   );
 };
 
+CartItem.propTypes = {
+  imageUrl: PropTypes.array,
+  currentPrice: PropTypes.number,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  itemNo: PropTypes.number,
+  quantity: PropTypes.number,
+  cartQuantityy: PropTypes.number,
+  _idy: PropTypes.string,
+  route: PropTypes.string,
+};

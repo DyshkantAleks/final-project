@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Link } from 'react-router-dom';
 
-export const ConteinerItem = styled.li`
-width: 29rem;
-/* width: 100%; */
+export const ContainerItem = styled.li`
+width: 100%;
 list-style: none;
 border: .1rem solid #e6e9ef;
 transition: all .3s linear;
@@ -12,17 +11,8 @@ margin-bottom: 2rem;
     &:hover{
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     };
-    @media ${device.tabletS}{
-        width: 33rem;
-    };
-    @media ${device.tabletM}{
-        width: 25.2rem;
-    };
-    @media ${device.tabletL}{
-        width: 21.5rem;
-    };
-    @media ${device.desktop}{
-        width: 100%;
+     @media ${device.tabletS}{
+        margin: 0;
     };
 `;
 
@@ -35,17 +25,17 @@ position: relative;
 overflow: hidden;
 padding: .5rem;
     @media ${device.tabletS}{
-        height: 33rem;
+        height: 29rem;
+        padding: 0;
     };
     @media ${device.tabletM}{
-        height: 25.2rem;
+        height: 32rem;
         padding: 1rem;
     };
     @media ${device.tabletL}{
-        height: 21.5rem;
+        height: 26.5rem;
     };
     @media ${device.desktop}{
-        height: 26.5rem;
         padding: 1.3rem;
     };
 `;
@@ -97,13 +87,6 @@ width: 85%;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
-/* height: 4rem;
-    @media ${device.tabletL}{
-        height: 6rem;
-    };
-    @media ${device.desktop}{
-        height: 4rem;
-    } */
 `;
 
 export const Name = styled.span`
@@ -125,13 +108,10 @@ height: 3rem;
         width: 75%;
     };
     @media ${device.tabletM}{
-        flex-direction: column;
-        height: 6rem;
+        width: 100%;
     };
-    @media ${device.desktop}{
-        flex-direction: row;
+    @media ${device.tabletL}{
         width: 95%;
-        height: 3rem;
     };
 `;
 
@@ -148,11 +128,11 @@ text-decoration: line-through;
         font-weight: 700;
     };
     @media ${device.tabletM}{
-        font-weight: 800;
-        font-size: 2rem;
+        font-weight: 700;
+        font-size: 1.8rem;
             &::after{
-                left: 0.5;
-                font-size: 1.5rem;
+                left: 0.3;
+                font-size: 1.3rem;
                 font-weight: 700;
         };
     };
@@ -170,11 +150,11 @@ color: #8D145E;
         font-weight: 700;
     };
     @media ${device.tabletM}{
-        font-weight: 800;
-        font-size: 2.5rem;
+        font-weight: 700;
+        font-size: 2rem;
             &::after{
-                left: 0.5;
-                font-size: 1.5rem;
+                left: .3;
+                font-size: 1.3rem;
                 font-weight: 700;
         };
     };
@@ -193,10 +173,10 @@ color: #6F7281;
     };
     @media ${device.tabletM}{
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 2rem;
             &::after{
-                left: 1rem;
-                font-size: 1.8rem;
+                left: .3rem;
+                font-size: 1.3rem;
                 font-weight: 700;
         };
     };
