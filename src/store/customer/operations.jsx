@@ -1,10 +1,10 @@
 import { server } from '../../API';
-import { setAuthToken } from '../auth/middlware';
+import { setAuthToken } from '../auth/operations';
 
-import { setCustomer, setCustomerError } from './action-creators';
-import { getCart } from '../cart/middlware'
-import { getFavorites } from '../favorites/middlware'
-import { openModal } from '../modal/actions-creators';
+import { setCustomer, setCustomerError } from './actions';
+import { getCart } from '../cart/operations'
+import { getFavorites } from '../favorites/operations'
+import { openModal } from '../modal/actions';
 
 export const registerCustomer = (customer) => async (dispatch) => {
   try {

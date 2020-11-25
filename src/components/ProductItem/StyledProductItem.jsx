@@ -12,11 +12,6 @@ margin-bottom: 2rem;
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     };
      @media ${device.tabletS}{
-        width: 33rem;
-        margin: 1rem auto;
-    };
-    @media ${device.tabletM}{
-        width: 100%;
         margin: 0;
     };
 `;
@@ -30,17 +25,17 @@ position: relative;
 overflow: hidden;
 padding: .5rem;
     @media ${device.tabletS}{
-        height: 33rem;
+        height: 29rem;
+        padding: 0;
     };
     @media ${device.tabletM}{
-        height: 25.2rem;
+        height: 32rem;
         padding: 1rem;
     };
     @media ${device.tabletL}{
-        height: 21.5rem;
+        height: 26.5rem;
     };
     @media ${device.desktop}{
-        height: 26.5rem;
         padding: 1.3rem;
     };
 `;

@@ -1,6 +1,5 @@
-import {GlobalConfig} from '../../GlobalConfig'
+import {GlobalConfig} from '../../GlobalConfig';
 const LiqPay = require('../../utils/liqpay');
-
 
 export const liqpay = new LiqPay(GlobalConfig.REACT_APP_PUBLIC_KEY, GlobalConfig.REACT_APP_PRIVATE_KEY);
 

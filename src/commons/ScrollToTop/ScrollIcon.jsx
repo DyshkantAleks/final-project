@@ -47,4 +47,3 @@ export const ScrollIcon = (props) => {
     </IconScroll>
   );
 };
-

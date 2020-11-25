@@ -1,4 +1,4 @@
-import { setFavorites, addToFavorites, removeFromFavorites } from './actions-creators';
+import { setFavorites, addToFavorites, removeFromFavorites } from './actions';
 import * as actions from './action-types';
 
 // REMOVE_FROM_FAVORITES,

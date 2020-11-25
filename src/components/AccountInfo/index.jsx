@@ -15,12 +15,12 @@ import {
   PersonalSectionFooter,
 } from './StyledAccountInfo';
 import { selectCustomer } from '../../store/customer/slectors';
-import { logOut } from '../../store/auth/middlware';
+import { logOut } from '../../store/auth/operations';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 // import { params } from '../LiqPay/liqpayData';
-import { openModal } from '../../store/modal/actions-creators';
+import { openModal } from '../../store/modal/actions';
 import { ChangePersonalDataForm } from '../forms/ChangeAccountForms/ChangePersonDataForm';
 import { ChangePassForm } from '../forms/ChangeAccountForms/ChangePassForm';
 

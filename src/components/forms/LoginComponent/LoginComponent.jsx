@@ -2,22 +2,21 @@ import React, { useState } from 'react'
 import { Checkbox } from 'antd';
 
 import {LoginForm} from '../LoginComponent/LoginForm'
-import { auth } from '../../../store/auth/middlware';
+import { auth } from '../../../store/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorsField } from '../Errors/ErrorsField';
 import { selectError } from '../../../store/auth/selectors';
 import { useHistory } from 'react-router';
-import { closeModal } from '../../../store/modal/actions-creators';
+import { closeModal } from '../../../store/modal/actions';
 import { RegisterForm } from '../RegisterComponent/RegisterForm';
-import { registerCustomer } from '../../../store/customer/middlwares';
+import { registerCustomer } from '../../../store/customer/operations';
 
 export const LoginComponent = props => {
   const dispatch = useDispatch()
   const error = useSelector(selectError)
   const history = useHistory()
   const [registered, setRegistered] = useState(false)
-  const logInHandler = (login, password) =>{
-    
+  const logInHandler = (login, password) => {
     dispatch(auth(login, password, history))
     
     if (error) { dispatch(closeModal()) }
