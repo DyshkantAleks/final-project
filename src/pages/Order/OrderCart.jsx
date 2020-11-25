@@ -4,7 +4,7 @@ import { CartItem } from './CartItem';
 import { useSelector } from 'react-redux';
 import {
   CartContainer,
-  CartMenu,
+  OrderCartMenu,
   CartTotalContainer,
   CartTotalText,
   CartEmpty
@@ -27,9 +27,9 @@ export const OrderCart = () => {
       <CartContainer>
         {
           cartItems.length === 0 ? <CartEmpty>В корзине нет товаров</CartEmpty>
-            : <CartMenu>
+            : <OrderCartMenu>
               {menuArray.map((item, index) => <p key={index}>{item}</p>)}
-            </CartMenu>
+            </OrderCartMenu>
         }
         {
           cartItems.map(item =>

@@ -68,17 +68,17 @@ export const OrderPage = (props) => {
 
 const ComponentContainerL = styled.div`
   @media ${device.desktop} {
-    margin-left: 1em;
-    margin-right: 4em;
-    margin-bottom: 1em;
+    margin-right: 4rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
   } ;
 `;
 
 const ComponentContainerR = styled.div`
   @media ${device.desktop} {
-    margin-left: 4em;
-    margin-right: 1em;
-    margin-bottom: 1em;
+    margin-left: 4rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
   } ;
 `;
 
