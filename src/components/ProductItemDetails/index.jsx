@@ -17,6 +17,7 @@ export const ProductItemDetails = (props) => {
   const { product, btnInCart, btnHeandler, inFavorite, addToFav, removeFromFav} = props;
   const {name, isSale, currentPrice, previousPrice, brand, quantity, itemNo, isNewProduct, isTopRated, description, sizes, specifications, color } = product;
   const { screenWidth } = useWindowDimensions();
+  console.log(typeof product.itemNo)
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
   const [value, setValue] = useState(1);
@@ -111,7 +112,7 @@ export const ProductItemDetails = (props) => {
             <ProductCounter value={value} setValue={setValue} quantity={quantity} name={name} />
           </Actions>
           <Actions>
-            {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
+            {btnInCart ? <Button disabled width='true' text={'В корзине'} /> : <Button width='true' color='true' text={'Купить'} onClick={() => btnHeandler(product, value)} />}
           </Actions>
         </ActionsContainer>
       </ContainerDetails>
