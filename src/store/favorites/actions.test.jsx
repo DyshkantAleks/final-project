@@ -1,5 +1,5 @@
-import { setFavorites, addToFavorites, removeFromFavorites } from './actions-creators';
-import * as actions from './action-types';
+import { setFavorites, addToFavorites, removeFromFavorites } from './actions';
+import * as actions from './types';
 
 // REMOVE_FROM_FAVORITES,
 describe('Set favorite actions', () => {

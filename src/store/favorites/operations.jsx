@@ -1,5 +1,5 @@
 import {server} from '../../API';
-import { addToFavorites, removeFromFavorites, setFavorites } from './actions-creators';
+import { addToFavorites, removeFromFavorites, setFavorites } from './actions';
 
 function unique (arr) {
   const res = new Map();

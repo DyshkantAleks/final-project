@@ -47,6 +47,7 @@
         "stylelint": "^13.7.2",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-order": "^4.1.0",
+        "use-error-boundary": "^2.0.4",
         "yup": "^0.29.3"
     },
     "scripts": {
