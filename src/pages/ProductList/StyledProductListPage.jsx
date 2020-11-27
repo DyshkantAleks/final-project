@@ -1,13 +1,46 @@
 import styled from 'styled-components';
 
 import { device } from '../../styles/breakpoints/breakpoints';
-import { Checkbox, Pagination } from 'antd';
+import { Pagination } from 'antd';
 
 export const StyledChackboxName = styled.span`
   padding-left: 1rem;
 `
-export const StyledLabael = styled.label`
+export const StyledLabel = styled.label`
   padding: 0.7rem 0;
+  display: flex;
+  align-items: center;
+
+  & input {
+    display: none;
+  }
+
+  .checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #A0A9AF;
+    border-radius: 15%;
+  }
+
+  &:hover .checkbox {
+    border: 1px solid #7191A6;
+  }
+
+  & input[type='checkbox']:checked + .checkbox {
+    border: 1px solid #7191A6;
+  }
+
+  & input[type='checkbox']:checked + .checkbox::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 15%;
+    background: #7191A6;
+  }
 `
 export const Content = styled.main`
   @media ${device.desktop} {
@@ -68,15 +101,11 @@ font-size: 2.4rem;
 text-align: left;
 `;
 
-export const StyledCheckboxGroupe = styled(Checkbox.Group)`
-display: flex;
-flex-direction: column;
-justify-content: center;
-`;
 export const StyledCheckboxGroup = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
+margin-top: 1rem;
 `;
 
 export const ProductList = styled.div`
