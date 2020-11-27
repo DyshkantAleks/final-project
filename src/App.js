@@ -28,14 +28,12 @@ function App () {
     <>
       {didCatch ? (<NotFoundPage/>
       ) : (
-        <>
+        <ErrorBoundary>
           <Header/>
           <ScrollToTop/>
-          <ErrorBoundary>
-            {dataLoad && <Navigation/>}
-          </ErrorBoundary>
+          {dataLoad && <Navigation/>}
           <Footer/>
-        </>
+        </ErrorBoundary>
       )
       }
     </>

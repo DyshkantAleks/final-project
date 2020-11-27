@@ -5,7 +5,7 @@ import { Collapse } from 'antd';
 import { slide as MobileFilter } from 'react-burger-menu';
 import './style.scss';
 
-import { Content, Wrapper, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper, StyledPagination } from './StyledProductListPage';
+import { Content, Wrapper, StyledChackboxName, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper, StyledPagination, StyledCheckboxGroup, StyledLabael } from './StyledProductListPage';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
@@ -16,6 +16,7 @@ import { categoriesFilter } from '../../utils/filters';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { useHistory } from 'react-router';
+import CheckboxGroup from 'react-checkbox-group';
 
 export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
@@ -90,22 +91,54 @@ export const ProductListPage = ({ match }) => {
   }
   const colorCheckBoxes = () => {
     return (
-      <StyledCheckboxGroupe onChange={onChackedColorHandler} value={checkedColors}>
+      // <StyledCheckboxGroupe onChange={onChackedColorHandler} value={checkedColors}>
+      //   <FilterName>Цвет</FilterName>
+      //   {[...arrayOfColors].map((item, index) =>
+      //     <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
+      //   )}
+      // </StyledCheckboxGroupe>
+      // ---------------------------------------------------
+      <StyledCheckboxGroup>
         <FilterName>Цвет</FilterName>
-        {[...arrayOfColors].map((item, index) =>
-          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
-        )}
-      </StyledCheckboxGroupe>
+        <CheckboxGroup name="Цвет" value={checkedColors} onChange={onChackedColorHandler}>
+          {(Checkbox) => (
+            [...arrayOfColors].map((item, index) =>
+              <StyledLabael key={index} >
+                <span>
+                  <Checkbox value={item}/>
+                </span>
+                <StyledChackboxName>{item}</StyledChackboxName>
+              </StyledLabael>
+            )
+          )}
+        </CheckboxGroup>
+      </StyledCheckboxGroup>
     )
   }
   const brandCheckBoxes = () => {
     return (
-      <StyledCheckboxGroupe onChange={onCheckedBrandHandler} value={checkedBrands}>
+      // <StyledCheckboxGroupe onChange={onCheckedBrandHandler} value={checkedBrands}>
+      //   <FilterName>Бренд</FilterName>
+      //   {[...arrayOfBrands].map((item, index) =>
+      //     <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
+      //   )}
+      // </StyledCheckboxGroupe>
+      // -------------------------------------------------
+      <StyledCheckboxGroup>
         <FilterName>Бренд</FilterName>
-        {[...arrayOfBrands].map((item, index) =>
-          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
-        )}
-      </StyledCheckboxGroupe>
+        <CheckboxGroup name="Бренд" value={checkedBrands} onChange={onCheckedBrandHandler}>
+          {(Checkbox) => (
+            [...arrayOfBrands].map((item, index) =>
+              <StyledLabael key={index} >
+                <span>
+                  <Checkbox value={item}/>
+                </span>
+                <StyledChackboxName>{item}</StyledChackboxName>
+              </StyledLabael>
+            )
+          )}
+        </CheckboxGroup>
+      </StyledCheckboxGroup>
     )
   }
   const filtredProducts = () => {

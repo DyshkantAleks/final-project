@@ -45,7 +45,7 @@ const createLetter = (data, order) => {
   }
 
   const letter = {
-    FullName: order.name + ' ' + order.surname,
+    // FullName: order.name + ' ' + order.surname,
     FullAddress: CreateFullAddress(),
     Shipping: data.shipping,
     PayMethod: data.payMethod,

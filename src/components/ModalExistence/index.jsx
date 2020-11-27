@@ -9,7 +9,6 @@ import { closeModal } from '../../store/modal/actions.jsx';
 
 export const ModalExistence = (props) => {
   const { name, quantity, route} = props;
-  const history = useHistory();
   const dispatch = useDispatch();
   const closeModalHandler = () => {
     dispatch(closeModal())
@@ -24,17 +23,28 @@ export const ModalExistence = (props) => {
           <ItemInnerWrapper>{' '}{quantity}{' '}шт</ItemInnerWrapper>. Вы можете &laquo;Продолжить покупки&raquo; или же &laquo;Оставте заявку&raquo; и наш менеджер свяжеться с Вами, как только товар появиться на складе.
         </ModalTitle>
       </ContentWrapper>
-      <ActionsWrapper>
-        <Button
-          color='true' text={'Продолжить покупки'} onClick={() => {
-            history.push('/catalog/all');
-            closeModalHandler()
-          }} />
-        <Button color='true' text={'Оставить заявку'} />
-      </ActionsWrapper>
     </ModalWrapper>
   )
 };
+
+export const ModalExistenceActions = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const closeModalHandler = () => {
+    dispatch(closeModal())
+  }
+  return (
+    <ActionsWrapper>
+      <Button
+        color='true' text={'Продолжить покупки'} onClick={() => {
+          history.push('/catalog/all');
+          closeModalHandler()
+        }} />
+      <Button color='true' text={'Оставить заявку'} />
+    </ActionsWrapper>
+  )
+};
+
 
 ModalExistence.propTypes = {
   name: PropTypes.string,

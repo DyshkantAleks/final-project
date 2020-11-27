@@ -14,7 +14,7 @@ import { checkQuantity } from '../../store/cart/operations';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions';
-import { ModalExistence } from '../../components/ModalExistence';
+import { ModalExistence, ModalExistenceActions } from '../../components/ModalExistence';
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
@@ -30,8 +30,9 @@ export const OrderPage = (props) => {
     dispatch(
       openModal({
         content: shortageProducts.map((item) => (
-          <ModalExistence name={item.product.name} quantity={item.quantity} route={item.product.route} key={item.product.itemNo}/>
-        ))
+          <ModalExistence name={item.product.name} quantity={item.product.quantity} route={item.product.route} key={item.product.itemNo}/>        
+        )),
+        actions: <ModalExistenceActions/>
       })
     );
   }
