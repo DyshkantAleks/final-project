@@ -6,6 +6,10 @@ export const Price = styled.h4`
   text-align: left;
   font-size: 24px;
   color: #2E3438;
+
+  @media (max-width: 1200px){
+    display: none;
+  }; 
 `;
 
 export const Currency = styled.span`

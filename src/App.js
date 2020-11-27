@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './App.css';
 import './styles/style.scss';
 import { useErrorBoundary } from 'use-error-boundary'
 

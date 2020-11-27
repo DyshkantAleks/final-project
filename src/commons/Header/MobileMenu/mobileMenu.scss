@@ -5,6 +5,18 @@
   width: 2rem;
   height: 1.4rem;
   transform: translate(0, -50%);
+
+  &:active {
+    .bm-burger-bars-hover {
+      background: #373a47;
+      opacity: 1 !important;
+    }
+  }
+
+  button,
+  &:focus {
+    outline: none;
+  }
 }
 
 @media (min-width: 481px) {
@@ -28,7 +40,8 @@
 }
 
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #7191a6;
+  opacity: 1 !important;
 }
 
 .bm-cross-button {
