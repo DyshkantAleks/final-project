@@ -22,5 +22,6 @@ Button.propTypes = {
   color: PropTypes.string,
   width: PropTypes.string,
   disabled: PropTypes.bool,
+  center: PropTypes.string,
   onClick: PropTypes.func
 };

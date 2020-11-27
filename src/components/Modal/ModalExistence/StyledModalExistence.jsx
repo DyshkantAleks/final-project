@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { device } from '../../styles/breakpoints/breakpoints';
+import { device } from '../../../styles/breakpoints/breakpoints';
 
 export const ModalWrapper = styled.div`
 width: 100%;

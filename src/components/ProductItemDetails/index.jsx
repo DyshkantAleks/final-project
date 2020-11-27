@@ -110,13 +110,11 @@ export const ProductItemDetails = (props) => {
           <Actions>
             <ProductCounter value={value} setValue={setValue} quantity={quantity} name={name} />
           </Actions>
-          {quantity > 0 ?
-            <Actions>
-              {btnInCart ? <Button disabled width='true' text={'В корзине'} /> : <Button width='true' color='true' text={'Купить'} onClick={() => btnHeandler(product, value)} />}
-            </Actions> :
-            <Actions>
-              <Button disabled text={'Нет в наличии'} />
-            </Actions>
+          {quantity > 0 ? <Actions>
+            {btnInCart ? <Button disabled width={'true'} text={'В корзине'} /> : <Button width={'true'} color={'true'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
+          </Actions> : <Actions>
+            <Button disabled width={'true'} text={'Отсутствует'} />
+          </Actions>
           }
         </ActionsContainer>
       </ContainerDetails>

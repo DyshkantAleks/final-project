@@ -7,7 +7,7 @@ import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
 import { IconNew } from './IconsSvg/IconNew';
 import { IconTopRated } from './IconsSvg/IconTopRated';
-import { ContainerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer, ButtonContainerCenter } from './StyledProductItem';
+import { ContainerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/operations';
@@ -75,15 +75,11 @@ export const ProductItem = (props) => {
           <PriceContainer>
             <Price>{currentPrice.toLocaleString()}</Price>
           </PriceContainer>}
-        {quantity > 0 ?
-          <ButtonContainer>
-            {btnInCart ? <Button disabled width='true' text={'В корзине'} />
-              : <Button color='true' width='true' text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
-          </ButtonContainer>
-           :
-          <ButtonContainerCenter>
-            <Button disabled color='true' text={'Нет в наличии'} />
-          </ButtonContainerCenter>}
+        {quantity > 0 ? <ButtonContainer>
+          {btnInCart ? <Button disabled width={'true'} text={'В корзине'} /> : <Button color={'true'} width={'true'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
+        </ButtonContainer> : <ButtonContainer>
+          <Button disabled color={'true'} width={'true'} text={'Отсутствует'} />
+        </ButtonContainer>}
       </TitleBox>
     </ContainerItem>
   )

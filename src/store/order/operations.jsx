@@ -1,6 +1,9 @@
+import React from 'react';
 import { server } from '../../API';
 import { setOrder } from './actions';
 import axios from 'axios';
+import { openModal } from '../modal/actions';
+import { ModalOrderActions, ModalOrder } from '../../components/Modal/ModalOrder';
 
 export const createOrder = (order) => (_, getState) => {
   const state = getState()
@@ -34,12 +37,17 @@ export const createOrder = (order) => (_, getState) => {
   };
 };
 
-const createLetter = (data) => {
+const createLetter = (data, order) => {
+  const CreateFullAddress = () => {
+    let FullAddress = '';
+    if (data.shipping !== 'Pick up from store') FullAddress = 'Country: ' + data.deliveryAddress.country + ', City: ' + data.deliveryAddress.city + ', Address: ' + data.deliveryAddress.address
+    else FullAddress = '-'
+    return FullAddress
+  }
+
   const letter = {
-    FullAddress:
-  'Country: ' + data.deliveryAddress.country +
-  ', City: ' + data.deliveryAddress.city +
-  ', Address: ' + data.deliveryAddress.address,
+    // FullName: order.name + ' ' + order.surname,
+    FullAddress: CreateFullAddress(),
     Shipping: data.shipping,
     PayMethod: data.payMethod,
     Email: data.email,
@@ -53,7 +61,7 @@ const createLetter = (data) => {
 };
 
 const sendLetter = (letter) => {
-  axios.post('https://formcarry.com/s/Eu_mXAz6nC', letter, {headers: {Accept: 'application/json'}})
+  axios.post('https://formcarry.com/s/Eu_mXAz6nC', letter, { headers: { Accept: 'application/json' } })
     .then(response => console.log(response))
     .catch(error => console.log(error))
 }
@@ -63,11 +71,11 @@ export const confirmOrder = (order) => async (dispatch) => {
   console.log(newOrder)
   try {
     const { status, data } = await server.post('/orders', newOrder);
-    
+
     if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
       sendLetter(createLetter(data.order))
-      console.log(data.order)
+      dispatch(openModal({ content: <ModalOrder data={data} />, actions: <ModalOrderActions /> }))
     }
   } catch (error) {
     console.log(error)

@@ -1,18 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { ModalWrapper, ContentWrapper, ModalTitle, StyledLink, ProductNameList, ItemInnerWrapper, ActionsWrapper } from './StyledModalExistence';
-import { Button } from '../Button';
-import { closeModal } from '../../store/modal/actions.jsx';
-import { checkQuantity } from '../../store/cart/operations';
-import { selectProducts } from '../../store/products/selectors';
-import { selectCart } from '../../store/cart/selectors';
+import { Button } from '../../Button';
+import { closeModal } from '../../../store/modal/actions.jsx';
 
-export const ModalExistence = () => {
-  const products = useSelector(selectProducts);
-  const cart = useSelector(selectCart);
-  const shortageProducts = checkQuantity(products, cart);
+export const ModalExistence = (props) => {
+  const { shortageProducts } = props;
   const dispatch = useDispatch();
   const closeModalHandler = () => dispatch(closeModal());
 
@@ -35,7 +30,7 @@ export const ModalExistence = () => {
   )
 };
 
-export const ModalExistenceAction = () => {
+export const ModalExistenceActions = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const closeModalHandler = () => {
