@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Header } from '../../commons/Header/Header';
 import { Footer } from '../../commons/Footer';
-import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
+import { ContactForm } from '../../forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 
 import { Title } from '../../components/Title/Title';

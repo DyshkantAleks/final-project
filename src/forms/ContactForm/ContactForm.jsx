@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Input, Select, Row, Col, Radio, AutoComplete } from 'antd';
-import { Button } from '../../Button';
+import { Button } from '../../components/Button';
 import styled from 'styled-components';
-import { selectCustomer } from '../../../store/customer/slectors';
-import { GlobalConfig } from '../../../GlobalConfig';
-import { getCity, getStreet } from '../../../utils/novaPoshtaApi';
+import { selectCustomer } from '../../store/customer/slectors';
+import { GlobalConfig } from '../../GlobalConfig';
+import { getCity, getStreet } from '../../utils/novaPoshtaApi';
+import { ValodationRules } from '../../validation/ValidationRules';
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
@@ -93,24 +94,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='name'
             label='Имя'
-            rules={[
-              {
-                required: true,
-                message: 'Введите имя!',
-              },
-              {
-                pattern: GlobalConfig.textFieldRegExp,
-                message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
-              },
-              {
-                min: 2,
-                message: 'Имя должно содержать минимум 2 символа!',
-              },
-              {
-                max: 25,
-                message: 'Имя должно содержать максимум 25 символов!',
-              },
-            ]}
+            rules={ValodationRules.nameRules}
           >
             <Input />
           </Form.Item>
@@ -119,24 +103,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='surname'
             label='Фамилия'
-            rules={[
-              {
-                required: true,
-                message: 'Введите фамилию!',
-              },
-              {
-                pattern: GlobalConfig.textFieldRegExp,
-                message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
-              },
-              {
-                min: 2,
-                message: 'Фамилия должна содержать минимум 2 символа!',
-              },
-              {
-                max: 25,
-                message: 'Фамилия должна содержать максимум 25 символов!',
-              },
-            ]}
+            rules={ValodationRules.surnameRules}
           >
             <Input />
           </Form.Item>
@@ -148,16 +115,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='email'
             label='E-mail'
-            rules={[
-              {
-                type: 'email',
-                message: 'Некоректный E-mail ',
-              },
-              {
-                required: true,
-                message: 'Введите  E-mail!',
-              },
-            ]}
+            rules={ValodationRules.emailRules}
           >
             <Input />
           </Form.Item>
@@ -166,13 +124,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='phone'
             label='Телефон'
-            rules={[
-              { required: true, message: 'Введите номер телефона!' },
-              {
-                pattern: GlobalConfig.numberFieldRegExp,
-                message: 'Введите правильный номер',
-              },
-            ]}
+            rules={ValodationRules.phoneRules}
           >
             <Input addonBefore={prefixSelector} />
           </Form.Item>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { 
+import {
   CartContainer,
   CartMenu,
   CartTotalContainer,
   CartTotalText,
   CartEmpty
- } from './StyledCartItem';
+} from './StyledCartItem';
 
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
@@ -39,11 +39,11 @@ export const CartPage = () => {
 
         <CartContainer>
           {
-            (cartItems.length === 0) ? <CartEmpty>В корзине нет товаров</CartEmpty> :
-            <CartMenu>
-               {menuArray.map((item, index) => <p key={index}>{item}</p>)} 
-             </CartMenu>
-           }
+            (cartItems.length === 0) ? <CartEmpty>В корзине нет товаров</CartEmpty>
+              : <CartMenu>
+                {menuArray.map((item, index) => <p key={index}>{item}</p>)}
+              </CartMenu>
+          }
           {
             cartItems.map(item =>
               <CartItem
@@ -64,4 +64,3 @@ export const CartPage = () => {
     </>
   )
 }
-
