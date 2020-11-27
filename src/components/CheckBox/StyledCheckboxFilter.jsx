@@ -6,6 +6,12 @@ export const Container = styled.div`
 `;
 
 export const StyledCheckbox = styled(Checkbox)`
+  line-height: 5rem;
+
+  &+.ant-checkbox-wrapper {
+  margin: 0;
+}
+
   & .ant-checkbox-checked::after {
     display: none;
   }
