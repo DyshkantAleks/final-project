@@ -232,3 +232,28 @@ min-height: 100px;
   min-height: inherit;
 }
 `;
+
+export const OrderCartMenu = styled.div`
+background-color: #F5F5F5;
+
+  @media ${device.mobile}{
+    display: none;
+  };
+  @media ${device.tabletS}{
+    grid-template-columns: 31% 1fr 27% 19%;
+    display: ${props => (props.fav ? 'none' : 'grid')};
+    align-items: center;
+  };
+  @media ${device.tabletM}{
+  grid-template-columns: 31% 28% 18% 25%;
+  display: grid;
+  }
+  
+  p {
+    font-size: 1em;
+    margin: 0;
+    padding: 2rem;
+    color: #7191A6;
+    font-weight: bold;
+  };
+`;

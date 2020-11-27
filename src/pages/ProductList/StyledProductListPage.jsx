@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Checkbox, Pagination } from 'antd';
 
+export const StyledChackboxName = styled.span`
+  padding-left: 1rem;
+`
+export const StyledLabael = styled.label`
+  padding: 0.7rem 0;
+`
 export const Content = styled.main`
   @media ${device.desktop} {
     display: grid;
@@ -67,6 +73,11 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 `;
+export const StyledCheckboxGroup = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+`;
 
 export const ProductList = styled.div`
 display: flex;
@@ -88,6 +99,7 @@ justify-content: center;
 `;
 
 export const StyledPagination = styled(Pagination)`
+margin-top: 2rem;
 text-align: center;
 
 .ant-pagination-next:hover,
@@ -100,6 +112,13 @@ text-align: center;
 
 .ant-pagination-item:hover {
   border-color: #7191a6;
+}
+
+.ant-pagination-jump-next-custom-icon:hover,
+.ant-pagination-jump-prev-custom-icon:hover {
+  .ant-pagination-item-link-icon {
+    color: #7191a6;
+  }
 }
 
 .ant-pagination-item-active {
