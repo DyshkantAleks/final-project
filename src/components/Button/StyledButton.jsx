@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledButton = styled.button`
 width: ${props => props.width ? '13rem' : '23rem'};
 font-weight: bold;
+margin: ${props => props.center ? '0 auto' : '0'};
 color: ${props => props.color ? '#fff' : '#7191A6'};
 background-color: ${props => props.color ? '#7191A6' : '#fff'};
 border: .1rem solid #7191A6;

@@ -87,6 +87,7 @@ export const RegisterForm = (props) => {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
+              // eslint-disable-next-line prefer-promise-reject-errors
               return Promise.reject('Пароли не совпадают!');
             },
           }),

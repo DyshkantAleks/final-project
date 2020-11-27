@@ -27,7 +27,6 @@ export const ContactForm = (props) => {
       setAutoCompleteCityResult([]);
     } else {
       getCity(value).then((list) => {
-        
         return setAutoCompleteCityResult(list.map((list) => list));
       });
     }
@@ -43,7 +42,6 @@ export const ContactForm = (props) => {
       setAutoCompleteStreetResult([]);
     } else {
       getStreet(value, searchCode).then((list) => {
-      
         setAutoCompleteStreetResult(
           list.map((list) => {
             return list;
@@ -255,7 +253,7 @@ export const ContactForm = (props) => {
           </Form.Item>
         </Col>
       </Row>
-      <Button text='Подтвердить заказ' type='submit'></Button>
+      <Button text='Подтвердить заказ' type='submit' color='green'></Button>
     </Form>
   );
 };

@@ -1,31 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-
 import './App.css';
 import './styles/style.scss';
-import { persistor } from './store';
-import { PersistGate } from 'redux-persist/integration/react';
+import { useErrorBoundary } from 'use-error-boundary'
+
 import { Navigation } from './pages/navigation';
+import { Header } from './commons/Header/Header';
+import { Footer } from './commons/Footer';
+import { ScrollToTop } from './commons/ScrollToTop';
+import { NotFoundPage } from './pages/404';
 import { getAppData } from './store/asyncActions';
 
-import ErrorBoundary from './components/ErrorBoundary';
-
-function App() {
+function App () {
   const dispatch = useDispatch();
   const [dataLoad, setDataLoad] = useState(false);
   useEffect(() => {
     dispatch(getAppData()).then(() => setDataLoad(true))
   }, [dispatch]);
 
+  const {
+    ErrorBoundary,
+    didCatch
+  } = useErrorBoundary();
+
   return (
-    <PersistGate loading={null} persistor={persistor}>
-      <Router>
+    <>
+      {didCatch ? (<NotFoundPage/>
+      ) : (
         <ErrorBoundary>
+          <Header/>
+          <ScrollToTop/>
           {dataLoad && <Navigation/>}
+          <Footer/>
         </ErrorBoundary>
-      </Router>
-    </PersistGate>
+      )
+      }
+    </>
   );
 }
 

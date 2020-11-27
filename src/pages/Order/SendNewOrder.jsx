@@ -2,7 +2,6 @@ import { server } from '../../API';
 import { CreateNewOrder } from './CreateNewOrder';
 
 export const handleSubmit = (values) => {
-  
   const sendNewOrder = (newOrder) => async (dispatch) => {
     try {
       const { status } = await server.post(
@@ -15,5 +14,4 @@ export const handleSubmit = (values) => {
     } catch (error) {}
   };
   sendNewOrder(CreateNewOrder(values))();
-  
 };

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Title } from '../Title/Title';
 import { selectProducts } from '../../store/products/selectors';
 import { ProductItem } from '../ProductItem';
-import { ProductItemList } from '../../pages/Product/StyledProductPage';
+import { ProductItemList } from '../ProductItemDetails/StyledProductItemDetails';
 
 export const TopRatedProductsList = () => {
   const allProducts = useSelector(selectProducts)
@@ -16,12 +16,12 @@ export const TopRatedProductsList = () => {
         {
           arrayOfTopRated.map((e, index) => (
             <ProductItem
-              name={e.name}
-              price={e.currentPrice}
-              image={e.imageUrl[0]}
+              // name={e.name}
+              // price={e.currentPrice}
+              // image={e.imageUrl[0]}
+              // route={e.route}
+              // id={e._id}
               key={index}
-              route={e.route}
-              id={e._id}
               product={e}
             />
           ))

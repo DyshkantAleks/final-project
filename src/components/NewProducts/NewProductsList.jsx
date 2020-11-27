@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Title } from '../Title/Title';
 import { selectProducts } from '../../store/products/selectors';
 import { ProductItem } from '../ProductItem';
-import { ProductItemList } from '../../pages/Product/StyledProductPage';
+import { ProductItemList } from '../ProductItemDetails/StyledProductItemDetails';
 
 export const NewProductsList = () => {
   const allProducts = useSelector(selectProducts);
@@ -16,15 +16,7 @@ export const NewProductsList = () => {
       <ProductItemList>
         {
           arrayOfNew.map((e, index) => (
-            <ProductItem
-              key={index}
-              name={e.name}
-              price={e.currentPrice}
-              image={e.imageUrl[0]}
-              route={e.route}
-              id={e._id}
-              product={e}
-            />
+            <ProductItem key={index} product={e}/>
           ))
         }
       </ProductItemList>

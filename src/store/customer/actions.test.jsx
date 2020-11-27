@@ -1,5 +1,5 @@
-import { setCustomer, logOutCustomer } from './action-creators';
-import * as actions from './action-types';
+import { setCustomer, logOutCustomer } from './actions';
+import * as actions from './types';
 
 describe('Customer action-creator', () => {
   it('setCustomer():should attach customer', () => {

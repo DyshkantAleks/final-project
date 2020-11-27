@@ -10,7 +10,6 @@ import { selectPopularCategories } from '../../store/categories/selectors'
 
 export const PopularCategoryList = () => {
   const popularCategories = useSelector(selectPopularCategories)
-  
 
   return (
     <>

@@ -61,7 +61,7 @@ export const ProductSlider = (props) => {
   };
 
   const thumbsVerticalParams = {
-    slidesToShow: 5,
+    slidesToShow: 4,
     swipeToSlide: true,
     focusOnSelect: true,
     vertical: true,
