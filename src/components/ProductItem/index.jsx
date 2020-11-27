@@ -7,7 +7,7 @@ import { SolidIconFavorite } from './IconsSvg/SolidIconFavorite';
 import { IconSale } from './IconsSvg/IconSale';
 import { IconNew } from './IconsSvg/IconNew';
 import { IconTopRated } from './IconsSvg/IconTopRated';
-import { ContainerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer } from './StyledProductItem';
+import { ContainerItem, PhotoBox, Photo, TitleBox, NameContainer, Name, Price, StyledLink, ProductActivityContainer, PreviousPrice, PriceContainer, CurrentPrice, ButtonContainer, ButtonContainerCenter } from './StyledProductItem';
 import { Button } from '../Button';
 import { selectCart } from '../../store/cart/selectors';
 import { addProductToCart } from '../../store/cart/operations';
@@ -16,7 +16,7 @@ import { selectFavorites } from '../../store/favorites/selectors';
 
 export const ProductItem = (props) => {
   const { product } = props;
-  const { name, currentPrice, route, _id, isNewProduct, isTopRated, isSale, previousPrice } = product;
+  const { name, currentPrice, route, _id, isNewProduct, isTopRated, isSale, previousPrice, quantity } = product;
   const image = product.imageUrl[0];
   const dispatch = useDispatch();
 
@@ -67,18 +67,23 @@ export const ProductItem = (props) => {
         {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
         {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(_id)} />}
         {isSale &&
-            <PriceContainer>
-              <CurrentPrice>{currentPrice.toLocaleString()}</CurrentPrice>
-              <PreviousPrice>{previousPrice.toLocaleString()}</PreviousPrice>
-            </PriceContainer>}
+          <PriceContainer>
+            <CurrentPrice>{currentPrice.toLocaleString()}</CurrentPrice>
+            <PreviousPrice>{previousPrice.toLocaleString()}</PreviousPrice>
+          </PriceContainer>}
         {!isSale &&
-            <PriceContainer>
-              <Price>{currentPrice.toLocaleString()}</Price>
-            </PriceContainer>}
-        <ButtonContainer>
-          {btnInCart ? <Button disabled width='true' text={'В корзине'} />
-            : <Button color='true' width='true' text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
-        </ButtonContainer>
+          <PriceContainer>
+            <Price>{currentPrice.toLocaleString()}</Price>
+          </PriceContainer>}
+        {quantity > 0 ?
+          <ButtonContainer>
+            {btnInCart ? <Button disabled width='true' text={'В корзине'} />
+              : <Button color='true' width='true' text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
+          </ButtonContainer>
+           :
+          <ButtonContainerCenter>
+            <Button disabled color='true' text={'Нет в наличии'} />
+          </ButtonContainerCenter>}
       </TitleBox>
     </ContainerItem>
   )

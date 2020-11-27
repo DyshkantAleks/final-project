@@ -15,15 +15,7 @@ export const TopRatedProductsList = () => {
       <ProductItemList>
         {
           arrayOfTopRated.map((e, index) => (
-            <ProductItem
-              // name={e.name}
-              // price={e.currentPrice}
-              // image={e.imageUrl[0]}
-              // route={e.route}
-              // id={e._id}
-              key={index}
-              product={e}
-            />
+            <ProductItem key={index} product={e} />
           ))
         }
       </ProductItemList>

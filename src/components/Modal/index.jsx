@@ -28,7 +28,7 @@ export const Modal = ({ closeButton = true }) => {
         <ModalText>
           {content}
         </ModalText>
-        {actions && <ModalActions>{actions}</ModalActions>}
+        {actions && <>{actions}</>}
       </ModalWindow>
     </ModalOwerlay>,
     document.getElementById('modal-root')
@@ -72,12 +72,6 @@ const ModalText = styled.div`
   font-size: 20px;  
 `
 
-const ModalActions = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-self: center;
-  margin: 25px 0;
-`
 export const CloseBtn = styled.div`
 width: 1.5rem;
 height: 1.5rem;

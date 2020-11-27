@@ -15,6 +15,7 @@ import {
 import { FavDimensions } from './StyledFavoriteItemPage';
 import { addProductToCart } from '../../store/cart/operations.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
+import { Actions } from '../../components/ProductItemDetails/StyledProductItemDetails';
 
 export const FavItem = ({
   imageUrl,
@@ -25,6 +26,7 @@ export const FavItem = ({
   item,
   sizes,
   route,
+  quantity
 }) => {
   const dispatch = useDispatch();
 
@@ -58,8 +60,17 @@ export const FavItem = ({
       <FavDimensions>
         {sizes.height}cм x {sizes.width}см x {sizes.length}см
       </FavDimensions>
-      {btnInCart ? <Button center disabled width={'100%'} text={'В корзине'}/>
-        : <Button center color width={'100%'} text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
+      {quantity > 0 ?
+        <Actions>
+          {btnInCart ? <Button center disabled width='true' text={'В корзине'}/>
+          : <Button center color='true' width='true' text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>}
+        </Actions> :
+        <Actions>
+          <Button disabled width='true' text={'Нет в наличии'} />
+        </Actions>
+      }
+      {/* {btnInCart ? <Button center disabled width={'100%'} text={'В корзине'}/>
+        : <Button center color width={'100%'} text={'Купить'} onClick={() => btnAddToCart(item, 1)}/>} */}
     </CartItemContainer>
   );
 };
@@ -73,4 +84,5 @@ FavItem.propTypes = {
   item: PropTypes.object,
   sizes: PropTypes.object,
   route: PropTypes.string,
+  quantity: PropTypes.number
 };

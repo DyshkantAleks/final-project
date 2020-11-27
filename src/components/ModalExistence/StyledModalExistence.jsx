@@ -21,16 +21,19 @@ text-align: justify;
 
 export const ModalTitle = styled.h2`
 font-size: 1.2rem;
-margin-bottom: 1rem;
     @media ${device.tabletM}{
         font-size: 1.8rem;
-        margin-bottom: 1.5rem;
     };
     @media ${device.desktop}{
         font-size: 2rem;
-        margin-bottom: 2rem;
     };
 `;
+export const ProductNameList = styled.ul`
+margin: 0;
+display: grid;
+grid-template-columns: 75% 10%;
+gap: 2rem;
+`
 
 export const ItemInnerWrapper = styled.span`
 color: #7191a6;
@@ -43,13 +46,16 @@ grid-template-rows: repeat(2, 1fr);
 gap: 1rem;
 font-size: 1.2rem;
 place-content: center;
+margin: 0 2rem 2rem;
     @media ${device.tabletS}{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin: 0 2.7rem 2rem;
     };
     @media ${device.tabletM}{
         font-size: 1.5rem;
+        margin: 0 3.5rem 2rem;
     };
 `;
 
