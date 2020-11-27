@@ -20,8 +20,7 @@ function App () {
 
   const {
     ErrorBoundary,
-    didCatch,
-    error
+    didCatch
   } = useErrorBoundary();
 
   return (

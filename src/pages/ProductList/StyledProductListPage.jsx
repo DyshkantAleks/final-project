@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import { device } from '../../styles/breakpoints/breakpoints';
 import { Checkbox, Pagination } from 'antd';
 
+export const StyledChackboxName = styled.span`
+  padding-left: 1rem;
+`
+export const StyledLabael = styled.label`
+  padding: 0.7rem 0;
+`
 export const Content = styled.main`
   @media ${device.desktop} {
     display: grid;
@@ -63,6 +69,11 @@ text-align: left;
 `;
 
 export const StyledCheckboxGroupe = styled(Checkbox.Group)`
+display: flex;
+flex-direction: column;
+justify-content: center;
+`;
+export const StyledCheckboxGroup = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
