@@ -38,15 +38,34 @@ export const createOrder = (order) => (_, getState) => {
 };
 
 const createLetter = (data, order) => {
-  const CreateFullAddress = () => {
-    let FullAddress = '';
-    if (data.shipping !== 'Pick up from store') FullAddress = 'Country: ' + data.deliveryAddress.country + ', City: ' + data.deliveryAddress.city + ', Address: ' + data.deliveryAddress.address
-    else FullAddress = '-'
+
+  const CreateProductList = () =>{
+    let productList = "";
+    for (let i = 0; i < data.products.length; i++) {
+      console.log(data.products[i].product.name);
+      productList +=
+      "\n" + data.products[i].product.name +
+      " (color: "+data.products[i].product.color + 
+      ", itemNo: "+data.products[i].product.itemNo + 
+      ", Quantity: "+data.products[i].cartQuantity+"); "
+  } 
+    return (productList)
+}
+
+  const CreateFullAddress = () =>{
+    let FullAddress = "";
+      if (data.shipping !== "Pick up from store") 
+      FullAddress = 
+      'Country: ' + data.deliveryAddress.country + 
+      ', City: ' + data.deliveryAddress.city + 
+      ', Address: ' + data.deliveryAddress.address
+      else FullAddress = "-"
     return FullAddress
   }
 
   const letter = {
-    // FullName: order.name + ' ' + order.surname,
+    FullName: order.name + " " + order.surname,
+    ProductList: CreateProductList(),
     FullAddress: CreateFullAddress(),
     Shipping: data.shipping,
     PayMethod: data.payMethod,
@@ -61,7 +80,7 @@ const createLetter = (data, order) => {
 };
 
 const sendLetter = (letter) => {
-  axios.post('https://formcarry.com/s/Eu_mXAz6nC', letter, { headers: { Accept: 'application/json' } })
+  axios.post('https://formcarry.com/s/KcRNyuejRK', letter, {headers: {Accept: 'application/json'}})
     .then(response => console.log(response))
     .catch(error => console.log(error))
 }

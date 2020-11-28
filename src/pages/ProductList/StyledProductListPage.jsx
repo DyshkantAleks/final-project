@@ -84,28 +84,37 @@ export const Wrapper = styled.div`
 `;
 
 export const FiltersWrapper = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-  @media ${device.desktop} {
-    display: block;
-  }; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    @media ${device.desktop} {
+      display: block;
+    }; 
 `;
 
 export const Title = styled.h1`
-font-size: 3rem;
+  font-size: 3rem;
 `;
 
 export const FilterName = styled.h3`
-font-size: 2.4rem;
-text-align: left;
+  font-size: 2.4rem;
+  text-align: left;
+
+  @media (max-width: 1200px) {
+    display: none;
+  };
 `;
 
 export const StyledCheckboxGroup = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1rem;
+
+  @media (max-width: 1200px) {
+    margin-top: 0;
+  };
 `;
 
 export const ProductList = styled.div`
@@ -129,36 +138,37 @@ justify-content: center;
   @media ${device.desktop}{
     align-items: baseline;
   }; 
+
 `;
 
 export const StyledPagination = styled(Pagination)`
-margin-top: 2rem;
-text-align: center;
+  margin-top: 2rem;
+  text-align: center;
 
 .ant-pagination-next:hover,
-.ant-pagination-prev:hover {
-  .ant-pagination-item-link {
+  .ant-pagination-prev:hover {
+    .ant-pagination-item-link {
+      border-color: #7191a6;
+      color: #7191a6;
+    }
+  }
+
+  .ant-pagination-item:hover {
     border-color: #7191a6;
-    color: #7191a6;
   }
-}
 
-.ant-pagination-item:hover {
-  border-color: #7191a6;
-}
-
-.ant-pagination-jump-next-custom-icon:hover,
-.ant-pagination-jump-prev-custom-icon:hover {
-  .ant-pagination-item-link-icon {
-    color: #7191a6;
+  .ant-pagination-jump-next-custom-icon:hover,
+  .ant-pagination-jump-prev-custom-icon:hover {
+    .ant-pagination-item-link-icon {
+      color: #7191a6;
+    }
   }
-}
 
-.ant-pagination-item-active {
-  border-color: #7191a6;
+  .ant-pagination-item-active {
+    border-color: #7191a6;
 
-  a {
-    color: #7191a6;
+    a {
+      color: #7191a6;
+    }
   }
-}
 `;
