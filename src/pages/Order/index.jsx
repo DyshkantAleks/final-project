@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { device } from '../../styles/breakpoints/breakpoints';
-import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
+import { ContactForm } from '../../forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';

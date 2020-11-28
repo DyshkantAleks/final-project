@@ -1,5 +1,5 @@
 export const GlobalConfig = {
-  phoneNumberRegExp: /^\+?3?8?(0\d{9})$/,
+  phoneNumberRegExp: /(\d{9})$/,
   textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
   adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ.,\s`]+$/,
   numberFieldRegExp: /^[0-9]+$/,

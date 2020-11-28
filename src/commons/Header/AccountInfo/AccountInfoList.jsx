@@ -12,8 +12,8 @@ import { useHistory } from 'react-router-dom';
 import useWindowDimensions from '../../../utils/useWindowDimensions';
 import { ROUTES } from '../../../pages/navigation/routes';
 import { Modal } from '../../../components/Modal';
-import { openModal } from '../../../store/modal/actions-creators';
-import { LoginComponent } from '../../../components/forms/LoginComponent/LoginComponent';
+import { openModal } from '../../../store/modal/actions';
+import { LoginComponent } from '../../../forms/LoginComponent/LoginComponent';
 import { selectModalIsOpen } from '../../../store/modal/selectors';
 
 export const AccountInfoList = () => {
