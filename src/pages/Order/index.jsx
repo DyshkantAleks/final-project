@@ -7,8 +7,6 @@ import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-
-
 import { confirmOrder } from '../../store/order/operations';
 import { getProducts } from '../../store/products/operations';
 import { checkQuantity } from '../../store/cart/operations';
