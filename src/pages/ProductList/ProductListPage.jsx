@@ -9,8 +9,8 @@ import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { RangeSlider } from '../../components/RangeSlider/RangeSlider';
-import { ProductSorting } from '../../components/ProductSorting/ProductSorting'
+import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
+import { ProductSorting } from '../../components/productSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { useHistory } from 'react-router';
