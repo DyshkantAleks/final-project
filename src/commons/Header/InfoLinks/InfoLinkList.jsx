@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../../pages/navigation/routes'
+import { ROUTES } from '../../../pages/Navigation/routes'
 import { List, Item } from '../InfoLinks/StyledInfoLinks'
 
 export const InfoLinks = () => {

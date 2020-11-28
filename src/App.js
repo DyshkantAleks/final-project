@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux';
 import './styles/style.scss';
 import { useErrorBoundary } from 'use-error-boundary'
 
-import { Navigation } from './pages/navigation';
+import { Navigation } from './pages/Navigation';
 import { getProducts } from './store/products/operations';
 import { getCustomer } from './store/customer/operations';
 import { Header } from './commons/Header/Header';
 import { Footer } from './commons/Footer';
 import { ScrollToTop } from './commons/ScrollToTop';
 import { NotFoundPage } from './pages/404';
-import {Loader} from './components/Loader';
+import { Loader } from './components/Loader';
 
-function App () {
+function App() {
   const dispatch = useDispatch();
   const [dataLoad, setDataLoad] = useState(false);
   useEffect(() => {
@@ -26,15 +26,15 @@ function App () {
 
   return (
     <>
-      {didCatch ? (<NotFoundPage/>
+      {didCatch ? (<NotFoundPage />
       ) : (
-        <ErrorBoundary>
-          <Header/>
-          <ScrollToTop/>
-          {dataLoad ? <Navigation/> : <Loader />}
-          <Footer/>
-        </ErrorBoundary>
-      )
+          <ErrorBoundary>
+            <Header />
+            <ScrollToTop />
+            {dataLoad ? <Navigation /> : <Loader />}
+            <Footer />
+          </ErrorBoundary>
+        )
       }
     </>
   );
