@@ -10,15 +10,17 @@ import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
-import { ProductSorting } from '../../components/productSorting/ProductSorting'
+import { RangeSlider } from '../../components/RangeSlider/RangeSlider';
+import { ProductSorting } from '../../components/ProductSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
 import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import useWindowDimensions from '../../utils/useWindowDimensions';
+import { useHistory } from 'react-router-dom';
 
 export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
   const { screenWidth } = useWindowDimensions();
+  const history = useHistory()
 
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(9);
@@ -61,10 +63,14 @@ export const ProductListPage = ({ match }) => {
 
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
+    checkedValues.length > 0 ? history.push(`${route}?color:${checkedValues}`) : history.push(`${route}`)
+    console.log(history);
   }
 
   const onCheckedBrandHandler = (checkedValues) => {
     setCheckedBrands(checkedValues)
+    checkedValues.length > 0 ? history.push(`${route}?brand:${checkedValues}`) : history.push(`${route}`)
+    console.log(history);
   }
   const onAfterChangeHandler = (disabled) => {
     setPriceValues(disabled)

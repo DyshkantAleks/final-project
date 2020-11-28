@@ -4,7 +4,7 @@ import './App.css';
 import './styles/style.scss';
 import { useErrorBoundary } from 'use-error-boundary'
 
-import { Navigation } from './pages/navigation';
+import { Navigation } from './pages/Navigation';
 import { getProducts } from './store/products/operations';
 import { getCustomer } from './store/customer/operations';
 import { Header } from './commons/Header/Header';
