@@ -34,8 +34,8 @@ describe('ProductItemDetails component', () => {
             length: 1
           },
           specifications: {
-            covering: 'test',
-            casing: 'test'
+            covering: 'testCovering',
+            casing: 'testCasing'
           },
           color: 'testColor',
           _id: 'testId'
@@ -95,6 +95,25 @@ describe('ProductItemDetails component', () => {
     it('should be render with article', () => {
       const article = wrapper.find(ContainerDetails).find(AvailabilityArticleWrap).find(Article);
       expect(article.text()).toEqual('Артикул: testNumber');
+    });
+    it('should be render with title of description', () => {
+      const wrapDesc = wrapper.find(ContainerDetails).find(SubtitleBox).find(Subtitle);
+      expect(wrapDesc.text()).toEqual('Описание товара');
+    });
+    it('wrapper includes description', () => {
+      const description = wrapper.find(ContainerDetails).find(Description);
+      expect(description.length).toEqual(7);
+      expect(description.at(0).text()).toEqual('TestDesc');
+      expect(description.at(1).text()).toEqual('testColor');
+      expect(description.at(2).text()).toEqual('Высота - 1 cм, ');
+      expect(description.at(3).text()).toEqual('Ширина - 1 cм, ');
+      expect(description.at(4).text()).toEqual('Глубина - 1 cм ');
+      expect(description.at(5).text()).toEqual('testCovering');
+      expect(description.at(6).text()).toEqual('testCasing');
+    });
+    it('should be render with description', () => {
+      const description = wrapper.find(ContainerDetails).find(Description);
+      console.log(description.debug())
     });
   });
 });
