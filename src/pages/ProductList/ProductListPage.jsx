@@ -129,42 +129,37 @@ export const ProductListPage = ({ match }) => {
         {result.length === 0 ? prodFilterNotFound() : pageChange(current, pageSize).map((e, index) => (
           <ProductItem key={index} product={e} />
         ))}
-      </ProductList>
-    )
-  }
-
-  return (
-    <ContentContainer>
-      <Content>
-        {screenWidth >= 1200 && <Wrapper>
-          <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
-          {colorCheckBoxes()}
-          {brandCheckBoxes()}
-        </Wrapper>}
-
-        <Wrapper>
-          <FiltersWrapper>
-            <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
-            {screenWidth <= 1200 && <Wrapper>
-              <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
-                <Collapse ghost>
-                  <Panel header="Цена" key="1">
-                    <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
-                  </Panel>
-                  <Panel header="Цвет" key="2">
-                    {colorCheckBoxes()}
-                  </Panel>
-                  <Panel header="Бренд" key="3">
-                    {brandCheckBoxes()}
-                  </Panel>
-                </Collapse>
-              </MobileFilter>
+        <ContentContainer>
+          <Content>
+            {screenWidth >= 1200 && <Wrapper>
+              <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
+              {colorCheckBoxes()}
+              {brandCheckBoxes()}
             </Wrapper>}
-          </FiltersWrapper>
-          {filtredProducts()}
-          <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
-        </Wrapper>
-      </Content>
-    </ContentContainer>
+
+            <Wrapper>
+              <FiltersWrapper>
+                <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
+                {screenWidth <= 1200 && <Wrapper>
+                  <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
+                    <Collapse ghost>
+                      <Panel header="Цена" key="1">
+                        <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
+                      </Panel>
+                      <Panel header="Цвет" key="2">
+                        {colorCheckBoxes()}
+                      </Panel>
+                      <Panel header="Бренд" key="3">
+                        {brandCheckBoxes()}
+                      </Panel>
+                    </Collapse>
+                  </MobileFilter>
+                </Wrapper>}
+              </FiltersWrapper>
+              {filtredProducts()}
+              <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
+            </Wrapper>
+          </Content>
+        </ContentContainer>
   );
 }
