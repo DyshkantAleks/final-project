@@ -1,6 +1,8 @@
+import React from 'react';
 import { server } from '../../API';
 import { setOrder } from './actions';
 import axios from 'axios';
+import { openModal } from '../modal/actions';
 
 export const createOrder = (order) => (_, getState) => {
   const state = getState()
@@ -34,12 +36,36 @@ export const createOrder = (order) => (_, getState) => {
   };
 };
 
-const createLetter = (data) => {
+const createLetter = (data, order) => {
+
+  const CreateProductList = () =>{
+    let productList = "";
+    for (let i = 0; i < data.products.length; i++) {
+      console.log(data.products[i].product.name);
+      productList +=
+      "\n" + data.products[i].product.name +
+      " (color: "+data.products[i].product.color + 
+      ", itemNo: "+data.products[i].product.itemNo + 
+      ", Quantity: "+data.products[i].cartQuantity+"); "
+  } 
+    return (productList)
+}
+
+  const CreateFullAddress = () =>{
+    let FullAddress = "";
+      if (data.shipping !== "Pick up from store") 
+      FullAddress = 
+      'Country: ' + data.deliveryAddress.country + 
+      ', City: ' + data.deliveryAddress.city + 
+      ', Address: ' + data.deliveryAddress.address
+      else FullAddress = "-"
+    return FullAddress
+  }
+
   const letter = {
-    FullAddress:
-  'Country: ' + data.deliveryAddress.country +
-  ', City: ' + data.deliveryAddress.city +
-  ', Address: ' + data.deliveryAddress.address,
+    FullName: order.name + " " + order.surname,
+    ProductList: CreateProductList(),
+    FullAddress: CreateFullAddress(),
     Shipping: data.shipping,
     PayMethod: data.payMethod,
     Email: data.email,
@@ -53,7 +79,7 @@ const createLetter = (data) => {
 };
 
 const sendLetter = (letter) => {
-  axios.post('https://formcarry.com/s/Eu_mXAz6nC', letter, {headers: {Accept: 'application/json'}})
+  axios.post('https://formcarry.com/s/KcRNyuejRK', letter, {headers: {Accept: 'application/json'}})
     .then(response => console.log(response))
     .catch(error => console.log(error))
 }
@@ -66,8 +92,8 @@ export const confirmOrder = (order) => async (dispatch) => {
     
     if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
-      sendLetter(createLetter(data.order))
-      console.log(data.order)
+      sendLetter(createLetter(data.order, order))
+      dispatch(openModal({ content: <h2> Ваш заказ № {data.order.orderNo} принят</h2>}))
     }
   } catch (error) {
     console.log(error)

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Form, Input, Select, Row, Col, Radio, AutoComplete } from 'antd';
+import { Form, Select, Row, Col, Radio, AutoComplete } from 'antd';
 import { Button } from '../../Button';
-import styled from 'styled-components';
+import { Text, StyledInput, StyledRadio } from './StyledContactForm';
 import { selectCustomer } from '../../../store/customer/slectors';
 import { GlobalConfig } from '../../../GlobalConfig';
 import { getCity, getStreet } from '../../../utils/novaPoshtaApi';
@@ -18,7 +18,7 @@ export const ContactForm = (props) => {
   const [delivery, setdelivery] = useState(
     GlobalConfig.deliveryOptions[0].PICKUP.value
   );
-  
+
   const [form] = Form.useForm();
   // autocomplete city
   const onCityChange = (value) => {
@@ -55,8 +55,8 @@ export const ContactForm = (props) => {
   }));
   // --------------------------------------------
   const isVisibleAdressField =
-  delivery === GlobalConfig.deliveryOptions[0].PICKUP.value;
-  
+    delivery === GlobalConfig.deliveryOptions[0].PICKUP.value;
+
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select
@@ -110,7 +110,7 @@ export const ContactForm = (props) => {
               },
             ]}
           >
-            <Input />
+            <StyledInput />
           </Form.Item>
         </Col>
         <Col span={12}>
@@ -136,7 +136,7 @@ export const ContactForm = (props) => {
               },
             ]}
           >
-            <Input />
+            <StyledInput />
           </Form.Item>
         </Col>
       </Row>
@@ -157,7 +157,7 @@ export const ContactForm = (props) => {
               },
             ]}
           >
-            <Input />
+            <StyledInput />
           </Form.Item>
         </Col>
         <Col span={12}>
@@ -172,7 +172,7 @@ export const ContactForm = (props) => {
               },
             ]}
           >
-            <Input addonBefore={prefixSelector} />
+            <StyledInput addonBefore={prefixSelector} />
           </Form.Item>
         </Col>
       </Row>
@@ -195,7 +195,7 @@ export const ContactForm = (props) => {
                 ]}
               >
                 <AutoComplete options={cityOptions} onChange={onCityChange}>
-                  <Input onChange={onCityChange} />
+                  <StyledInput onChange={onCityChange} />
                 </AutoComplete>
               </Form.Item>
             </Col>
@@ -216,7 +216,7 @@ export const ContactForm = (props) => {
                 ]}
               >
                 <AutoComplete options={streetOptions} onChange={onStreetChange}>
-                  <Input />
+                  <StyledInput />
                 </AutoComplete>
               </Form.Item>
             </Col>
@@ -237,7 +237,7 @@ export const ContactForm = (props) => {
                   },
                 ]}
               >
-                <Input />
+                <StyledInput />
               </Form.Item>
             </Col>
 
@@ -255,7 +255,7 @@ export const ContactForm = (props) => {
                   },
                 ]}
               >
-                <Input />
+                <StyledInput />
               </Form.Item>
             </Col>
           </Row>
@@ -274,9 +274,9 @@ export const ContactForm = (props) => {
                   return acc.concat(Object.values(rec));
                 }, [])
                 .map(({ text, value }, index) => (
-                  <Radio style={radioStyle} key={index} value={value}>
+                  <StyledRadio key={index} value={value}>
                     {text}
-                  </Radio>
+                  </StyledRadio>
                 ))}
             </Radio.Group>
           </Form.Item>
@@ -293,24 +293,15 @@ export const ContactForm = (props) => {
                   return acc.concat(Object.values(rec));
                 }, [])
                 .map(({ text, value }, index) => (
-                  <Radio style={radioStyle} key={index} value={value}>
+                  <StyledRadio key={index} value={value}>
                     {text}
-                  </Radio>
+                  </StyledRadio>
                 ))}
             </Radio.Group>
           </Form.Item>
         </Col>
       </Row>
-      <Button text='Подтвердить заказ' type='submit'></Button>
+      <Button text='Подтвердить заказ' type='submit' color='green'></Button>
     </Form>
   );
-};
-const Text = styled.p`
-  font-size: 1.4rem;
-  line-height: 1.5;
-`;
-const radioStyle = {
-  display: 'block',
-  height: '30px',
-  lineHeight: '30px',
 };

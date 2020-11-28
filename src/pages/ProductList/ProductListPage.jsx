@@ -3,34 +3,32 @@ import { useSelector } from 'react-redux';
 import { FilterTwoTone } from '@ant-design/icons';
 import { Collapse } from 'antd';
 import { slide as MobileFilter } from 'react-burger-menu';
-import './style.scss';
 
-import { Content, Wrapper, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper, StyledPagination } from './StyledProductListPage';
+import { Content, Wrapper, StyledChackboxName, FilterName, ProductList, FiltersWrapper, StyledPagination, StyledCheckboxGroup, StyledLabel } from './StyledProductListPage';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { RangeSlider } from '../../components/RangeSlider/RangeSlider';
-import { ProductSorting } from '../../components/ProductSorting/ProductSorting'
+import { ProductSorting } from '../../components/ProductSorting/ProductSorting';
 import { categoriesFilter } from '../../utils/filters';
-import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router';
+import CheckboxGroup from 'react-checkbox-group';
 
 export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
   const { screenWidth } = useWindowDimensions();
-  const history = useHistory()
 
-  const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(9);
+  const pageSize = 9;
+  const [current, setCurrent] = useState(1);
 
   const [checkedColors, setCheckedColors] = useState([]);
   const [checkedBrands, setCheckedBrands] = useState([]);
   const [priceValues, setPriceValues] = useState([]);
-
   const [sortValue, setSortValue] = useState('Сортировать');
 
+  const history = useHistory();
   const { params: { route } } = match;
 
   const currentItemByRoute = useSelector(selectCategoryFromRoute(route));
@@ -46,7 +44,15 @@ export const ProductListPage = ({ match }) => {
     setCheckedBrands([]);
     setPriceValues([]);
     setSortValue('Сортировать');
+    setCurrent(1)
   }, [route]);
+
+  useEffect(() => {
+    setCurrent(1);
+
+    history.push(`${route}?${checkedColors.length > 0 ? `colors=${checkedColors.join('&')};` : ''}${checkedBrands.length > 0 ? `brands=${checkedBrands.join('&')};` : ''}${priceValues.length > 0 ? `price=${priceValues.join('-')}` : ''}`)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkedColors, checkedBrands, priceValues]);
 
   if (sortValue === 'priceAscending') {
     productsByCategorie.sort((a, b) => a.currentPrice > b.currentPrice ? 1 : -1)
@@ -61,16 +67,14 @@ export const ProductListPage = ({ match }) => {
     .filter(productItem => (priceValues.length === 0) ? productItem : (priceValues[0] < productItem.currentPrice && productItem.currentPrice < priceValues[1]))
     .filter(productItem => (sortValue === 'Сортировать' || sortValue === 'priceAscending' || sortValue === 'priceDescending') ? productItem : productItem[sortValue] === true)
 
+  const pageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
+
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
-    checkedValues.length > 0 ? history.push(`${route}?color:${checkedValues}`) : history.push(`${route}`)
-    console.log(history);
   }
 
   const onCheckedBrandHandler = (checkedValues) => {
     setCheckedBrands(checkedValues)
-    checkedValues.length > 0 ? history.push(`${route}?brand:${checkedValues}`) : history.push(`${route}`)
-    console.log(history);
   }
   const onAfterChangeHandler = (disabled) => {
     setPriceValues(disabled)
@@ -80,54 +84,60 @@ export const ProductListPage = ({ match }) => {
   }
   const prodFilterNotFound = () => {
     return (
-      <div>По фильтрам {checkedColors} и {checkedBrands} ничего не найдено.</div>
+      <div>По данным фильтрам ничего не найдено.</div>
     )
   }
   const colorCheckBoxes = () => {
     return (
-      <StyledCheckboxGroupe onChange={onChackedColorHandler} value={checkedColors}>
+      <StyledCheckboxGroup>
         <FilterName>Цвет</FilterName>
-        {[...arrayOfColors].map((item, index) =>
-          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
-        )}
-      </StyledCheckboxGroupe>
+        <CheckboxGroup name="Цвет" value={checkedColors} onChange={onChackedColorHandler}>
+          {(Checkbox) => (
+            [...arrayOfColors].map((item, index) =>
+              <StyledLabel key={index} >
+                <Checkbox value={item} />
+                <span className="checkbox"></span>
+                <StyledChackboxName>{item}</StyledChackboxName>
+              </StyledLabel>
+            )
+          )}
+        </CheckboxGroup>
+      </StyledCheckboxGroup>
     )
   }
   const brandCheckBoxes = () => {
     return (
-      <StyledCheckboxGroupe onChange={onCheckedBrandHandler} value={checkedBrands}>
+      <StyledCheckboxGroup>
         <FilterName>Бренд</FilterName>
-        {[...arrayOfBrands].map((item, index) =>
-          <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
-        )}
-      </StyledCheckboxGroupe>
+        <CheckboxGroup name="Бренд" value={checkedBrands} onChange={onCheckedBrandHandler}>
+          {(Checkbox) => (
+            [...arrayOfBrands].map((item, index) =>
+              <StyledLabel key={index} >
+                <Checkbox value={item} />
+                <span className="checkbox"></span>
+                <StyledChackboxName>{item}</StyledChackboxName>
+              </StyledLabel>
+            )
+          )}
+        </CheckboxGroup>
+      </StyledCheckboxGroup>
     )
   }
   const filtredProducts = () => {
     return (
       <ProductList>
-        {result.length === 0 ? prodFilterNotFound() : result.map((e, index) => (
-          <ProductItem key={index} product={e}/>
+        {result.length === 0 ? prodFilterNotFound() : pageChange(current, pageSize).map((e, index) => (
+          <ProductItem key={index} product={e} />
         ))}
       </ProductList>
     )
-  }
-
-  const onPaginationChange = value => {
-    if (value <= 1) {
-      setMinValue(0);
-      setMaxValue(9);
-    } else {
-      setMinValue(maxValue);
-      setMaxValue(value * 9);
-    }
   }
 
   return (
     <ContentContainer>
       <Content>
         {screenWidth >= 1200 && <Wrapper>
-          <RangeSlider onAfterChangeHandler={onAfterChangeHandler}/>
+          <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
           {colorCheckBoxes()}
           {brandCheckBoxes()}
         </Wrapper>}
@@ -139,7 +149,7 @@ export const ProductListPage = ({ match }) => {
               <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
                 <Collapse ghost>
                   <Panel header="Цена" key="1">
-                    <RangeSlider onAfterChangeHandler={onAfterChangeHandler}/>
+                    <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
                   </Panel>
                   <Panel header="Цвет" key="2">
                     {colorCheckBoxes()}
@@ -152,7 +162,7 @@ export const ProductListPage = ({ match }) => {
             </Wrapper>}
           </FiltersWrapper>
           {filtredProducts()}
-          <StyledPagination defaultCurrent={1} defaultPageSize={9} total={result.length} onChange={onPaginationChange} />
+          <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
         </Wrapper>
       </Content>
     </ContentContainer>
