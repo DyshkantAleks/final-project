@@ -3,17 +3,15 @@ import { useSelector } from 'react-redux';
 import { FilterTwoTone } from '@ant-design/icons';
 import { Collapse } from 'antd';
 import { slide as MobileFilter } from 'react-burger-menu';
-import './style.scss';
 
-import { Content, Wrapper, StyledChackboxName, FilterName, StyledCheckboxGroupe, ProductList, FiltersWrapper, StyledPagination, StyledCheckboxGroup, StyledLabael } from './StyledProductListPage';
+import { Content, Wrapper, StyledChackboxName, FilterName, ProductList, FiltersWrapper, StyledPagination, StyledCheckboxGroup, StyledLabel } from './StyledProductListPage';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { RangeSlider } from '../../components/rangeSlider/RangeSlider';
-import { ProductSorting } from '../../components/productSorting/ProductSorting'
+import { RangeSlider } from '../../components/RangeSlider/RangeSlider';
+import { ProductSorting } from '../../components/ProductSorting/ProductSorting'
 import { categoriesFilter } from '../../utils/filters';
-import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { useHistory } from 'react-router';
 import CheckboxGroup from 'react-checkbox-group';
@@ -71,7 +69,7 @@ export const ProductListPage = ({ match }) => {
     .filter(productItem => (priceValues.length === 0) ? productItem : (priceValues[0] < productItem.currentPrice && productItem.currentPrice < priceValues[1]))
     .filter(productItem => (sortValue === 'Сортировать' || sortValue === 'priceAscending' || sortValue === 'priceDescending') ? productItem : productItem[sortValue] === true)
 
-  const onPageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
+  const pageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
 
   const onChackedColorHandler = (checkedValues) => {
     setCheckedColors(checkedValues)
@@ -93,24 +91,16 @@ export const ProductListPage = ({ match }) => {
   }
   const colorCheckBoxes = () => {
     return (
-      // <StyledCheckboxGroupe onChange={onChackedColorHandler} value={checkedColors}>
-      //   <FilterName>Цвет</FilterName>
-      //   {[...arrayOfColors].map((item, index) =>
-      //     <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
-      //   )}
-      // </StyledCheckboxGroupe>
-      // ---------------------------------------------------
       <StyledCheckboxGroup>
         <FilterName>Цвет</FilterName>
         <CheckboxGroup name="Цвет" value={checkedColors} onChange={onChackedColorHandler}>
           {(Checkbox) => (
             [...arrayOfColors].map((item, index) =>
-              <StyledLabael key={index} >
-                <span>
-                  <Checkbox value={item} />
-                </span>
+              <StyledLabel key={index} >
+                <Checkbox value={item} />
+                <span className="checkbox"></span>
                 <StyledChackboxName>{item}</StyledChackboxName>
-              </StyledLabael>
+              </StyledLabel>
             )
           )}
         </CheckboxGroup>
@@ -119,24 +109,16 @@ export const ProductListPage = ({ match }) => {
   }
   const brandCheckBoxes = () => {
     return (
-      // <StyledCheckboxGroupe onChange={onCheckedBrandHandler} value={checkedBrands}>
-      //   <FilterName>Бренд</FilterName>
-      //   {[...arrayOfBrands].map((item, index) =>
-      //     <StyledCheckbox key={index} value={item}>{item}</StyledCheckbox>
-      //   )}
-      // </StyledCheckboxGroupe>
-      // -------------------------------------------------
       <StyledCheckboxGroup>
         <FilterName>Бренд</FilterName>
         <CheckboxGroup name="Бренд" value={checkedBrands} onChange={onCheckedBrandHandler}>
           {(Checkbox) => (
             [...arrayOfBrands].map((item, index) =>
-              <StyledLabael key={index} >
-                <span>
-                  <Checkbox value={item} />
-                </span>
+              <StyledLabel key={index} >
+                <Checkbox value={item} />
+                <span className="checkbox"></span>
                 <StyledChackboxName>{item}</StyledChackboxName>
-              </StyledLabael>
+              </StyledLabel>
             )
           )}
         </CheckboxGroup>
@@ -146,45 +128,40 @@ export const ProductListPage = ({ match }) => {
   const filtredProducts = () => {
     return (
       <ProductList>
-        {result.length === 0 ? prodFilterNotFound() : onPageChange(current, pageSize).map((e, index) => (
+        {result.length === 0 ? prodFilterNotFound() : pageChange(current, pageSize).map((e, index) => (
           <ProductItem key={index} product={e} />
         ))}
-      </ProductList>
-    )
-  }
-
-  return (
-    <ContentContainer>
-      <Content>
-        {screenWidth >= 1200 && <Wrapper>
-          <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
-          {colorCheckBoxes()}
-          {brandCheckBoxes()}
-        </Wrapper>}
-
-        <Wrapper>
-          <FiltersWrapper>
-            <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
-            {screenWidth <= 1200 && <Wrapper>
-              <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
-                <Collapse ghost>
-                  <Panel header="Цена" key="1">
-                    <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
-                  </Panel>
-                  <Panel header="Цвет" key="2">
-                    {colorCheckBoxes()}
-                  </Panel>
-                  <Panel header="Бренд" key="3">
-                    {brandCheckBoxes()}
-                  </Panel>
-                </Collapse>
-              </MobileFilter>
+        <ContentContainer>
+          <Content>
+            {screenWidth >= 1200 && <Wrapper>
+              <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
+              {colorCheckBoxes()}
+              {brandCheckBoxes()}
             </Wrapper>}
-          </FiltersWrapper>
-          {filtredProducts()}
-          <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
-        </Wrapper>
-      </Content>
-    </ContentContainer>
+
+            <Wrapper>
+              <FiltersWrapper>
+                <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
+                {screenWidth <= 1200 && <Wrapper>
+                  <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
+                    <Collapse ghost>
+                      <Panel header="Цена" key="1">
+                        <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
+                      </Panel>
+                      <Panel header="Цвет" key="2">
+                        {colorCheckBoxes()}
+                      </Panel>
+                      <Panel header="Бренд" key="3">
+                        {brandCheckBoxes()}
+                      </Panel>
+                    </Collapse>
+                  </MobileFilter>
+                </Wrapper>}
+              </FiltersWrapper>
+              {filtredProducts()}
+              <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
+            </Wrapper>
+          </Content>
+        </ContentContainer>
   );
 }
