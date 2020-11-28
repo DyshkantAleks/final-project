@@ -7,8 +7,7 @@ import {
   CartTotalContainer,
   CartTotalText,
   CartEmpty,
-  CartButtonHolder,
-  ButtonWrapper
+  CartButtonHolder
 } from './StyledCartItem';
 
 import { selectCart } from '../../store/cart/selectors';
@@ -28,10 +27,18 @@ export const CartPage = () => {
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
-  }, 0)
+  }, 0);
   const sumQuantity = cartItems.reduce(function (sum, current) {
     return sum + current.cartQuantity
-  }, 0)
+  }, 0);
+
+  const itemToBeInCart = cartItems.map(item =>
+    <CartItem
+      {...item.product}
+      cartQuantity={item.cartQuantity}
+      key={item.product._id}
+    />
+  );
 
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
@@ -47,27 +54,18 @@ export const CartPage = () => {
                 {menuArray.map((item, index) => <p key={index}>{item}</p>)}
               </CartMenu>
           }
-          {
-            cartItems.map(item =>
-              <CartItem
-                {...item.product}
-                cartQuantity={item.cartQuantity}
-                key={item.product._id}
-              />
-            )
-          }
+          {itemToBeInCart}
         </CartContainer>
-        {cartItems.length > 0 &&
+        {
+          cartItems.length > 0 &&
           <CartTotalContainer>
             <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
             <CartButtonHolder>
-
               <Button text='Вернуться к покупкам' onClick={() => history.push('/catalog/all')} />
-              
               <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
-
             </CartButtonHolder>
-          </CartTotalContainer>}
+          </CartTotalContainer>
+          }
       </ContentContainer>
       <Footer />
     </>

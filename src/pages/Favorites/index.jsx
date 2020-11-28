@@ -15,6 +15,14 @@ export const FavoritesPage = () => {
 
   const favMenuArray = ['Название', 'Цвет', 'Размеры', 'Корзина'];
 
+  const itemToBeInFavorite = favorites.map(item =>
+    <FavItem
+      {...item}
+      key={item._id}
+      item={item}
+    />
+  );
+
   return (
     <>
       <Header />
@@ -25,13 +33,7 @@ export const FavoritesPage = () => {
           { favorites.length === 0 ? <CartEmpty>У вас нет избранных товаров </CartEmpty> :
           <CartMenu fav> {favMenuArray.map((item, index) => <p key={index}>{item}</p>)}</CartMenu>
           }
-          {favorites.map(item =>
-            <FavItem
-              {...item}
-              key={item._id}
-              item={item}
-            />
-          )}
+          {itemToBeInFavorite}
         </CartContainer>
       </ContentContainer>
       <Footer />
