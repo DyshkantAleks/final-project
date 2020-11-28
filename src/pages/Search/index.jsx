@@ -37,6 +37,4 @@ export const SearchPage = ({ match, location }) => {
       </ProductItemList>
     </ContentContainer>
   )
-}
-
-
+};

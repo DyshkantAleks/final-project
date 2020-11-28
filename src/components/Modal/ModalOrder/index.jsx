@@ -8,7 +8,6 @@ import { Button } from '../../Button';
 import { closeModal } from '../../../store/modal/actions.jsx';
 import { ActionsWrap, ContentOrder, ModalOrderWrapper } from './StyledModalOrder';
 
-
 export const ModalOrder = (props) => {
   const { data } = props;
   return (
