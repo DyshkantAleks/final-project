@@ -1,6 +1,6 @@
 import { SET_CATEGORIES } from './actions'
 
-const InitialState = {
+export const InitialState = {
   categories: []
 }
 

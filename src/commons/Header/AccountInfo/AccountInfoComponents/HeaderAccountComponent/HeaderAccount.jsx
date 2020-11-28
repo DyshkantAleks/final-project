@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AccountName, AccountContainer } from '../StyledAccountInfo';
-import { icon } from '../icons';
+import { AccountName, AccountContainer } from '../../StyledAccountInfo';
+import { icon } from '../../icons';
 
 export const HeaderAccount = (props) => {
   const { clickHandler, customerName } = props;

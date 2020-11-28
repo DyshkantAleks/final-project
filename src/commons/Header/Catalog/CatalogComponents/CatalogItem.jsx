@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import useWindowDimensions from '../../../../utils/useWindowDimensions';
+import useWindowDimensions from '../../../../utils/useWindowDimensions'
 import {
   NewItem,
   IconContainer,
@@ -14,17 +14,24 @@ import {
   ArrowContainer,
   Arrow,
   StyledLinkMainCategory
-} from '../StyledCatalog';
-import { useSelector } from 'react-redux';
-import { selectByParentCategory } from '../../../../store/categories/selectors';
-import PropTypes from 'prop-types';
+} from '../StyledCatalog'
+import { useSelector } from 'react-redux'
+import { selectByParentCategory } from '../../../../store/categories/selectors'
+import PropTypes from 'prop-types'
 
 export const CatalogItem = (props) => {
-  const { category, icon, id, route } = props;
-  const [isOpen, setIsOpen] = useState(false);
-  const [hover, setHover] = useState(false);
-  const { screenWidth } = useWindowDimensions();
-  const subCategory = useSelector(selectByParentCategory(category));
+  const { category, icon, id, route } = props
+  const [isOpen, setIsOpen] = useState(false)
+  const [hover, setHover] = useState(false)
+  const { screenWidth } = useWindowDimensions()
+  const subCategory = useSelector(selectByParentCategory(category))
+  const subCategoryForRender = subCategory.map((e, index) => (
+    <StyledLink to={`/catalog/${e.route}`} key={index}>
+      <SubItem>{e.category}</SubItem>
+    </StyledLink>
+  ));
+  const onMouseEnterHandler = () => { setHover(true) };
+  const onMouseLeaveHandler = () => { setHover(false) };
 
   return (
     <>
@@ -48,17 +55,13 @@ export const CatalogItem = (props) => {
           </ItemContainer>
           {isOpen &&
             <SubList>
-              {subCategory.map((e, index) => (
-                <StyledLink to={`/catalog/${e.route}`} key={index}>
-                  <SubItem>{e.category}</SubItem>
-                </StyledLink>
-              ))}
+              {subCategoryForRender}
             </SubList>}
 
         </NewItem>
       )}
       {screenWidth >= 1200 && (
-        <NewItem key={id} onMouseEnter={() => { setHover(true) }} onMouseLeave={() => { setHover(false) }}>
+        <NewItem key={id} onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler}>
           <ItemContainer>
             <StyledLinkMainCategory to={`/catalog/${route}`}>
               <TextContainer>
@@ -70,13 +73,8 @@ export const CatalogItem = (props) => {
             </StyledLinkMainCategory>
           </ItemContainer>
           {hover &&
-
             <SubList>
-              {subCategory.map((e, index) => (
-                <StyledLink to={`/catalog/${e.route}`} key={index}>
-                  <SubItem>{e.category}</SubItem>
-                </StyledLink>
-              ))}
+              {subCategoryForRender}
             </SubList>}
         </NewItem>
       )}
@@ -88,12 +86,12 @@ CatalogItem.propTypes = {
   category: PropTypes.string,
   icon: PropTypes.string,
   id: PropTypes.string,
-  route: PropTypes.string,
-};
+  route: PropTypes.string
+}
 
 CatalogItem.defaultProps = {
   category: 'Категория',
   icon: 'https://res.cloudinary.com/dg-home/image/upload/v1604312381/General/dg-home-logo_onswjp.png',
   id: '1',
   route: '/'
-};
+}
