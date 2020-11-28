@@ -10,7 +10,7 @@ import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { RangeSlider } from '../../components/RangeSlider/RangeSlider';
-import { ProductSorting } from '../../components/ProductSorting/ProductSorting'
+import { ProductSorting } from '../../components/ProductSorting/ProductSorting';
 import { categoriesFilter } from '../../utils/filters';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { useHistory } from 'react-router';
@@ -129,37 +129,42 @@ export const ProductListPage = ({ match }) => {
         {result.length === 0 ? prodFilterNotFound() : pageChange(current, pageSize).map((e, index) => (
           <ProductItem key={index} product={e} />
         ))}
-        <ContentContainer>
-          <Content>
-            {screenWidth >= 1200 && <Wrapper>
-              <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
-              {colorCheckBoxes()}
-              {brandCheckBoxes()}
-            </Wrapper>}
+      </ProductList>
+    )
+  }
 
-            <Wrapper>
-              <FiltersWrapper>
-                <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
-                {screenWidth <= 1200 && <Wrapper>
-                  <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
-                    <Collapse ghost>
-                      <Panel header="Цена" key="1">
-                        <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
-                      </Panel>
-                      <Panel header="Цвет" key="2">
-                        {colorCheckBoxes()}
-                      </Panel>
-                      <Panel header="Бренд" key="3">
-                        {brandCheckBoxes()}
-                      </Panel>
-                    </Collapse>
-                  </MobileFilter>
-                </Wrapper>}
-              </FiltersWrapper>
-              {filtredProducts()}
-              <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
-            </Wrapper>
-          </Content>
-        </ContentContainer>
+  return (
+    <ContentContainer>
+      <Content>
+        {screenWidth >= 1200 && <Wrapper>
+          <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
+          {colorCheckBoxes()}
+          {brandCheckBoxes()}
+        </Wrapper>}
+
+        <Wrapper>
+          <FiltersWrapper>
+            <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
+            {screenWidth <= 1200 && <Wrapper>
+              <MobileFilter disableAutoFocus customBurgerIcon={<FilterTwoTone twoToneColor="#7191a6" />}>
+                <Collapse ghost>
+                  <Panel header="Цена" key="1">
+                    <RangeSlider onAfterChangeHandler={onAfterChangeHandler} />
+                  </Panel>
+                  <Panel header="Цвет" key="2">
+                    {colorCheckBoxes()}
+                  </Panel>
+                  <Panel header="Бренд" key="3">
+                    {brandCheckBoxes()}
+                  </Panel>
+                </Collapse>
+              </MobileFilter>
+            </Wrapper>}
+          </FiltersWrapper>
+          {filtredProducts()}
+          <StyledPagination current={current} pageSize={pageSize} total={result.length} onChange={setCurrent} showSizeChanger={false} />
+        </Wrapper>
+      </Content>
+    </ContentContainer>
   );
 }
