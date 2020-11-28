@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { ModalWrapper, ContentWrapper, ModalTitle, StyledLink, ProductNameList, ItemInnerWrapper, ActionsWrapper } from './StyledModalExistence';
 import { Button } from '../../Button';
@@ -47,3 +48,7 @@ export const ModalExistenceActions = () => {
     </ActionsWrapper>
   )
 };
+
+ModalExistence.propTypes = {
+  shortageProducts: PropTypes.array
+}
