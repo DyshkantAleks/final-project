@@ -20,7 +20,7 @@ background-color: #F5F5F5;
     align-items: center;
   };
   @media ${device.tabletM}{
-  grid-template-columns: 32% 27% 18% 25%;
+  grid-template-columns: 31% 28% 18% 25%;
   padding: 0.7rem 0.8rem 0.7rem 14%;
   display: grid;
   }
@@ -47,8 +47,8 @@ margin: 0 auto;
   @media ${device.tabletS}{
     padding-top: 3rem;
     flex-wrap: wrap;
-    text-align: right;
-    justify-content: flex-end;
+    text-align: center;
+    // justify-content: flex-end;
   };
   @media ${device.tabletM}{
     justify-content: space-between;
@@ -69,13 +69,9 @@ font-weight: bold;
   };
 `;
 
-
 export const CartItemContainer = styled.div`
         align-items: center;
         display: grid;
-        // display: flex;
-        // justify-content: space-between;
-        // align-items: center;
         padding: 1.7rem;
         border-bottom: 1px solid #D3D7DA;
         font-size: 14px;
@@ -101,7 +97,7 @@ export const CartItemContainer = styled.div`
           @media ${device.tabletM}{
           grid-template-columns: 5% 7% 30% 20% 20% 1fr;
         }
-        `
+        `;
 
 export const CartImage = styled.img`
 width: 100%;
@@ -149,7 +145,6 @@ export const CartNameCode = styled.div`
 `;
 
 export const CartColor = styled.p`
-  font-family: Open Sans;
   color: #000000;
 
   @media ${device.mobile} {
@@ -193,6 +188,7 @@ export const CartPrice = styled.p`
     font-size: 14px;
   }
 `;
+
 export const CloseBtnContainer = styled.div`
   width: 1.5rem;
   height: 1.5rem;
@@ -218,11 +214,129 @@ export const CloseBtnContainer = styled.div`
 export const CartEmpty = styled.p`
 padding-bottom: 200px;
 font-family: inherit;
+`;
+
+export const CartButtonHolder = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+min-height: 100px;
+
+@media ${device.tabletM} {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  min-height: inherit;
+}
+`;
+
+export const OrderCartMenu = styled.div`
+background-color: #F5F5F5;
+
+  @media ${device.mobile}{
+    display: none;
+  };
+  @media ${device.tabletS}{
+    grid-template-columns: 31% 17% 35% 11%;
+    padding: 0.7rem 1.1rem 0.7rem calc(1% + 7rem);
+    display: ${props => (props.fav ? 'none' : 'grid')};
+    align-items: center;
+  };
+  @media ${device.tabletM}{
+  grid-template-columns: 31% 17% 38% 8%;
+  padding: 0.7rem 0.8rem 0.7rem calc(1% + 7rem);
+  display: grid;
+  }
+
+  p {
+    font-size: 1em;
+    margin: 0;
+    padding: 2rem;
+    color: #7191A6;
+    font-weight: bold;
+  };
+`;
+
+export const OrderCartItemContainer = styled.div`
+        align-items: center;
+        display: grid;
+        padding: 1.7rem;
+        border-bottom: 1px solid #D3D7DA;
+        font-size: 14px;
+
+        :last-child {
+                border-bottom: 2px solid #7191A6;
+        }
+
+        @media ${device.mobile}{
+        grid-template-columns: 6rem 1fr 9rem;
+        padding: 0.7rem 1rem;
+        position: relative;
+        grid-gap: 1rem;
+        }
+
+        @media ${device.tabletS}{
+          grid-template-columns: 2rem 6rem 1fr 1fr 1fr 18%;
+          position: static;
+          grid-gap: inherit;
+          }
+        `
+
+export const OrderCartImage = styled.img`
+height: auto;
+width: 5rem;
+padding-left: 0.5rem;
+
+@media ${device.mobile}{
+grid-row-end: span 3;
+grid-row-end: span 3;
+}
 `
 
-// const StyledLink = styled(Link)`
-// display: flex;
-// align-items: center;
-// justify-content: space-between;
-// overflow: hidden;
-// `
+export const OrderCartNameCode = styled.div`
+text-align: left;
+
+h4 {
+    font-weight: bold;
+    color: #000000;
+    font-family: Open Sans;
+    margin: 0;
+}
+
+@media ${device.tabletS}{
+  font-size: 13px;
+}
+
+@media ${device.tabletM}{
+  font-size: 14px;
+}
+
+p {
+color: #57646E;
+display: block;
+font-size: 12px;
+margin: 0;
+}
+`
+
+export const CartText = styled.p`
+color: #000000;
+
+@media ${device.mobile} {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  text-align: left;
+  margin: 0;
+  font-size: 12px;
+}
+
+@media ${device.tabletS} {
+  grid-area: auto;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media ${device.tabletM} {
+  font-size: 14px;
+}
+`;

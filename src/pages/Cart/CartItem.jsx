@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { icon } from '../../commons/Header/AccountInfo/icons.jsx';
 import { Counter } from '../../components/Counter';
 import { CloseBtnContainer, CartPrice, CartColor, CartNameCode, CartImage, CartItemContainer } from './StyledCartItem';
 import { useDispatch } from 'react-redux';
-import { removeProductFromCart } from '../../store/cart/middlware.jsx';
+import { removeProductFromCart } from '../../store/cart/operations.jsx';
 import { StyledLink } from '../../components/ProductItem/StyledProductItem.jsx';
 
 export const CartItem = ({
@@ -41,8 +42,18 @@ export const CartItem = ({
       <CartPrice>
         {(currentPrice * cartQuantity).toLocaleString()} грн
       </CartPrice>
-      {/* <CartPrice>{currentPrice} грн</CartPrice> */}
     </CartItemContainer>
   );
 };
 
+CartItem.propTypes = {
+  imageUrl: PropTypes.array,
+  currentPrice: PropTypes.number,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  itemNo: PropTypes.string,
+  quantity: PropTypes.number,
+  cartQuantityy: PropTypes.number,
+  _idy: PropTypes.string,
+  route: PropTypes.string,
+};

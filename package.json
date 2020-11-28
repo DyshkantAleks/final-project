@@ -25,6 +25,7 @@
         "query-string": "^6.13.6",
         "react": "^16.13.1",
         "react-burger-menu": "^2.8.0",
+        "react-checkbox-group": "^5.0.2",
         "react-dom": "^16.13.1",
         "react-facebook-login": "^4.1.1",
         "react-google-login": "^5.1.22",
@@ -47,6 +48,7 @@
         "stylelint": "^13.7.2",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-order": "^4.1.0",
+        "use-error-boundary": "^2.0.4",
         "yup": "^0.29.3"
     },
     "scripts": {

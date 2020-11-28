@@ -1,8 +1,8 @@
 import { server } from '../../API'
-import { logOutCustomer } from '../customer/action-creators'
-import { getCustomer } from '../customer/middlwares'
+import { logOutCustomer } from '../customer/actions'
+import { getCustomer } from '../customer/operations'
 
-import { delLogin, delToken, setAuthError, setToken } from './action-creators'
+import { delLogin, delToken, setAuthError, setToken } from './actions'
 
 export const setAuthToken = (token) => {
   server.defaults.headers.common.Authorization = token

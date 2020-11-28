@@ -1,16 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Header } from '../../commons/Header/Header';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectByRoute } from '../../store/products/selectors';
-import { Footer } from '../../commons/Footer';
 import { NewProductsList } from '../../components/NewProducts/NewProductsList';
 import { selectCart } from '../../store/cart/selectors';
-import { addProductToCart } from '../../store/cart/middlware';
-import { addProductToFav, removeProductFromFav } from '../../store/favorites/middlware';
+import { addProductToCart } from '../../store/cart/operations';
+import { addProductToFav, removeProductFromFav } from '../../store/favorites/operations';
 import { selectFavorites } from '../../store/favorites/selectors';
-import { ScrollToTop } from '../../commons/ScrollToTop';
 import { ProductItemDetails } from '../../components/ProductItemDetails/index';
 
 export const ProductPage = (props) => {
@@ -31,26 +28,21 @@ export const ProductPage = (props) => {
     dispatch(removeProductFromFav(product))
   };
   const productDetails = (
-      <ProductItemDetails
-      {...product.product} 
+    <ProductItemDetails
+      {...product.product}
       product={product}
       btnInCart={btnInCart}
       btnHeandler={btnHeandler}
       inFavorite={inFavorite}
       addToFav={addToFav}
       removeFromFav={removeFromFav}
-      />
+    />
   )
   
   return (
-    <>
-      <Header />
-      <ScrollToTop />
-      <ContentContainer>
-        {product && productDetails}
-        <NewProductsList />
-      </ContentContainer>
-      <Footer />
-    </>
+    <ContentContainer>
+      {product && productDetails}
+      <NewProductsList />
+    </ContentContainer>
   )
 };

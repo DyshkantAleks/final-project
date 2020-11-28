@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MainTitle } from './StyledTitle';
 
-
 export const Title = (props) => {
   const { text } = props
   return (
@@ -18,4 +17,3 @@ Title.propTypes = {
 Title.defaultProps = {
   text: 'Заголовок'
 };
-

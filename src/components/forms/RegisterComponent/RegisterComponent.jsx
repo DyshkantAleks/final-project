@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import {registerCustomer} from '../../../store/customer/middlwares'
+import {registerCustomer} from '../../../store/customer/operations'
 
 import { RegisterForm } from './RegisterForm'
 

@@ -13,7 +13,6 @@ export const Demo = () => {
    
   };
  
- 
   return (
     <Form
       name="validate_other"
