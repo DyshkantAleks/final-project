@@ -249,7 +249,7 @@ justify-content: center;
         gap: 2rem;
     };
     @media ${device.tabletL} {
-        grid-template-columns: repeat(4, 21.5rem);
+        grid-template-columns: repeat(4, 21rem);
         gap: 1rem;
     };
     @media ${device.desktop} {
