@@ -1,15 +1,15 @@
 import { reducer, InitialState } from './reducer';
-import * as actions from './types';
+import * as actions from './actions';
 
-describe('Favorite reducer', () => {
-  it('SET_FAVORITES', () => {
+describe('Categories reducer', () => {
+  it('SET_CATEGORIES', () => {
     const action = {
-      type: actions.SET_FAVORITES,
+      type: actions.SET_CATEGORIES,
       payload: [1, 2, 3]
-    }
+    };
     expect(reducer(InitialState, action)).toEqual({
       ...InitialState,
-      favorites: action.payload
+      categories: action.payload
     });
   });
-})
+});

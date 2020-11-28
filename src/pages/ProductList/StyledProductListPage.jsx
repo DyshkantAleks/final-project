@@ -118,29 +118,34 @@ export const StyledCheckboxGroup = styled.div`
 `;
 
 export const ProductList = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-    @media ${device.tabletM}{
-      display: grid;
-      grid-template-columns: repeat(3, 22rem);
-      justify-items: center;
-      gap: 2rem;
-    };
-    @media ${device.tabletL}{
-      grid-template-columns: repeat(3, 29rem);
-    };
-    @media ${device.desktop}{
-      align-items: baseline;
-    }; 
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  @media ${device.tabletS} {
+    display: grid;
+    grid-template-columns: repeat(2, 49%);
+    justify-items: center;
+    gap: 1rem;
+  };
+  @media ${device.tabletM}{
+    grid-template-columns: repeat(3, 22rem);
+    gap: 2rem;
+  };
+  @media ${device.tabletL}{
+    grid-template-columns: repeat(3, 28rem);
+  };
+  @media ${device.desktop}{
+    align-items: baseline;
+  }; 
+
 `;
 
 export const StyledPagination = styled(Pagination)`
   margin-top: 2rem;
   text-align: center;
 
-  .ant-pagination-next:hover,
+.ant-pagination-next:hover,
   .ant-pagination-prev:hover {
     .ant-pagination-item-link {
       border-color: #7191a6;
