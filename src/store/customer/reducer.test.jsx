@@ -1,5 +1,5 @@
 import { reducer } from './reducer';
-import * as actions from './action-types';
+import * as actions from './types';
 
 describe('Customer reducer', () => {
   it('SET_CUSTOMER', () => {
