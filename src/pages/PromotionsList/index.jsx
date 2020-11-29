@@ -15,9 +15,7 @@ export const PromotionsPage = () => {
 
   return (
     <>
-      <Header />
       <PromoList />
-      <Footer />
     </>
   )
 };
