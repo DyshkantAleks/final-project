@@ -1,5 +1,5 @@
 import { reducer, InitialState } from './reducer.jsx';
-import * as actions from './action-types.jsx';
+import * as actions from './types.jsx';
 
 describe('cart reducer', () => {
   it('SET_CART', () => {

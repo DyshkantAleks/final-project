@@ -1,5 +1,5 @@
 import { setPromotions } from './actions-creators';
-import * as actions from './action-types';
+import * as actions from './types';
 
 describe('Set promotions action', () => {
   it('setPromotions(): should set promotions', () => {

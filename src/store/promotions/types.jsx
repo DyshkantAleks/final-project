@@ -1,0 +1,1 @@
+export const SET_PROMOTIONS = 'SET_PROMOTIONS';

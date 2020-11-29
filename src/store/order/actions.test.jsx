@@ -1,5 +1,5 @@
 import { setOrder } from './actions-creators';
-import * as actions from './action-types';
+import * as actions from './types';
 
 describe('Set order action', () => {
   it('setOrder(): should set order', () => {

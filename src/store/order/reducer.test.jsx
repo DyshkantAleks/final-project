@@ -1,5 +1,5 @@
 import { reducer, InitialState } from './reducer.jsx';
-import * as actions from './action-types';
+import * as actions from '.types';
 
 describe('order reducer', () => {
   it('SET_ORDER', () => {

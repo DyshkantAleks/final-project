@@ -1,5 +1,5 @@
-import * as types from './action-types.jsx';
-import * as actions from './actions-creators.jsx';
+import * as types from './types.jsx';
+import * as actions from './actions.jsx';
 
 describe('cart actions', () => { 
   it('should create an action to add item to cart', () => {
