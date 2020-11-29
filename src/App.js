@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './styles/style.scss';
-import { useErrorBoundary } from 'use-error-boundary'
+import { useErrorBoundary } from 'use-error-boundary';
 
 import { Navigation } from './pages/Navigation';
 import { getProducts } from './store/products/operations';
@@ -38,6 +38,6 @@ function App() {
       }
     </>
   );
-}
+};
 
 export default App;

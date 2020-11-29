@@ -13,11 +13,12 @@ export const Modal = ({ closeButton = true }) => {
   const dispatch = useDispatch();
   const content = useSelector(selectModalContent);
   const title = useSelector(selectModalTitle);
-  const actions = useSelector(selectModalActions)
+  const actions = useSelector(selectModalActions);
 
   const closeModalHandler = () => {
     dispatch(closeModal())
-  }
+  };
+  
   return ReactDOM.createPortal(
     <ModalOwerlay onClick={(e) => e.currentTarget === e.target ? closeModalHandler() : null}>
       <ModalWindow>

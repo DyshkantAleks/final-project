@@ -26,18 +26,18 @@ export const ProductItem = (props) => {
 
   const btnHeandler = (item, quantity) => {
     dispatch(addProductToCart(item, quantity))
-  }
+  };
 
   const productInFavorite = useSelector(selectFavorites);
   const inFavorite = productInFavorite.map(item => item._id).includes(_id);
 
   const addToFav = (product) => {
     dispatch(addProductToFav(product))
-  }
+  };
 
   const removeFromFav = (product) => {
     dispatch(removeProductFromFav(product))
-  }
+  };
 
   return (
     <ContainerItem key={_id}>
@@ -78,8 +78,8 @@ export const ProductItem = (props) => {
         {quantity > 0 ? <ButtonContainer>
           {btnInCart ? <Button disabled width={'true'} text={'В корзине'} /> : <Button color={'true'} width={'true'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
         </ButtonContainer> : <ButtonContainer>
-          <Button disabled color={'true'} width={'true'} text={'Отсутствует'} />
-        </ButtonContainer>}
+            <Button disabled color={'true'} width={'true'} text={'Отсутствует'} />
+          </ButtonContainer>}
       </TitleBox>
     </ContainerItem>
   )
