@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { message } from 'antd';
 
-import { decreaseQuantity, increaseQuantity } from '../../store/cart/middlware';
+import { decreaseQuantity, increaseQuantity } from '../../store/cart/operations';
 
 export const Counter = ({ cartQuantity, quantity, id, name }) => {
   const dispatch = useDispatch();

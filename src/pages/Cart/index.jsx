@@ -12,16 +12,12 @@ import {
 
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
-import { Header } from '../../commons/Header/Header';
-import { Footer } from '../../commons/Footer';
 import { Title } from '../../components/Title/Title';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { ROUTES } from '../navigation/routes';
-import { ScrollToTop } from '../../commons/ScrollToTop';
 
 export const CartPage = () => {
-
   const history = useHistory();
   const cartItems = useSelector(selectCart)
 
@@ -42,33 +38,28 @@ export const CartPage = () => {
 
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
-    <>
-      <Header />
-      <ScrollToTop />
-      <ContentContainer>
-        <Title text='Корзина' />
-        <CartContainer>
-          {
-            cartItems.length === 0 ? <CartEmpty>В корзине нет товаров</CartEmpty> :
-              <CartMenu>
-                {menuArray.map((item, index) => <p key={index}>{item}</p>)}
-              </CartMenu>
-          }
-          {itemToBeInCart}
-        </CartContainer>
+    <ContentContainer>
+      <Title text='Корзина' />
+      <CartContainer>
         {
-          cartItems.length > 0 &&
+          cartItems.length === 0 ? <CartEmpty>В корзине нет товаров</CartEmpty>
+            : <CartMenu>
+              {menuArray.map((item, index) => <p key={index}>{item}</p>)}
+            </CartMenu>
+        }
+        {itemToBeInCart}
+      </CartContainer>
+      {cartItems.length > 0 &&
           <CartTotalContainer>
             <CartTotalText>Всего в корзине {sumQuantity} товаров на сумму {sumCart.toLocaleString()} грн</CartTotalText>
             <CartButtonHolder>
+
               <Button text='Вернуться к покупкам' onClick={() => history.push('/catalog/all')} />
+              
               <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
+
             </CartButtonHolder>
-          </CartTotalContainer>
-          }
-      </ContentContainer>
-      <Footer />
-    </>
+          </CartTotalContainer>}
+    </ContentContainer>
   )
 }
-

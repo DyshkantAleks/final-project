@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Header } from '../../commons/Header/Header';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectById } from '../../store/promotions/selectors';
-import { getPromotions } from '../../store/promotions/middlware';
-import { Footer } from '../../commons/Footer';
-import { ScrollToTop } from '../../commons/ScrollToTop';
+import { getPromotions } from '../../store/promotions/operations';
 import {Container, ImageContainer, Image, Title, ContentContainerPromo, Description} from './StyledPromotionsSingle';
 
 export const PromotionsSinglePage = ({ match }) => {
@@ -22,8 +19,6 @@ export const PromotionsSinglePage = ({ match }) => {
     <>
       {single && (
         <>
-          <Header />
-          <ScrollToTop />
           <Container>
             <ImageContainer>
               <Image src={single.desctopSliderImageUrl} />
@@ -35,7 +30,6 @@ export const PromotionsSinglePage = ({ match }) => {
               <Description>{single.fullDescription}</Description>
             </ContentContainerPromo>
           </ContentContainer>
-          <Footer />
         </>
       )}
     </>
