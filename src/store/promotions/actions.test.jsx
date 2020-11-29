@@ -1,4 +1,4 @@
-import { setPromotions } from './actions-creators';
+import { setPromotions } from './actions';
 import * as actions from './types';
 
 describe('Set promotions action', () => {

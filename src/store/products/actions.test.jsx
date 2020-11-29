@@ -1,5 +1,5 @@
 import { setProducts, setLoader } from './actions';
-import * as actions from './actions';
+import * as actions from './types';
 
 describe('Product actions', () => {
   it('setProducts(): should attach products', () => {

@@ -1,4 +1,4 @@
-import { setOrder } from './actions-creators';
+import { setOrder } from './actions';
 import * as actions from './types';
 
 describe('Set order action', () => {

@@ -1,5 +1,5 @@
 import { reducer, InitialState } from './reducer';
-import * as actions from './actions';
+import * as actions from './types';
 
 describe('Products reducer', () => {
   it('SET_LOADER', () => {
