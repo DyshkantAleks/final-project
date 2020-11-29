@@ -7,13 +7,13 @@ export const GlobalConfig = {
     {
       PICKUP: {
         value: 'Pick up from store',
-        text: 'Забрать с магазина',
+        text: 'Самовывоз',
       },
     },
     {
       COURIER_SERVICE: {
         value: 'Courier Service',
-        text: 'Курьером на дом',
+        text: 'Курьером',
       },
     },
     {
@@ -34,7 +34,7 @@ export const GlobalConfig = {
   paymentOptions: [
     {
       BY_CASH: {
-        text: 'Наличными при получении',
+        text: 'Наличными',
         value: 'Cash',
       },
     },
