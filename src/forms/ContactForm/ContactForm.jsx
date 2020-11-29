@@ -16,7 +16,7 @@ import { Text, StyledInput, StyledRadio } from './StyledContactForm';
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const customer = useSelector(selectCustomer);
-  const { name, surname, email, telephone } = customer;
+  const { name, surname, email, telephone = '' } = customer;
 
   const searchCode = GlobalConfig.deliveryOptions[2].NOVA_POSHTA.serchCityCode;
   const [autoCompleteCityResult, setAutoCompleteCityResult] = useState([]);
@@ -83,7 +83,7 @@ export const ContactForm = (props) => {
         name,
         surname,
         email,
-        telephone,
+        phone: telephone.slice(4),
         prefix: '+380',
         delivery: GlobalConfig.deliveryOptions[0].PICKUP.value,
         payMethod: GlobalConfig.paymentOptions[0].BY_CASH.value,
