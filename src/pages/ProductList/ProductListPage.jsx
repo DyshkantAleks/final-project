@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { FilterTwoTone } from '@ant-design/icons';
 import { Collapse } from 'antd';
 import { slide as MobileFilter } from 'react-burger-menu';
+import CheckboxGroup from 'react-checkbox-group';
+import { useHistory } from 'react-router';
 
 import { Content, Wrapper, StyledChackboxName, FilterName, ProductList, FiltersWrapper, StyledPagination, StyledCheckboxGroup, StyledLabel } from './StyledProductListPage';
 import { selectProducts } from '../../store/products/selectors';
@@ -10,11 +12,9 @@ import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { RangeSlider } from '../../components/RangeSlider/RangeSlider';
-import { ProductSorting } from '../../components/ProductSorting/ProductSorting'
+import { ProductSorting } from '../../components/ProductSorting/ProductSorting';
 import { categoriesFilter } from '../../utils/filters';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-import { useHistory } from 'react-router';
-import CheckboxGroup from 'react-checkbox-group';
 
 export const ProductListPage = ({ match }) => {
   const { Panel } = Collapse;
@@ -60,15 +60,22 @@ export const ProductListPage = ({ match }) => {
   if (sortValue === 'priceDescending') {
     productsByCategorie.sort((a, b) => a.currentPrice < b.currentPrice ? 1 : -1)
   }
+  if (sortValue === 'isTopRated') {
+    productsByCategorie.sort((a, b) => a.isTopRated < b.isTopRated ? 1 : -1)
+  }
+  if (sortValue === 'isNewProduct') {
+    productsByCategorie.sort((a, b) => a.isNewProduct < b.isNewProduct ? 1 : -1)
+  }
+  if (sortValue === 'isSale') {
+    productsByCategorie.sort((a, b) => a.isSale < b.isSale ? 1 : -1)
+  }
 
   const result = productsByCategorie
     .filter(productItem => (checkedColors.length === 0) ? productItem : checkedColors.some(chackedItem => chackedItem === productItem.color))
     .filter(productItem => (checkedBrands.length === 0) ? productItem : checkedBrands.some(chackedItem => chackedItem === productItem.brand))
     .filter(productItem => (priceValues.length === 0) ? productItem : (priceValues[0] < productItem.currentPrice && productItem.currentPrice < priceValues[1]))
-    .filter(productItem => (sortValue === 'Сортировать' || sortValue === 'priceAscending' || sortValue === 'priceDescending') ? productItem : productItem[sortValue] === true)
+    // .filter(productItem => (sortValue === 'Сортировать' || sortValue === 'priceAscending' || sortValue === 'priceDescending') ? productItem : productItem[sortValue] === true)
     
-  const onPageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
-
   const pageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
 
   const onChackedColorHandler = (checkedValues) => {
