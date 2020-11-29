@@ -13,7 +13,7 @@ export const GlobalConfig = {
     {
       COURIER_SERVICE: {
         value: 'Courier Service',
-        text: 'Курьероом на дом',
+        text: 'Курьером на дом',
       },
     },
     {

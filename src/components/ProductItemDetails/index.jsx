@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox} from './StyledProductItemDetails';
+import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from './StyledProductItemDetails';
 import { RegularIconFavorite } from '../ProductItem/IconsSvg/RegularIconFavorite';
 import { SolidIconFavorite } from '../ProductItem/IconsSvg/SolidIconFavorite';
 import { Title } from '../Title/Title';
@@ -14,8 +14,8 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 import { Button } from '../Button';
 
 export const ProductItemDetails = (props) => {
-  const { product, btnInCart, btnHeandler, inFavorite, addToFav, removeFromFav} = props;
-  const {name, isSale, currentPrice, previousPrice, brand, quantity, itemNo, isNewProduct, isTopRated, description, sizes, specifications, color } = product;
+  const { product, btnInCart, btnHeandler, inFavorite, addToFav, removeFromFav } = props;
+  const { name, isSale, currentPrice, previousPrice, brand, quantity, itemNo, isNewProduct, isTopRated, description, sizes, specifications, color } = product;
   const { screenWidth } = useWindowDimensions();
   const [isSpecification, setIsSpecification] = useState(false);
   const [isDimensions, setIsDimensions] = useState(false);
@@ -50,14 +50,14 @@ export const ProductItemDetails = (props) => {
         <ProductSlider id={product._id} />
         <ContainerProduct>
           {isSale &&
-                        <PriceContainer>
-                          <CurrentPrice>{currentPrice.toLocaleString()}</CurrentPrice>
-                          <PreviousPrice>{previousPrice.toLocaleString()}</PreviousPrice>
-                        </PriceContainer>}
+            <PriceContainer>
+              <CurrentPrice>{currentPrice.toLocaleString()}</CurrentPrice>
+              <PreviousPrice>{previousPrice.toLocaleString()}</PreviousPrice>
+            </PriceContainer>}
           {!isSale &&
-                        <PriceContainer>
-                          <Price>{currentPrice.toLocaleString()}</Price>
-                        </PriceContainer>}
+            <PriceContainer>
+              <Price>{currentPrice.toLocaleString()}</Price>
+            </PriceContainer>}
           {!inFavorite && <RegularIconFavorite onClick={() => addToFav(product)} />}
           {inFavorite && <SolidIconFavorite onClick={() => removeFromFav(product._id)} />}
           <Subtitle>Бренд: {brand}</Subtitle>
@@ -110,9 +110,12 @@ export const ProductItemDetails = (props) => {
           <Actions>
             <ProductCounter value={value} setValue={setValue} quantity={quantity} name={name} />
           </Actions>
-          <Actions>
-            {btnInCart ? <Button disabled width={'13rem'} text={'В корзине'} /> : <Button width={'13rem'} color={'#7191A6'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
+          {quantity > 0 ? <Actions>
+            {btnInCart ? <Button disabled width={'true'} text={'В корзине'} /> : <Button width={'true'} color={'true'} text={'Купить'} onClick={() => btnHeandler(product, value)} />}
+          </Actions> : <Actions>
+            <Button disabled width={'true'} text={'Отсутствует'} />
           </Actions>
+          }
         </ActionsContainer>
       </ContainerDetails>
     </>

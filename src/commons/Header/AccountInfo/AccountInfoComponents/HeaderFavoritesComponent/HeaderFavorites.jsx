@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../../../pages/navigation/routes';
-import { CartCounter, Item } from '../StyledAccountInfo';
-import { icon } from '../icons';
-import { selectFavorites } from '../../../../store/favorites/selectors';
+import { ROUTES } from '../../../../../pages/Navigation/routes';
+import { CartCounter, Item } from '../../StyledAccountInfo';
+import { icon } from '../../icons';
+import { selectFavorites } from '../../../../../store/favorites/selectors';
 
 export const HeaderFavorites = () => {
   const favItems = useSelector(selectFavorites);

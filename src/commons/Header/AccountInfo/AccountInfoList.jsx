@@ -17,20 +17,20 @@ import { LoginComponent } from '../../../forms/LoginComponent/LoginComponent';
 import { selectModalIsOpen } from '../../../store/modal/selectors';
 
 export const AccountInfoList = () => {
-  const { screenWidth } = useWindowDimensions();
-  const history = useHistory();
+  const { screenWidth } = useWindowDimensions()
+  const history = useHistory()
 
-  const { Search } = Input;
+  const { Search } = Input
   const onSearch = value => {
     if (value === '') {
       return
     }
     history.push(`/search?query=${value}`)
-  };
-  const isLogined = useSelector(selectCustomerIslogined);
-  const customerName = useSelector(selectCustomer).name;
-  const isOpenModal = useSelector(selectModalIsOpen);
-  const dispatch = useDispatch();
+  }
+  const isLogined = useSelector(selectCustomerIslogined)
+  const customerName = useSelector(selectCustomer).name
+  const isOpenModal = useSelector(selectModalIsOpen)
+  const dispatch = useDispatch()
 
   const handler = () => {
     if (isLogined) {
@@ -57,4 +57,4 @@ export const AccountInfoList = () => {
       <HeaderCart />
     </List>
   )
-};
+}

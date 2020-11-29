@@ -5,7 +5,7 @@ import {
   Input,
   Tooltip,
   Select,
- 
+
 } from 'antd';
 import { Button } from '../../components/Button/index';
 import { QuestionCircleOutlined } from '@ant-design/icons';
@@ -16,9 +16,9 @@ export const RegisterForm = (props) => {
   const {
     handleSubmit
   } = props;
-  
+
   const [form] = Form.useForm();
- 
+
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select
@@ -31,7 +31,7 @@ export const RegisterForm = (props) => {
   );
   return (
     <Form
-     
+
       layout='vertical'
       name='register'
       form={form}
@@ -41,7 +41,7 @@ export const RegisterForm = (props) => {
       }}
     >
       <Form.Item
-       
+
         name='name'
         label='Имя'
         rules={ValodationRules.nameRules}>
@@ -80,9 +80,9 @@ export const RegisterForm = (props) => {
             required: true,
             message: 'Повторите пароль!',
           },
-         
+
           ({ getFieldValue }) => ({
-            validator (rule, value) {
+            validator(rule, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
@@ -111,11 +111,11 @@ export const RegisterForm = (props) => {
       <Form.Item name='gender' label='Ваш пол' >
         <Select
           placeholder='Выбирите из списка'
-         
+
         >
           <Option value='male'>муж.</Option>
           <Option value='female'>жен.</Option>
-          
+
         </Select>
       </Form.Item>
       <Form.Item
@@ -125,8 +125,8 @@ export const RegisterForm = (props) => {
       >
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
-     
-      <div style={{textAlign: 'center'}}>
+
+      <div style={{ textAlign: 'center' }}>
         <Button text='Зарегистрироваться' type='submit'></Button>
       </div>
     </Form>

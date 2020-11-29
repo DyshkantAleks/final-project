@@ -19,8 +19,9 @@ Button.defaultProps = {
 
 Button.propTypes = {
   text: PropTypes.string,
-  color: PropTypes.bool,
+  color: PropTypes.string,
   width: PropTypes.string,
   disabled: PropTypes.bool,
+  center: PropTypes.string,
   onClick: PropTypes.func
 };
