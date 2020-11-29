@@ -3,7 +3,7 @@ import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import styled from 'styled-components'
 import { device } from '../../styles/breakpoints/breakpoints'
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../navigation/routes'
+import { ROUTES } from '../Navigation/routes'
 
 export const NotFoundPage = () => {
   return (

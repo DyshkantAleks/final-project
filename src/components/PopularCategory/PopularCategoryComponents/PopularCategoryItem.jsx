@@ -8,15 +8,10 @@ import PropTypes from 'prop-types';
 export const PopularCategoryItem = (props) => {
   const { textForTitle, textForSubtitle, backGround } = props
   const [hover, setHover] = useState(false)
+  const onMouseEnterHandler = () => { setHover(true) };
+  const onMouseLeaveHandler = () => { setHover(false) };
   return (
-    <Item
-      onMouseEnter={() => {
-        setHover(true)
-      }}
-      onMouseLeave={() => {
-        setHover(false)
-      }}
-    >
+    <Item onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler}>
       {hover && (
         <HoverCategoryItem
           textForTitle={textForTitle} textForSubtitle={textForSubtitle}
