@@ -1,13 +1,17 @@
-import { reducer, InitialState } from './reducer';
-import * as actions from './actions';
+import { reducer } from './reducer';
+import * as actions from './types';
 
 describe('Products reducer', () => {
   it('SET_LOADER', () => {
+    const initialState = {
+      products: [],
+      isDataLoaded: true
+    };
     const action = {
       type: actions.SET_LOADER
     };
-    expect(reducer(InitialState, action)).toEqual({
-      ...InitialState,
+    expect(reducer(initialState, action)).toEqual({
+      ...initialState,
       isDataLoaded: true
     });
   });

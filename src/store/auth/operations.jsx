@@ -23,11 +23,11 @@ export const auth = (login, password) => async (dispatch) => {
       }
     )
     if (status === 200) {
-      dispatch(setAuthError(null));
+      dispatch(setAuthError([]));
       dispatch(setToken(data.token));
       dispatch(getCustomer());
     }
   } catch (error) {
-    dispatch(setAuthError(error))
+    dispatch(setAuthError(Object.values(error.response.data)))
   }
 }

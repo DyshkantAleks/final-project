@@ -3,18 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { device } from '../../styles/breakpoints/breakpoints';
-import { ContactForm } from '../../components/forms/ContactForm/ContactForm';
+import { ContactForm } from '../../forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-
 import { confirmOrder } from '../../store/order/operations';
 import { getProducts } from '../../store/products/operations';
 import { checkQuantity } from '../../store/cart/operations';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions';
-import { ModalExistence, ModalExistenceActions } from '../../components/ModalExistence';
+import { ModalExistence, ModalExistenceActions } from '../../components/Modal/ModalExistence';
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
@@ -29,10 +28,8 @@ export const OrderPage = (props) => {
   if (shortageProducts.length) {
     dispatch(
       openModal({
-        content: shortageProducts.map((item) => (
-          <ModalExistence name={item.product.name} quantity={item.product.quantity} route={item.product.route} key={item.product.itemNo}/>        
-        )),
-        actions: <ModalExistenceActions/>
+        content: <ModalExistence shortageProducts={shortageProducts}/>,
+        actions: <ModalExistenceActions />
       })
     );
   }
@@ -57,6 +54,7 @@ export const OrderPage = (props) => {
 };
 
 const ComponentContainerL = styled.div`
+  flex-grow: 1;
   @media ${device.desktop} {
     margin-right: 4rem;
     margin-bottom: 1rem;
@@ -65,6 +63,7 @@ const ComponentContainerL = styled.div`
 `;
 
 const ComponentContainerR = styled.div`
+  flex-grow: 1;
   @media ${device.desktop} {
     margin-left: 4rem;
     margin-right: 1rem;
@@ -74,6 +73,7 @@ const ComponentContainerR = styled.div`
 
 const ContainerPage = styled.div`
   display: flex;
+  flex: 1 0 auto;
   flex-direction: column-reverse;
   @media ${device.desktop} {
     justify-content: space-between;

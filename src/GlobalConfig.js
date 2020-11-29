@@ -1,6 +1,7 @@
 export const GlobalConfig = {
-  phoneNumberRegExp: /^\+?3?8?(0\d{9})$/,
+  phoneNumberRegExp: /(\d{9})$/,
   textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
+  passwordField: /^[0-9a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
   adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ.,\s`]+$/,
   numberFieldRegExp: /^[0-9]+$/,
   deliveryOptions: [
@@ -13,7 +14,7 @@ export const GlobalConfig = {
     {
       COURIER_SERVICE: {
         value: 'Courier Service',
-        text: 'Курьероом на дом',
+        text: 'Курьером на дом',
       },
     },
     {
