@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Form, Input } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Button } from '../../Button';
+import { Button } from '../../components/Button/index';
 
 export const LoginForm = props => {
   const {handleSubmit} = props

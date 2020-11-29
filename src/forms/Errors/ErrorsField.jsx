@@ -3,11 +3,11 @@ import React from 'react';
 import { ErrorMessage } from './StyledFormErrorsField';
 
 export const ErrorsField = props => {
-  const { errorText } = props
-    
+  const { errors = [] } = props
+  const errorList = errors.map(error => <p>{error}</p>)
   return (
     <ErrorMessage >
-      {errorText}
+      {errorList}
     </ErrorMessage>
   )
 }
