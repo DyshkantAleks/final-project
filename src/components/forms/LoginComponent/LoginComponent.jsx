@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Checkbox } from 'antd';
 
-import { LoginForm } from '../LoginComponent/LoginForm';
 import { auth } from '../../../store/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { ErrorsField } from '../Errors/ErrorsField';
 import { selectError } from '../../../store/auth/selectors';
 import { useHistory } from 'react-router';
 import { closeModal } from '../../../store/modal/actions';
-import { RegisterForm } from '../RegisterComponent/RegisterForm';
 import { registerCustomer } from '../../../store/customer/operations';
+import { ErrorsField } from '../../../forms/Errors/ErrorsField';
+import { LoginForm } from '../../../forms/LoginComponent/LoginForm';
+import { RegisterForm } from '../../../forms/RegisterComponent/RegisterForm';
 
 export const LoginComponent = props => {
   const dispatch = useDispatch();

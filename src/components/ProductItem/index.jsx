@@ -78,8 +78,8 @@ export const ProductItem = (props) => {
         {quantity > 0 ? <ButtonContainer>
           {btnInCart ? <Button disabled width={'true'} text={'В корзине'} /> : <Button color={'true'} width={'true'} text={'Купить'} onClick={() => btnHeandler(product, 1)} />}
         </ButtonContainer> : <ButtonContainer>
-            <Button disabled color={'true'} width={'true'} text={'Отсутствует'} />
-          </ButtonContainer>}
+          <Button disabled color={'true'} width={'true'} text={'Отсутствует'} />
+        </ButtonContainer>}
       </TitleBox>
     </ContainerItem>
   )

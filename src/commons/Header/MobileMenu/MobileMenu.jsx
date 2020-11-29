@@ -8,7 +8,6 @@ import { InfoLinks } from '../InfoLinks/InfoLinkList';
 import useWindowDimensions from '../../../utils/useWindowDimensions';
 import { CatalogList } from '../Catalog/CatalogList';
 
-
 export const MobileMenu = () => {
   const { screenWidth } = useWindowDimensions();
   const history = useHistory();
@@ -32,4 +31,4 @@ export const MobileMenu = () => {
       )}
     </>
   )
-}
+};

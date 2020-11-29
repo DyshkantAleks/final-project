@@ -1,9 +1,14 @@
 import React from 'react';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
-import { Form, Input, Tooltip, Select } from 'antd';
-import { Button } from '../../Button';
-import { GlobalConfig } from '../../../GlobalConfig';
+import {
+  Form,
+  Input,
+  Tooltip,
+  Select,
+} from 'antd';
+import { Button } from '../../components/Button/index';
+import { ValodationRules } from '../../validation/ValidationRules';
 
 const { Option } = Select;
 
@@ -37,63 +42,19 @@ export const RegisterForm = (props) => {
 
         name='name'
         label='Имя'
-        rules={[
-          {
-            required: true,
-            message: 'Введите имя!',
-          },
-          {
-            pattern: GlobalConfig.textFieldRegExp,
-            message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
-          },
-          {
-            min: 2,
-            message: 'Имя должно содержать минимум 2 символа!',
-          },
-          {
-            max: 25,
-            message: 'Имя должно содержать максимум 25 символов!',
-          }
-        ]}>
-        <Input />
+        rules={ValodationRules.nameRules}>
+        <Input/>
       </Form.Item>
       <Form.Item
         name='surname'
         label='Фамилия'
-        rules={[
-          {
-            required: true,
-            message: 'Введите фамилию!',
-          },
-          {
-            pattern: GlobalConfig.textFieldRegExp,
-            message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
-          },
-          {
-            min: 2,
-            message: 'Фамилия должна содержать минимум 2 символа!',
-          },
-          {
-            max: 25,
-            message: 'Фамилия должна содержать максимум 25 символов!',
-          }
-
-        ]}>
+        rules={ValodationRules.surnameRules}>
         <Input />
       </Form.Item>
       <Form.Item
         name='email'
         label='E-mail'
-        rules={[
-          {
-            type: 'email',
-            message: 'Некоректный E-mail ',
-          },
-          {
-            required: true,
-            message: 'Введите  E-mail!',
-          },
-        ]}
+        rules={ValodationRules.emailRules}
       >
         <Input />
       </Form.Item>
@@ -101,24 +62,7 @@ export const RegisterForm = (props) => {
       <Form.Item
         name='password'
         label='Пароль'
-        rules={[
-          {
-            required: true,
-            message: 'Введите пароль!',
-          },
-          {
-            min: 7,
-            message: 'Минимум 7 символов!',
-          },
-          {
-            max: 30,
-            message: 'Максимум 30 символов!',
-          },
-          {
-            pattern: GlobalConfig.adressFieldRegExp,
-            message: 'Пароль должен состоять из букв и цифр!',
-          },
-        ]}
+        rules={ValodationRules.passwordRules}
         hasFeedback
       >
         <Input.Password />
@@ -158,21 +102,7 @@ export const RegisterForm = (props) => {
             </Tooltip>
           </span>
         }
-        rules={[
-          {
-            required: true,
-            message: 'Введите логин!',
-            whitespace: true,
-          },
-          {
-            min: 2,
-            message: 'Логин должен содержать минимум 2 символа!',
-          },
-          {
-            max: 15,
-            message: 'Логин должен содержать максимум 25 символов!',
-          }
-        ]}
+        rules={ValodationRules.loginRules}
       >
         <Input />
       </Form.Item>
@@ -189,7 +119,7 @@ export const RegisterForm = (props) => {
       <Form.Item
         name='phone'
         label='Телефон'
-        rules={[{ required: true, message: 'Введите номер телефона!' }]}
+        rules={ValodationRules.phoneRules}
       >
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
