@@ -9,7 +9,6 @@ import {
 } from 'antd';
 import { Button } from '../../components/Button/index';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { GlobalConfig } from '../../GlobalConfig';
 import { ValodationRules } from '../../validation/ValidationRules';
 
 const { Option } = Select;
