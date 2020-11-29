@@ -10,7 +10,6 @@ export const RegisterComponent = props => {
   return (
     <div>
       <RegisterForm handleSubmit={values => dispatch(registerCustomer(values))}/>
-      
     </div>
   )
 }
