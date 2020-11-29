@@ -1,14 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import { AccountName, AccountContainer } from '../StyledAccountInfo';
-import { icon } from '../icons';
+import { Link } from 'react-router-dom'
 
-export const HeaderAccount = (props) => {
-  const { clickHandler, customerName } = props;
+import { ROUTES } from '../../../../pages/navigation/routes'
+import { Item, AccountName } from '../StyledAccountInfo'
+import { icon } from '../icons'
+
+export const HeaderAccount = props => {
+  const { clickHandler, customerName } = props
   return (
-    <AccountContainer onClick={clickHandler}>
+    <Item onClick={clickHandler}>
       {icon.account}
       <AccountName>{customerName}</AccountName>
-    </AccountContainer>
+    </Item>
   )
 }

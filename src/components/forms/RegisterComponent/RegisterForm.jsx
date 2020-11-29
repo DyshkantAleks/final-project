@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   Form,
@@ -9,15 +10,18 @@ import {
 } from 'antd';
 import { Button } from '../../Button';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { GlobalConfig } from '../../../GlobalConfig';
 
 const { Option } = Select;
+
+
 export const RegisterForm = (props) => {
+
   const {
     handleSubmit
   } = props;
-  
+  const dispatch = useDispatch();
   const [form] = Form.useForm();
+ 
  
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
@@ -50,7 +54,7 @@ export const RegisterForm = (props) => {
             message: 'Введите имя!',
           },
           {
-            pattern: GlobalConfig.textFieldRegExp,
+            pattern: /^[a-zA-Zа-яА-Я]+$/,
             message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -73,7 +77,7 @@ export const RegisterForm = (props) => {
             message: 'Введите фамилию!',
           },
           {
-            pattern: GlobalConfig.textFieldRegExp,
+            pattern: /^[a-zA-Zа-яА-Я]+$/,
             message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
           },
           {
@@ -122,7 +126,7 @@ export const RegisterForm = (props) => {
             message: 'Максимум 30 символов!',
           },
           {
-            pattern: GlobalConfig.adressFieldRegExp,
+            pattern: /^[a-zA-Zа-яА-Я0-9]+$/,
             message: 'Пароль должен состоять из букв и цифр!',
           },
         ]}
@@ -143,11 +147,10 @@ export const RegisterForm = (props) => {
           },
          
           ({ getFieldValue }) => ({
-            validator (rule, value) {
+            validator(rule, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              // eslint-disable-next-line prefer-promise-reject-errors
               return Promise.reject('Пароли не совпадают!');
             },
           }),
@@ -201,7 +204,7 @@ export const RegisterForm = (props) => {
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
      
-      <div style={{textAlign: 'center'}}>
+      <div style={{textAlign:'center'}}>
         <Button text='Зарегистрироваться' type='submit'></Button>
       </div>
     </Form>

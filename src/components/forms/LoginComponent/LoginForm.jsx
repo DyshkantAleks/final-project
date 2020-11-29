@@ -1,11 +1,14 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Form, Input } from 'antd';
+import { Form, Input, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../Button';
 
 export const LoginForm = props => {
+ 
   const {handleSubmit} = props
+  const dispatch = useDispatch()
 
   const initialValues = {
     login: '',

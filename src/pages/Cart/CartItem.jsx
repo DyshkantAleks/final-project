@@ -54,6 +54,6 @@ CartItem.propTypes = {
   itemNo: PropTypes.string,
   quantity: PropTypes.number,
   cartQuantityy: PropTypes.number,
-  _idy: PropTypes.string,
+  _id: PropTypes.string,
   route: PropTypes.string,
 };

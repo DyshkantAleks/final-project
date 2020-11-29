@@ -1,5 +1,5 @@
 import { reducer, initialState } from './reducer';
-import * as actions from './action-types';
+import * as actions from './types';
 
 describe('Modal reducer', () => {
   it('OPEN_MODAL', () => {
