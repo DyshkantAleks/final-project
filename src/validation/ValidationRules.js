@@ -9,15 +9,15 @@ export const ValodationRules = {
     },
     {
       pattern: GlobalConfig.textFieldRegExp,
-      message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
+      message: 'Недопустимый символ',
     },
     {
       min: 2,
-      message: 'Имя должно содержать минимум 2 символа!',
+      message: ' минимум 2 символа!',
     },
     {
       max: 25,
-      message: 'Имя должно содержать максимум 25 символов!',
+      message: ' максимум 25 символов!',
     }
   ],
   surnameRules:[
@@ -27,15 +27,15 @@ export const ValodationRules = {
     },
     {
       pattern: GlobalConfig.textFieldRegExp,
-      message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
+      message: 'Недопустимый символ',
     },
     {
       min: 2,
-      message: 'Фамилия должна содержать минимум 2 символа!',
+      message: 'минимум 2 символа!',
     },
     {
       max: 25,
-      message: 'Фамилия должна содержать максимум 25 символов!',
+      message: ' максимум 25 символов!',
     }
   ],
   emailRules: [
@@ -62,8 +62,8 @@ export const ValodationRules = {
       message: 'Максимум 30 символов!',
     },
     {
-      pattern: GlobalConfig.adressFieldRegExp,
-      message: 'Пароль должен состоять из букв и цифр!',
+      pattern: GlobalConfig.passwordField,
+      message: 'используйте буквы и цифры!',
     },
   ],
   loginRules: [
@@ -74,15 +74,15 @@ export const ValodationRules = {
     },
     {
       min: 2,
-      message: 'Логин должен содержать минимум 2 символа!',
+      message: 'минимум 2 символа!',
     },
     {
       max: 15,
-      message: 'Логин должен содержать максимум 25 символов!',
+      message: 'максимум 25 символов!',
     },
     {
-      pattern: GlobalConfig.adressFieldRegExp,
-      message: 'Логин должен состоять из букв и цифр!',
+      pattern: GlobalConfig.textFieldRegExp,
+      message: 'Недопустимый символ!',
     }
   ],
   phoneRules: [{

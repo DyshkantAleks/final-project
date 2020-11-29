@@ -1,16 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import { selectCustomerIslogined, selectCustomer } from '../../../store/customer/slectors';
-import { HeaderAccount } from './AccountInfoComponents/HeaderAccount';
-import { HeaderFavorites } from './AccountInfoComponents/HeaderFavorites';
-import { HeaderCart } from './AccountInfoComponents/HeaderCart';
+import { HeaderAccount } from './AccountInfoComponents/HeaderAccountComponent/HeaderAccount';
+import { HeaderFavorites } from './AccountInfoComponents/HeaderFavoritesComponent/HeaderFavorites';
+import { HeaderCart } from './AccountInfoComponents/HeaderCartComponent/HeaderCart';
 import { Input } from 'antd';
 import './style.scss';
 import 'antd/dist/antd.css';
 import { List } from './StyledAccountInfo';
-import { useHistory } from 'react-router-dom';
 import useWindowDimensions from '../../../utils/useWindowDimensions';
-import { ROUTES } from '../../../pages/navigation/routes';
+import { ROUTES } from '../../../pages/Navigation/routes';
 import { Modal } from '../../../components/Modal';
 import { openModal } from '../../../store/modal/actions';
 import { LoginComponent } from '../../../forms/LoginComponent/LoginComponent';

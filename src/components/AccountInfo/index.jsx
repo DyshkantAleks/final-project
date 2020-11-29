@@ -31,14 +31,14 @@ import { openModal } from '../../store/modal/actions';
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
   
-  const { name, surname, gender, email, login } = useSelector(selectCustomer);
+  const { name, surname, gender, email, login, telephone } = useSelector(selectCustomer);
   const dispatch = useDispatch();
   const userInfoList = [
     { label: 'Имя:', userData: name },
     { label: 'Фамилия:', userData: surname },
     { label: 'Пол', userData: gender },
     { label: 'Электронная почта:', userData: email },
-    { label: 'Телефон:', userData: 'Телефон не указан' },
+    { label: 'Телефон:', userData: telephone || 'Телефон не указан' },
     { label: 'Логин:', userData: login },
   ];
   

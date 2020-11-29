@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import './styles/style.scss';
 import { useErrorBoundary } from 'use-error-boundary'
 
-import { Navigation } from './pages/navigation';
+import { Navigation } from './pages/Navigation';
 import { Header } from './commons/Header/Header';
 import { Footer } from './commons/Footer';
 import { ScrollToTop } from './commons/ScrollToTop';
