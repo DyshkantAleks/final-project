@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Form, Select, Row, Col, Radio, AutoComplete } from 'antd';
-import { Button } from '../../Button';
+
+import { Form, Input, Select, Row, Col, Radio, AutoComplete } from 'antd';
+import { Button } from '../../components/Button';
+
+import { selectCustomer } from '../../store/customer/slectors';
+import { GlobalConfig } from '../../GlobalConfig';
+import { getCity, getStreet } from '../../utils/novaPoshtaApi';
+import { ValodationRules } from '../../validation/ValidationRules';
 import { Text, StyledInput, StyledRadio } from './StyledContactForm';
-import { selectCustomer } from '../../../store/customer/slectors';
-import { GlobalConfig } from '../../../GlobalConfig';
-import { getCity, getStreet } from '../../../utils/novaPoshtaApi';
+
+
+
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;
   const customer = useSelector(selectCustomer);
-  const { name, surname, email, phone } = customer;
+  const { name, surname, email, telephone = '' } = customer;
 
   const searchCode = GlobalConfig.deliveryOptions[2].NOVA_POSHTA.serchCityCode;
   const [autoCompleteCityResult, setAutoCompleteCityResult] = useState([]);
@@ -77,7 +83,7 @@ export const ContactForm = (props) => {
         name,
         surname,
         email,
-        phone,
+        phone: telephone.slice(4),
         prefix: '+380',
         delivery: GlobalConfig.deliveryOptions[0].PICKUP.value,
         payMethod: GlobalConfig.paymentOptions[0].BY_CASH.value,
@@ -91,24 +97,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='name'
             label='Имя'
-            rules={[
-              {
-                required: true,
-                message: 'Введите имя!',
-              },
-              {
-                pattern: GlobalConfig.textFieldRegExp,
-                message: 'Имя должно состоять из букв a-z, A-Z, а-я, А-Я!',
-              },
-              {
-                min: 2,
-                message: 'Имя должно содержать минимум 2 символа!',
-              },
-              {
-                max: 25,
-                message: 'Имя должно содержать максимум 25 символов!',
-              },
-            ]}
+            rules={ValodationRules.nameRules}
           >
             <StyledInput />
           </Form.Item>
@@ -117,24 +106,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='surname'
             label='Фамилия'
-            rules={[
-              {
-                required: true,
-                message: 'Введите фамилию!',
-              },
-              {
-                pattern: GlobalConfig.textFieldRegExp,
-                message: 'Фамилия должна состоять из букв a-z, A-Z, а-я, А-Я!',
-              },
-              {
-                min: 2,
-                message: 'Фамилия должна содержать минимум 2 символа!',
-              },
-              {
-                max: 25,
-                message: 'Фамилия должна содержать максимум 25 символов!',
-              },
-            ]}
+            rules={ValodationRules.surnameRules}
           >
             <StyledInput />
           </Form.Item>
@@ -146,16 +118,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='email'
             label='E-mail'
-            rules={[
-              {
-                type: 'email',
-                message: 'Некоректный E-mail ',
-              },
-              {
-                required: true,
-                message: 'Введите  E-mail!',
-              },
-            ]}
+            rules={ValodationRules.emailRules}
           >
             <StyledInput />
           </Form.Item>
@@ -164,13 +127,7 @@ export const ContactForm = (props) => {
           <Form.Item
             name='phone'
             label='Телефон'
-            rules={[
-              { required: true, message: 'Введите номер телефона!' },
-              {
-                pattern: GlobalConfig.numberFieldRegExp,
-                message: 'Введите правильный номер',
-              },
-            ]}
+            rules={ValodationRules.phoneRules}
           >
             <StyledInput addonBefore={prefixSelector} />
           </Form.Item>

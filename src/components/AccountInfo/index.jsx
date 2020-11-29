@@ -15,26 +15,30 @@ import {
   PersonalSectionFooter,
 } from './StyledAccountInfo';
 import { selectCustomer } from '../../store/customer/slectors';
+
+
+import { ChangePersonalDataForm } from '../../forms/ChangeAccountForms/ChangePersonDataForm';
+import { ChangePassForm } from '../../forms/ChangeAccountForms/ChangePassForm';
+
 import { logOut } from '../../store/auth/operations';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
 // import { params } from '../LiqPay/liqpayData';
 import { openModal } from '../../store/modal/actions';
-import { ChangePersonalDataForm } from '../forms/ChangeAccountForms/ChangePersonDataForm';
-import { ChangePassForm } from '../forms/ChangeAccountForms/ChangePassForm';
+
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
   
-  const { name, surname, gender, email, login } = useSelector(selectCustomer);
+  const { name, surname, gender, email, login, telephone } = useSelector(selectCustomer);
   const dispatch = useDispatch();
   const userInfoList = [
     { label: 'Имя:', userData: name },
     { label: 'Фамилия:', userData: surname },
     { label: 'Пол', userData: gender },
     { label: 'Электронная почта:', userData: email },
-    { label: 'Телефон:', userData: 'Телефон не указан' },
+    { label: 'Телефон:', userData: telephone || 'Телефон не указан' },
     { label: 'Логин:', userData: login },
   ];
   
