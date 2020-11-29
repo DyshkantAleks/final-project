@@ -9,6 +9,9 @@ import { getCategories } from '../../../store/categories/operations'
 export const CatalogList = () => {
   const dispatch = useDispatch();
   const categories = useSelector(selectMainCategory);
+  const categoriesForRender = categories.map((e) => (
+    <CatalogItem category={e.category} icon={e.icon} key={e.id} id={e.id} route={e.route} />
+  ));
 
   useEffect(() => {
     dispatch(getCategories())
@@ -17,9 +20,7 @@ export const CatalogList = () => {
   return (
     <Container>
       <List>
-        {categories.map((e) => (
-          <CatalogItem category={e.category} icon={e.icon} key={e.id} id={e.id} route={e.route} />
-        ))}
+        {categoriesForRender}
       </List>
     </Container>
   )

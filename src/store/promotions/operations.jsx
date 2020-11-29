@@ -1,6 +1,6 @@
 
 import { server } from '../../API'
-import { setPromotions } from './action-types'
+import { setPromotions } from './actions'
 
 export const getPromotions = () => async (dispatch) => {
   try {
