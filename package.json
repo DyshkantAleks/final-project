@@ -13,13 +13,19 @@
         "@testing-library/user-event": "^7.1.2",
         "antd": "^4.8.0",
         "axios": "^0.20.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.5",
+        "fetch-mock": "^9.10.7",
         "formik": "^2.2.0",
+        "node-fetch": "^2.6.1",
         "node-sass": "^4.14.1",
         "npm-run-all": "^4.1.5",
         "npm-watch": "^0.7.0",
+        "prop-types": "^15.7.2",
         "query-string": "^6.13.6",
         "react": "^16.13.1",
         "react-burger-menu": "^2.8.0",
+        "react-checkbox-group": "^5.0.2",
         "react-dom": "^16.13.1",
         "react-facebook-login": "^4.1.1",
         "react-google-login": "^5.1.22",
@@ -29,33 +35,34 @@
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.3",
         "react-slick": "^0.27.12",
+        "react-test-renderer": "^16.13.1",
         "react-use": "^15.3.4",
         "redux": "^4.0.5",
         "redux-devtools-extension": "^2.13.8",
+        "redux-mock-store": "^1.5.4",
         "redux-persist": "^6.0.0",
         "redux-thunk": "^2.3.0",
+        "sinon": "^9.2.1",
         "slick-carousel": "^1.8.1",
         "styled-components": "^5.2.0",
         "stylelint": "^13.7.2",
         "stylelint-config-rational-order": "^0.1.2",
         "stylelint-order": "^4.1.0",
-        "swiper": "^6.3.3",
+        "use-error-boundary": "^2.0.4",
         "yup": "^0.29.3"
     },
     "scripts": {
-        "start": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
         "start:dev": "npm-run-all -p watch-sass-js start-js",
+        "start": "if-env NODE_ENV=production ?? npm run start:prod || npm run start:dev",
         "start:prod": "npm run build && react-scripts start",
-        "start-js": "npm run eslint && react-scripts start",
-        "build": "npm run eslint-fix && npm run stylelint-fix && react-scripts build",
+        "build": "react-scripts build",
         "test": "react-scripts test",
-        "eslint": "eslint \"src/**/*.js\"",
-        "stylelint": "stylelint \"src/**/*.scss\"",
         "eject": "react-scripts eject",
-        "stylelint-dev": "stylelint \"src/**/*.scss\" --cache --cache-location \".stylelintcache\"; exit 0",
-        "watch-sass-js": "npm-watch",
-        "stylelint-fix": "stylelint --fix \"src/**/*.scss\"",
-        "eslint-fix": "eslint --fix \"src/**/*.js\""
+        "eslint": "eslint \"src/**/*.jsx\"",
+        "start-js": "react-scripts start",
+        "stylelint-dev": "stylelint 'src/**/*.scss' --cache --cache-location './.stylelintcache'; exit 0",
+        "stylelint-build": "stylelint 'src/**/*.scss'",
+        "watch-sass-js": "npm-watch"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -81,9 +88,9 @@
         },
         "eslint": {
             "patterns": [
-                "/src/**/*.js"
+                "/src/**/*.jsx"
             ],
-            "extensions": "js"
+            "extensions": "jsx"
         }
     },
     "devDependencies": {
