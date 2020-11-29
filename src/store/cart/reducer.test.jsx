@@ -29,21 +29,4 @@ describe('cart reducer', () => {
       cart: [...InitialState.cart, action.payload]
     });
   });
-
-  // it('REMOVE_FROM_CART', () => {
-  //   const id = '123';
-
-  //   const InitialState = {
-  //     cart: [id]
-  //   };
-    
-  //   const action = {
-  //     type: actions.REMOVE_FROM_CART,
-  //     payload: id
-  //   }
-  //   expect(reducer(InitialState, action)).toEqual({
-  //     ...InitialState,
-  //     cart: InitialState.cart.filter((item) => item !== action.payload)
-  //   });
-  // });
 });
