@@ -1,15 +1,13 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import {registerCustomer} from '../../../store/customer/operations'
+import React from 'react';
 
-import { RegisterForm } from './RegisterForm'
+import { RegisterForm } from './RegisterForm';
 
-export const RegisterComponent = props => {
-  const dispatch = useDispatch()
+export const RegisterComponent = (props) => {
+  const { handleSubmit } = props;
 
   return (
     <div>
-      <RegisterForm handleSubmit={values => dispatch(registerCustomer(values))}/>
+      <RegisterForm handleSubmit={handleSubmit} />
     </div>
-  )
-}
+  );
+};
