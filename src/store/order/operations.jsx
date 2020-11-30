@@ -1,7 +1,8 @@
 import React from 'react';
+import axios from 'axios';
+
 import { server } from '../../API';
 import { setOrder } from './actions';
-import axios from 'axios';
 import { openModal } from '../modal/actions';
 import { ModalOrderActions, ModalOrder } from '../../components/Modal/ModalOrder';
 
