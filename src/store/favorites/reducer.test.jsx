@@ -1,5 +1,5 @@
 import { reducer, InitialState } from './reducer';
-import * as actions from './action-types';
+import * as actions from './types';
 
 describe('Favorite reducer', () => {
   it('SET_FAVORITES', () => {

@@ -2,13 +2,7 @@ import React from 'react';
 import { selectCart } from '../../store/cart/selectors';
 import { CartItem } from './CartItem';
 import { useSelector } from 'react-redux';
-import {
-  CartContainer,
-  OrderCartMenu,
-  CartTotalContainer,
-  CartTotalText,
-  CartEmpty
-} from '../Cart/StyledCartItem';
+import { CartContainer, OrderCartMenu, CartTotalContainer, CartTotalText, CartEmpty } from '../Cart/StyledCartItem';
 
 export const OrderCart = () => {
   const cartItems = useSelector(selectCart)

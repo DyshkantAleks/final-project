@@ -1,39 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Checkbox } from 'antd';
 
-import {LoginForm} from '../LoginComponent/LoginForm'
 import { auth } from '../../../store/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { ErrorsField } from '../Errors/ErrorsField';
 import { selectError } from '../../../store/auth/selectors';
 import { useHistory } from 'react-router';
 import { closeModal } from '../../../store/modal/actions';
-import { RegisterForm } from '../RegisterComponent/RegisterForm';
 import { registerCustomer } from '../../../store/customer/operations';
+import { ErrorsField } from '../../../forms/Errors/ErrorsField';
+import { LoginForm } from '../../../forms/LoginComponent/LoginForm';
+import { RegisterForm } from '../../../forms/RegisterComponent/RegisterForm';
 
 export const LoginComponent = props => {
-  const dispatch = useDispatch()
-  const error = useSelector(selectError)
-  const history = useHistory()
-  const [registered, setRegistered] = useState(false)
+  const dispatch = useDispatch();
+  const error = useSelector(selectError);
+  const history = useHistory();
+  const [registered, setRegistered] = useState(false);
   const logInHandler = (login, password) => {
-    dispatch(auth(login, password, history))
-    
+    dispatch(auth(login, password, history));
     if (error) { dispatch(closeModal()) }
-  }
-  
+  };
+
   return (
-  
     <div>
-      {!registered && <LoginForm handleSubmit={({login, password}) => logInHandler(login, password)}/>}
+      {!registered && <LoginForm handleSubmit={({ login, password }) => logInHandler(login, password)} />}
       {registered && <RegisterForm handleSubmit={(values) => {
         dispatch(registerCustomer(values))
         setRegistered(true)
       }
-      }/>}
-      
-      {error && <ErrorsField errorText='Неверные даные!'/>}
+      } />}
+      {error && <ErrorsField errorText='Неверные даные!' />}
       <Checkbox checked={registered} onClick={() => setRegistered((val) => !val)}>Я новый пользователь</Checkbox>
     </div>
   )
-}
+};

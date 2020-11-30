@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ROUTES } from '../../../pages/navigation/routes';
+import { ROUTES } from '../../../pages/Navigation/routes';
 import { Container, StyledLink, Title } from '../StyledFooter';
 import useWindowDimensions from '../../../utils/useWindowDimensions';
 

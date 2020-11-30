@@ -15,7 +15,7 @@ import { Button } from '../../components/Button';
 import { Title } from '../../components/Title/Title';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { ROUTES } from '../navigation/routes';
+import { ROUTES } from '../Navigation/routes';
 
 export const CartPage = () => {
   const history = useHistory();

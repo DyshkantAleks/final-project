@@ -176,4 +176,4 @@ export const ProductListPage = ({ match }) => {
       </Content>
     </ContentContainer>
   );
-}
+};

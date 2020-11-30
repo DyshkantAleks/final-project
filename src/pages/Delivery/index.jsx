@@ -54,4 +54,4 @@ export const DeliveryPage = () => {
       </ContainerPage>
     </ContentContainer>
   )
-}
+};
