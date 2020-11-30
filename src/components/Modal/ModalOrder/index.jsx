@@ -7,6 +7,7 @@ import { ModalTitle, ItemInnerWrapper } from '../ModalExistence/StyledModalExist
 import { Button } from '../../Button';
 import { closeModal } from '../../../store/modal/actions.jsx';
 import { ActionsWrap, ContentOrder, ModalOrderWrapper } from './StyledModalOrder';
+import { deleteCart } from '../../../store/cart/operations';
 
 export const ModalOrder = (props) => {
   const { data } = props;
@@ -29,6 +30,7 @@ export const ModalOrderActions = () => {
         onClick={() => {
           history.push('/catalog/all');
           closeModalHandler();
+          dispatch(deleteCart());
         }} />
     </ActionsWrap>
   )

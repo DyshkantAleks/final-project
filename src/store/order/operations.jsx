@@ -39,33 +39,32 @@ export const createOrder = (order) => (_, getState) => {
 };
 
 const createLetter = (data, order) => {
-
-  const CreateProductList = () =>{
-    let productList = "";
+  const CreateProductList = () => {
+    let productList = '';
     for (let i = 0; i < data.products.length; i++) {
       console.log(data.products[i].product.name);
       productList +=
-      "\n" + data.products[i].product.name +
-      " (color: "+data.products[i].product.color + 
-      ", itemNo: "+data.products[i].product.itemNo + 
-      ", Quantity: "+data.products[i].cartQuantity+"); "
-  } 
+      '\n' + data.products[i].product.name +
+      ' (color: ' + data.products[i].product.color +
+      ', itemNo: ' + data.products[i].product.itemNo +
+      ', Quantity: ' + data.products[i].cartQuantity + '); '
+    }
     return (productList)
-}
+  }
 
-  const CreateFullAddress = () =>{
-    let FullAddress = "";
-      if (data.shipping !== "Pick up from store") 
-      FullAddress = 
-      'Country: ' + data.deliveryAddress.country + 
-      ', City: ' + data.deliveryAddress.city + 
+  const CreateFullAddress = () => {
+    let FullAddress = '';
+    if (data.shipping !== 'Pick up from store') {
+      FullAddress =
+      'Country: ' + data.deliveryAddress.country +
+      ', City: ' + data.deliveryAddress.city +
       ', Address: ' + data.deliveryAddress.address
-      else FullAddress = "-"
+    } else FullAddress = '-'
     return FullAddress
   }
 
   const letter = {
-    FullName: order.name + " " + order.surname,
+    FullName: order.name + ' ' + order.surname,
     ProductList: CreateProductList(),
     FullAddress: CreateFullAddress(),
     Shipping: data.shipping,

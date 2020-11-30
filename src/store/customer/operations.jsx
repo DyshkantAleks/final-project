@@ -34,7 +34,7 @@ export const getCustomer = () => async (dispatch, getState) => {
       dispatch(getFavorites());
     }
   } catch (error) {
-    console.log(error.response.data);
+    dispatch(setCustomerError(error.response.data.message));
   }
 };
 
@@ -51,7 +51,7 @@ export const updateCustomer = (updatedCustomer) => async (dispatch, getState) =>
       dispatch(setCustomer(data));
     }
   } catch (error) {
-    console.log(error.response.data);
+    dispatch(setCustomerError(error.response.data.message));
   }
 };
 
@@ -69,6 +69,6 @@ export const changePass = (passwords) => async (dispatch, getState) => {
       dispatch(openModal(data.message))
     }
   } catch (error) {
-    console.log(error.response.data);
+    dispatch(setCustomerError(error.response.data.message));
   }
 };
