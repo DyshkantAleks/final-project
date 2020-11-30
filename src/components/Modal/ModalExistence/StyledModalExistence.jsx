@@ -31,7 +31,7 @@ font-size: 1.2rem;
 export const ProductNameList = styled.ul`
 margin: 0;
 display: grid;
-grid-template-columns: 75% 10%;
+grid-template-columns: 75% 15%;
 gap: 2rem;
 `
 
