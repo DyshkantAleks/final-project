@@ -1,21 +1,19 @@
 import React from 'react';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 import {
   Form,
   Input,
   Tooltip,
   Select,
-
 } from 'antd';
 import { Button } from '../../components/Button/index';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import { ValodationRules } from '../../validation/ValidationRules';
 
 const { Option } = Select;
+
 export const RegisterForm = (props) => {
-  const {
-    handleSubmit
-  } = props;
+  const { handleSubmit } = props;
 
   const [form] = Form.useForm();
 

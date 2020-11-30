@@ -10,4 +10,4 @@ export const ErrorsField = props => {
       {errorList}
     </ErrorMessage>
   )
-}
+};
