@@ -15,13 +15,7 @@ export const SearchPage = ({ match, location }) => {
   const searchArrayForRender = searchArray.map((e, index) => (
     <ProductItem
       key={index}
-      name={e.name}
-      price={e.currentPrice}
-      image={e.imageUrl[0]}
-      route={e.route}
-      id={e._id}
-      isNewProduct={e.isNewProduct}
-      isTopRated={e.isTopRated}
+      product={e}
     />
   ));
   return (
