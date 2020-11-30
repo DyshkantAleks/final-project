@@ -7,8 +7,8 @@ import { ProductItem } from '../ProductItem';
 import { ProductItemList } from '../ProductItemDetails/StyledProductItemDetails';
 
 export const TopRatedProductsList = () => {
-  const allProducts = useSelector(selectProducts)
-  const arrayOfTopRated = allProducts.filter(e => e.isTopRated === true)
+  const allProducts = useSelector(selectProducts);
+  const arrayOfTopRated = allProducts.filter(e => e.isTopRated === true);
   const arrayOfTopRatedForRender = arrayOfTopRated.map((e, index) => (
     <ProductItem
       key={index}

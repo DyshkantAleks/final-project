@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopularCategoryItem component snaphot of <PopularCategoryItem /> 1`] = `
+"<styled.section onMouseEnter={[Function: onMouseEnterHandler]} onMouseLeave={[Function: onMouseLeaveHandler]}>
+  <StaticCategoryItem textForTitle=\\"Заголовок\\" textForSubtitle=\\"Текст\\" backGround=\\"https://res.cloudinary.com/dg-home/image/upload/v1605196877/General/Categories/popular-category-table-min_fmalgj.png\\" />
+</styled.section>"
+`;

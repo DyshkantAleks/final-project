@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
+
 import { ContentContainer } from '../../../styles/GeneralStyledComponents';
-import { ContainerPage, TextContainer, Text, TextList, TextListItem } from '../StyledAboutPage'
-import { ContactsForm } from './ContactForm'
+import { ContainerPage, TextContainer, Text, TextList, TextListItem } from '../StyledAboutPage';
+import { ContactsForm } from './ContactForm';
 
 export const AboutText = () => {
   return (
-
     <ContentContainer>
       <ContainerPage>
         <TextContainer>
@@ -35,11 +35,9 @@ export const AboutText = () => {
             </TextListItem>
             <TextListItem>Важен баланс качества результата, сроков реализации проекта и бюджета.</TextListItem>
           </TextList>
-
         </TextContainer>
         <ContactsForm />
       </ContainerPage>
     </ContentContainer>
-
   )
-}
+};

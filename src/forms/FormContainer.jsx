@@ -1,6 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  max-width:600 px;
- `
+max-width:600 px;
+`;

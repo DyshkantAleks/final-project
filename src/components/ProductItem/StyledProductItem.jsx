@@ -107,12 +107,6 @@ height: 3rem;
     @media ${device.tabletS}{
         width: 100%;
     };
-    /* @media ${device.tabletM}{
-        width: 100%;
-    }; */
-    /* @media ${device.tabletL}{
-        width: 95%;
-    }; */
 `;
 
 export const PreviousPrice = styled.span`
@@ -211,11 +205,3 @@ align-items: center;
 width: 100%;
 margin-top: 1.5rem;
 `;
-
-// export const ButtonContainerCenter = styled.div`
-// display: flex;
-// justify-content: center;
-// align-items: center;
-// width: 100%;
-// margin-top: 1.5rem;
-// `;

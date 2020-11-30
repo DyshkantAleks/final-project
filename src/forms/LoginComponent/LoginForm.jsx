@@ -5,12 +5,11 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Button } from '../../components/Button/index';
 
 export const LoginForm = props => {
-  const {handleSubmit} = props
-
+  const {handleSubmit} = props;
   const initialValues = {
     login: '',
     password: ''
-  }
+  };
 
   return (
     <Form
