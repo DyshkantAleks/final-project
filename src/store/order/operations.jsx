@@ -93,7 +93,7 @@ export const confirmOrder = (order) => async (dispatch) => {
 
     if (status === 200 && !data.message) {
       dispatch(setOrder(data.order))
-      sendLetter(createLetter(data.order))
+      sendLetter(createLetter(data.order, order))
       dispatch(openModal({ content: <ModalOrder data={data} />, actions: <ModalOrderActions /> }))
     }
   } catch (error) {
