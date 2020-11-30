@@ -1,33 +1,26 @@
-import { server } from '../../API'
-import { logOutCustomer } from '../customer/actions'
-import { getCustomer } from '../customer/operations'
+import { server } from "../../API";
+import { logOutCustomer } from "../customer/actions";
 
-import { delLogin, delToken, setAuthError, setToken } from './actions'
+import { delLogin, delToken, setAuthError, setToken } from "./actions";
 
 export const setAuthToken = (token) => {
-  server.defaults.headers.common.Authorization = token
-}
+  server.defaults.headers.common.Authorization = token;
+};
 
-export const logOut = () => dispatch => {
-  server.defaults.headers.common.Authorization = ''
-  dispatch(logOutCustomer())
-  dispatch(delLogin())
-  dispatch(delToken())
-}
-export const auth = (login, password) => async (dispatch) => {
+export const logOut = () => (dispatch) => {
+  server.defaults.headers.common.Authorization = "";
+  dispatch(logOutCustomer());
+  dispatch(delLogin());
+  dispatch(delToken());
+};
+export const auth = async (login, password) => {
   try {
-    const {status, data} = await server.post('/customers/login',
-      {
-        loginOrEmail: login,
-        password
-      }
-    )
-    if (status === 200) {
-      dispatch(setAuthError([]));
-      dispatch(setToken(data.token));
-      dispatch(getCustomer());
-    }
+    const response = await server.post("/customers/login", {
+      loginOrEmail: login,
+      password,
+    });
+    return response;
   } catch (error) {
-    dispatch(setAuthError(Object.values(error.response.data)))
+    throw new Error(Object.values(error.response.data));
   }
-}
+};
