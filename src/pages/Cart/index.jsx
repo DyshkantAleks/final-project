@@ -15,7 +15,7 @@ import { Button } from '../../components/Button';
 import { Title } from '../../components/Title/Title';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
-import { ROUTES } from '../navigation/routes';
+import { ROUTES } from '../Navigation/routes';
 
 export const CartPage = () => {
   const history = useHistory();
@@ -23,10 +23,18 @@ export const CartPage = () => {
 
   const sumCart = cartItems.reduce(function (sum, current) {
     return sum + current.product.currentPrice * current.cartQuantity
-  }, 0)
+  }, 0);
   const sumQuantity = cartItems.reduce(function (sum, current) {
     return sum + current.cartQuantity
-  }, 0)
+  }, 0);
+
+  const itemToBeInCart = cartItems.map(item =>
+    <CartItem
+      {...item.product}
+      cartQuantity={item.cartQuantity}
+      key={item.product._id}
+    />
+  );
 
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
@@ -39,15 +47,7 @@ export const CartPage = () => {
               {menuArray.map((item, index) => <p key={index}>{item}</p>)}
             </CartMenu>
         }
-        {
-          cartItems.map(item =>
-            <CartItem
-              {...item.product}
-              cartQuantity={item.cartQuantity}
-              key={item.product._id}
-            />
-          )
-        }
+        {itemToBeInCart}
       </CartContainer>
       {cartItems.length > 0 &&
           <CartTotalContainer>

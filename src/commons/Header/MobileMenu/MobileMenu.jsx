@@ -1,11 +1,12 @@
-import React from 'react'
-import './mobileMenu.scss'
-import { slide as Menu } from 'react-burger-menu'
-import { InfoLinks } from '../InfoLinks/InfoLinkList'
-import useWindowDimensions from '../../../utils/useWindowDimensions'
-import { CatalogList } from '../Catalog/CatalogList'
-import { useHistory } from 'react-router'
-import { Input } from 'antd'
+import React from 'react';
+import './mobileMenu.scss';
+import { slide as Menu } from 'react-burger-menu';
+import { useHistory } from 'react-router';
+import { Input } from 'antd';
+
+import { InfoLinks } from '../InfoLinks/InfoLinkList';
+import useWindowDimensions from '../../../utils/useWindowDimensions';
+import { CatalogList } from '../Catalog/CatalogList';
 
 export const MobileMenu = () => {
   const { screenWidth } = useWindowDimensions();
@@ -30,4 +31,4 @@ export const MobileMenu = () => {
       )}
     </>
   )
-}
+};

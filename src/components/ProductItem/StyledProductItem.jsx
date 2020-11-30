@@ -105,13 +105,7 @@ align-items: baseline;
 width: 85%;
 height: 3rem;
     @media ${device.tabletS}{
-        width: 75%;
-    };
-    @media ${device.tabletM}{
         width: 100%;
-    };
-    @media ${device.tabletL}{
-        width: 95%;
     };
 `;
 
@@ -127,7 +121,7 @@ text-decoration: line-through;
         font-size: 1rem;
         font-weight: 700;
     };
-    @media ${device.tabletM}{
+    @media ${device.tabletS}{
         font-weight: 700;
         font-size: 1.8rem;
             &::after{

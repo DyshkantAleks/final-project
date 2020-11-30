@@ -1,18 +1,27 @@
-import React, { useEffect } from 'react';
-import Slider from 'react-slick';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import Slider from 'react-slick'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import './style.scss';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { getPromotions } from '../../store/promotions/operations';
-import { selectPromotions } from '../../store/promotions/selectors';
-import { Container, SlideContainer, Image } from './StyledSliderMainPage';
+import './style.scss'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import { getPromotions } from '../../store/promotions/operations'
+import { selectPromotions } from '../../store/promotions/selectors'
+import { Container, SlideContainer, Image } from './StyledSliderMainPage'
 
 export const SliderMainPage = () => {
   const promotions = useSelector(selectPromotions)
   const dispatch = useDispatch()
+  const promotionsForRender = promotions.map((e, index) => (
+    <SlideContainer key={index}>
+      <Link
+        to={`/promo/${e.route}`}
+      >
+        <Image src={e.sliderImageUrl} />
+      </Link>
+    </SlideContainer>
+  ))
 
   useEffect(() => {
     dispatch(getPromotions())
@@ -29,15 +38,7 @@ export const SliderMainPage = () => {
   return (
     <Container id='main-slider-container'>
       <Slider {...settings}>
-        {promotions.map((e, index) => (
-          <SlideContainer key={index}>
-            <Link
-              to={`/promo/${e.route}`}
-            >
-              <Image src={e.sliderImageUrl} />
-            </Link>
-          </SlideContainer>
-        ))}
+        {promotionsForRender}
       </Slider>
     </Container>
   )
