@@ -4,7 +4,7 @@ const initialState = {
   login: 'User',
   password: null,
   token: null,
-  error: null
+  error: []
 }
 export function reducer (state = initialState, { type, payload }) {
   switch (type) {

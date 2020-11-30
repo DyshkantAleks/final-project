@@ -6,7 +6,9 @@ import { getCart } from '../cart/operations'
 import { getFavorites } from '../favorites/operations'
 import { openModal } from '../modal/actions';
 
-export const registerCustomer = (customer) => async (dispatch) => {
+export const registerCustomer = (customerData) => async (dispatch) => {
+  const {prefix, phone } = customerData
+  const customer = {...customerData, telephone: prefix + phone}
   try {
     const { status, data } = await server.post('/customers', customer);
 

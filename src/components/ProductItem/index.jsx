@@ -26,18 +26,18 @@ export const ProductItem = (props) => {
 
   const btnHeandler = (item, quantity) => {
     dispatch(addProductToCart(item, quantity))
-  }
+  };
 
   const productInFavorite = useSelector(selectFavorites);
   const inFavorite = productInFavorite.map(item => item._id).includes(_id);
 
   const addToFav = (product) => {
     dispatch(addProductToFav(product))
-  }
+  };
 
   const removeFromFav = (product) => {
     dispatch(removeProductFromFav(product))
-  }
+  };
 
   return (
     <ContainerItem key={_id}>

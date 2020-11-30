@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import useWindowDimensions from '../../../../utils/useWindowDimensions'
 import {
@@ -14,10 +16,8 @@ import {
   ArrowContainer,
   Arrow,
   StyledLinkMainCategory
-} from '../StyledCatalog'
-import { useSelector } from 'react-redux'
-import { selectByParentCategory } from '../../../../store/categories/selectors'
-import PropTypes from 'prop-types'
+} from '../StyledCatalog';
+import { selectByParentCategory } from '../../../../store/categories/selectors';
 
 export const CatalogItem = (props) => {
   const { category, icon, id, route } = props

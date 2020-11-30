@@ -65,13 +65,13 @@ exports[`ProductItemDetails component render component with props snaphot of <Pr
           Покрытие
         </styled.span>
         <styled.span>
-          test
+          testCovering
         </styled.span>
         <styled.span>
           Обивка
         </styled.span>
         <styled.span>
-          test
+          testCasing
         </styled.span>
       </styled.div>
     </styled.span>
