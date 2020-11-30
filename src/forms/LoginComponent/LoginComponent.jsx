@@ -5,25 +5,27 @@ import { LoginForm } from '../LoginComponent/LoginForm';
 import { auth } from '../../store/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorsField } from '../Errors/ErrorsField';
-import { selectError } from '../../store/auth/selectors';
-import { useHistory } from 'react-router';
 import { closeModal } from '../../store/modal/actions';
 import { RegisterForm } from '../RegisterComponent/RegisterForm';
-import { registerCustomer } from '../../store/customer/operations';
+import { getCustomer, registerCustomer } from '../../store/customer/operations';
+import { setAuthError, setToken } from '../../store/auth/actions';
 
 export const LoginComponent = (props) => {
-  const errorList = useSelector(selectError);
-  const [errors, setErrors] = useState(errorList)
+  
+  const [errors, setErrorAuthField] = useState('')
   const dispatch = useDispatch();
-  const history = useHistory();
+  
   const [registered, setRegistered] = useState(false);
   const logInHandler = (login, password) => {
-    dispatch(auth(login, password, history));
-    console.log(errors)
-    if (errors.length === 0) {
-      console.log(errors)
-      dispatch(closeModal());
-    }
+    auth(login, password).then(response => {
+      if (response.status === 200) {
+        dispatch(setAuthError([]));
+        dispatch(setToken(response.data.token));
+        dispatch(getCustomer());
+        dispatch(closeModal())
+      }
+    }).catch(val => setErrorAuthField((val.message)))
+   
   };
 
   return (
@@ -35,7 +37,7 @@ export const LoginComponent = (props) => {
               logInHandler(login, password)
             }
           />
-          {(errors.length !== 0) && <ErrorsField errors={errors} />}
+          {(errors) && <ErrorsField error={errors} />}
         </>
       )}
 
