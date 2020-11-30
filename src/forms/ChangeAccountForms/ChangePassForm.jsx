@@ -4,9 +4,9 @@ import { Form, Input } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 
-import { Button } from '../../Button';
-import { closeModal } from '../../../store/modal/actions';
-import { changePass } from '../../../store/customer/operations';
+import { Button } from '../../components/Button';
+import { closeModal } from '../../store/modal/actions';
+import { changePass } from '../../store/customer/operations';
 
 export const ChangePassForm = () => {
   const dispatch = useDispatch();

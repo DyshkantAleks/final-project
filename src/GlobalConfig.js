@@ -1,19 +1,20 @@
 export const GlobalConfig = {
-  phoneNumberRegExp: /^\+?3?8?(0\d{9})$/,
+  phoneNumberRegExp: /(\d{9})$/,
   textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
+  passwordField: /^[0-9a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
   adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ.,\s`]+$/,
   numberFieldRegExp: /^[0-9]+$/,
   deliveryOptions: [
     {
       PICKUP: {
         value: 'Pick up from store',
-        text: 'Забрать с магазина',
+        text: 'Самовывоз',
       },
     },
     {
       COURIER_SERVICE: {
         value: 'Courier Service',
-        text: 'Курьером на дом',
+        text: 'Курьером',
       },
     },
     {
@@ -34,7 +35,7 @@ export const GlobalConfig = {
   paymentOptions: [
     {
       BY_CASH: {
-        text: 'Наличными при получении',
+        text: 'Наличными',
         value: 'Cash',
       },
     },

@@ -245,7 +245,6 @@ justify-content: center;
         gap: 1rem;
     };
     @media ${device.tabletM} {
-        grid-template-columns: repeat(2, auto);
         gap: 2rem;
     };
     @media ${device.tabletL} {

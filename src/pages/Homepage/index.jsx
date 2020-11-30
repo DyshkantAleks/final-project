@@ -13,4 +13,4 @@ export const Homepage = () => {
       <PopularCategoryList />
     </ContentContainer>
   )
-}
+};

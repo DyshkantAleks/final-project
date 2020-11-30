@@ -2,11 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 
-import { ProductItemDetails } from '.';
-import { ContainerDetails, ContainerProduct, Price, Article, AvailabilityArticleWrap, Availability, DimensionsContainer, Description, Subtitle, ActionsContainer, Actions, SpecificationContainer, DescriptionKey, ShowMore, PriceContainer, CurrentPrice, PreviousPrice, SubtitleBox } from './StyledProductItemDetails';
+import { ProductItemDetails } from './index';
+import { ContainerDetails, Price, Article, AvailabilityArticleWrap, Availability, Description, Subtitle, ActionsContainer, PriceContainer, SubtitleBox } from './StyledProductItemDetails';
 import { Title } from '../Title/Title';
 import { ProductSlider } from '../ProductSlider';
 import { RegularIconFavorite } from '../ProductItem/IconsSvg/RegularIconFavorite';
+import { ProductCounter } from '../Counter/ProductCounter';
+import { Button } from '../Button';
 
 const setUp = (props = {}) => {
   const component = shallow(<ProductItemDetails {...props} />);
@@ -34,8 +36,8 @@ describe('ProductItemDetails component', () => {
             length: 1
           },
           specifications: {
-            covering: 'test',
-            casing: 'test'
+            covering: 'testCovering',
+            casing: 'testCasing'
           },
           color: 'testColor',
           _id: 'testId'
@@ -95,6 +97,37 @@ describe('ProductItemDetails component', () => {
     it('should be render with article', () => {
       const article = wrapper.find(ContainerDetails).find(AvailabilityArticleWrap).find(Article);
       expect(article.text()).toEqual('Артикул: testNumber');
+    });
+    it('should be render with title of description', () => {
+      const wrapDesc = wrapper.find(ContainerDetails).find(SubtitleBox).find(Subtitle);
+      expect(wrapDesc.text()).toEqual('Описание товара');
+    });
+    it('wrapper includes description', () => {
+      const description = wrapper.find(ContainerDetails).find(Description);
+      expect(description.length).toEqual(7);
+      expect(description.at(0).text()).toEqual('TestDesc');
+      expect(description.at(1).text()).toEqual('testColor');
+      expect(description.at(2).text()).toEqual('Высота - 1 cм, ');
+      expect(description.at(3).text()).toEqual('Ширина - 1 cм, ');
+      expect(description.at(4).text()).toEqual('Глубина - 1 cм ');
+      expect(description.at(5).text()).toEqual('testCovering');
+      expect(description.at(6).text()).toEqual('testCasing');
+    });
+    it('should be render with actionsContainer', () => {
+      const actionsContainer = wrapper.find(ContainerDetails).find(ActionsContainer);
+      expect(actionsContainer.length).toEqual(1);
+    });
+    it('actionsContainer includes <Counter />', () => {
+      const productCounter = wrapper.find(ContainerDetails).find(ActionsContainer).find(ProductCounter);
+      expect(productCounter.length).toEqual(1);
+    });
+    it('actionsContainer includes <Button />', () => {
+      const button = wrapper.find(ContainerDetails).find(ActionsContainer).find(Button);
+      expect(button.length).toEqual(1);
+      expect(button.prop('width')).toBe('true');
+      expect(button.prop('color')).toBe('true');
+      expect(button.prop('text')).toEqual('Купить');
+      expect(button.prop('disabled')).toEqual(false);
     });
   });
 });
