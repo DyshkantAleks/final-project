@@ -1,21 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import {
-  CartContainer,
-  CartMenu,
-  CartTotalContainer,
-  CartTotalText,
-  CartEmpty,
-  CartButtonHolder
-} from './StyledCartItem';
 
+import { CartContainer, CartMenu, CartTotalContainer, CartTotalText, CartEmpty, CartButtonHolder } from './StyledCartItem';
 import { selectCart } from '../../store/cart/selectors';
 import { Button } from '../../components/Button';
 import { Title } from '../../components/Title/Title';
 import { CartItem } from '../Cart/CartItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { ROUTES } from '../Navigation/routes';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const CartPage = () => {
   const history = useHistory();
@@ -39,6 +33,7 @@ export const CartPage = () => {
   const menuArray = ['Название', 'Цвет', 'Количество', 'Цена'];
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <Title text='Корзина' />
       <CartContainer>
         {
@@ -57,7 +52,6 @@ export const CartPage = () => {
               <Button text='Вернуться к покупкам' onClick={() => history.push('/catalog/all')} />
               
               <Link to={ROUTES.ORDER}><Button text='Оформить покупку' color='green' /></Link>
-
             </CartButtonHolder>
           </CartTotalContainer>}
     </ContentContainer>

@@ -14,6 +14,7 @@ import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions';
 import { ModalExistence, ModalExistenceActions } from '../../components/Modal/ModalExistence';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
@@ -35,8 +36,8 @@ export const OrderPage = (props) => {
   }
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <Title text="Оформить заказ" />
-
       <ContainerPage>
         <ComponentContainerL>
           <ContactForm

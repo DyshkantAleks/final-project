@@ -2,6 +2,7 @@
 
 exports[`DeliveryPage component snapshot <DeliveryPage /> 1`] = `
 "<styled.div>
+  <ScrollOnTop />
   <styled.div>
     <styled.div>
       <h2>

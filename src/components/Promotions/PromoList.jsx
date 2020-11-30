@@ -7,14 +7,14 @@ import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectPromotions } from '../../store/promotions/selectors';
 
 export const PromoList = () => {
-  const promotions = useSelector(selectPromotions)
+  const promotions = useSelector(selectPromotions);
   const promotionsForRender = promotions && promotions.map((e) => (
-    <StyledLink to={`/promo/${e.route}`}>
+    <StyledLink to={`/promo/${e.route}`} key={e._id}>
       <PromoItem
-        image={e.sliderImageUrl} 
+        image={e.sliderImageUrl}
         title={e.title}
-        subtitle={e.subtitle} 
-        route={e.route} 
+        subtitle={e.subtitle}
+        route={e.route}
         text={e.fullDescription}
       />
     </StyledLink>

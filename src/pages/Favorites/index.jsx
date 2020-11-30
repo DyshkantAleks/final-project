@@ -6,6 +6,7 @@ import { Title } from '../../components/Title/Title';
 import { CartContainer, CartMenu, CartEmpty } from '../Cart/StyledCartItem';
 import { FavItem } from './FavItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
@@ -22,6 +23,7 @@ export const FavoritesPage = () => {
 
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <Title text='Избранное' />
       <CartContainer>
         { favorites.length === 0 ? <CartEmpty>У вас нет избранных товаров </CartEmpty>
@@ -31,4 +33,4 @@ export const FavoritesPage = () => {
       </CartContainer>
     </ContentContainer>
   )
-}
+};
