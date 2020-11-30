@@ -1,10 +1,10 @@
-import React from 'react'
-// import styled from 'styled-components';
-// import {device} from '../../../../styles/breakpoints/breakpoints';
-import { StaticImageContainer, StaticImage, StaticTitle, StaticSubtitle } from '../../StyledPopularCategory'
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { StaticImageContainer, StaticImage, StaticTitle, StaticSubtitle } from '../../StyledPopularCategory';
 
 export const StaticCategoryItem = (props) => {
-  const { textForTitle, textForSubtitle, backGround } = props
+  const { textForTitle, textForSubtitle, backGround } = props;
 
   return (
     <>
@@ -15,4 +15,10 @@ export const StaticCategoryItem = (props) => {
       <StaticSubtitle>{textForSubtitle}</StaticSubtitle>
     </>
   )
-}
+};
+
+StaticCategoryItem.propTypes = {
+  textForTitle: PropTypes.string,
+  textForSubtitle: PropTypes.string,
+  backGround: PropTypes.string
+};

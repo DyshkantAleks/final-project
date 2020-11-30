@@ -65,13 +65,13 @@ exports[`ProductItemDetails component render component with props snaphot of <Pr
           Покрытие
         </styled.span>
         <styled.span>
-          test
+          testCovering
         </styled.span>
         <styled.span>
           Обивка
         </styled.span>
         <styled.span>
-          test
+          testCasing
         </styled.span>
       </styled.div>
     </styled.span>
@@ -80,7 +80,7 @@ exports[`ProductItemDetails component render component with props snaphot of <Pr
         <ProductCounter value={1} setValue={[Function: bound _dispatchAction]} quantity={10} name=\\"Test\\" />
       </styled.div>
       <styled.div>
-        <Button width=\\"13rem\\" color=\\"#7191A6\\" text=\\"Купить\\" onClick={[Function: onClick]} disabled={false} />
+        <Button width=\\"true\\" color=\\"true\\" text=\\"Купить\\" onClick={[Function: onClick]} disabled={false} />
       </styled.div>
     </styled.div>
   </styled.div>

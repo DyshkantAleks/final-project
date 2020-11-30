@@ -1,6 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import React from 'react'
-import { ContactForm, ContactLink, ContainerContactForm } from '../StyledAboutPage'
+import React from 'react';
+
+import { ContactForm, ContactLink, ContainerContactForm } from '../StyledAboutPage';
 
 export const ContactsForm = () => {
   return (
@@ -24,4 +24,4 @@ export const ContactsForm = () => {
       </div>
     </ContainerContactForm>
   )
-}
+};

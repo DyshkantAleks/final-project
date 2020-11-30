@@ -1,4 +1,4 @@
-import { SET_PROMOTIONS } from './actions'
+import { SET_PROMOTIONS } from './types'
 
 const InitialState = {
   promotions: []
