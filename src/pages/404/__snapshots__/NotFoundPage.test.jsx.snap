@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotFoundPage component snapshot <NotFoundPage /> 1`] = `
+exports[`NotFoundPage component snapshot <NotFoundPage 1`] = `
 "<styled.div>
   <styled.div>
     <styled.div>
