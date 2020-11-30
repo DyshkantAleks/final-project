@@ -100,7 +100,7 @@ export const CartItemContainer = styled.div`
         `;
 
 export const CartImage = styled.img`
-width: 100%;
+max-width: 100%;
 height: auto;
 max-height: 5rem;
 padding-left: 1rem;
