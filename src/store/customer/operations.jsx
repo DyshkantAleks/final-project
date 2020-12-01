@@ -36,11 +36,6 @@ export const getCustomer = () => async (dispatch, getState) => {
 };
 
 export const updateCustomer = (updatedCustomer) => async (dispatch, getState) => {
-  const { auth } = getState();
-
-  if (auth.token) {
-    setAuthToken(auth.token);
-  }
   try {
     const { status, data } = await server.put('/customers', updatedCustomer);
 
@@ -52,12 +47,7 @@ export const updateCustomer = (updatedCustomer) => async (dispatch, getState) =>
   }
 };
 
-export const changePass = (passwords) => async (dispatch, getState) => {
-  const { auth } = getState();
-
-  if (auth.token) {
-    setAuthToken(auth.token);
-  }
+export const changePass = (passwords) => async (dispatch) => {
   try {
     const { status, data } = await server.put('/customers/password', passwords);
 
