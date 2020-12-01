@@ -1,6 +1,7 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { device } from '../../../../styles/breakpoints/breakpoints'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import { device } from '../../../../styles/breakpoints/breakpoints';
 
 export const StyledLink = styled(Link)`
 display: flex;
