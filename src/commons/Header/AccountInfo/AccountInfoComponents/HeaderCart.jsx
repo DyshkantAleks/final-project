@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {ROUTES} from '../../../../pages/navigation/routes';
+import {ROUTES} from '../../../../pages/Navigation/routes';
 import { selectCart } from '../../../../store/cart/selectors';
 import {icon} from '../icons';
 import {CartCounter, Item} from '../StyledAccountInfo';
