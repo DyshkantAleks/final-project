@@ -1,8 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import { ROUTES } from '../../../pages/Navigation/routes';
-import { List, Item } from '../InfoLinks/StyledInfoLinks';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../../pages/Navigation/routes'
+import { List, Item } from '../InfoLinks/StyledInfoLinks'
 
 export const InfoLinks = () => {
   return (
@@ -16,6 +15,7 @@ export const InfoLinks = () => {
       <Item>
         <Link to={ROUTES.ABOUT}>О нас</Link>
       </Item>
+
     </List>
   )
-};
+}
