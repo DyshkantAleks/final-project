@@ -48,8 +48,18 @@ export const addProductToFav = (productItem) => (dispatch, getState) => {
   updatedFavorites(state);
 }
 
-export const removeProductFromFav = (productItem) => (dispatch, getState) => {
-  dispatch(removeFromFavorites(productItem));
+export const removeProductFromFav = (productItem) => async (dispatch, getState) => {
   const state = getState();
-  updatedFavorites(state);
+  const {customer} = state;
+  console.log(productItem)
+  if (customer.isLogined) {
+    try {
+      const {status} = await server.delete(`/wishlist/${productItem}`)
+      if (status === 200) {
+        dispatch(removeFromFavorites(productItem));
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }

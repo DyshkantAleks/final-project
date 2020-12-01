@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Form, Input, Select, Row, Col, Radio, AutoComplete } from 'antd';
+import { Form, Select, Row, Col, Radio, AutoComplete } from 'antd';
 import { Button } from '../../components/Button';
 
 import { selectCustomer } from '../../store/customer/slectors';
@@ -9,9 +9,6 @@ import { GlobalConfig } from '../../GlobalConfig';
 import { getCity, getStreet } from '../../utils/novaPoshtaApi';
 import { ValodationRules } from '../../validation/ValidationRules';
 import { Text, StyledInput, StyledRadio } from './StyledContactForm';
-
-
-
 
 export const ContactForm = (props) => {
   const { handleSubmit } = props;

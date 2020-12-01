@@ -12,8 +12,8 @@ describe('PopularCategoryItem component', () => {
     component = setUp()
   });
   it('should be render without crushing', () => {
-      const wrapper = component.find(Item);
-      expect(wrapper.length).toEqual(1);
+    const wrapper = component.find(Item);
+    expect(wrapper.length).toEqual(1);
   });
   it('snaphot of <PopularCategoryItem />', () => {
     const wrapper = component.find(Item);

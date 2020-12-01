@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const BtnFacebook = styled.button`
     width: 165px;   
