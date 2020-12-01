@@ -6,6 +6,7 @@ import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { PopularCategoryList } from '../../components/PopularCategory/PopularCategoryList';
 import { SliderMainPage } from '../../components/SliderMainPage/SliderMainPage';
 import { TopRatedProductsList } from '../../components/TopRatedProducts/TopRatedProductsList';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 const setUp = (props = {}) => shallow(<Homepage {...props} />);
 
@@ -17,6 +18,10 @@ describe('DeliveryPage component', () => {
   it('should be render with general wrapper', () => {
     const generalWrapper = component.find(ContentContainer);
     expect(generalWrapper.length).toEqual(1);
+  });
+  it('should render without crushing and should have scroll on top', () => {
+    const scrollTop = component.find(ScrollOnTop);
+    expect(scrollTop.length).toEqual(1);
   });
   it('should render with slider', () => {
     const slider = component.find(SliderMainPage);

@@ -1,7 +1,8 @@
-import React from 'react'
-import { IconContainer, NewIcon } from '../StyledProductItem'
+import React from 'react';
 
-export const IconNew = (props) => {
+import { IconContainer, NewIcon } from '../StyledProductItem';
+
+export const IconNew = () => {
   return (
     <IconContainer>
       <NewIcon>
@@ -44,4 +45,4 @@ export const IconNew = (props) => {
       </NewIcon>
     </IconContainer>
   )
-}
+};

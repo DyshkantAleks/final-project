@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { ComponentContainerL, ComponentContainerR, ContainerPage } from './StyledOrderPage';
 
-import { device } from '../../styles/breakpoints/breakpoints';
+
 import { ContactForm } from '../../forms/ContactForm/ContactForm';
 import { OrderCart } from './OrderCart';
 import { Title } from '../../components/Title/Title';
@@ -14,6 +14,7 @@ import { selectProducts } from '../../store/products/selectors';
 import { selectCart } from '../../store/cart/selectors';
 import { openModal } from '../../store/modal/actions';
 import { ModalExistence, ModalExistenceActions } from '../../components/Modal/ModalExistence';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const OrderPage = (props) => {
   const dispatch = useDispatch();
@@ -35,8 +36,8 @@ export const OrderPage = (props) => {
   }
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <Title text="Оформить заказ" />
-
       <ContainerPage>
         <ComponentContainerL>
           <ContactForm
@@ -52,31 +53,3 @@ export const OrderPage = (props) => {
     </ContentContainer>
   );
 };
-
-const ComponentContainerL = styled.div`
-  flex-grow: 1;
-  @media ${device.desktop} {
-    margin-right: 4rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-  } ;
-`;
-
-const ComponentContainerR = styled.div`
-  flex-grow: 1;
-  @media ${device.desktop} {
-    margin-left: 4rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-  } ;
-`;
-
-const ContainerPage = styled.div`
-  display: flex;
-  flex: 1 0 auto;
-  flex-direction: column-reverse;
-  @media ${device.desktop} {
-    justify-content: space-between;
-    flex-direction: row;
-  } ;
-`;
