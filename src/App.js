@@ -9,7 +9,7 @@ import { Footer } from './commons/Footer';
 import { ScrollToTop } from './commons/ScrollToTop';
 import { NotFoundPage } from './pages/404';
 import { getAppData } from './store/asyncActions';
-import { Loader } from './components/Loader';
+import {Loader} from './components/Loader';
 
 function App() {
   const dispatch = useDispatch();

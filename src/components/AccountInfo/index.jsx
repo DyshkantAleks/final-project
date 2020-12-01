@@ -15,8 +15,11 @@ import {
   PersonalSectionFooter,
 } from './StyledAccountInfo';
 import { selectCustomer } from '../../store/customer/slectors';
+
+
 import { ChangePersonalDataForm } from '../../forms/ChangeAccountForms/ChangePersonDataForm';
 import { ChangePassForm } from '../../forms/ChangeAccountForms/ChangePassForm';
+
 import { logOut } from '../../store/auth/operations';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';

@@ -1,22 +1,19 @@
 import { server } from '../../API';
 import { setAuthToken } from '../auth/operations';
 
-import { setCustomer, setCustomerError } from './actions';
+import { setCustomer } from './actions';
 import { getCart } from '../cart/operations'
 import { getFavorites } from '../favorites/operations'
 import { openModal } from '../modal/actions';
 
-export const registerCustomer = (customerData) => async (dispatch) => {
+export const registerCustomer = async (customerData) => {
   const {prefix, phone } = customerData
   const customer = {...customerData, telephone: prefix + phone}
   try {
-    const { status, data } = await server.post('/customers', customer);
-
-    if (status === 200) {
-      dispatch(setCustomer(data));
-    }
+    const responce = await server.post('/customers', customer);
+    return responce
   } catch (error) {
-    dispatch(setCustomerError(error.response.data.message))
+    throw new Error(error.response.data.message)
   }
 };
 export const getCustomer = () => async (dispatch, getState) => {
