@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import useWindowDimensions from '../../../../utils/useWindowDimensions'
+import useWindowDimensions from '../../../../utils/useWindowDimensions';
 import {
   NewItem,
   IconContainer,
