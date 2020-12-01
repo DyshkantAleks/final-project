@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { LoaderContainer, LoaderText, Preloader } from './StyledLoader';
+import styled from 'styled-components';
 
 export const Loader = () => {
   return (
@@ -40,7 +39,6 @@ const Preloader = styled.div`
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
-
  :before {
   width: 50%;
   height: 50%;
@@ -51,7 +49,6 @@ const Preloader = styled.div`
   left: 0;
   content: '';
 }
-
 :after {
   background: #ffffff;
   width: 75%;
