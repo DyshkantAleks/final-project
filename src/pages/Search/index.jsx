@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-
 import { selectProducts } from '../../store/products/selectors';
 import { ProductItem } from '../../components/ProductItem';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
@@ -29,7 +28,7 @@ export const SearchPage = ({ match, location }) => {
 
   const arrayOfColors = new Set(searchArray.map(item => item.color));
   const arrayOfBrands = new Set(searchArray.map(item => item.brand));
-  sortingProducts(searchArray);
+  sortingProducts(searchArray, sortValue);
   const result = filterByCheckboxes(searchArray, checkedColors, checkedBrands, priceValues);
   const pageChange = (current, pageSize) => result.slice((current - 1) * pageSize, current * pageSize);
 
@@ -52,26 +51,14 @@ export const SearchPage = ({ match, location }) => {
  
   return (
     <ContentContainer>
-      {searchArray.length > 0 && (
-        <h2>Результат поиска по запросу "{parsed.query}"</h2>
-      )}
       {searchArray.length < 1 && (
         <StyledTitle>По запросу "{parsed.query}" ничего не найдено</StyledTitle>
       )}
-      <Content>
-        {screenWidth >= 1200 && <FilterDesktop
-          arrayOfColors={arrayOfColors}
-          checkedColors={checkedColors}
-          onChackedColorHandler={onChackedColorHandler}
-          arrayOfBrands={arrayOfBrands}
-          checkedBrands={checkedBrands}
-          onCheckedBrandHandler={onCheckedBrandHandler}
-          onAfterChangeHandler={onAfterChangeHandler}
-        />}
-        <Wrapper>
-          <FiltersWrapper>
-            <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
-            {screenWidth <= 1200 && <FilterMobile
+      {searchArray.length > 0 && (
+        <>
+          <h2>Результат поиска по запросу "{parsed.query}"</h2>
+          <Content>
+            {screenWidth >= 1200 && <FilterDesktop
               arrayOfColors={arrayOfColors}
               checkedColors={checkedColors}
               onChackedColorHandler={onChackedColorHandler}
@@ -80,19 +67,33 @@ export const SearchPage = ({ match, location }) => {
               onCheckedBrandHandler={onCheckedBrandHandler}
               onAfterChangeHandler={onAfterChangeHandler}
             />}
-          </FiltersWrapper>
-          <ProductList>
-            {searchArrayForRender}
-          </ProductList>
-          {result.length > pageSize && <StyledPagination
-            current={current}
-            pageSize={pageSize}
-            total={result.length}
-            onChange={setCurrent}
-            showSizeChanger={false}
-          />}
-        </Wrapper>
-      </Content>
+            <Wrapper>
+              <FiltersWrapper>
+                <ProductSorting onChangeHandler={onSelectChangeHandler} value={sortValue} />
+                {screenWidth <= 1200 && <FilterMobile
+                  arrayOfColors={arrayOfColors}
+                  checkedColors={checkedColors}
+                  onChackedColorHandler={onChackedColorHandler}
+                  arrayOfBrands={arrayOfBrands}
+                  checkedBrands={checkedBrands}
+                  onCheckedBrandHandler={onCheckedBrandHandler}
+                  onAfterChangeHandler={onAfterChangeHandler}
+                />}
+              </FiltersWrapper>
+              <ProductList>
+                {searchArrayForRender}
+              </ProductList>
+              {result.length > pageSize && <StyledPagination
+                current={current}
+                pageSize={pageSize}
+                total={result.length}
+                onChange={setCurrent}
+                showSizeChanger={false}
+              />}
+            </Wrapper>
+          </Content>
+        </>
+      )}
     </ContentContainer>
   )
 };
