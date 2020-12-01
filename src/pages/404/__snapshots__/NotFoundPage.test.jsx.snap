@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage component snapshot <NotFoundPage 1`] = `
+"<styled.div>
+  <styled.div>
+    <styled.div>
+      <styled.img src=\\"https://res.cloudinary.com/dg-home/image/upload/v1604486670/General/404_f3bscz.gif\\" />
+    </styled.div>
+    <styled.div>
+      <styled.p>
+        Упс.... Кажется мы потеряли эту страницу :(
+      </styled.p>
+      <Link to=\\"/\\">
+        <styled.div>
+          Вернуться на главную
+        </styled.div>
+      </Link>
+    </styled.div>
+  </styled.div>
+</styled.div>"
+`;

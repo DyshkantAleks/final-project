@@ -7,13 +7,15 @@ import { ModalTitle, ItemInnerWrapper } from '../ModalExistence/StyledModalExist
 import { Button } from '../../Button';
 import { closeModal } from '../../../store/modal/actions.jsx';
 import { ActionsWrap, ContentOrder, ModalOrderWrapper } from './StyledModalOrder';
-
+import { LiqPaySheckout } from '../../LiqPay/LiqPaySheckout';
 
 export const ModalOrder = (props) => {
   const { data } = props;
+  const payCredit = data.order.payMethod === 'creditCard'
   return (
     <ModalOrderWrapper>
       <ContentOrder>
+        {payCredit && <LiqPaySheckout totalSum={data.order.totalSum} id={data.order.orderNo}/>}
         <ModalTitle>Ваш заказ № <ItemInnerWrapper>{data.order.orderNo}{' '}</ItemInnerWrapper>успешно принят.</ModalTitle>
       </ContentOrder>
     </ModalOrderWrapper>
