@@ -1,4 +1,4 @@
-import { setCustomer, logOutCustomer } from './actions';
+import { setCustomer, logOutCustomer, setCustomerError } from './actions';
 import * as actions from './types';
 
 describe('Customer action-creator', () => {
@@ -15,5 +15,12 @@ describe('Customer action-creator', () => {
       type: actions.LOGOUT_CUSTOMER
     };
     expect(logOutCustomer(expectedAction)).toEqual(expectedAction);
+  });
+  it('setCustomerError(): should logOut', () => {
+    const expectedAction = {
+      type: actions.SET_CUSTOMER_ERROR,
+      payload: {error: ''}
+    };
+    expect(setCustomerError(expectedAction.payload)).toEqual(expectedAction);
   });
 })

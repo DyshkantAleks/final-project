@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { ItemFavoriteContainer } from '../StyledProductItem'
+import { ItemFavoriteContainer } from '../StyledProductItem';
 
 export const RegularIconFavorite = (props) => {
   const { onClick } = props

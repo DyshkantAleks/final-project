@@ -3,10 +3,12 @@ import React from 'react';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { ContainerPage, Text, TextContainer, TextList, TextListItem } from '../About/StyledAboutPage';
 import { ContactsForm } from '../About/AboutPageComponents/ContactForm';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const DeliveryPage = () => {
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <ContainerPage>
         <TextContainer>
           <h2>ОБЩИЕ УСЛОВИЯ</h2>

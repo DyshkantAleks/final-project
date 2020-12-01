@@ -3,10 +3,12 @@ import React from 'react';
 import { ContainerPage, Text, TextContainer } from '../About/StyledAboutPage';
 import { Map, MapContainer } from './StyledStoresPage';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const StoresPage = () => {
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <ContainerPage>
         <TextContainer>
           <Text>Для вашего удобства мы создали современный шоу-рум.</Text>

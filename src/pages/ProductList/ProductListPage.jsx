@@ -12,6 +12,7 @@ import { categoriesFilter, filterByCheckboxes, sortingProducts } from '../../uti
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { FilterDesktop } from '../../components/Filters/FilterDesktop';
 import { FilterMobile } from '../../components/Filters/FilterMobile';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const ProductListPage = ({ match }) => {
   const { screenWidth } = useWindowDimensions();
@@ -85,6 +86,7 @@ export const ProductListPage = ({ match }) => {
 
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <Content>
         {screenWidth >= 1200 && <FilterDesktop
           arrayOfColors={arrayOfColors}
