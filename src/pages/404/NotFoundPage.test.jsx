@@ -26,7 +26,7 @@ describe('NotFoundPage component', () => {
     expect(image.prop('src')).toEqual('https://res.cloudinary.com/dg-home/image/upload/v1604486670/General/404_f3bscz.gif');
   });
   it('should be render with text', () => {
-    const text  = component.find(Text404);
+    const text = component.find(Text404);
     expect(text.length).toEqual(1);
     expect(text.text()).toEqual('Упс.... Кажется мы потеряли эту страницу :(');
   });

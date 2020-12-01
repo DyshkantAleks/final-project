@@ -1,5 +1,5 @@
-import { server } from '../../API'
-import { setCatigories } from './actions'
+import { server } from '../../API';
+import { setCatigories } from './actions';
 
 export const getCategories = () => async (dispatch) => {
   try {
@@ -11,4 +11,3 @@ export const getCategories = () => async (dispatch) => {
     console.log(error)
   }
 }
-

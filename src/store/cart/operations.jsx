@@ -1,6 +1,7 @@
 import { server } from '../../API';
 import {
   addToCart,
+  clearCart,
   quantityDown,
   quantityUp,
   removeFromCart,
@@ -106,3 +107,19 @@ export const checkQuantity = (products = [], cart = []) => {
     []
   );
 };
+
+export const deleteCart = () => async (dispatch, getState) => {
+  const state = getState();
+  const { customer } = state;
+  
+  if (customer.isLogined) {
+    try {
+      const { status } = await server.delete('/cart');
+      if (status === 200) {
+        dispatch(clearCart());
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
