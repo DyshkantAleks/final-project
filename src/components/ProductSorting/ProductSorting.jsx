@@ -6,7 +6,6 @@ export const ProductSorting = ({ onChangeHandler, value }) => {
   const { Option } = StyledSelect;
   return (
     <StyledSelect onChange={onChangeHandler} value={value}>
-      {/* <Option value="По рейтингу">По рейтингу</Option> */}
       <Option value="priceAscending">От дешевых к дорогим</Option>
       <Option value="priceDescending">От дорогих к дешевым</Option>
       <Option value="isTopRated">Популярные</Option>

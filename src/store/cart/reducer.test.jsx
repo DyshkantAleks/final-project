@@ -3,7 +3,6 @@ import * as actions from './types.jsx';
 
 describe('cart reducer', () => {
   it('SET_CART', () => {
-
     const cartArray = [1, 2, 3]
     const action = {
       type: actions.SET_CART,
