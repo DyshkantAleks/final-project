@@ -44,9 +44,8 @@ function SearchLocationInput () {
   const autoCompleteRef = useRef(null);
 
   useEffect(() => {
-   
     loadScript(
-      `https://maps.googleapis.com/maps/api/js?key=AIzaSyBVsbqOBrwvaMjHTK7-0uB3_9QxjFVrjwE&libraries=places`,
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyBVsbqOBrwvaMjHTK7-0uB3_9QxjFVrjwE&libraries=places',
       () => handleScriptLoad(setQuery, autoCompleteRef)
     );
   }, []);

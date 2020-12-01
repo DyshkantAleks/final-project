@@ -8,15 +8,15 @@ global.render = render;
 global.mount = mount;
 // global.toJson = toJson
 
-global.matchMedia = global.matchMedia || function() {
-    return {
-        matches: false,
-        addListener: function() {},
-        removeListener: function() {}
-    }
+global.matchMedia = global.matchMedia || function () {
+  return {
+    matches: false,
+    addListener: function () {},
+    removeListener: function () {}
+  }
 }
 
 // Fail tests on any warning
 console.error = message => {
-    throw new Error(message);
+  throw new Error(message);
 };

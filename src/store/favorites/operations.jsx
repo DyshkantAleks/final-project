@@ -30,7 +30,8 @@ export const getFavorites = () => async (dispatch, getState) => {
     try {
       const {status, data} = await server.get('/wishlist')
       if (status === 200) {
-        const itemsToFav = [...state.favorites.favorites, ...data.products];
+        let itemsToFav;
+        data ? itemsToFav = [...state.favorites.favorites, ...data.products] : itemsToFav = [...state.favorites.favorites]
         const result = unique(itemsToFav);
         dispatch(setFavorites(result));
         const newState = getState();
@@ -51,7 +52,6 @@ export const addProductToFav = (productItem) => (dispatch, getState) => {
 export const removeProductFromFav = (productItem) => async (dispatch, getState) => {
   const state = getState();
   const {customer} = state;
-  console.log(productItem)
   if (customer.isLogined) {
     try {
       const {status} = await server.delete(`/wishlist/${productItem}`)
@@ -61,5 +61,7 @@ export const removeProductFromFav = (productItem) => async (dispatch, getState) 
     } catch (error) {
       console.log(error)
     }
+  } else {
+    dispatch(removeFromFavorites(productItem));
   }
 }
