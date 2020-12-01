@@ -21,9 +21,7 @@ import { logOut } from '../../store/auth/operations';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import useWindowDimensions from '../../utils/useWindowDimensions';
-// import { params } from '../LiqPay/liqpayData';
 import { openModal } from '../../store/modal/actions';
-
 
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
@@ -98,7 +96,6 @@ export const AccountInfo = () => {
 
   return (
     <>
-      {/* {isOpenModal && <Modal content={contentModal} closeModalHandler={() => dispatch(closeModal())}/>} */}
       {customerData()}
       <PersonalSectionFooter>
         <Button color={'#7191A6'} text={'Изменить пароль'} onClick={() => dispatch(openModal({content: <ChangePassForm/>, title: 'Введите старый и новый пароли'}))}/>
