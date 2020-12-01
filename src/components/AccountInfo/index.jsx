@@ -21,6 +21,8 @@ import { logOut } from '../../store/auth/operations';
 import { Button } from '../../components/Button';
 import { icon } from '../../commons/Header/AccountInfo/icons';
 import { openModal } from '../../store/modal/actions';
+import { ChangeContactForm } from '../../forms/ChangeAccountForms/ChangeContactsForm';
+import { ChangeLoginForm } from '../../forms/ChangeAccountForms/ChangeLoginForm';
 
 export const AccountInfo = () => {
   const { name, surname, gender, email, login, telephone } = useSelector(selectCustomer);
@@ -63,7 +65,7 @@ export const AccountInfo = () => {
     <PersonalDataContainer>
       <PersonalDataList>{userData().slice(3, 5)}</PersonalDataList>
       <ActiveContainer>
-        <Button text={'Редактировать'} onClick={() => dispatch(openModal({content: <ChangePersonalDataForm/>}))} />
+        <Button text={'Редактировать'} onClick={() => dispatch(openModal({content: <ChangeContactForm/>}))} />
       </ActiveContainer>
     </PersonalDataContainer>
   );
@@ -72,7 +74,7 @@ export const AccountInfo = () => {
     <PersonalDataContainer>
       <PersonalDataList>{userData().slice(5)}</PersonalDataList>
       <ActiveContainer>
-        <Button text={'Редактировать'} onClick={() => dispatch(openModal({content: <ChangePersonalDataForm/>}))} />
+        <Button text={'Редактировать'} onClick={() => dispatch(openModal({content: <ChangeLoginForm/>}))} />
       </ActiveContainer>
     </PersonalDataContainer>
   );
