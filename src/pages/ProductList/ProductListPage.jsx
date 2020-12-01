@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
-import { Content, Wrapper, ProductList, FiltersWrapper, StyledPagination} from './StyledProductListPage';
+import { Content, Wrapper, ProductList, FiltersWrapper, StyledPagination } from './StyledProductListPage';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
@@ -12,6 +12,7 @@ import { categoriesFilter, filterByCheckboxes, sortingProducts } from '../../uti
 import useWindowDimensions from '../../utils/useWindowDimensions';
 import { FilterDesktop } from '../../components/Filters/FilterDesktop';
 import { FilterMobile } from '../../components/Filters/FilterMobile';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const ProductListPage = ({ match }) => {
   const { screenWidth } = useWindowDimensions();
@@ -85,6 +86,7 @@ export const ProductListPage = ({ match }) => {
 
   return (
     <ContentContainer>
+      <ScrollOnTop />
       <Content>
         {screenWidth >= 1200 && <FilterDesktop
           arrayOfColors={arrayOfColors}

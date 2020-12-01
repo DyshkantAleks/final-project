@@ -1,22 +1,24 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectById } from '../../store/promotions/selectors';
 import { getPromotions } from '../../store/promotions/operations';
 import {Container, ImageContainer, Image, Title, ContentContainerPromo, Description} from './StyledPromotionsSingle';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const PromotionsSinglePage = ({ match }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPromotions())
-  }, [dispatch])
+  }, [dispatch]);
 
-  const single = useSelector(selectById(match.params.route))
+  const single = useSelector(selectById(match.params.route));
 
   return (
     <>
+      <ScrollOnTop dependence={single} />
       {single && (
         <>
           <Container>

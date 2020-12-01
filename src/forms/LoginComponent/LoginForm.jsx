@@ -3,9 +3,10 @@ import 'antd/dist/antd.css';
 import { Form, Input } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Button } from '../../components/Button/index';
+import { StyledForm } from './StyledLoginComponent';
 
 export const LoginForm = props => {
-  const {handleSubmit} = props
+  const { handleSubmit } = props
 
   const initialValues = {
     login: '',
@@ -13,7 +14,7 @@ export const LoginForm = props => {
   }
 
   return (
-    <Form
+    <StyledForm
       name="normal_login"
       className="login-form"
       initialValues={initialValues}
@@ -48,6 +49,6 @@ export const LoginForm = props => {
       <Form.Item>
         <Button text='Войти' type="submit"></Button>
       </Form.Item>
-    </Form>
+    </StyledForm>
   );
 };
