@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export const LiqpayV = (props) => {
-  const {params } = props
-  
+  const {params} = props
   return (
     <form method="POST" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8">
       <input type="hidden" name="data" value={params.data} />
@@ -10,4 +9,4 @@ export const LiqpayV = (props) => {
       <input type="image" src="//static.liqpay.ua/buttons/p1+language+.radius.png" name="btn_text" alt="Купить"/> +
     </form>
   )
-}
+};

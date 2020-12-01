@@ -14,7 +14,7 @@ describe('<Loader /> component', () => {
     const wrapper = component.find(LoaderContainer);
     expect(wrapper.length).toEqual(1);
   });
-  it('should be includes preloader component', () => { 
+  it('should be includes preloader component', () => {
     const preloader = component.find(Preloader);
     expect(preloader.length).toEqual(1);
   });

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 export const SocialIcons = {
   facebook: <svg
     width='100%' height='100%'
     viewBox='0 0 26 26'
-            >
+  >
     <g>
       <path d='M21.125,0H4.875C2.182,0,0,2.182,0,4.875v16.25C0,23.818,2.182,26,4.875,26h16.25
           C23.818,26,26,23.818,26,21.125V4.875C26,2.182,23.818,0,21.125,0z M20.464,14.002h-2.433v9.004h-4.063v-9.004h-1.576v-3.033h1.576

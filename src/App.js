@@ -11,7 +11,7 @@ import { NotFoundPage } from './pages/404';
 import { getAppData } from './store/asyncActions';
 import {Loader} from './components/Loader';
 
-function App() {
+function App () {
   const dispatch = useDispatch();
   const [dataLoad, setDataLoad] = useState(false);
   useEffect(() => {
@@ -27,13 +27,13 @@ function App() {
     <>
       {didCatch ? (<NotFoundPage />
       ) : (
-          <ErrorBoundary>
-            <Header />
-            <ScrollToTop />
-            {dataLoad ? <Navigation /> : <Loader />}
-            <Footer />
-          </ErrorBoundary>
-        )
+        <ErrorBoundary>
+          <Header />
+          <ScrollToTop />
+          {dataLoad ? <Navigation /> : <Loader />}
+          <Footer />
+        </ErrorBoundary>
+      )
       }
     </>
   );

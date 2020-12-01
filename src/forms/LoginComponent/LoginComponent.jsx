@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Checkbox } from "antd";
+import React, { useState } from 'react';
+import { Checkbox } from 'antd';
 
-import { LoginForm } from "../LoginComponent/LoginForm";
-import { auth } from "../../store/auth/operations";
-import { useDispatch } from "react-redux";
-import { ErrorsField } from "../Errors/ErrorsField";
-import { closeModal } from "../../store/modal/actions";
-import { RegisterForm } from "../RegisterComponent/RegisterForm";
-import { getCustomer, registerCustomer } from "../../store/customer/operations";
-import { setAuthError, setToken } from "../../store/auth/actions";
-import { setCustomer } from "../../store/customer/actions";
+import { LoginForm } from '../LoginComponent/LoginForm';
+import { auth } from '../../store/auth/operations';
+import { useDispatch } from 'react-redux';
+import { ErrorsField } from '../Errors/ErrorsField';
+import { closeModal } from '../../store/modal/actions';
+import { RegisterForm } from '../RegisterComponent/RegisterForm';
+import { getCustomer, registerCustomer } from '../../store/customer/operations';
+import { setAuthError, setToken } from '../../store/auth/actions';
+import { setCustomer } from '../../store/customer/actions';
 
 export const LoginComponent = (props) => {
   const dispatch = useDispatch();
-  const [authErrors, setErrorAuthField] = useState("");
-  const [registerErrors, setErrorRegisterField] = useState("");
+  const [authErrors, setErrorAuthField] = useState('');
+  const [registerErrors, setErrorRegisterField] = useState('');
   const [registered, setRegistered] = useState(false);
 
   const logInHandler = (login, password) => {

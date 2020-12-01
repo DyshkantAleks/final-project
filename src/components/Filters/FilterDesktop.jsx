@@ -1,5 +1,6 @@
 import React from 'react';
 import CheckboxGroup from 'react-checkbox-group';
+
 import { FilterName, StyledChackboxName, StyledCheckboxGroup, StyledLabel, Wrapper } from '../../pages/ProductList/StyledProductListPage';
 import { RangeSlider } from '../RangeSlider/RangeSlider';
 

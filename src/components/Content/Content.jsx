@@ -5,7 +5,6 @@ import styled from 'styled-components'
 export const Content = () => {
   return (
     <ContentContairer />
-
   )
 }
 
