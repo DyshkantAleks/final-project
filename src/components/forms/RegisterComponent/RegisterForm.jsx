@@ -143,7 +143,7 @@ export const RegisterForm = (props) => {
           },
 
           ({ getFieldValue }) => ({
-            validator(rule, value) {
+            validator (rule, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }

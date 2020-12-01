@@ -24,7 +24,6 @@ import useWindowDimensions from '../../utils/useWindowDimensions';
 // import { params } from '../LiqPay/liqpayData';
 import { openModal } from '../../store/modal/actions';
 
-
 export const AccountInfo = () => {
   const { screenWidth } = useWindowDimensions();
   

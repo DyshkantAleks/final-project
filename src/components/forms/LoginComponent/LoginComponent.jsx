@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Checkbox } from 'antd';
 
 import { auth } from '../../../store/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';

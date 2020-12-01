@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { CloseBtnContainer, CartPrice, CartText, CartNameCode, OrderCartImage, OrderCartItemContainer } from '../Cart/StyledCartItem';
 
 export const CartItem = (props) => {
-  const { imageUrl, currentPrice, name, color, itemNo, cartQuantity, route } = props;
+  const { imageUrl, currentPrice, name, color, itemNo, cartQuantity } = props;
   return (
     <OrderCartItemContainer>
       <CloseBtnContainer></CloseBtnContainer>
