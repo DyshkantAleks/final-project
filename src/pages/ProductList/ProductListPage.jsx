@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
-import { Content, Wrapper, ProductList, FiltersWrapper, StyledPagination} from './StyledProductListPage';
+import { Content, Wrapper, ProductList, FiltersWrapper, StyledPagination } from './StyledProductListPage';
 import { selectProducts } from '../../store/products/selectors';
 import { selectCategoryFromRoute } from '../../store/categories/selectors';
 import { ProductItem } from '../../components/ProductItem';
