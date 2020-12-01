@@ -28,7 +28,7 @@ describe('Customer reducer', () => {
   it('LOGOUT_CUSTOMER', () => {
     const stateBefore = {
       customer: {
-        name: 'Пользователь'
+        name: 'Вход'
       },
       isLogined: true
     };
