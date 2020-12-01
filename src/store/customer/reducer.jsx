@@ -2,10 +2,10 @@ import { LOGOUT_CUSTOMER, SET_CUSTOMER, SET_CUSTOMER_ERROR } from './types';
 
 const initialState = {
   customer: {
-    name: 'Пользователь'
+    name: 'Вход'
   },
   isLogined: false,
-  error: null
+  error: []
 };
 
 export function reducer (state = initialState, { type, payload }) {
@@ -20,7 +20,7 @@ export function reducer (state = initialState, { type, payload }) {
     case LOGOUT_CUSTOMER:
       return {
         ...state,
-        customer: {name: 'Пользователь'},
+        customer: {name: 'Вход'},
         isLogined: false
       };
 

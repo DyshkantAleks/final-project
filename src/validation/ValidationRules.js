@@ -1,5 +1,4 @@
-import { GlobalConfig } from "../GlobalConfig"
-
+import { GlobalConfig } from '../GlobalConfig'
 
 export const ValodationRules = {
   nameRules: [
@@ -20,7 +19,7 @@ export const ValodationRules = {
       message: ' максимум 25 символов!',
     }
   ],
-  surnameRules:[
+  surnameRules: [
     {
       required: true,
       message: 'Введите фамилию!',
@@ -48,7 +47,7 @@ export const ValodationRules = {
       message: 'Введите  E-mail!',
     },
   ],
-  passwordRules:[
+  passwordRules: [
     {
       required: true,
       message: 'Введите пароль!',
@@ -94,5 +93,5 @@ export const ValodationRules = {
     message: 'Введите правильный номер!',
     
   }
-]
+  ]
 }

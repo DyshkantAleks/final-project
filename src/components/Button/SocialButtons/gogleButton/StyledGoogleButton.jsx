@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const BtnGoogle = styled.button`
 margin:5px;

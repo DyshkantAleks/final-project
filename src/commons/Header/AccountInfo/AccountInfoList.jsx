@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Input } from 'antd';
 import 'antd/dist/antd.css';
-import { useHistory } from 'react-router-dom';
 
 import { selectCustomerIslogined, selectCustomer } from '../../../store/customer/slectors';
 import { HeaderAccount } from './AccountInfoComponents/HeaderAccountComponent/HeaderAccount';
@@ -14,38 +14,39 @@ import useWindowDimensions from '../../../utils/useWindowDimensions';
 import { ROUTES } from '../../../pages/Navigation/routes';
 import { Modal } from '../../../components/Modal';
 import { openModal } from '../../../store/modal/actions';
-import { LoginComponent } from '../../../components/forms/LoginComponent/LoginComponent';
+import { LoginComponent } from '../../../forms/LoginComponent/LoginComponent';
 import { selectModalIsOpen } from '../../../store/modal/selectors';
 
 export const AccountInfoList = () => {
-  const { screenWidth } = useWindowDimensions();
-  const history = useHistory();
-  const { Search } = Input;
+  const { screenWidth } = useWindowDimensions()
+  const history = useHistory()
+
+  const { Search } = Input
   const onSearch = value => {
     if (value === '') {
       return
     }
     history.push(`/search?query=${value}`)
-  };
-  const isLogined = useSelector(selectCustomerIslogined);
-  const customerName = useSelector(selectCustomer).name;
-  const isOpenModal = useSelector(selectModalIsOpen);
-  const dispatch = useDispatch();
+  }
+  const isLogined = useSelector(selectCustomerIslogined)
+  const customerName = useSelector(selectCustomer).name
+  const isOpenModal = useSelector(selectModalIsOpen)
+  const dispatch = useDispatch()
 
   const handler = () => {
     if (isLogined) {
-      history.push(ROUTES.ACCOUNT);
+      history.push(ROUTES.ACCOUNT)
     } else {
       dispatch(openModal({
         content: <LoginComponent />,
         title: 'Вход'
       }))
     }
-  };
-
+  }
   return (
     <List>
       {isOpenModal && <Modal />}
+
       {screenWidth >= 1200 && (
         <Search enterbutton='true' onSearch={onSearch} placeholder='Найти товар по названию' />
       )}
@@ -57,4 +58,4 @@ export const AccountInfoList = () => {
       <HeaderCart />
     </List>
   )
-};
+}
