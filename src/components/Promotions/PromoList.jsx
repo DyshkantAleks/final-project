@@ -11,10 +11,10 @@ export const PromoList = () => {
   const promotionsForRender = promotions && promotions.map((e) => (
     <StyledLink to={`/promo/${e.route}`}>
       <PromoItem
-        image={e.sliderImageUrl} 
+        image={e.sliderImageUrl}
         title={e.title}
-        subtitle={e.subtitle} 
-        route={e.route} 
+        subtitle={e.subtitle}
+        route={e.route}
         text={e.fullDescription}
       />
     </StyledLink>

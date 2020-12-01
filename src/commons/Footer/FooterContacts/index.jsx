@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 import {
   FooterContactsContainer,
   SocialLink,
@@ -7,8 +8,8 @@ import {
   SocialsIconContainer,
   ContactContainer,
   SocialIcon
-} from '../StyledFooter'
-import { ContactLink } from '../../../pages/About/StyledAboutPage'
+} from '../StyledFooter';
+import { ContactLink } from '../../../pages/About/StyledAboutPage';
 
 export const FooterContacts = () => {
   return (

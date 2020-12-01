@@ -59,7 +59,6 @@ font-size: 1.6rem;
   };
 `;
 
-
 export const SocialsContainer = styled.div`
 display: flex;
 margin-top: 2rem;
