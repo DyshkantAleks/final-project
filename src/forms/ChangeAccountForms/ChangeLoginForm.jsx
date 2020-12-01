@@ -8,8 +8,9 @@ import { closeModal } from '../../store/modal/actions';
 import { updateCustomer } from '../../store/customer/operations';
 import { selectCustomer } from '../../store/customer/slectors';
 import { ValodationRules } from '../../validation/ValidationRules';
+import { Button } from '../../components/Button';
 
-export const ChangeContactForm = () => {
+export const ChangeLoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
@@ -39,6 +40,10 @@ export const ChangeContactForm = () => {
         rules={ValodationRules.loginRules}
       >
         <Input />
+      </Form.Item>
+      <Form.Item>
+        <Button text='Отмена' onClick={() => dispatch(closeModal())}/>
+        <Button text='Изменить' type='submit'/>
       </Form.Item>
     </Form>
   );

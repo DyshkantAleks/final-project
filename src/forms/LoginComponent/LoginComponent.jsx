@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Checkbox } from 'antd';
 
 import { LoginForm } from '../LoginComponent/LoginForm';
 import { auth } from '../../store/auth/operations';

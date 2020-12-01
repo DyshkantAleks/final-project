@@ -13,11 +13,11 @@ export const ChangeContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
-    dispatch(updateCustomer(values));
+    dispatch(updateCustomer({email: values.email, telephone: values.prefix + values.phone}));
     dispatch(closeModal());
   };
   const customer = useSelector(selectCustomer);
-  const initialValues = customer;
+  const {telephone, email} = customer;
   const prefixSelector = (
     <Form.Item name='prefix' noStyle>
       <Select
@@ -25,6 +25,7 @@ export const ChangeContactForm = () => {
         style={{
           width: 76,
         }}
+        
       />
     </Form.Item>
   );
@@ -32,7 +33,12 @@ export const ChangeContactForm = () => {
     <Form
       name='change_contacts'
       className='login-form'
-      initialValues={initialValues}
+      initialValues={{
+        email,
+        prefix: telephone.slice(0, 4),
+        phone: telephone.slice(4)
+      }
+      }
       onFinish={handleSubmit}
     >
       <Form.Item
