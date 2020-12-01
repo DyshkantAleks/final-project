@@ -11,6 +11,7 @@ import { Content, FiltersWrapper, ProductList, StyledPagination, Wrapper } from 
 import { FilterDesktop } from '../../components/Filters/FilterDesktop';
 import { FilterMobile } from '../../components/Filters/FilterMobile';
 import { ProductSorting } from '../../components/ProductSorting/ProductSorting';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const SearchPage = ({ match, location }) => {
   const { screenWidth } = useWindowDimensions();
@@ -51,6 +52,7 @@ export const SearchPage = ({ match, location }) => {
  
   return (
     <ContentContainer>
+      <ScrollOnTop />
       {searchArray.length < 1 && (
         <StyledTitle>По запросу "{parsed.query}" ничего не найдено</StyledTitle>
       )}

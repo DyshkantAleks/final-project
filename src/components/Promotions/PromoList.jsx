@@ -7,7 +7,7 @@ import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { selectPromotions } from '../../store/promotions/selectors';
 
 export const PromoList = () => {
-  const promotions = useSelector(selectPromotions)
+  const promotions = useSelector(selectPromotions);
   const promotionsForRender = promotions && promotions.map((e) => (
     <StyledLink to={`/promo/${e.route}`} key={e._id}>
       <PromoItem

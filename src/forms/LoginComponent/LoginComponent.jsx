@@ -10,6 +10,7 @@ import { RegisterForm } from '../RegisterComponent/RegisterForm';
 import { getCustomer, registerCustomer } from '../../store/customer/operations';
 import { setAuthError, setToken } from '../../store/auth/actions';
 import { setCustomer } from '../../store/customer/actions';
+import { StyledCheckbox } from '../../components/CheckBox/StyledCheckboxFilter';
 
 export const LoginComponent = (props) => {
   const dispatch = useDispatch();
@@ -61,12 +62,12 @@ export const LoginComponent = (props) => {
         </>
       )}
 
-      <Checkbox
+      <StyledCheckbox
         checked={registered}
         onClick={() => setRegistered((val) => !val)}
       >
         Я новый пользователь
-      </Checkbox>
+      </StyledCheckbox>
     </div>
   );
 };

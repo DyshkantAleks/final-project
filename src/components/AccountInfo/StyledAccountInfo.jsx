@@ -8,10 +8,11 @@ justify-content: space-between;
 margin-bottom: 1rem;
 `;
 
-export const PersonalSectionActive = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+export const ActiveContainer = styled.div`
+text-align: center;
+@media ${device.tabletS}{
+  text-align: end;
+}
 `;
 
 export const PersonalSectionFooter = styled.div`
@@ -50,7 +51,10 @@ box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 `;
 
 export const PersonalDataContainer = styled.div`
-padding-left: 5.5rem;
+padding-left: 1.5rem;
+  @media ${device.tabletS}{
+  padding-left: 5.5rem;
+};
 `;
 
 export const PersonalDataList = styled.ul`

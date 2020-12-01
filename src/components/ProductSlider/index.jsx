@@ -14,7 +14,7 @@ export const ProductSlider = (props) => {
   const { screenWidth } = useWindowDimensions();
 
   const productById = useSelector(selectById(id));
-  const imagesArr = productById.imageUrl
+  const imagesArr = productById.imageUrl;
 
   const [controll, setControll] = useState({ nav1: null, nav2: null });
   useEffect(() => {

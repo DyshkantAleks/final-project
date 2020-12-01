@@ -1,7 +1,8 @@
-import React from 'react'
-import { IconContainer, SaleIcon } from '../StyledProductItem'
+import React from 'react';
 
-export const IconSale = (props) => {
+import { IconContainer, SaleIcon } from '../StyledProductItem';
+
+export const IconSale = () => {
   return (
     <IconContainer>
       <SaleIcon>

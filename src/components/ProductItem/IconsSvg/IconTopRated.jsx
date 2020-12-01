@@ -1,7 +1,8 @@
-import React from 'react'
-import { IconContainer, TopRatedIcon } from '../StyledProductItem'
+import React from 'react';
 
-export const IconTopRated = (props) => {
+import { IconContainer, TopRatedIcon } from '../StyledProductItem';
+
+export const IconTopRated = () => {
   return (
     <IconContainer>
       <TopRatedIcon>

@@ -9,6 +9,7 @@ import { addProductToCart } from '../../store/cart/operations';
 import { addProductToFav, removeProductFromFav } from '../../store/favorites/operations';
 import { selectFavorites } from '../../store/favorites/selectors';
 import { ProductItemDetails } from '../../components/ProductItemDetails/index';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 export const ProductPage = (props) => {
   const { match } = props;
@@ -38,9 +39,10 @@ export const ProductPage = (props) => {
       removeFromFav={removeFromFav}
     />
   )
-  
+
   return (
     <ContentContainer>
+      <ScrollOnTop dependence={product} />
       {product && productDetails}
       <NewProductsList />
     </ContentContainer>
