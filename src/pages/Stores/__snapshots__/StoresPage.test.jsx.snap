@@ -2,6 +2,7 @@
 
 exports[`StoresPage component snapshot <StoragePage /> 1`] = `
 "<styled.div>
+  <ScrollOnTop />
   <styled.div>
     <styled.div>
       <styled.p>

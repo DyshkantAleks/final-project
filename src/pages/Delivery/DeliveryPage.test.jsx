@@ -5,6 +5,7 @@ import { DeliveryPage } from './index';
 import { ContentContainer } from '../../styles/GeneralStyledComponents';
 import { ContainerPage, Text, TextContainer, TextList, TextListItem } from '../About/StyledAboutPage';
 import { ContactsForm } from '../About/AboutPageComponents/ContactForm';
+import { ScrollOnTop } from '../../components/ScrollOnTop';
 
 const setUp = (props = {}) => shallow(<DeliveryPage {...props} />);
 
@@ -16,6 +17,10 @@ describe('DeliveryPage component', () => {
   it('should be render with general wrapper', () => {
     const generalWrapper = component.find(ContentContainer);
     expect(generalWrapper.length).toEqual(1);
+  });
+  it('should render without crushing and should have scroll on top', () => {
+    const scrollTop = component.find(ScrollOnTop);
+    expect(scrollTop.length).toEqual(1);
   });
   it('should be render with wrapper', () => {
     const wrapper = component.find(ContainerPage);

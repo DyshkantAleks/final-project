@@ -7,6 +7,8 @@ import { ModalTitle, ItemInnerWrapper } from '../ModalExistence/StyledModalExist
 import { Button } from '../../Button';
 import { closeModal } from '../../../store/modal/actions.jsx';
 import { ActionsWrap, ContentOrder, ModalOrderWrapper } from './StyledModalOrder';
+import { LiqPaySheckout } from '../../LiqPay/LiqPaySheckout';
+import { deleteCart } from '../../../store/cart/operations';
 
 export const ModalOrder = (props) => {
   const { data } = props;
@@ -19,17 +21,21 @@ export const ModalOrder = (props) => {
   )
 };
 
-export const ModalOrderActions = () => {
+export const ModalOrderActions = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const closeModalHandler = () => dispatch(closeModal());
+  const { data } = props;
+  const payCredit = data.order.payMethod === 'creditCard'
   return (
     <ActionsWrap>
-      <Button color='true' text={'Продолжить покупки'}
-        onClick={() => {
-          history.push('/catalog/all');
-          closeModalHandler();
-        }} />
+      {payCredit ? <LiqPaySheckout totalSum={data.order.totalSum} id={data.order.orderNo}/>
+        : <Button color='true' text={'Продолжить покупки'}
+          onClick={() => {
+            history.push('/catalog/all');
+            closeModalHandler();
+            dispatch(deleteCart());
+          }} />}
     </ActionsWrap>
   )
 };

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Checkbox } from 'antd';
 
 import { auth } from '../../../store/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +9,7 @@ import { registerCustomer } from '../../../store/customer/operations';
 import { ErrorsField } from '../../../forms/Errors/ErrorsField';
 import { LoginForm } from '../../../forms/LoginComponent/LoginForm';
 import { RegisterForm } from '../../../forms/RegisterComponent/RegisterForm';
+import { StyledCheckbox } from '../../CheckBox/StyledCheckboxFilter';
 
 export const LoginComponent = props => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export const LoginComponent = props => {
       }
       } />}
       {error && <ErrorsField errorText='Неверные даные!' />}
-      <Checkbox checked={registered} onClick={() => setRegistered((val) => !val)}>Я новый пользователь</Checkbox>
+      <StyledCheckbox checked={registered} onClick={() => setRegistered((val) => !val)}>Я новый пользователь</StyledCheckbox>
     </div>
   )
 };

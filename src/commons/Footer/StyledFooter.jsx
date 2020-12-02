@@ -59,14 +59,6 @@ font-size: 1.6rem;
   };
 `;
 
-export const TextAdress = styled.p`
-font-size: 1.2rem;
-width: 70%;
-  @media ${device.tabletM}{
-    text-align: right;
-  };
-`;
-
 export const SocialsContainer = styled.div`
 display: flex;
 margin-top: 2rem;

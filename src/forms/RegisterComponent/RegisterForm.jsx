@@ -1,5 +1,4 @@
 import React from 'react';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 
 import {
   Form,
@@ -8,12 +7,15 @@ import {
   Select,
 } from 'antd';
 import { Button } from '../../components/Button/index';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import { ValodationRules } from '../../validation/ValidationRules';
+import { StyledForm } from './StyleRegisterForm';
 
 const { Option } = Select;
-
 export const RegisterForm = (props) => {
-  const { handleSubmit } = props;
+  const {
+    handleSubmit
+  } = props;
 
   const [form] = Form.useForm();
 
@@ -28,7 +30,7 @@ export const RegisterForm = (props) => {
     </Form.Item>
   );
   return (
-    <Form
+    <StyledForm
 
       layout='vertical'
       name='register'
@@ -43,7 +45,7 @@ export const RegisterForm = (props) => {
         name='name'
         label='Имя'
         rules={ValodationRules.nameRules}>
-        <Input/>
+        <Input />
       </Form.Item>
       <Form.Item
         name='surname'
@@ -127,6 +129,6 @@ export const RegisterForm = (props) => {
       <div style={{ textAlign: 'center' }}>
         <Button text='Зарегистрироваться' type='submit'></Button>
       </div>
-    </Form>
+    </StyledForm>
   );
 };

@@ -2,7 +2,7 @@ export const GlobalConfig = {
   phoneNumberRegExp: /(\d{9})$/,
   textFieldRegExp: /^[a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
   passwordField: /^[0-9a-zA-Zа-яёА-ЯЁІіїЇєЄ_\s]+$/,
-  adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ.,\s`]+$/,
+  adressFieldRegExp: /^[0-9а-яёА-ЯЁІіїЇєЄ/.,\s`]+$/,
   numberFieldRegExp: /^[0-9]+$/,
   deliveryOptions: [
     {
